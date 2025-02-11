@@ -1,88 +1,372 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <title>Mohamad Issam Sayyaf - Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamad Issam Sayyaf - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            animation: floatIn 1.5s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .name-title {
+            margin: 20px 0 10px;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideIn 1s ease-out;
+        }
+
+        .professional-title {
+            font-size: 1.5rem;
+            color: #455a64;
+            margin-bottom: 20px;
+            animation: slideIn 1.2s ease-out;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            animation: slideIn 1.4s ease-out;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #fff;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            color: #455a64;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+            color: #2196F3;
+        }
+
+        .social-link i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link:hover i {
+            transform: rotate(360deg);
+        }
+
+        .content-section {
+            display: flex;
+            align-items: center;
+            margin: 100px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            background: linear-gradient(45deg, rgba(33, 150, 243, 0.1), rgba(13, 71, 161, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .content-section:hover::before {
+            opacity: 1;
+        }
+
+        .content-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            animation: sectionAppear 1s forwards;
+        }
+
+        .content-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .text-content {
+            flex: 1;
+            padding: 0 40px;
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.8s ease-out 0.2s;
+        }
+
+        .content-section.visible .text-content {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .image-content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+            max-height: 500px;
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 0.8s ease-out 0.4s;
+        }
+
+        .content-section.visible .image-content {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .section-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 100%;
+        }
+
+        .section-image:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+        }
+
+        .linux-image {
+            object-position: center;
+            object-fit: contain;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1565C0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            transition: width 0.8s ease;
+        }
+
+        .content-section.visible .section-title::after {
+            width: 100%;
+        }
+
+        @keyframes sectionAppear {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes floatIn {
+            0% { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.9); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        @keyframes slideIn {
+            0% { 
+                opacity: 0; 
+                transform: translateX(-30px) scale(0.9); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateX(0) scale(1); 
+            }
+        }
+
+        @media (max-width: 968px) {
+            .content-section,
+            .content-section:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                margin: 40px 0;
+            }
+
+            .text-content {
+                padding: 20px 0;
+            }
+
+            .image-content {
+                min-height: 300px;
+                width: 100%;
+                padding: 10px;
+            }
+
+            .section-image {
+                max-height: 100%;
+                width: auto;
+            }
+
+            .text-content,
+            .image-content {
+                transform: translateX(0) translateY(30px);
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="hero-section">
-    <img src="images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-photo"/>
-    <h1 class="name-title">Mohamad Issam Sayyaf</h1>
-    <h2 class="professional-title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
-    <div class="social-links">
-      <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
-        <i class="fab fa-github"></i>
-        <span>GitHub</span>
-      </a>
-      <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        <span>LinkedIn</span>
-      </a>
-      <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
-        <i class="fas fa-envelope"></i>
-        <span>Email</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="content-section">
-      <div class="text-content">
-        <h2 class="section-title">Research & Innovation</h2>
-        <p>
-          Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
-        </p>
-      </div>
-      <div class="image-content">
-        <img src="images/geoloc1.png" alt="Research Laboratory" class="section-image"/>
-      </div>
+    <div class="hero-section">
+        <img src="https://raw.githubusercontent.com/IssamSayyaf/portfolio/main/assets/images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-photo"/>
+        <h1 class="name-title">Mohamad Issam Sayyaf</h1>
+        <h2 class="professional-title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
+        <div class="social-links">
+            <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+            <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+                <span>Email</span>
+            </a>
+        </div>
     </div>
 
-    <div class="content-section">
-      <div class="text-content">
-        <h2 class="section-title">Academic Excellence</h2>
-        <p>
-          Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
-        </p>
-      </div>
-      <div class="image-content">
-        <img src="images/calabria1.png" alt="University Campus" class="section-image"/>
-      </div>
+    <div class="container">
+        <div class="content-section">
+            <div class="text-content">
+                <h2 class="section-title">Research & Innovation</h2>
+                <p>
+                    Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
+                </p>
+            </div>
+            <div class="image-content">
+                <img src="https://raw.githubusercontent.com/IssamSayyaf/portfolio/main/assets/images/geoloc1.png" alt="Research Laboratory" class="section-image"/>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="text-content">
+                <h2 class="section-title">Academic Excellence</h2>
+                <p>
+                    Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
+                </p>
+            </div>
+            <div class="image-content">
+                <img src="https://raw.githubusercontent.com/IssamSayyaf/portfolio/main/assets/images/calabria1.png" alt="University Campus" class="section-image"/>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="text-content">
+                <h2 class="section-title">Industry Experience</h2>
+                <p>
+                    In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
+                </p>
+            </div>
+            <div class="image-content">
+                <img src="https://raw.githubusercontent.com/IssamSayyaf/portfolio/main/assets/images/linux3.png" alt="Engineering Lab" class="section-image linux-image"/>
+            </div>
+        </div>
     </div>
 
-    <div class="content-section">
-      <div class="text-content">
-        <h2 class="section-title">Industry Experience</h2>
-        <p>
-          In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
-        </p>
-      </div>
-      <div class="image-content">
-        <img src="images/linux3.png" alt="Engineering Lab" class="section-image linux-image"/>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function handleScroll() {
-      const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const offset = window.innerHeight * 0.8;
-        
-        if (rect.top < offset) {
-          section.classList.add('visible');
+    <script>
+        function handleScroll() {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const offset = window.innerHeight * 0.8;
+                
+                if (rect.top < offset) {
+                    section.classList.add('visible');
+                }
+            });
         }
-      });
-    }
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('load', () => {
-      handleScroll();
-    });
-  </script>
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            handleScroll();
+        });
+    </script>
 </body>
 </html>
