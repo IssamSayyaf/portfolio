@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Issam Sayyaf</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         * {
             margin: 0;
@@ -15,117 +14,93 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        /* Header Navigation */
+        /* Header styles */
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 40px;
         }
 
-        .header-name {
+        .logo {
             font-size: 1.2rem;
             color: #0066cc;
             text-decoration: none;
-            font-weight: 500;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 20px;
         }
 
         .nav-link {
             color: #666;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: color 0.3s ease;
         }
 
         .nav-link:hover {
             color: #0066cc;
         }
 
-        /* Main Content */
-        .main-content {
-            margin-top: 80px;
-            padding: 2rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .profile-section {
+        /* Profile section */
+        .profile-container {
             display: flex;
-            gap: 4rem;
-            align-items: flex-start;
-            margin-bottom: 4rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
         .profile-image {
             width: 300px;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 4px;
+            height: auto;
         }
 
-        .profile-info {
-            flex: 1;
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .name {
             font-size: 2rem;
             color: #333;
-            margin-bottom: 0.5rem;
         }
 
         .title {
             font-size: 1.1rem;
             color: #666;
-            margin-bottom: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 15px;
         }
 
         .social-link {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-link:hover {
             color: #0066cc;
+            text-decoration: none;
         }
 
+        /* Section styles */
         .section {
-            margin-bottom: 4rem;
+            margin-bottom: 40px;
         }
 
         .section-title {
             font-size: 1.5rem;
             color: #333;
-            margin-bottom: 1rem;
+            margin-bottom: 20px;
         }
 
         .section-content {
             display: flex;
-            gap: 2rem;
+            gap: 40px;
             align-items: flex-start;
         }
 
@@ -136,24 +111,26 @@
         .section-image {
             width: 400px;
             height: auto;
-            object-fit: contain;
         }
 
-        .section-image.logo {
-            max-width: 400px;
-            width: 100%;
+        a {
+            color: #0066cc;
+            text-decoration: none;
         }
 
-        @media (max-width: 968px) {
-            .profile-section {
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
 
             .profile-image {
-                width: 250px;
-                height: 333px;
+                width: 200px;
             }
 
             .social-links {
@@ -170,21 +147,11 @@
                 max-width: 400px;
             }
         }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
-            }
-
-            .nav-links {
-                gap: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
     <header class="header">
-        <a href="#" class="header-name">Issam Sayyaf</a>
+        <a href="#" class="logo">Issam Sayyaf</a>
         <nav class="nav-links">
             <a href="#" class="nav-link">Home</a>
             <a href="publications.html" class="nav-link">Publications</a>
@@ -193,55 +160,53 @@
         </nav>
     </header>
 
-    <main class="main-content">
-        <section class="profile-section">
-            <img src="./assets/images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-image"/>
-            <div class="profile-info">
-                <h1 class="name">Mohamad Issam Sayyaf</h1>
-                <h2 class="title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
-                <div class="social-links">
-                    <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">LinkedIn</a>
-                    <a href="mailto:issamsayyaf97@gmail.com" class="social-link">Email</a>
-                </div>
+    <div class="profile-container">
+        <img src="./assets/images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-image"/>
+        <div class="profile-content">
+            <h1 class="name">Mohamad Issam Sayyaf</h1>
+            <h2 class="title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
+            <div class="social-links">
+                <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">LinkedIn</a>
+                <a href="mailto:issamsayyaf97@gmail.com" class="social-link">Email</a>
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section class="section">
-            <h2 class="section-title">Research & Innovation</h2>
-            <div class="section-content">
-                <div class="text-content">
-                    <p>
-                        Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
-                    </p>
-                </div>
-                <img src="./assets/images/geoloc1.png" alt="TEAM GEOLOC" class="section-image logo"/>
+    <section class="section">
+        <h2 class="section-title">Research & Innovation</h2>
+        <div class="section-content">
+            <div class="text-content">
+                <p>
+                    Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
+                </p>
             </div>
-        </section>
+            <img src="./assets/images/geoloc1.png" alt="TEAM GEOLOC" class="section-image"/>
+        </div>
+    </section>
 
-        <section class="section">
-            <h2 class="section-title">Academic Excellence</h2>
-            <div class="section-content">
-                <div class="text-content">
-                    <p>
-                        Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
-                    </p>
-                </div>
-                <img src="./assets/images/calabria1.png" alt="University Campus" class="section-image"/>
+    <section class="section">
+        <h2 class="section-title">Academic Excellence</h2>
+        <div class="section-content">
+            <div class="text-content">
+                <p>
+                    Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
+                </p>
             </div>
-        </section>
+            <img src="./assets/images/calabria1.png" alt="University Campus" class="section-image"/>
+        </div>
+    </section>
 
-        <section class="section">
-            <h2 class="section-title">Industry Experience</h2>
-            <div class="section-content">
-                <div class="text-content">
-                    <p>
-                        In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
-                    </p>
-                </div>
-                <img src="./assets/images/linux3.png" alt="Engineering Lab" class="section-image"/>
+    <section class="section">
+        <h2 class="section-title">Industry Experience</h2>
+        <div class="section-content">
+            <div class="text-content">
+                <p>
+                    In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
+                </p>
             </div>
-        </section>
-    </main>
+            <img src="./assets/images/linux3.png" alt="Engineering Lab" class="section-image"/>
+        </div>
+    </section>
 </body>
 </html>
