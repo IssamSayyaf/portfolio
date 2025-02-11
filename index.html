@@ -1,256 +1,247 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Previous head content remains the same -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Issam Sayyaf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
-        /* Add these new styles for the navigation */
-        .nav-bar {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Header Navigation */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: #fff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             z-index: 1000;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
         }
 
-        .nav-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1565C0;
+        .header-name {
+            font-size: 1.2rem;
+            color: #0066cc;
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-logo:hover {
-            color: #2196F3;
+            font-weight: 500;
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
-            align-items: center;
         }
 
         .nav-link {
-            color: #455a64;
+            color: #666;
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: #2196F3;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         .nav-link:hover {
-            color: #2196F3;
+            color: #0066cc;
         }
 
-        .nav-link:hover::after {
-            width: 80%;
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .nav-link.active {
-            color: #2196F3;
-            background: rgba(33, 150, 243, 0.1);
+        .profile-section {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+            margin-bottom: 4rem;
         }
 
-        /* Adjust hero section to account for fixed nav */
-        .hero-section {
-            margin-top: 80px; /* Add this */
+        .profile-image {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
         }
 
-        /* Mobile menu styles */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
+        .profile-info {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #0066cc;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
             font-size: 1.5rem;
-            color: #455a64;
-            cursor: pointer;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .section-image {
+            width: 400px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .section-image.logo {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        @media (max-width: 968px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 250px;
+                height: 333px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-image {
+                width: 100%;
+                max-width: 400px;
+            }
         }
 
         @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+            .header {
+                padding: 1rem;
             }
 
             .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.95);
-                padding: 1rem;
-                flex-direction: column;
                 gap: 1rem;
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: all 0.3s ease;
-                pointer-events: none;
-            }
-
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: all;
             }
         }
-
-        /* Keep existing styles */
     </style>
 </head>
 <body>
-    <nav class="nav-bar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Issam Sayyaf</a>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#" class="nav-link active">Home</a>
-                <a href="publications.html" class="nav-link">Publications</a>
-                <a href="projects.html" class="nav-link">Projects</a>
-                <a href="resume.html" class="nav-link">Resume</a>
-            </div>
-        </div>
-    </nav>
-<body>
-    <div class="hero-section">
-        <img src="./assets/images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-photo"/>
-        <h1 class="name-title">Mohamad Issam Sayyaf</h1>
-        <h2 class="professional-title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
-        <div class="social-links">
-            <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
-                <i class="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-            <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
-                <i class="fas fa-envelope"></i>
-                <span>Email</span>
-            </a>
-        </div>
-    </div>
+    <header class="header">
+        <a href="#" class="header-name">Issam Sayyaf</a>
+        <nav class="nav-links">
+            <a href="#" class="nav-link">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="resume.html" class="nav-link">Resume</a>
+        </nav>
+    </header>
 
-    <div class="container">
-        <div class="content-section">
-            <div class="text-content">
-                <h2 class="section-title">Research & Innovation</h2>
-                <p>
-                    Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
-                </p>
+    <main class="main-content">
+        <section class="profile-section">
+            <img src="./assets/images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-image"/>
+            <div class="profile-info">
+                <h1 class="name">Mohamad Issam Sayyaf</h1>
+                <h2 class="title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
+                <div class="social-links">
+                    <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">LinkedIn</a>
+                    <a href="mailto:issamsayyaf97@gmail.com" class="social-link">Email</a>
+                </div>
             </div>
-            <div class="image-content">
-                <img src="./assets/images/geoloc1.png" alt="Research Laboratory" class="section-image"/>
-            </div>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <div class="text-content">
-                <h2 class="section-title">Academic Excellence</h2>
-                <p>
-                    Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
-                </p>
+        <section class="section">
+            <h2 class="section-title">Research & Innovation</h2>
+            <div class="section-content">
+                <div class="text-content">
+                    <p>
+                        Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
+                    </p>
+                </div>
+                <img src="./assets/images/geoloc1.png" alt="TEAM GEOLOC" class="section-image logo"/>
             </div>
-            <div class="image-content">
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Academic Excellence</h2>
+            <div class="section-content">
+                <div class="text-content">
+                    <p>
+                        Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
+                    </p>
+                </div>
                 <img src="./assets/images/calabria1.png" alt="University Campus" class="section-image"/>
             </div>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <div class="text-content">
-                <h2 class="section-title">Industry Experience</h2>
-                <p>
-                    In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
-                </p>
-            </div>
-            <div class="image-content">
+        <section class="section">
+            <h2 class="section-title">Industry Experience</h2>
+            <div class="section-content">
+                <div class="text-content">
+                    <p>
+                        In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
+                    </p>
+                </div>
                 <img src="./assets/images/linux3.png" alt="Engineering Lab" class="section-image"/>
             </div>
-        </div>
-    </div>
-    <script>
-      // Add this to your existing JavaScript
-      const menuToggle = document.querySelector('.menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-
-      menuToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-      });
-
-      // Close mobile menu when clicking outside
-      document.addEventListener('click', (e) => {
-          if (!e.target.closest('.nav-bar')) {
-              navLinks.classList.remove('active');
-          }
-      });
-
-      // Hide/show navbar on scroll
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-          const navbar = document.querySelector('.nav-bar');
-          const currentScroll = window.pageYOffset;
-
-          if (currentScroll <= 0) {
-              navbar.style.transform = 'translateY(0)';
-              return;
-          }
-
-          if (currentScroll > lastScroll && !navLinks.classList.contains('active')) {
-              navbar.style.transform = 'translateY(-100%)';
-          } else {
-              navbar.style.transform = 'translateY(0)';
-          }
-
-          lastScroll = currentScroll;
-      });
-
-
-      
-        function handleScroll() {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                const offset = window.innerHeight * 0.8;
-                
-                if (rect.top < offset) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', () => {
-            handleScroll();
-        });
-    </script>
+        </section>
+    </main>
 </body>
 </html>
