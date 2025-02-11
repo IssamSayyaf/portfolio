@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Mohamad Issam Sayyaf - Portfolio</title>
+</head>
+<body>
+  <div class="hero-section">
+    <img src="images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-photo"/>
+    <h1 class="name-title">Mohamad Issam Sayyaf</h1>
+    <h2 class="professional-title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
+    <div class="social-links">
+      <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content-section">
+      <div class="text-content">
+        <h2 class="section-title">Research & Innovation</h2>
+        <p>
+          Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
+        </p>
+      </div>
+      <div class="image-content">
+        <img src="images/geoloc1.png" alt="Research Laboratory" class="section-image"/>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="text-content">
+        <h2 class="section-title">Academic Excellence</h2>
+        <p>
+          Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
+        </p>
+      </div>
+      <div class="image-content">
+        <img src="images/calabria1.png" alt="University Campus" class="section-image"/>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <div class="text-content">
+        <h2 class="section-title">Industry Experience</h2>
+        <p>
+          In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
+        </p>
+      </div>
+      <div class="image-content">
+        <img src="images/linux3.png" alt="Engineering Lab" class="section-image linux-image"/>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleScroll() {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const offset = window.innerHeight * 0.8;
+        
+        if (rect.top < offset) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('load', () => {
+      handleScroll();
+    });
+  </script>
+</body>
+</html>
