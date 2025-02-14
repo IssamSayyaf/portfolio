@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Issam Sayyaf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
         * {
             margin: 0;
@@ -14,9 +15,11 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            padding: 20px;
-            max-width: 1200px;
+            background: #f8f9fa;
+            color: #2c3e50;
+            max-width: 1400px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         /* Header styles */
@@ -24,13 +27,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem;
             margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-out;
         }
 
         .logo {
             font-size: 1.2rem;
             color: #0066cc;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .nav-links {
@@ -42,66 +51,134 @@
             color: #666;
             text-decoration: none;
             font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
         }
 
         .nav-link:hover {
             color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+            transform: translateY(-2px);
         }
 
-        /* Profile section */
+        /* Updated profile container for centered layout */
         .profile-container {
             display: flex;
-            gap: 40px;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-out;
         }
 
+        /* Updated profile image: circular and centered */
         .profile-image {
-            width: 300px;
-            height: auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
         }
 
         .profile-content {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
 
         .name {
-            font-size: 2rem;
-            color: #333;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-out;
         }
 
         .title {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #455a64;
         }
 
         .social-links {
             display: flex;
             gap: 15px;
+            justify-content: center; /* centers the social links */
         }
 
         .social-link {
-            color: #0066cc;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            color: #455a64;
             text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+            color: #2196F3;
         }
 
         /* Section styles */
         .section {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section-title {
-            font-size: 1.5rem;
-            color: #333;
+            font-size: 1.8rem;
+            color: #1565C0;
             margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            transition: width 0.8s ease;
+        }
+
+        .section.visible .section-title::after {
+            width: 100%;
         }
 
         .section-content {
             display: flex;
             gap: 40px;
             align-items: flex-start;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .text-content {
@@ -111,18 +188,43 @@
         .section-image {
             width: 400px;
             height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-image:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
         }
 
         a {
-            color: #0066cc;
+            color: #2196F3;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: #0D47A1;
         }
 
-        @media (max-width: 768px) {
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @media (max-width: 968px) {
             .profile-container {
                 flex-direction: column;
                 align-items: center;
@@ -130,7 +232,7 @@
             }
 
             .profile-image {
-                width: 200px;
+                width: 250px;
             }
 
             .social-links {
@@ -147,6 +249,137 @@
                 max-width: 400px;
             }
         }
+
+        /* Last News Slider Styles */
+        #last-news {
+            position: relative;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            height: 100px;
+            margin: 20px 0;
+        }
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .slide.active {
+            display: block;
+        }
+
+        /* Academic Cards Styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 280px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            color: #1565C0;
+        }
+        .card p {
+            font-size: 0.95rem;
+            padding: 0 15px 15px;
+            color: #455a64;
+        }
+
+        /* Updated Last News Slider Styles */
+        .news-slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 250px; /* adjust height as needed */
+        }
+        .news-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .news-slide.active {
+            opacity: 1;
+        }
+        .news-slide .news-text {
+            flex: 1;
+            order: 1;
+            text-align: left;
+        }
+        .news-slide img {
+            width: 250px;
+            margin-left: 20px;
+            border-radius: 10px;
+            order: 2;
+        }
+
+        /* Academic Excellence Cards - vertically stacked full-width with image beside text */
+        .academic-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        }
+      .academic-container .card {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          overflow: hidden;
+          transition: transform 0.3s ease;
+      }
+      .academic-container .card:hover {
+          transform: translateY(-5px);
+      }
+      .academic-container .card .card-content {
+          flex: 1;
+          text-align: left;
+          padding: 20px;
+          order: 1;
+      }
+      .academic-container .card img {
+      width: 200px; /* Increased size */
+      height: 200px;
+      object-fit: cover;
+      order: 2;
+      margin-left: 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-left: 1px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
     </style>
 </head>
 <body>
@@ -156,57 +389,158 @@
             <a href="#" class="nav-link">Home</a>
             <a href="publications.html" class="nav-link">Publications</a>
             <a href="projects.html" class="nav-link">Projects</a>
-            <a href="resume.html" class="nav-link">Resume</a>
+            <a href="./files/Resume.pdf" class="nav-link">Resume</a>
         </nav>
     </header>
 
+    <!-- Updated profile section: image centered above info -->
     <div class="profile-container">
         <img src="./assets/images/issam.png" alt="Mohamad Issam Sayyaf" class="profile-image"/>
         <div class="profile-content">
             <h1 class="name">Mohamad Issam Sayyaf</h1>
             <h2 class="title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
             <div class="social-links">
-                <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">LinkedIn</a>
-                <a href="mailto:issamsayyaf97@gmail.com" class="social-link">Email</a>
+                <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
             </div>
         </div>
     </div>
 
-    <section class="section">
-        <h2 class="section-title">Research & Innovation</h2>
-        <div class="section-content">
-            <div class="text-content">
-                <p>
-                    Mohamad Issam Sayyaf is a researcher and engineer specializing in telecommunication, embedded Linux, AI, and wireless communication. Currently pursuing a Ph.D. in Signal Processing at <a href="https://www.univ-gustave-eiffel.fr/en/" target="_blank">Gustave Eiffel University</a> (France) within the <a href="https://geoloc.univ-gustave-eiffel.fr/" target="_blank">GEOLOC Laboratory</a>, Issam's work focuses on real-time anomaly detection for positioning signals—a critical innovation in modern navigation and tracking systems.
-                </p>
+    <!-- Last News Section with fade animation -->
+    <section class="section" id="last-news">
+        <h2 class="section-title">Last News</h2>
+        <div class="news-slider">
+            <div class="news-slide active">
+                <img src="./assets/images/APSCON.svg" alt="APSCON Conference">
+                <div class="news-text">
+                    <h3>News 1</h3>
+                    <p>New publication accepted at an IEEE conference APSCON "Step Detection Enhanced by Anomaly Filtering".</p>
+                </div>
             </div>
-            <img src="./assets/images/geoloc1.png" alt="TEAM GEOLOC" class="section-image"/>
+            <div class="news-slide">
+                <img src="./assets/images/geoloc1.png" alt="News 2">
+                <div class="news-text">
+                    <h3>News 2</h3>
+                    <p>Started my PhD position at GEOLOC Lab.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="section-title">Academic Excellence</h2>
+    <section class="section" id="industry-experience">
+        <h2 class="section-title">Professional Biography</h2>
         <div class="section-content">
             <div class="text-content">
                 <p>
-                    Before embarking on his doctoral studies, Issam earned his Master's in Telecommunication Engineering (Smart Sensing, Computing, and Networking) from the University of Calabria (Italy), where he developed a novel wireless crack detection system using IoT and acoustic emission. He also holds a Bachelor's degree in Electronics Engineering (Communication) from the University of Aleppo (Syria).
+                    I am a seasoned Embedded Systems Engineer and AI Researcher with a robust background in embedded Linux, IoT, and real-time signal processing. My expertise lies in designing high-performance firmware and developing innovative solutions for RTOS, sensor data processing, and deep learning applications.
+                </p>
+                <p>
+                    Currently, I am pursuing a PhD in Signal Processing at the University of Gustave Eiffel, France, where my research focuses on advanced anomaly detection in positioning signals, including IMU, GNSS, and emerging 5G technologies. I work with cutting-edge tools and technologies such as Yocto, Zephyr OS, and STM32.
+                </p>
+                <p>
+                    I actively contribute to open-source projects in Linux kernel development, AI-driven step detection, and secure IoT communication protocols. My experience also covers modernizing industrial equipment and legacy systems through innovative IoT solutions.
+                </p>
+                <p>
+                    I welcome collaborative opportunities that push the boundaries of embedded systems and AI-driven innovation.
                 </p>
             </div>
-            <img src="./assets/images/calabria1.png" alt="University Campus" class="section-image"/>
+            <img src="./assets/images/linux3.png" alt="Professional Experience" class="section-image"/>
         </div>
     </section>
 
-    <section class="section">
-        <h2 class="section-title">Industry Experience</h2>
-        <div class="section-content">
-            <div class="text-content">
-                <p>
-                    In addition to his academic pursuits, Issam has gained industry experience as an Embedded System Engineer, working with STM32 and NXP platforms, real-time operating systems, and custom Linux images via the Yocto Project. His commitment to innovation is evident in his diverse research projects, ranging from advanced AI-based step detection to wireless sensor systems for structural health monitoring.
-                </p>
-            </div>
-            <img src="./assets/images/linux3.png" alt="Engineering Lab" class="section-image"/>
+    <section class="section" id="phd">
+    <h2 class="section-title">PhD in Signal Processing</h2>
+    <div class="section-content">
+        <div class="text-content">
+            <p>
+                <strong>University of Gustave Eiffel, France</strong><br>
+                Nov 2023 – Nov 2026<br>
+                Thesis: <a href="./assets/thesis_phd.pdf" target="_blank">Anomaly Detection for Positioning Signals</a><br>
+                Supervisor: <a href="https://pagespro.univ-gustave-eiffel.fr/valerie-renaudin" target="_blank">Prof. Valérie Renaudin</a>
+            </p>
         </div>
-    </section>
+        <img src="./assets/images/geoloc1.png" alt="PhD in Signal Processing" class="section-image"/>
+    </div>
+</section>
+
+<section class="section" id="masters">
+    <h2 class="section-title">Master's in Telecommunication Engineering</h2>
+    <div class="section-content">
+        <div class="text-content">
+            <p>
+                <strong>University of Calabria, Italy</strong><br>
+                Sep 2021 – Oct 2023<br>
+                GPA: 110/110 cum laude<br>
+                Thesis: <a href="./files/Issam Thesis.pdf" target="_blank">Design and Realization of a Wireless Crack Detection System Based on IoT and Acoustic Emission</a><br>
+                Supervisor: <a href="https://scholar.google.com/citations?user=89lxha8AAAAJ&hl=en" target="_blank">Prof. Francesco Lamonaca</a>
+            </p>
+        </div>
+        <img src="./assets/images/calabria1.png" alt="Master's in Telecommunication Engineering" class="section-image"/>
+    </div>
+</section>
+
+<section class="section" id="bsc">
+    <h2 class="section-title">Bachelor's in Electronics Engineering</h2>
+    <div class="section-content">
+        <div class="text-content">
+            <p>
+                <strong>University of Aleppo, Syria</strong><br>
+                Sep 2014 – Sep 2019<br>
+                GPA: 88.56% with distinction<br>
+                Thesis: <a href="./assets/thesis_bsc.pdf" target="_blank">Implementation of a Free Space Optical System Using LASER and Secure Data Transferring by AES Algorithm</a><br>
+                Supervisor: <a href="" target="_blank">Dr. Yahia Fared</a>
+            </p>
+        </div>
+        <img src="./assets/images/aleppo.png" alt="Bachelor's in Electronics Engineering" class="section-image"/>
+    </div>
+</section>
+
+
+
+    <script>
+        function handleScroll() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const offset = window.innerHeight * 0.8;
+                
+                if (rect.top < offset) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            handleScroll();
+        });
+
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // Change slide every 5 seconds
+
+        // Auto-cycle Last News Slider with fade animation
+        const newsSlides = document.querySelectorAll('.news-slide');
+        let currentNewsSlide = 0;
+        setInterval(() => {
+            newsSlides[currentNewsSlide].classList.remove('active');
+            currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
+            newsSlides[currentNewsSlide].classList.add('active');
+        }, 5000); // Change news every 5 seconds
+    </script>
 </body>
 </html>
