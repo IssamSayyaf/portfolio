@@ -62,8 +62,9 @@
             transform: translateY(-2px);
         }
 
-        /* Updated profile container for centered layout */
+        /* Updated profile container with more prominent background */
         .profile-container {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -71,12 +72,27 @@
             margin-bottom: 40px;
             background: white;
             padding: 30px;
+            padding-top: 180px; /* Increased top padding to allow more background visibility */
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             animation: slideIn 0.8s ease-out;
+            overflow: hidden;
         }
 
-        /* Updated profile image: circular and centered */
+        /* Larger background image behind the profile */
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 250px; /* Increased height of the background area */
+            background: url('./assets/images/background.png') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        /* Move profile image down slightly to show more background */
         .profile-image {
             width: 200px;
             height: 200px;
@@ -85,6 +101,10 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            border: 5px solid white; /* Optional: adds a white border around the image */
+            margin-top: -50px; /* Pull the image up slightly to overlap with background */
         }
 
         .profile-image:hover {
@@ -562,17 +582,24 @@
     <section class="section" id="last-news">
         <h2 class="section-title">Last News</h2>
         <div class="news-slider">
+            <div class="news-slide">
+                <img src="./assets/images/geoloc1.png" alt="News 1">
+                <div class="news-text">
+                    <h3>News 1</h3>
+                    <p>New publication accepted at an ION PLAN IEEE.</p>
+                </div>
+            </div>
             <div class="news-slide active">
                 <img src="./assets/images/APSCON.svg" alt="APSCON Conference">
                 <div class="news-text">
-                    <h3>News 1</h3>
+                    <h3>News 2</h3>
                     <p>New publication accepted at an IEEE conference APSCON "Step Detection Enhanced by Anomaly Filtering".</p>
                 </div>
             </div>
             <div class="news-slide">
-                <img src="./assets/images/geoloc1.png" alt="News 2">
+                <img src="./assets/images/geoloc1.png" alt="News 3">
                 <div class="news-text">
-                    <h3>News 2</h3>
+                    <h3>News 3</h3>
                     <p>Started my PhD position at GEOLOC Lab.</p>
                 </div>
             </div>
