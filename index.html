@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.5" />
     <title>Issam Sayyaf - Portfolio</title>
     <link rel="icon" type="image/jpg" href="assets/images/linux3.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -13,6 +13,12 @@
             box-sizing: border-box;
         }
 
+        html {
+            zoom: 1.5;
+            -moz-transform: scale(1.5);
+            -moz-transform-origin: 0 0;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -21,6 +27,7 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            transform-origin: top left;
         }
 
         /* Header styles */
