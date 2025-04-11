@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Projects - Issam Sayyaf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+        nav a.active, nav a:hover {
+            color: #0066cc;
+        }
+        main {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .project {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .project:last-child {
+            border-bottom: none;
+        }
+        .project-image {
+            margin: 20px 0;
+        }
+        .project-description p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .project-link {
+            margin-top: 20px;
+        }
+        .project-link a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .project-link a:hover {
+            background-color: #0055aa;
+        }
+        .project-link i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Issam Sayyaf</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="embedded-systems.html">Embedded Systems</a>
+            <a href="networking.html" class="active">Networking</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Networking Projects</h1>
+
+        <div class="project">
+            <h2>Dijkstra and Bellman-Ford RYU Controller</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <img src="assets/images/sdn-topology.jpg" alt="SDN Topology" style="width: 60%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            
+            <div class="project-description">
+                <p>An advanced Software-Defined Networking (SDN) project that implements both Dijkstra and Bellman-Ford shortest-path algorithms using the RYU controller. This project demonstrates the practical application of network routing algorithms in SDN environments.</p>
+                
+                <p>Key Features:</p>
+                <ul>
+                    <li>Implementation of both Dijkstra and Bellman-Ford algorithms for path computation</li>
+                    <li>Network topology visualization using NetworkX library</li>
+                    <li>Support for multiple link cost metrics:
+                        <ul>
+                            <li>Bandwidth-based routing</li>
+                            <li>Delay-based routing</li>
+                            <li>Combined bandwidth and delay metrics</li>
+                            <li>Hop count-based routing</li>
+                        </ul>
+                    </li>
+                    <li>Integration with Mininet for network emulation</li>
+                    <li>Real-time path computation and flow table updates</li>
+                </ul>
+
+                <p>Technical Implementation:</p>
+                <ul>
+                    <li>Python-based RYU controller application</li>
+                    <li>NetworkX for graph representation and algorithm implementation</li>
+                    <li>OpenFlow protocol for SDN control</li>
+                    <li>Mininet for network emulation and testing</li>
+                </ul>
+
+                <p>The project showcases the practical implementation of network routing algorithms in SDN environments, providing a flexible and efficient solution for path computation in software-defined networks.</p>
+            </div>
+            
+            <div class="project-link">
+                <a href="https://github.com/IssamSayyaf/Dijkstra-and-Bellman-Ford-RYU-contoller" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Load Balancing for Face Recognition Video Streaming in Wireless Networks</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <img src="assets/images/wireless-topology.jpg" alt="Wireless Network Topology" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/load-balancing-results.jpg" alt="Load Balancing Results" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            
+            <div class="project-description">
+                <p>A sophisticated load balancing solution for face recognition video streaming in wireless networks, implemented using Mininet-WiFi and RYU controller. This project addresses the challenges of video streaming in wireless environments while maintaining high-quality face recognition performance.</p>
+                
+                <p>Key Features:</p>
+                <ul>
+                    <li>Dynamic load balancing for video streaming traffic</li>
+                    <li>Integration with face recognition systems</li>
+                    <li>Real-time network monitoring and path optimization</li>
+                    <li>Support for multiple wireless access points</li>
+                    <li>Quality of Service (QoS) management</li>
+                    <li>Performance metrics monitoring:
+                        <ul>
+                            <li>PSNR (Peak Signal-to-Noise Ratio) analysis</li>
+                            <li>Throughput measurement</li>
+                            <li>Network latency monitoring</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>Technical Implementation:</p>
+                <ul>
+                    <li>Mininet-WiFi for wireless network emulation</li>
+                    <li>RYU controller for SDN-based network management</li>
+                    <li>Custom load balancing algorithms</li>
+                    <li>Integration with face recognition systems</li>
+                    <li>Performance analysis tools and metrics</li>
+                </ul>
+
+                <p>The project demonstrates the effective application of SDN principles in wireless networks, particularly for resource-intensive applications like video streaming and face recognition. It provides a robust solution for maintaining high-quality video transmission while optimizing network resources.</p>
+            </div>
+            
+            <div class="project-link">
+                <a href="https://github.com/IssamSayyaf/Load-Balancing-Technique-for-Face-Recognition-Video-Streaming-in-Wireless-Networks-main" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Issam Sayyaf. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
