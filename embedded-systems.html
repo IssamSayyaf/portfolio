@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embedded Systems - Issam Sayyaf</title>
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css">
     <style>
         html {
             zoom: 1.5;
@@ -176,40 +177,62 @@
                 height: 180px;
             }
         }
+
+        /* Additional page-specific styles */
+        .project-link a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .project-link a:hover {
+            background-color: #0055aa;
+        }
+        
+        .project-link i {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
-    <header class="header">
-        <a href="index.html" class="logo">Issam Sayyaf</a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="embedded-systems.html" class="active">Embedded Systems</a>
-            <a href="networking.html">Networking</a>
-        </nav>
-    </header>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="logo">Issam Sayyaf</a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="embedded-systems.html" class="active">Embedded Systems</a>
+                <a href="publications.html">Publications</a>
+            </nav>
+        </header>
 
-    <main class="container">
-        <div class="projects-container">
-            <div class="project-card">
-                <img src="assets/images/app.png" alt="Embedded Applications">
-                <div class="project-content">
-                    <h3>Embedded Applications</h3>
-                    <p>Real-time applications, sensor integration, and hardware-software solutions for embedded systems.</p>
-                    <a href="embedded-applications.html">View Projects</a>
+        <main>
+            <div class="projects-container">
+                <div class="project-card">
+                    <img src="assets/images/app.png" alt="Embedded Applications">
+                    <div class="project-content">
+                        <h3>Embedded Applications</h3>
+                        <p>Real-time applications, sensor integration, and hardware-software solutions for embedded systems.</p>
+                        <a href="embedded-applications.html">View Projects</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="assets/images/yocto.jpg" alt="Yocto Projects">
+                    <div class="project-content">
+                        <h3>Yocto Projects</h3>
+                        <p>Custom Linux distributions, BSP development, and system integration using Yocto Project.</p>
+                        <a href="embedded-yocto.html">View Projects</a>
+                    </div>
                 </div>
             </div>
-
-            <div class="project-card">
-                <img src="assets/images/yocto.jpg" alt="Yocto Projects">
-                <div class="project-content">
-                    <h3>Yocto Projects</h3>
-                    <p>Custom Linux distributions, BSP development, and system integration using Yocto Project.</p>
-                    <a href="embedded-yocto.html">View Projects</a>
-                </div>
-            </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <script>
         // Add fade-in animation when scrolling
