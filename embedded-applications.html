@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Applications - Issam Sayyaf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+        nav a.active, nav a:hover {
+            color: #0066cc;
+        }
+        main {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .project {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .project:last-child {
+            border-bottom: none;
+        }
+        .project-image {
+            margin: 20px 0;
+        }
+        .project-description p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .project-link {
+            margin-top: 20px;
+        }
+        .project-link a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .project-link a:hover {
+            background-color: #0055aa;
+        }
+        .project-link i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Issam Sayyaf</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="embedded-systems.html">Embedded Systems</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Embedded Applications</h1>
+
+        <div class="project">
+            <h2>Muzziball - Smart Interactive Ball</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <img src="assets/images/Muzziball.jpg" alt="Muzziball Smart Interactive Ball" style="width: 100%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            
+            <div class="project-description">
+                <p>A sophisticated embedded system project that combines hardware and software to create an interactive ball with multiple sensors and actuators. The system features advanced motion control, sensor integration, and real-time data processing capabilities.</p>
+                
+                <p>Key features include:</p>
+                <ul>
+                    <li>Advanced motion orchestration system for precise ball movement and control</li>
+                    <li>IMU (Inertial Measurement Unit) integration for accurate motion tracking</li>
+                    <li>Intelligent power mode management system to optimize battery life</li>
+                    <li>RGB LED matrix for dynamic color display and visual feedback</li>
+                    <li>Real-time data transmission to server for remote monitoring</li>
+                    <li>Comprehensive battery management system with status reporting</li>
+                </ul>
+            </div>
+            
+            <div class="project-link">
+                <a href="https://github.com/IssamSayyaf/stener" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html> 
