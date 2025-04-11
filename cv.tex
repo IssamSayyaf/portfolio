@@ -1,0 +1,262 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{supertabular}
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+\usepackage{fontawesome5}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\begin{tabularx}{\linewidth}{@{} C C @{}}
+\Huge{Mohamad Issam Sayyaf} \\[7.5pt]
+29 rue de la chabossiere, 44340 Nantes, France \\[7.5pt]
+\href{https://github.com/IssamSayyaf}{\raisebox{-0.05\height}\faGithub\ IssamSayyaf} \ $|$ \ 
+\href{https://linkedin.com/in/issamsayyaf}{\raisebox{-0.05\height}\faLinkedin\ issamsayyaf} \ $|$ \ 
+\href{mailto:Issamsayyaf97@gmail.com}{\raisebox{-0.05\height}\faEnvelope \ Issamsayyaf97@gmail.com} \ $|$ \ 
+\href{tel:+33758120733}{\raisebox{-0.05\height}\faMobile \ +33~758~120733} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SUMMARY
+%----------------------------------------------------------------------------------------
+
+\section{Professional Summary}
+PhD Researcher and Embedded Systems Engineer with expertise in signal processing, embedded Linux, and artificial intelligence. Proven track record in developing innovative solutions for real-time systems, IoT applications, and wireless communications. Strong background in both academic research and practical implementation of complex systems.
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+
+Nov/2023 - Present & \textbf{PhD in Signal Processing} \\
+& \textbf{University of Gustave Eiffel, France} \\
+& Thesis: "Anomaly Detection for Positioning Signals" \\
+& Focus: Real-time signal processing, deep learning, and positioning systems optimization \\
+
+Sep/2021 - Oct/2023 & \textbf{Master's in Telecommunication Engineering} \\
+& \textbf{University of Calabria, Italy} \hfill \textit{GPA: 110/110 cum laude} \\
+& Specialization: Smart Sensing, Computing, and Networking \\
+& Thesis: "Wireless Crack Detection System Based on IoT and Acoustic Emission" \\
+
+Sep/2014 - Sep/2019 & \textbf{Bachelor's in Electronics Engineering} \\
+& \textbf{University of Aleppo, Syria} \hfill \textit{GPA: 88.56\% with distinction} \\
+& Specialization: Communication Engineering \\
+& Thesis: "Free Space Optical System Using LASER with AES Encryption" \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Professional Experience}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{PhD Researcher} & \hfill Nov/2023 - Present \\
+\textit{University of Gustave Eiffel, France} & \\
+\multicolumn{2}{@{}X@{}}{
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Developed and implemented anomaly detection algorithms for step detection in pedestrian dead reckoning (PDR) systems
+\item Enhanced step detection accuracy by filtering out mimic walking signals using deep learning techniques
+\item Validated improvements in PDR performance through extensive testing and analysis
+\item Currently analyzing GNSS signal anomalies, focusing on jamming and spoofing detection
+\item Implementing real-time signal processing techniques for positioning system optimization
+\end{itemize}
+}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Embedded Systems Engineer} & \hfill Jun/2023 - Present \\
+\textit{Hexabitz, USA (Freelance)} & \\
+\multicolumn{2}{@{}X@{}}{
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Developed custom Linux distributions using Yocto Project
+\item Created BSPs for STM32MP1 and i.MX93 platforms
+\item Implemented device drivers and system integration
+\item Optimized RTOS configurations for real-time applications
+\end{itemize}
+}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Measurement Engineer} & \hfill Oct/2022 - Oct/2023 \\
+\textit{University of Calabria, Italy} & \\
+\multicolumn{2}{@{}X@{}}{
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Designed distributed measurement systems using LabVIEW
+\item Implemented real-time data acquisition for IoT applications
+\item Developed monitoring and analysis tools
+\end{itemize}
+}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Teaching Assistant} & \hfill Sep/2020 - Aug/2021 \\
+\textit{University of Aleppo, Syria} & \\
+\multicolumn{2}{@{}X@{}}{
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Conducted laboratory sessions for:
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Antenna Engineering
+\item Microwave Engineering
+\item Radar Engineering
+\end{itemize}
+\end{itemize}
+}\\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+
+\section{Key Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Anomaly Detection for Step Detection} & \hfill 2024 \\
+\multicolumn{2}{@{}X@{}}{
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Developed AI algorithms for distinguishing between genuine and mimic walking signals
+\item Implemented real-time processing for wearable devices
+\item Enhanced pedestrian tracking accuracy
+\end{itemize}
+}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Truck Monitoring System} & \hfill 2023 \\
+\multicolumn{2}{@{}X@{}}{
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Customized Linux image using Yocto Project
+\item Integrated multiple communication interfaces (Wi-Fi, Bluetooth, LTE, GNSS)
+\item Implemented real-time monitoring and data acquisition
+\end{itemize}
+}\\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+\textbf{Wireless Crack Detection System} & \hfill 2022-2023 \\
+\multicolumn{2}{@{}X@{}}{
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Developed acoustic emission-based crack detection
+\item Implemented wireless sensor network
+\item Created real-time monitoring system
+\end{itemize}
+}\\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+\section{Publications}
+
+\begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt]
+\item Sayyaf, M.I., et al. "Step Detection Enhanced by Anomaly Filtering," IEEE Applied Sensing Conference (APSCON), Jan 2025
+\item Sayyaf, M.I., et al. "Wireless Crack Detection System Based on IoT and Acoustic Emission," IEEE MetroLivEnv, May 2023
+\item Sayyaf, M.I., et al. "Detection and Classification of Crack for Heritage Building," Metro Archaeo 2022
+\item Sayyaf, M.I., et al. "Heart Rate Evaluation by Smartphone: An Overview," HealthyIoT 2022
+\end{itemize}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Technical Skills}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Embedded Systems &  
+    \normalsize{Embedded Linux (Yocto, Buildroot), RTOS (FreeRTOS, Zephyr), ARM Cortex-M, STM32, NXP MPU} \\
+    \\
+AI/ML &  
+    \normalsize{Deep Learning (CNNs, LSTMs, Transformers), TinyML, Reinforcement Learning, Signal Processing} \\
+    \\
+Wireless Communication &  
+    \normalsize{5G, LTE, Wi-Fi, Zigbee, Bluetooth, LoRaWAN, SDN} \\
+    \\
+Programming &  
+    \normalsize{Python, C/C++, Java, LabVIEW, MATLAB} \\
+    \\
+Tools &  
+    \normalsize{Altium Designer, HFSS, CST Microwave Studio, Mininet} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	LANGUAGES
+%----------------------------------------------------------------------------------------
+
+\section{Languages}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Arabic &  \normalsize{Native} \\
+English &  \normalsize{Professional (B2)} \\
+French &  \normalsize{Intermediate (A2)} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%----------------------------------------------------------------------------------------
+
+\section{Awards \& Honors}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+2022 & Best Paper Award, EAI Healthy IoT 2022 \\
+2022-2023 & University of Calabria Scholarship (€3,500) \\
+2021-2022 & University of Calabria Scholarship (€1,700) \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	CERTIFICATIONS
+%----------------------------------------------------------------------------------------
+
+\section{Certifications}
+\begin{tabularx}{\linewidth}{@{}l l l@{}}
+\textbf{Course} & \textbf{Date} & \textbf{Provider} \\ \hline
+\\
+Yocto Project Development & Jul 2024 & Bootlin \\
+Embedded Linux Development & Apr 2024 & Bootlin \\
+Transformer Models & Mar 2024 & Google \\
+Reinforcement Learning & Aug 2023 & Alberta University \\
+RTOS Development & Aug 2023 & Udemy \\
+TinyML Applications & Dec 2022 & Harvard University \\
+AWS IoT & Nov 2022 & AWS \\
+Deep Learning & Aug 2022 & IBM \\
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document} 
