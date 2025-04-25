@@ -266,6 +266,68 @@
             border-radius: 0;
             color: #333;
         }
+        
+        /* Read More functionality */
+        .blog-content-full {
+            display: none;
+        }
+        
+        .blog-content-summary {
+            position: relative;
+            max-height: 300px;
+            overflow: hidden;
+        }
+        
+        .blog-content-summary::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+            pointer-events: none;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            background-color: #2196F3;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .read-more-btn:hover {
+            background-color: #0D47A1;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .read-less-btn {
+            display: none;
+            background-color: #90CAF9;
+            color: #0D47A1;
+            padding: 8px 16px;
+            border-radius: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .read-less-btn:hover {
+            background-color: #64B5F6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -296,61 +358,79 @@
                     <img src="assets/images/yocto.jpg" alt="Yocto Project" class="blog-post-image">
                     
                     <div class="blog-post-content">
-                        <p>The Yocto Project provides a flexible framework for creating custom Linux distributions tailored to specific hardware platforms. In this article, I'll share my experience using Yocto to build optimized operating systems for embedded devices, focusing on performance and security considerations.</p>
+                        <div class="blog-content-summary">
+                            <p>The Yocto Project provides a flexible framework for creating custom Linux distributions tailored to specific hardware platforms. In this article, I'll share my experience using Yocto to build optimized operating systems for embedded devices, focusing on performance and security considerations.</p>
+                            
+                            <h2>Understanding the Yocto Project Architecture</h2>
+                            
+                            <p>Yocto's layer-based architecture allows developers to modularize their customizations and easily incorporate them into existing distributions. By leveraging this approach, I've been able to create streamlined Linux images that include only the components necessary for target applications, resulting in smaller footprints and improved security posture.</p>
+                            
+                            <p>The key components of the Yocto Project ecosystem include:</p>
+                            <ul>
+                                <li><strong>BitBake:</strong> The task execution engine that parses recipes and executes tasks according to their dependencies</li>
+                                <li><strong>OpenEmbedded-Core (OE-Core):</strong> The core metadata that provides the foundation for building Linux distributions</li>
+                                <li><strong>Layers:</strong> Collections of recipes, configurations, and other files that can be added or removed to customize the distribution</li>
+                            </ul>
+                        </div>
                         
-                        <h2>Understanding the Yocto Project Architecture</h2>
+                        <div class="read-more-btn">Read More</div>
                         
-                        <p>Yocto's layer-based architecture allows developers to modularize their customizations and easily incorporate them into existing distributions. By leveraging this approach, I've been able to create streamlined Linux images that include only the components necessary for target applications, resulting in smaller footprints and improved security posture.</p>
-                        
-                        <p>The key components of the Yocto Project ecosystem include:</p>
-                        <ul>
-                            <li><strong>BitBake:</strong> The task execution engine that parses recipes and executes tasks according to their dependencies</li>
-                            <li><strong>OpenEmbedded-Core (OE-Core):</strong> The core metadata that provides the foundation for building Linux distributions</li>
-                            <li><strong>Layers:</strong> Collections of recipes, configurations, and other files that can be added or removed to customize the distribution</li>
-                            <li><strong>Recipes:</strong> Files that define how to fetch, configure, compile, and install packages</li>
-                            <li><strong>Board Support Packages (BSPs):</strong> Layers that contain hardware-specific configurations and drivers</li>
-                        </ul>
-                        
-                        <h2>Setting Up a Yocto Build Environment</h2>
-                        
-                        <p>Setting up a Yocto build environment requires careful consideration of system requirements and configurations. Here's a step-by-step approach I follow when starting a new Yocto-based project:</p>
-                        
-                        <ol>
-                            <li>Install essential build tools and dependencies:
-                                <pre><code>sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib \
+                        <div class="blog-content-full">
+                            <p>The Yocto Project provides a flexible framework for creating custom Linux distributions tailored to specific hardware platforms. In this article, I'll share my experience using Yocto to build optimized operating systems for embedded devices, focusing on performance and security considerations.</p>
+                            
+                            <h2>Understanding the Yocto Project Architecture</h2>
+                            
+                            <p>Yocto's layer-based architecture allows developers to modularize their customizations and easily incorporate them into existing distributions. By leveraging this approach, I've been able to create streamlined Linux images that include only the components necessary for target applications, resulting in smaller footprints and improved security posture.</p>
+                            
+                            <p>The key components of the Yocto Project ecosystem include:</p>
+                            <ul>
+                                <li><strong>BitBake:</strong> The task execution engine that parses recipes and executes tasks according to their dependencies</li>
+                                <li><strong>OpenEmbedded-Core (OE-Core):</strong> The core metadata that provides the foundation for building Linux distributions</li>
+                                <li><strong>Layers:</strong> Collections of recipes, configurations, and other files that can be added or removed to customize the distribution</li>
+                                <li><strong>Recipes:</strong> Files that define how to fetch, configure, compile, and install packages</li>
+                                <li><strong>Board Support Packages (BSPs):</strong> Layers that contain hardware-specific configurations and drivers</li>
+                            </ul>
+                            
+                            <h2>Setting Up a Yocto Build Environment</h2>
+                            
+                            <p>Setting up a Yocto build environment requires careful consideration of system requirements and configurations. Here's a step-by-step approach I follow when starting a new Yocto-based project:</p>
+                            
+                            <ol>
+                                <li>Install essential build tools and dependencies:
+                                    <pre><code>sudo apt-get install gawk wget git diffstat unzip texinfo gcc-multilib \
 build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
 xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa \
 libsdl1.2-dev pylint3 xterm</code></pre>
-                            </li>
-                            <li>Clone the Poky repository (the reference distribution of Yocto):
-                                <pre><code>git clone git://git.yoctoproject.org/poky
+                                </li>
+                                <li>Clone the Poky repository (the reference distribution of Yocto):
+                                    <pre><code>git clone git://git.yoctoproject.org/poky
 cd poky
 git checkout -b langdale origin/langdale</code></pre>
-                            </li>
-                            <li>Initialize the build environment:
-                                <pre><code>source oe-init-build-env build</code></pre>
-                            </li>
-                            <li>Configure build settings by modifying <code>conf/local.conf</code> and <code>conf/bblayers.conf</code> files</li>
-                            <li>Add additional layers as needed for specific hardware support:
-                                <pre><code>git clone git://git.openembedded.org/meta-openembedded
+                                </li>
+                                <li>Initialize the build environment:
+                                    <pre><code>source oe-init-build-env build</code></pre>
+                                </li>
+                                <li>Configure build settings by modifying <code>conf/local.conf</code> and <code>conf/bblayers.conf</code> files</li>
+                                <li>Add additional layers as needed for specific hardware support:
+                                    <pre><code>git clone git://git.openembedded.org/meta-openembedded
 git clone git://git.yoctoproject.org/meta-stm32mp1</code></pre>
-                            </li>
-                        </ol>
-                        
-                        <h2>Creating a Custom Distribution</h2>
-                        
-                        <p>For my embedded projects, particularly the Muzziball device, I created a custom distribution layer that defines specific requirements and configurations. This approach allowed me to achieve the following:</p>
-                        
-                        <ul>
-                            <li>Minimal base system with only essential components</li>
-                            <li>Custom boot splash and branding</li>
-                            <li>Integrated device-specific services and applications</li>
-                            <li>Optimized performance for the target hardware</li>
-                            <li>Comprehensive security hardening measures</li>
-                        </ul>
-                        
-                        <p>The distribution layer typically includes:</p>
-                        <pre><code>meta-custom-distro/
+                                </li>
+                            </ol>
+                            
+                            <h2>Creating a Custom Distribution</h2>
+                            
+                            <p>For my embedded projects, particularly the Muzziball device, I created a custom distribution layer that defines specific requirements and configurations. This approach allowed me to achieve the following:</p>
+                            
+                            <ul>
+                                <li>Minimal base system with only essential components</li>
+                                <li>Custom boot splash and branding</li>
+                                <li>Integrated device-specific services and applications</li>
+                                <li>Optimized performance for the target hardware</li>
+                                <li>Comprehensive security hardening measures</li>
+                            </ul>
+                            
+                            <p>The distribution layer typically includes:</p>
+                            <pre><code>meta-custom-distro/
   ├── conf/
   │   ├── distro/
   │   │   └── custom-distro.conf
@@ -363,51 +443,54 @@ git clone git://git.yoctoproject.org/meta-stm32mp1</code></pre>
   └── recipes-custom/
       └── custom-app/
           └── custom-app.bb</code></pre>
-                        
-                        <h2>BSP Development for STM32MP1</h2>
-                        
-                        <p>One of the more challenging aspects of Yocto development is creating or adapting Board Support Packages (BSPs) for specific hardware. For the Muzziball project, I worked extensively with the STM32MP1 platform, which required:</p>
-                        
-                        <ul>
-                            <li>Customizing device tree files to match our specific hardware configuration</li>
-                            <li>Developing custom drivers for specialized hardware components</li>
-                            <li>Configuring bootloader settings for optimal startup performance</li>
-                            <li>Implementing power management optimizations</li>
-                            <li>Integrating hardware-accelerated graphics capabilities</li>
-                        </ul>
-                        
-                        <p>The process involved close collaboration with hardware engineers to ensure all peripherals were properly supported and optimized for the target application.</p>
-                        
-                        <h2>Security Considerations</h2>
-                        
-                        <p>Security is paramount in embedded Linux systems, especially for IoT devices. My Yocto builds incorporate several security enhancements:</p>
-                        
-                        <ul>
-                            <li>Secure boot implementation using hardware cryptographic elements</li>
-                            <li>Regular security patch integration through package version updates</li>
-                            <li>Removal of unnecessary services and packages to reduce attack surface</li>
-                            <li>Implementation of read-only root filesystem with overlay for runtime changes</li>
-                            <li>Hardened kernel configurations following industry best practices</li>
-                            <li>Integrated intrusion detection mechanisms</li>
-                        </ul>
-                        
-                        <h2>CI/CD Pipeline Integration</h2>
-                        
-                        <p>To maintain consistent build quality and automate testing, I integrated the Yocto build process into a CI/CD pipeline using GitLab CI. This setup provides:</p>
-                        
-                        <ul>
-                            <li>Automated builds triggered by code changes</li>
-                            <li>Reproducible build environments using Docker containers</li>
-                            <li>Comprehensive testing of generated images using QEMU</li>
-                            <li>Artifact management for generated images and SDKs</li>
-                            <li>Automated deployment to target devices for field testing</li>
-                        </ul>
-                        
-                        <h2>Conclusion</h2>
-                        
-                        <p>Working with the Yocto Project provides unparalleled flexibility and control when developing custom Linux distributions for embedded systems. While the learning curve can be steep, the benefits in terms of customization, optimization, and security make it an invaluable tool for serious embedded Linux development.</p>
-                        
-                        <p>For developers considering Yocto for their projects, I recommend starting with a well-established distribution like Poky and gradually introducing customizations as you become more familiar with the ecosystem. The investment in learning this powerful framework pays dividends in the long run, especially for products that require ongoing maintenance and updates.</p>
+                            
+                            <h2>BSP Development for STM32MP1</h2>
+                            
+                            <p>One of the more challenging aspects of Yocto development is creating or adapting Board Support Packages (BSPs) for specific hardware. For the Muzziball project, I worked extensively with the STM32MP1 platform, which required:</p>
+                            
+                            <ul>
+                                <li>Customizing device tree files to match our specific hardware configuration</li>
+                                <li>Developing custom drivers for specialized hardware components</li>
+                                <li>Configuring bootloader settings for optimal startup performance</li>
+                                <li>Implementing power management optimizations</li>
+                                <li>Integrating hardware-accelerated graphics capabilities</li>
+                            </ul>
+                            
+                            <p>The process involved close collaboration with hardware engineers to ensure all peripherals were properly supported and optimized for the target application.</p>
+                            
+                            <h2>Security Considerations</h2>
+                            
+                            <p>Security is paramount in embedded Linux systems, especially for IoT devices. My Yocto builds incorporate several security enhancements:</p>
+                            
+                            <ul>
+                                <li>Secure boot implementation using hardware cryptographic elements</li>
+                                <li>Regular security patch integration through package version updates</li>
+                                <li>Removal of unnecessary services and packages to reduce attack surface</li>
+                                <li>Implementation of read-only root filesystem with overlay for runtime changes</li>
+                                <li>Hardened kernel configurations following industry best practices</li>
+                                <li>Integrated intrusion detection mechanisms</li>
+                            </ul>
+                            
+                            <h2>CI/CD Pipeline Integration</h2>
+                            
+                            <p>To maintain consistent build quality and automate testing, I integrated the Yocto build process into a CI/CD pipeline using GitLab CI. This setup provides:</p>
+                            
+                            <ul>
+                                <li>Automated builds triggered by code changes</li>
+                                <li>Reproducible build environments using Docker containers</li>
+                                <li>Comprehensive testing of generated images using QEMU</li>
+                                <li>Artifact management for generated images and SDKs</li>
+                                <li>Automated deployment to target devices for field testing</li>
+                            </ul>
+                            
+                            <h2>Conclusion</h2>
+                            
+                            <p>Working with the Yocto Project provides unparalleled flexibility and control when developing custom Linux distributions for embedded systems. While the learning curve can be steep, the benefits in terms of customization, optimization, and security make it an invaluable tool for serious embedded Linux development.</p>
+                            
+                            <p>For developers considering Yocto for their projects, I recommend starting with a well-established distribution like Poky and gradually introducing customizations as you become more familiar with the ecosystem. The investment in learning this powerful framework pays dividends in the long run, especially for products that require ongoing maintenance and updates.</p>
+                            
+                            <div class="read-less-btn">Read Less</div>
+                        </div>
                         
                         <div class="blog-post-tags">
                             <span class="blog-tag">Yocto Project</span>
@@ -432,31 +515,50 @@ git clone git://git.yoctoproject.org/meta-stm32mp1</code></pre>
                     <img src="assets/images/arch_esp32_iot_project.jpeg" alt="IoT Security Architecture" class="blog-post-image">
                     
                     <div class="blog-post-content">
-                        <p>Security remains one of the most critical challenges in IoT system development. Based on my experience implementing AWS-integrated IoT solutions, I've compiled essential security practices that every developer should consider when building connected devices.</p>
+                        <div class="blog-content-summary">
+                            <p>Security remains one of the most critical challenges in IoT system development. Based on my experience implementing AWS-integrated IoT solutions, I've compiled essential security practices that every developer should consider when building connected devices.</p>
+                            
+                            <h2>The Security Challenges in IoT</h2>
+                            
+                            <p>From secure boot implementations to certificate-based authentication and encrypted communication channels, there are multiple layers of security that must be addressed in a comprehensive IoT security strategy. This article explores practical approaches to securing each aspect of an IoT system, with real-world examples from my projects.</p>
+                            
+                            <p>IoT systems face unique security challenges compared to traditional IT infrastructure:</p>
+                            
+                            <ul>
+                                <li>Resource constraints on embedded devices limiting security implementations</li>
+                                <li>Physical accessibility of devices increasing vulnerability to tampering</li>
+                                <li>Long deployment lifespans requiring sustainable update mechanisms</li>
+                            </ul>
+                        </div>
+                            
+                        <div class="read-more-btn">Read More</div>
                         
-                        <h2>The Security Challenges in IoT</h2>
-                        
-                        <p>From secure boot implementations to certificate-based authentication and encrypted communication channels, there are multiple layers of security that must be addressed in a comprehensive IoT security strategy. This article explores practical approaches to securing each aspect of an IoT system, with real-world examples from my projects.</p>
-                        
-                        <p>IoT systems face unique security challenges compared to traditional IT infrastructure:</p>
-                        
-                        <ul>
-                            <li>Resource constraints on embedded devices limiting security implementations</li>
-                            <li>Physical accessibility of devices increasing vulnerability to tampering</li>
-                            <li>Long deployment lifespans requiring sustainable update mechanisms</li>
-                            <li>Heterogeneous ecosystems with varying security capabilities</li>
-                            <li>Diverse communication protocols with different security models</li>
-                        </ul>
-                        
-                        <h2>Device-Level Security Measures</h2>
-                        
-                        <p>Security begins at the device level, with fundamental protections built into the hardware and firmware. In my projects, I implement several key measures:</p>
-                        
-                        <h3>1. Secure Boot and Firmware Verification</h3>
-                        
-                        <p>For ESP32-based devices, I leverage the hardware secure boot capabilities to verify the authenticity of firmware at startup:</p>
-                        
-                        <pre><code>// Generate signing keys
+                        <div class="blog-content-full">
+                            <p>Security remains one of the most critical challenges in IoT system development. Based on my experience implementing AWS-integrated IoT solutions, I've compiled essential security practices that every developer should consider when building connected devices.</p>
+                            
+                            <h2>The Security Challenges in IoT</h2>
+                            
+                            <p>From secure boot implementations to certificate-based authentication and encrypted communication channels, there are multiple layers of security that must be addressed in a comprehensive IoT security strategy. This article explores practical approaches to securing each aspect of an IoT system, with real-world examples from my projects.</p>
+                            
+                            <p>IoT systems face unique security challenges compared to traditional IT infrastructure:</p>
+                            
+                            <ul>
+                                <li>Resource constraints on embedded devices limiting security implementations</li>
+                                <li>Physical accessibility of devices increasing vulnerability to tampering</li>
+                                <li>Long deployment lifespans requiring sustainable update mechanisms</li>
+                                <li>Heterogeneous ecosystems with varying security capabilities</li>
+                                <li>Diverse communication protocols with different security models</li>
+                            </ul>
+                            
+                            <h2>Device-Level Security Measures</h2>
+                            
+                            <p>Security begins at the device level, with fundamental protections built into the hardware and firmware. In my projects, I implement several key measures:</p>
+                            
+                            <h3>1. Secure Boot and Firmware Verification</h3>
+                            
+                            <p>For ESP32-based devices, I leverage the hardware secure boot capabilities to verify the authenticity of firmware at startup:</p>
+                            
+                            <pre><code>// Generate signing keys
 espsecure.py generate_signing_key --version 2 secure_boot_signing_key.pem
 
 // Configure secure boot in sdkconfig
@@ -467,24 +569,24 @@ CONFIG_SECURE_BOOT_VERIFICATION_KEY="secure_boot_signing_key.pem"
 // Sign the bootloader and application
 espsecure.py sign_data --version 2 --keyfile secure_boot_signing_key.pem bootloader.bin
 espsecure.py sign_data --version 2 --keyfile secure_boot_signing_key.pem application.bin</code></pre>
-                        
-                        <p>This ensures that only authorized firmware can run on the device, protecting against malicious code injection attacks.</p>
-                        
-                        <h3>2. Hardware Security Modules</h3>
-                        
-                        <p>When working with more advanced IoT products, I recommend incorporating dedicated hardware security modules (HSMs) or secure elements to store cryptographic keys and perform sensitive operations:</p>
-                        
-                        <ul>
-                            <li>ATECC608A secure element for high-security requirements</li>
-                            <li>ESP32's built-in eFuse for more cost-sensitive applications</li>
-                            <li>Trusted Platform Modules (TPMs) for gateway devices</li>
-                        </ul>
-                        
-                        <h3>3. Protected Storage</h3>
-                        
-                        <p>Sensitive data stored on the device must be protected using encryption and access controls:</p>
-                        
-                        <pre><code>// Example using ESP32's NVS encrypted storage
+                            
+                            <p>This ensures that only authorized firmware can run on the device, protecting against malicious code injection attacks.</p>
+                            
+                            <h3>2. Hardware Security Modules</h3>
+                            
+                            <p>When working with more advanced IoT products, I recommend incorporating dedicated hardware security modules (HSMs) or secure elements to store cryptographic keys and perform sensitive operations:</p>
+                            
+                            <ul>
+                                <li>ATECC608A secure element for high-security requirements</li>
+                                <li>ESP32's built-in eFuse for more cost-sensitive applications</li>
+                                <li>Trusted Platform Modules (TPMs) for gateway devices</li>
+                            </ul>
+                            
+                            <h3>3. Protected Storage</h3>
+                            
+                            <p>Sensitive data stored on the device must be protected using encryption and access controls:</p>
+                            
+                            <pre><code>// Example using ESP32's NVS encrypted storage
 nvs_handle_t nvs_handle;
 esp_err_t err;
 
@@ -504,16 +606,16 @@ nvs_open("storage", NVS_READWRITE, &nvs_handle);
 nvs_set_str(nvs_handle, "auth_token", token_value);
 nvs_commit(nvs_handle);
 nvs_close(nvs_handle);</code></pre>
-                        
-                        <h2>Communication Security</h2>
-                        
-                        <p>Secure communication is essential for IoT systems, particularly when transmitting sensitive data or control commands.</p>
-                        
-                        <h3>1. TLS/SSL Implementation</h3>
-                        
-                        <p>For my AWS IoT projects, I implement TLS 1.2 or higher with strong cipher suites:</p>
-                        
-                        <pre><code>// Example TLS configuration for MQTT connection to AWS IoT
+                            
+                            <h2>Communication Security</h2>
+                            
+                            <p>Secure communication is essential for IoT systems, particularly when transmitting sensitive data or control commands.</p>
+                            
+                            <h3>1. TLS/SSL Implementation</h3>
+                            
+                            <p>For my AWS IoT projects, I implement TLS 1.2 or higher with strong cipher suites:</p>
+                            
+                            <pre><code>// Example TLS configuration for MQTT connection to AWS IoT
 const esp_mqtt_client_config_t mqtt_cfg = {
     .uri = CONFIG_BROKER_URI,
     .client_cert_pem = (const char *)client_cert_pem_start,
@@ -523,36 +625,36 @@ const esp_mqtt_client_config_t mqtt_cfg = {
     .skip_cert_common_name_check = false,
     .alpn_protos = {"x-amzn-mqtt-ca"}, // AWS IoT specific
 };</code></pre>
-                        
-                        <p>Key considerations for TLS implementations include:</p>
-                        
-                        <ul>
-                            <li>Properly validating server certificates to prevent MITM attacks</li>
-                            <li>Implementing certificate pinning for additional security</li>
-                            <li>Ensuring cipher suites are regularly updated to address vulnerabilities</li>
-                            <li>Properly managing certificate lifetimes and renewal processes</li>
-                        </ul>
-                        
-                        <h3>2. Certificate-Based Authentication</h3>
-                        
-                        <p>For AWS IoT integration, I use X.509 certificates for device authentication:</p>
-                        
-                        <ol>
-                            <li>Create a certificate signing request (CSR) on the device or securely provision pre-generated certificates</li>
-                            <li>Register the device certificate with AWS IoT Core</li>
-                            <li>Attach appropriate policies to the certificate to control permissions</li>
-                            <li>Implement certificate rotation mechanisms for long-lived devices</li>
-                        </ol>
-                        
-                        <h2>Cloud Infrastructure Security</h2>
-                        
-                        <p>The cloud components of an IoT system require careful security considerations:</p>
-                        
-                        <h3>1. AWS IoT Core Security Policies</h3>
-                        
-                        <p>I apply the principle of least privilege when defining AWS IoT policies:</p>
-                        
-                        <pre><code>{
+                            
+                            <p>Key considerations for TLS implementations include:</p>
+                            
+                            <ul>
+                                <li>Properly validating server certificates to prevent MITM attacks</li>
+                                <li>Implementing certificate pinning for additional security</li>
+                                <li>Ensuring cipher suites are regularly updated to address vulnerabilities</li>
+                                <li>Properly managing certificate lifetimes and renewal processes</li>
+                            </ul>
+                            
+                            <h3>2. Certificate-Based Authentication</h3>
+                            
+                            <p>For AWS IoT integration, I use X.509 certificates for device authentication:</p>
+                            
+                            <ol>
+                                <li>Create a certificate signing request (CSR) on the device or securely provision pre-generated certificates</li>
+                                <li>Register the device certificate with AWS IoT Core</li>
+                                <li>Attach appropriate policies to the certificate to control permissions</li>
+                                <li>Implement certificate rotation mechanisms for long-lived devices</li>
+                            </ol>
+                            
+                            <h2>Cloud Infrastructure Security</h2>
+                            
+                            <p>The cloud components of an IoT system require careful security considerations:</p>
+                            
+                            <h3>1. AWS IoT Core Security Policies</h3>
+                            
+                            <p>I apply the principle of least privilege when defining AWS IoT policies:</p>
+                            
+                            <pre><code>{
   "Version": "2012-10-17",
   "Statement": [
     {
@@ -577,93 +679,96 @@ const esp_mqtt_client_config_t mqtt_cfg = {
     }
   ]
 }</code></pre>
-                        
-                        <p>This policy restricts the device to only:</p>
-                        <ul>
-                            <li>Connect with its own thing name</li>
-                            <li>Publish to its own data topic</li>
-                            <li>Subscribe to its own commands topic</li>
-                            <li>Receive messages from its own commands topic</li>
-                        </ul>
-                        
-                        <h3>2. Data Storage Security</h3>
-                        
-                        <p>For data stored in AWS services like DynamoDB, I implement:</p>
-                        
-                        <ul>
-                            <li>Server-side encryption for data at rest</li>
-                            <li>IAM roles with minimal permissions for accessing the data</li>
-                            <li>Attribute-based access control for fine-grained permissions</li>
-                            <li>Data lifecycle policies to manage retention periods</li>
-                        </ul>
-                        
-                        <h2>Monitoring and Incident Response</h2>
-                        
-                        <p>Security doesn't end with implementation; continuous monitoring is essential:</p>
-                        
-                        <h3>1. AWS IoT Device Defender</h3>
-                        
-                        <p>I configure AWS IoT Device Defender to:</p>
-                        
-                        <ul>
-                            <li>Audit device configurations for security best practices</li>
-                            <li>Monitor devices for abnormal behavior</li>
-                            <li>Set up automated alerts for security violations</li>
-                            <li>Implement automated remediation actions where appropriate</li>
-                        </ul>
-                        
-                        <h3>2. Logging and Monitoring</h3>
-                        
-                        <p>Comprehensive logging helps identify and respond to security incidents:</p>
-                        
-                        <ul>
-                            <li>AWS CloudWatch Logs for centralized log collection</li>
-                            <li>Log analysis with CloudWatch Insights for pattern detection</li>
-                            <li>Alerts based on suspicious activity patterns</li>
-                            <li>Regular security reviews of logged data</li>
-                        </ul>
-                        
-                        <h2>Common Pitfalls to Avoid</h2>
-                        
-                        <p>Through my experience developing secure IoT systems, I've identified several common mistakes:</p>
-                        
-                        <h3>1. Hardcoded Credentials</h3>
-                        
-                        <p>Never hardcode sensitive information like:</p>
-                        <ul>
-                            <li>API keys or access tokens</li>
-                            <li>Encryption keys</li>
-                            <li>Passwords or username/password combinations</li>
-                            <li>Certificate private keys (in production code)</li>
-                        </ul>
-                        
-                        <p>Instead, use secure storage mechanisms and runtime provisioning.</p>
-                        
-                        <h3>2. Insufficient Update Mechanisms</h3>
-                        
-                        <p>IoT devices need robust update capabilities:</p>
-                        <ul>
-                            <li>Secure OTA update infrastructure with signature verification</li>
-                            <li>Failsafe recovery mechanisms for failed updates</li>
-                            <li>Version tracking and compatibility checking</li>
-                            <li>Testing procedures for updates before deployment</li>
-                        </ul>
-                        
-                        <h3>3. Neglecting Physical Security</h3>
-                        
-                        <p>Physical access to devices can compromise security:</p>
-                        <ul>
-                            <li>Implement tamper detection where feasible</li>
-                            <li>Disable debug interfaces in production</li>
-                            <li>Use secure boot to prevent unauthorized firmware</li>
-                            <li>Encrypt sensitive data storage</li>
-                        </ul>
-                        
-                        <h2>Conclusion</h2>
-                        
-                        <p>Implementing secure IoT systems requires a comprehensive approach that addresses security at every layer of the stack. By following the practices outlined in this article, developers can build IoT solutions that protect both user data and infrastructure from evolving threats.</p>
-                        
-                        <p>Remember that security is not a one-time implementation but an ongoing process requiring continuous monitoring, updates, and improvements as new vulnerabilities and attack vectors emerge.</p>
+                            
+                            <p>This policy restricts the device to only:</p>
+                            <ul>
+                                <li>Connect with its own thing name</li>
+                                <li>Publish to its own data topic</li>
+                                <li>Subscribe to its own commands topic</li>
+                                <li>Receive messages from its own commands topic</li>
+                            </ul>
+                            
+                            <h3>2. Data Storage Security</h3>
+                            
+                            <p>For data stored in AWS services like DynamoDB, I implement:</p>
+                            
+                            <ul>
+                                <li>Server-side encryption for data at rest</li>
+                                <li>IAM roles with minimal permissions for accessing the data</li>
+                                <li>Attribute-based access control for fine-grained permissions</li>
+                                <li>Data lifecycle policies to manage retention periods</li>
+                            </ul>
+                            
+                            <h2>Monitoring and Incident Response</h2>
+                            
+                            <p>Security doesn't end with implementation; continuous monitoring is essential:</p>
+                            
+                            <h3>1. AWS IoT Device Defender</h3>
+                            
+                            <p>I configure AWS IoT Device Defender to:</p>
+                            
+                            <ul>
+                                <li>Audit device configurations for security best practices</li>
+                                <li>Monitor devices for abnormal behavior</li>
+                                <li>Set up automated alerts for security violations</li>
+                                <li>Implement automated remediation actions where appropriate</li>
+                            </ul>
+                            
+                            <h3>2. Logging and Monitoring</h3>
+                            
+                            <p>Comprehensive logging helps identify and respond to security incidents:</p>
+                            
+                            <ul>
+                                <li>AWS CloudWatch Logs for centralized log collection</li>
+                                <li>Log analysis with CloudWatch Insights for pattern detection</li>
+                                <li>Alerts based on suspicious activity patterns</li>
+                                <li>Regular security reviews of logged data</li>
+                            </ul>
+                            
+                            <h2>Common Pitfalls to Avoid</h2>
+                            
+                            <p>Through my experience developing secure IoT systems, I've identified several common mistakes:</p>
+                            
+                            <h3>1. Hardcoded Credentials</h3>
+                            
+                            <p>Never hardcode sensitive information like:</p>
+                            <ul>
+                                <li>API keys or access tokens</li>
+                                <li>Encryption keys</li>
+                                <li>Passwords or username/password combinations</li>
+                                <li>Certificate private keys (in production code)</li>
+                            </ul>
+                            
+                            <p>Instead, use secure storage mechanisms and runtime provisioning.</p>
+                            
+                            <h3>2. Insufficient Update Mechanisms</h3>
+                            
+                            <p>IoT devices need robust update capabilities:</p>
+                            <ul>
+                                <li>Secure OTA update infrastructure with signature verification</li>
+                                <li>Failsafe recovery mechanisms for failed updates</li>
+                                <li>Version tracking and compatibility checking</li>
+                                <li>Testing procedures for updates before deployment</li>
+                            </ul>
+                            
+                            <h3>3. Neglecting Physical Security</h3>
+                            
+                            <p>Physical access to devices can compromise security:</p>
+                            <ul>
+                                <li>Implement tamper detection where feasible</li>
+                                <li>Disable debug interfaces in production</li>
+                                <li>Use secure boot to prevent unauthorized firmware</li>
+                                <li>Encrypt sensitive data storage</li>
+                            </ul>
+                            
+                            <h2>Conclusion</h2>
+                            
+                            <p>Implementing secure IoT systems requires a comprehensive approach that addresses security at every layer of the stack. By following the practices outlined in this article, developers can build IoT solutions that protect both user data and infrastructure from evolving threats.</p>
+                            
+                            <p>Remember that security is not a one-time implementation but an ongoing process requiring continuous monitoring, updates, and improvements as new vulnerabilities and attack vectors emerge.</p>
+                            
+                            <div class="read-less-btn">Read Less</div>
+                        </div>
                         
                         <div class="blog-post-tags">
                             <span class="blog-tag">IoT Security</span>
@@ -770,5 +875,54 @@ const esp_mqtt_client_config_t mqtt_cfg = {
             <p>&copy; 2024 Issam Sayyaf. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all read more buttons
+            const readMoreButtons = document.querySelectorAll('.read-more-btn');
+            const readLessButtons = document.querySelectorAll('.read-less-btn');
+            
+            // Add click event listeners to read more buttons
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const articleContent = this.closest('.blog-post-content');
+                    const summary = articleContent.querySelector('.blog-content-summary');
+                    const fullContent = articleContent.querySelector('.blog-content-full');
+                    
+                    // Hide summary, show full content
+                    summary.style.display = 'none';
+                    fullContent.style.display = 'block';
+                    this.style.display = 'none';
+                    
+                    // Show read less button
+                    articleContent.querySelector('.read-less-btn').style.display = 'inline-block';
+                    
+                    // Scroll to the top of the article with a smooth animation
+                    const article = this.closest('.blog-post');
+                    article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Add click event listeners to read less buttons
+            readLessButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const articleContent = this.closest('.blog-post-content');
+                    const summary = articleContent.querySelector('.blog-content-summary');
+                    const fullContent = articleContent.querySelector('.blog-content-full');
+                    const readMoreBtn = articleContent.querySelector('.read-more-btn');
+                    
+                    // Hide full content, show summary
+                    summary.style.display = 'block';
+                    fullContent.style.display = 'none';
+                    this.style.display = 'none';
+                    readMoreBtn.style.display = 'inline-block';
+                    
+                    // Scroll to the top of the article with a smooth animation
+                    const article = this.closest('.blog-post');
+                    article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
