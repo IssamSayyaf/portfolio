@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <title>Blog - Issam Sayyaf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        html {
+            zoom: 1.0;
+            -moz-transform: scale(1.0);
+            -moz-transform-origin: 0 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #2c3e50;
+            transform-origin: top left;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+        nav a.active, nav a:hover {
+            color: #0066cc;
+        }
+        main {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        /* Blog specific styles */
+        .blog-post {
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+        .blog-post-header {
+            margin-bottom: 20px;
+        }
+        .blog-post-title {
+            font-size: 2rem;
+            color: #1565C0;
+            margin-bottom: 10px;
+        }
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            color: #78909c;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .blog-post-meta > * {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .blog-post-meta i {
+            margin-right: 5px;
+        }
+        .blog-post-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .blog-post-content {
+            line-height: 1.7;
+        }
+        .blog-post-content p {
+            margin-bottom: 20px;
+        }
+        .blog-post-content h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+        .blog-post-content ul, .blog-post-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        .blog-post-content li {
+            margin-bottom: 8px;
+        }
+        .blog-post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        .blog-tag {
+            background: #e1f5fe;
+            color: #0277bd;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        .blog-tag:hover {
+            background: #b3e5fc;
+            transform: translateY(-2px);
+        }
+        .read-more {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0066cc;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .read-more:hover {
+            color: #004c99;
+            text-decoration: underline;
+        }
+        
+        /* Sidebar styles */
+        .blog-container {
+            display: flex;
+            gap: 40px;
+        }
+        .blog-main {
+            flex: 3;
+        }
+        .blog-sidebar {
+            flex: 1;
+        }
+        .sidebar-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .sidebar-title {
+            font-size: 1.2rem;
+            color: #1565C0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e1f5fe;
+        }
+        .categories-list, .recent-posts-list {
+            list-style: none;
+            padding: 0;
+        }
+        .categories-list li, .recent-posts-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        .categories-list li:last-child, .recent-posts-list li:last-child {
+            border-bottom: none;
+        }
+        .categories-list a, .recent-posts-list a {
+            color: #455a64;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        .categories-list a:hover, .recent-posts-list a:hover {
+            color: #0066cc;
+            transform: translateX(5px);
+        }
+        .recent-posts-list .post-date {
+            font-size: 0.8rem;
+            color: #90a4ae;
+            display: block;
+        }
+        
+        /* Footer styles */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #546e7a;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .blog-container {
+                flex-direction: column;
+            }
+            .blog-sidebar {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .sidebar-section {
+                flex: 1;
+                min-width: 250px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .blog-post-title {
+                font-size: 1.8rem;
+            }
+            .blog-sidebar {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .blog-post-meta {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .blog-post-meta > * {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Issam Sayyaf</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html" class="active">Blog</a>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="blog-container">
+            <div class="blog-main">
+                <h1 class="page-title">Technical Blog</h1>
+                
+                <article class="blog-post">
+                    <header class="blog-post-header">
+                        <h2 class="blog-post-title">Building Custom Linux Distributions with Yocto Project</h2>
+                        <div class="blog-post-meta">
+                            <span><i class="far fa-calendar-alt"></i> June 15, 2024</span>
+                            <span><i class="far fa-user"></i> Issam Sayyaf</span>
+                            <span><i class="far fa-folder"></i> Embedded Linux</span>
+                        </div>
+                    </header>
+                    
+                    <img src="assets/images/yocto.jpg" alt="Yocto Project" class="blog-post-image">
+                    
+                    <div class="blog-post-content">
+                        <p>The Yocto Project provides a flexible framework for creating custom Linux distributions tailored to specific hardware platforms. In this article, I'll share my experience using Yocto to build optimized operating systems for embedded devices, focusing on performance and security considerations.</p>
+                        
+                        <p>Yocto's layer-based architecture allows developers to modularize their customizations and easily incorporate them into existing distributions. By leveraging this approach, I've been able to create streamlined Linux images that include only the components necessary for target applications, resulting in smaller footprints and improved security posture.</p>
+                        
+                        <div class="blog-post-tags">
+                            <span class="blog-tag">Yocto Project</span>
+                            <span class="blog-tag">Embedded Linux</span>
+                            <span class="blog-tag">BSP Development</span>
+                            <span class="blog-tag">Custom Linux</span>
+                        </div>
+                        
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <header class="blog-post-header">
+                        <h2 class="blog-post-title">Implementing Secure IoT Systems: Best Practices and Pitfalls</h2>
+                        <div class="blog-post-meta">
+                            <span><i class="far fa-calendar-alt"></i> May 22, 2024</span>
+                            <span><i class="far fa-user"></i> Issam Sayyaf</span>
+                            <span><i class="far fa-folder"></i> IoT Security</span>
+                        </div>
+                    </header>
+                    
+                    <img src="assets/images/arch_esp32_iot_project.jpeg" alt="IoT Security Architecture" class="blog-post-image">
+                    
+                    <div class="blog-post-content">
+                        <p>Security remains one of the most critical challenges in IoT system development. Based on my experience implementing AWS-integrated IoT solutions, I've compiled essential security practices that every developer should consider when building connected devices.</p>
+                        
+                        <p>From secure boot implementations to certificate-based authentication and encrypted communication channels, there are multiple layers of security that must be addressed in a comprehensive IoT security strategy. This article explores practical approaches to securing each aspect of an IoT system, with real-world examples from my projects.</p>
+                        
+                        <div class="blog-post-tags">
+                            <span class="blog-tag">IoT Security</span>
+                            <span class="blog-tag">AWS IoT</span>
+                            <span class="blog-tag">TLS/SSL</span>
+                            <span class="blog-tag">Embedded Systems</span>
+                        </div>
+                        
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="blog-post">
+                    <header class="blog-post-header">
+                        <h2 class="blog-post-title">Advanced Signal Processing for Pedestrian Navigation Systems</h2>
+                        <div class="blog-post-meta">
+                            <span><i class="far fa-calendar-alt"></i> April 10, 2024</span>
+                            <span><i class="far fa-user"></i> Issam Sayyaf</span>
+                            <span><i class="far fa-folder"></i> Signal Processing</span>
+                        </div>
+                    </header>
+                    
+                    <img src="assets/images/step_detection_comparison.png" alt="Step Detection Analysis" class="blog-post-image">
+                    
+                    <div class="blog-post-content">
+                        <p>Pedestrian navigation systems rely heavily on accurate signal processing to detect movement patterns and determine positioning. My recent research has focused on improving step detection algorithms by implementing anomaly filtering techniques that effectively distinguish between genuine walking signals and mimic movements.</p>
+                        
+                        <p>This article delves into the technical aspects of these algorithms, exploring autoencoder architectures for anomaly detection, feature extraction from IMU signals, and the integration of these components into complete PDR systems. Performance comparisons with traditional methods demonstrate significant improvements in positioning accuracy.</p>
+                        
+                        <div class="blog-post-tags">
+                            <span class="blog-tag">Signal Processing</span>
+                            <span class="blog-tag">Step Detection</span>
+                            <span class="blog-tag">PDR</span>
+                            <span class="blog-tag">Machine Learning</span>
+                        </div>
+                        
+                        <a href="#" class="read-more">Read More →</a>
+                    </div>
+                </article>
+            </div>
+            
+            <aside class="blog-sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <ul class="categories-list">
+                        <li><a href="#">Embedded Systems <span>(5)</span></a></li>
+                        <li><a href="#">Signal Processing <span>(3)</span></a></li>
+                        <li><a href="#">IoT Security <span>(4)</span></a></li>
+                        <li><a href="#">Embedded Linux <span>(6)</span></a></li>
+                        <li><a href="#">Deep Learning <span>(2)</span></a></li>
+                        <li><a href="#">Networking <span>(3)</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Recent Posts</h3>
+                    <ul class="recent-posts-list">
+                        <li>
+                            <a href="#">Building Custom Linux Distributions with Yocto Project</a>
+                            <span class="post-date">June 15, 2024</span>
+                        </li>
+                        <li>
+                            <a href="#">Implementing Secure IoT Systems: Best Practices and Pitfalls</a>
+                            <span class="post-date">May 22, 2024</span>
+                        </li>
+                        <li>
+                            <a href="#">Advanced Signal Processing for Pedestrian Navigation Systems</a>
+                            <span class="post-date">April 10, 2024</span>
+                        </li>
+                        <li>
+                            <a href="#">Deep Learning Applications in Crack Detection Systems</a>
+                            <span class="post-date">March 18, 2024</span>
+                        </li>
+                        <li>
+                            <a href="#">Software-Defined Networking: Practical Implementations</a>
+                            <span class="post-date">February 25, 2024</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Tags</h3>
+                    <div class="blog-post-tags">
+                        <span class="blog-tag">Yocto Project</span>
+                        <span class="blog-tag">Embedded Linux</span>
+                        <span class="blog-tag">IoT</span>
+                        <span class="blog-tag">Security</span>
+                        <span class="blog-tag">AWS</span>
+                        <span class="blog-tag">Signal Processing</span>
+                        <span class="blog-tag">PDR</span>
+                        <span class="blog-tag">Deep Learning</span>
+                        <span class="blog-tag">STM32</span>
+                        <span class="blog-tag">BSP</span>
+                        <span class="blog-tag">Networking</span>
+                        <span class="blog-tag">SDN</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Issam Sayyaf. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
