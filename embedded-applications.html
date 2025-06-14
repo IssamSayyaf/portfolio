@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <title>Embedded Applications - Issam Sayyaf</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
+        html {
+            zoom: 1.0;
+            -moz-transform: scale(1.0);
+            -moz-transform-origin: 0 0;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f8f9fa;
@@ -14,6 +20,7 @@
             margin: 0 auto;
             padding: 20px;
             color: #2c3e50;
+            transform-origin: top left;
         }
         .header {
             display: flex;
@@ -88,7 +95,6 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="projects.html">Projects</a>
-            <a href="embedded-systems.html">Embedded Systems</a>
         </nav>
     </header>
     <main>
