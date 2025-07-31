@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Scalable IoT Project Architecture - Issam Sayyaf</title>
+    <link rel="icon" type="image/png" href="../../../assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/blog-style.css">
+    <link rel="stylesheet" href="../../assets/post-style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../../../index.html" class="logo">Issam Sayyaf</a>
+        
+        <nav class="nav-links">
+            <a href="../../../index.html" class="nav-link">Home</a>
+            <a href="../../../publications.html" class="nav-link">Publications</a>
+            <a href="../../../projects.html" class="nav-link">Projects</a>
+            <a href="../../../blog.html" class="nav-link">Blog</a>
+            <a href="../../../files/Resume.pdf" class="nav-link">Resume</a>
+        </nav>
+        
+        <div class="nav-toggle" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main class="post-container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="../../../index.html"><i class="fas fa-home"></i> Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="../../../blog.html">Blog</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Building Scalable IoT Project Architecture</span>
+        </nav>
+
+        <!-- Post Header -->
+        <article class="post-article">
+            <header class="post-header">
+                <div class="post-meta-top">
+                    <span class="post-category">IoT</span>
+                    <span class="post-date">
+                        <i class="fas fa-calendar"></i>
+                        January 5, 2025
+                    </span>
+                    <span class="post-read-time">
+                        <i class="fas fa-clock"></i>
+                        10 min read
+                    </span>
+                </div>
+                
+                <h1 class="post-title">Building Scalable IoT Project Architecture</h1>
+                
+                <div class="post-meta-bottom">
+                    <div class="author-info">
+                        <img src="../../../assets/images/issam.png" alt="Issam Sayyaf" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Issam Sayyaf</span>
+                            <span class="author-title">IoT System Architect</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn" onclick="sharePost()">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="action-btn" onclick="bookmarkPost()">
+                            <i class="fas fa-bookmark"></i> Save
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="post-featured-image">
+                <img src="../../../assets/images/arch_esp32_iot_project.jpeg" alt="IoT Architecture" class="featured-img">
+                <div class="image-caption">
+                    <p>Scalable IoT architecture with ESP32 microcontrollers and cloud integration</p>
+                </div>
+            </div>
+
+            <!-- Post Content -->
+            <div class="post-content">
+                <div class="post-intro">
+                    <p class="lead">Creating scalable IoT systems requires careful architectural planning, from device selection to cloud integration. This guide explores design patterns, best practices, and implementation strategies for building robust IoT solutions that can grow with your needs.</p>
+                </div>
+
+                <h2><i class="fas fa-sitemap"></i> IoT Architecture Overview</h2>
+                
+                <p>A well-designed IoT architecture consists of multiple layers, each serving specific functions while maintaining loose coupling for flexibility and scalability.</p>
+
+                <h3>Core Components</h3>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4><i class="fas fa-microchip"></i> Device Layer</h4>
+                        <p>Edge devices that collect data and interact with the physical world.</p>
+                        <ul>
+                            <li>Sensors and actuators</li>
+                            <li>Microcontrollers (ESP32, Arduino)</li>
+                            <li>Edge processing capabilities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-wifi"></i> Connectivity Layer</h4>
+                        <p>Communication protocols and gateways for data transmission.</p>
+                        <ul>
+                            <li>Wi-Fi, Bluetooth, LoRa</li>
+                            <li>MQTT, HTTP, CoAP</li>
+                            <li>Network gateways and bridges</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-cloud"></i> Cloud Layer</h4>
+                        <p>Backend services for data processing, storage, and application logic.</p>
+                        <ul>
+                            <li>Message brokers</li>
+                            <li>Data processing pipelines</li>
+                            <li>APIs and web services</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2><i class="fas fa-code-branch"></i> Design Patterns for Scalability</h2>
+
+                <p>Implementing proven design patterns ensures your IoT system can handle growth in device count, data volume, and feature complexity:</p>
+
+                <h3>1. Microservices Architecture</h3>
+
+                <blockquote>
+                    <p>"Break down monolithic IoT platforms into smaller, manageable services that can be developed, deployed, and scaled independently."</p>
+                </blockquote>
+
+                <div class="code-example">
+                    <h4>Microservice Structure Example</h4>
+                    <pre><code class="language-yaml"># docker-compose.yml for IoT microservices
+version: '3.8'
+services:
+  device-manager:
+    image: iot/device-manager:latest
+    ports:
+      - "3001:3000"
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/devices
+    depends_on:
+      - mongo
+      - mqtt-broker
+      
+  data-processor:
+    image: iot/data-processor:latest
+    ports:
+      - "3002:3000"
+    environment:
+      - KAFKA_BROKERS=kafka:9092
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - kafka
+      - redis
+      
+  notification-service:
+    image: iot/notification-service:latest
+    ports:
+      - "3003:3000"
+    environment:
+      - SMTP_HOST=smtp.gmail.com
+      - WEBHOOK_URL=http://api-gateway:3000/webhooks
+      
+  api-gateway:
+    image: iot/api-gateway:latest
+    ports:
+      - "8080:3000"
+    environment:
+      - SERVICES_CONFIG=/config/services.json
+    volumes:
+      - ./config:/config
+      
+  mqtt-broker:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf</code></pre>
+                </div>
+
+                <h3>2. Event-Driven Architecture</h3>
+
+                <p>Use message queues and event streaming to decouple components and handle varying loads:</p>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Message Broker</th>
+                                <th>Best For</th>
+                                <th>Advantages</th>
+                                <th>Use Cases</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MQTT (Mosquitto)</td>
+                                <td>Device communication</td>
+                                <td>Lightweight, low bandwidth</td>
+                                <td>Sensor data, device commands</td>
+                            </tr>
+                            <tr>
+                                <td>Apache Kafka</td>
+                                <td>High-throughput streaming</td>
+                                <td>Scalable, persistent</td>
+                                <td>Data pipelines, analytics</td>
+                            </tr>
+                            <tr>
+                                <td>Redis Pub/Sub</td>
+                                <td>Real-time notifications</td>
+                                <td>Fast, in-memory</td>
+                                <td>Alerts, real-time updates</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2><i class="fas fa-layer-group"></i> Device Layer Implementation</h2>
+
+                <p>The device layer is critical for reliability and efficiency. Here's how to implement robust edge devices:</p>
+
+                <h3>ESP32 IoT Device Template</h3>
+
+                <div class="code-example">
+                    <h4>Scalable ESP32 Firmware Structure</h4>
+                    <pre><code class="language-cpp">#include <WiFi.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
+#include <DHT.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/task.h>
+
+// Configuration
+struct DeviceConfig {
+    String deviceId;
+    String wifiSSID;
+    String wifiPassword;
+    String mqttBroker;
+    int mqttPort;
+    String mqttUser;
+    String mqttPassword;
+    int sensorReadInterval;
+    int heartbeatInterval;
+};
+
+class IoTDevice {
+private:
+    DeviceConfig config;
+    WiFiClient wifiClient;
+    PubSubClient mqttClient;
+    DHT dht;
+    
+    // Circular buffer for offline data storage
+    struct SensorReading {
+        float temperature;
+        float humidity;
+        unsigned long timestamp;
+    };
+    
+    static const int BUFFER_SIZE = 100;
+    SensorReading dataBuffer[BUFFER_SIZE];
+    int bufferHead = 0;
+    int bufferTail = 0;
+    bool isOnline = false;
+    
+public:
+    IoTDevice(DeviceConfig cfg) : config(cfg), dht(DHT_PIN, DHT22), mqttClient(wifiClient) {
+        mqttClient.setServer(config.mqttBroker.c_str(), config.mqttPort);
+        mqttClient.setCallback([this](char* topic, byte* payload, unsigned int length) {
+            this->handleMqttMessage(topic, payload, length);
+        });
+    }
+    
+    void begin() {
+        Serial.begin(115200);
+        dht.begin();
+        
+        // Initialize WiFi with connection management
+        connectWiFi();
+        
+        // Create FreeRTOS tasks
+        xTaskCreate(sensorTask, "SensorTask", 4096, this, 1, NULL);
+        xTaskCreate(heartbeatTask, "HeartbeatTask", 2048, this, 1, NULL);
+        xTaskCreate(dataTransmissionTask, "DataTxTask", 4096, this, 2, NULL);
+    }
+    
+private:
+    void connectWiFi() {
+        WiFi.mode(WIFI_STA);
+        WiFi.begin(config.wifiSSID.c_str(), config.wifiPassword.c_str());
+        
+        int attempts = 0;
+        while (WiFi.status() != WL_CONNECTED && attempts < 20) {
+            delay(500);
+            Serial.print(".");
+            attempts++;
+        }
+        
+        if (WiFi.status() == WL_CONNECTED) {
+            Serial.println("WiFi connected");
+            isOnline = true;
+            connectMQTT();
+        } else {
+            Serial.println("WiFi connection failed - operating offline");
+            isOnline = false;
+        }
+    }
+    
+    void connectMQTT() {
+        while (!mqttClient.connected() && isOnline) {
+            if (mqttClient.connect(config.deviceId.c_str(), 
+                                  config.mqttUser.c_str(), 
+                                  config.mqttPassword.c_str())) {
+                Serial.println("MQTT connected");
+                
+                // Subscribe to command topics
+                String commandTopic = "devices/" + config.deviceId + "/commands";
+                mqttClient.subscribe(commandTopic.c_str());
+                
+                // Send device online status
+                sendDeviceStatus("online");
+                
+                // Send any buffered data
+                sendBufferedData();
+            } else {
+                delay(5000);
+            }
+        }
+    }
+    
+    static void sensorTask(void* parameter) {
+        IoTDevice* device = static_cast<IoTDevice*>(parameter);
+        
+        for(;;) {
+            float temperature = device->dht.readTemperature();
+            float humidity = device->dht.readHumidity();
+            
+            if (!isnan(temperature) && !isnan(humidity)) {
+                device->addSensorReading(temperature, humidity);
+            }
+            
+            vTaskDelay(pdMS_TO_TICKS(device->config.sensorReadInterval * 1000));
+        }
+    }
+    
+    static void heartbeatTask(void* parameter) {
+        IoTDevice* device = static_cast<IoTDevice*>(parameter);
+        
+        for(;;) {
+            if (device->isOnline && device->mqttClient.connected()) {
+                device->sendHeartbeat();
+            } else {
+                // Try to reconnect
+                device->connectWiFi();
+            }
+            
+            vTaskDelay(pdMS_TO_TICKS(device->config.heartbeatInterval * 1000));
+        }
+    }
+    
+    static void dataTransmissionTask(void* parameter) {
+        IoTDevice* device = static_cast<IoTDevice*>(parameter);
+        
+        for(;;) {
+            if (device->isOnline && device->mqttClient.connected()) {
+                device->mqttClient.loop();
+                device->transmitPendingData();
+            }
+            
+            vTaskDelay(pdMS_TO_TICKS(1000)); // Check every second
+        }
+    }
+    
+    void addSensorReading(float temperature, float humidity) {
+        dataBuffer[bufferHead] = {temperature, humidity, millis()};
+        bufferHead = (bufferHead + 1) % BUFFER_SIZE;
+        
+        // Overwrite old data if buffer is full
+        if (bufferHead == bufferTail) {
+            bufferTail = (bufferTail + 1) % BUFFER_SIZE;
+        }
+    }
+    
+    void transmitPendingData() {
+        if (bufferHead == bufferTail) return; // No data to send
+        
+        SensorReading& reading = dataBuffer[bufferTail];
+        
+        DynamicJsonDocument doc(200);
+        doc["deviceId"] = config.deviceId;
+        doc["temperature"] = reading.temperature;
+        doc["humidity"] = reading.humidity;
+        doc["timestamp"] = reading.timestamp;
+        
+        String payload;
+        serializeJson(doc, payload);
+        
+        String topic = "sensors/" + config.deviceId + "/data";
+        
+        if (mqttClient.publish(topic.c_str(), payload.c_str())) {
+            bufferTail = (bufferTail + 1) % BUFFER_SIZE; // Mark as sent
+        }
+    }
+};</code></pre>
+                </div>
+
+                <h2><i class="fas fa-database"></i> Data Management Strategy</h2>
+
+                <p>Effective data management is crucial for scalable IoT systems:</p>
+
+                <h3>Time-Series Database Design</h3>
+
+                <div class="tip-box">
+                    <h4><i class="fas fa-lightbulb"></i> Database Selection</h4>
+                    <p>Choose time-series databases like InfluxDB or TimescaleDB for sensor data. They're optimized for time-stamped data and provide excellent compression and query performance.</p>
+                </div>
+
+                <div class="code-example">
+                    <h4>InfluxDB Data Schema</h4>
+                    <pre><code class="language-sql">-- Create database
+CREATE DATABASE iot_sensors
+
+-- Create retention policies for data lifecycle management
+CREATE RETENTION POLICY "raw_data" ON "iot_sensors" 
+  DURATION 30d REPLICATION 1 DEFAULT
+
+CREATE RETENTION POLICY "downsampled_hourly" ON "iot_sensors" 
+  DURATION 365d REPLICATION 1
+
+CREATE RETENTION POLICY "downsampled_daily" ON "iot_sensors" 
+  DURATION 2555d REPLICATION 1
+
+-- Continuous queries for downsampling
+CREATE CONTINUOUS QUERY "cq_hourly" ON "iot_sensors"
+BEGIN
+  SELECT MEAN("temperature") AS "temperature", 
+         MEAN("humidity") AS "humidity"
+  INTO "iot_sensors"."downsampled_hourly"."sensor_data"
+  FROM "iot_sensors"."raw_data"."sensor_data"
+  GROUP BY time(1h), "device_id"
+END
+
+CREATE CONTINUOUS QUERY "cq_daily" ON "iot_sensors"
+BEGIN
+  SELECT MEAN("temperature") AS "temperature", 
+         MEAN("humidity") AS "humidity"
+  INTO "iot_sensors"."downsampled_daily"."sensor_data"
+  FROM "iot_sensors"."downsampled_hourly"."sensor_data"
+  GROUP BY time(1d), "device_id"
+END</code></pre>
+                </div>
+
+                <h2><i class="fas fa-shield-alt"></i> Security Implementation</h2>
+
+                <p>Security must be built into every layer of your IoT architecture:</p>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4><i class="fas fa-key"></i> Device Security</h4>
+                        <ul>
+                            <li>Secure boot and firmware encryption</li>
+                            <li>Certificate-based authentication</li>
+                            <li>OTA update mechanisms</li>
+                            <li>Hardware security modules</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-lock"></i> Communication Security</h4>
+                        <ul>
+                            <li>TLS/SSL encryption</li>
+                            <li>VPN tunneling</li>
+                            <li>Message signing and verification</li>
+                            <li>API rate limiting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-user-shield"></i> Identity Management</h4>
+                        <ul>
+                            <li>JWT token authentication</li>
+                            <li>Role-based access control</li>
+                            <li>Device provisioning</li>
+                            <li>Audit logging</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2><i class="fas fa-chart-line"></i> Monitoring and Analytics</h2>
+
+                <p>Implement comprehensive monitoring to ensure system health and extract business insights:</p>
+
+                <h3>System Monitoring</h3>
+
+                <div class="code-example">
+                    <h4>Prometheus Monitoring Configuration</h4>
+                    <pre><code class="language-yaml"># prometheus.yml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "iot_rules.yml"
+
+scrape_configs:
+  - job_name: 'iot-devices'
+    static_configs:
+      - targets: ['device-manager:3001']
+    metrics_path: /metrics
+    scrape_interval: 30s
+    
+  - job_name: 'data-processor'
+    static_configs:
+      - targets: ['data-processor:3002']
+    metrics_path: /metrics
+    
+  - job_name: 'mqtt-broker'
+    static_configs:
+      - targets: ['mqtt-exporter:9234']
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093</code></pre>
+                </div>
+
+                <h3>Business Analytics</h3>
+
+                <ul>
+                    <li><strong>Real-time dashboards:</strong> Grafana with live data visualization</li>
+                    <li><strong>Anomaly detection:</strong> Machine learning models for pattern recognition</li>
+                    <li><strong>Predictive maintenance:</strong> Forecasting equipment failures</li>
+                    <li><strong>Energy optimization:</strong> Usage pattern analysis and recommendations</li>
+                </ul>
+
+                <h2><i class="fas fa-rocket"></i> Deployment and DevOps</h2>
+
+                <p>Implement CI/CD pipelines for both cloud services and device firmware:</p>
+
+                <div class="code-example">
+                    <h4>GitHub Actions CI/CD Pipeline</h4>
+                    <pre><code class="language-yaml"># .github/workflows/iot-deployment.yml
+name: IoT System Deployment
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run tests
+      run: npm test
+    
+    - name: Run integration tests
+      run: npm run test:integration
+      
+  firmware-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PlatformIO
+      uses: EnricoMi/setup-platformio@v1
+    
+    - name: Build firmware
+      run: |
+        platformio run -e esp32
+        
+    - name: Upload firmware artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: firmware-esp32
+        path: .pio/build/esp32/firmware.bin
+        
+  deploy:
+    needs: [test, firmware-build]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Deploy to staging
+      run: |
+        docker-compose -f docker-compose.staging.yml up -d
+        
+    - name: Run smoke tests
+      run: npm run test:smoke
+      
+    - name: Deploy to production
+      if: success()
+      run: |
+        kubectl apply -f k8s/
+        kubectl rollout status deployment/iot-services</code></pre>
+                </div>
+
+                <h2><i class="fas fa-chart-bar"></i> Performance Optimization</h2>
+
+                <p>Optimize your IoT system for performance and cost efficiency:</p>
+
+                <div class="resource-links">
+                    <div class="resource-category">
+                        <h4>Edge Optimization</h4>
+                        <ul>
+                            <li>Data compression and filtering at source</li>
+                            <li>Local decision making to reduce latency</li>
+                            <li>Batch transmission to minimize network overhead</li>
+                            <li>Power management for battery-operated devices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-category">
+                        <h4>Cloud Optimization</h4>
+                        <ul>
+                            <li>Auto-scaling based on device count and data volume</li>
+                            <li>Data partitioning for improved query performance</li>
+                            <li>Caching strategies for frequently accessed data</li>
+                            <li>Cost optimization through reserved instances</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-category">
+                        <h4>Network Optimization</h4>
+                        <ul>
+                            <li>Protocol selection based on use case</li>
+                            <li>QoS configuration for critical data</li>
+                            <li>Edge computing to reduce bandwidth usage</li>
+                            <li>Compression algorithms for data transmission</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2><i class="fas fa-comments"></i> Conclusion</h2>
+
+                <p>Building scalable IoT architectures requires careful consideration of multiple factors: device design, communication protocols, data management, security, and operational concerns. Start with a clear understanding of your requirements, implement proven patterns, and design for growth from day one.</p>
+
+                <p>Remember that scalability isn't just about handling more devices—it's about maintaining performance, reliability, and security as your system grows. Invest in proper monitoring, automation, and documentation to ensure your IoT solution can evolve with your business needs.</p>
+
+                <!-- Post Tags -->
+                <div class="post-tags">
+                    <h4>Tags:</h4>
+                    <span class="tag">iot</span>
+                    <span class="tag">architecture</span>
+                    <span class="tag">esp32</span>
+                    <span class="tag">cloud</span>
+                    <span class="tag">mqtt</span>
+                    <span class="tag">scalability</span>
+                    <span class="tag">microservices</span>
+                </div>
+            </div>
+
+            <!-- Post Footer -->
+            <footer class="post-footer">
+                <div class="post-sharing">
+                    <h4>Share this article:</h4>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="#" class="share-btn facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="#" class="share-btn copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> Copy Link
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="author-bio">
+                    <img src="../../../assets/images/issam.png" alt="Issam Sayyaf" class="author-bio-avatar">
+                    <div class="author-bio-content">
+                        <h4>About Issam Sayyaf</h4>
+                        <p>IoT System Architect with extensive experience in designing and implementing scalable Internet of Things solutions. Specializes in edge computing, cloud integration, and industrial IoT applications.</p>
+                        <div class="author-social">
+                            <a href="#" class="author-social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="author-social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="author-social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </article>
+
+        <!-- Navigation to other posts -->
+        <nav class="post-navigation">
+            <a href="../deep-learning-in-practice/" class="nav-post prev">
+                <i class="fas fa-chevron-left"></i>
+                <div class="nav-post-content">
+                    <span class="nav-label">Previous Article</span>
+                    <h4>Deep Learning in Practice: From Theory to Implementation</h4>
+                </div>
+            </a>
+        </nav>
+
+        <!-- Related Posts -->
+        <section class="related-posts">
+            <h3><i class="fas fa-newspaper"></i> Related Articles</h3>
+            <div class="related-posts-grid">
+                <a href="../getting-started-with-embedded-systems/" class="related-post">
+                    <img src="../../../assets/images/stm32mp1.jpg" alt="Embedded Systems">
+                    <div class="related-post-content">
+                        <span class="related-post-category">Embedded Systems</span>
+                        <h4>Getting Started with Embedded Systems</h4>
+                        <span class="related-post-date">January 15, 2025</span>
+                    </div>
+                </a>
+                
+                <a href="../deep-learning-in-practice/" class="related-post">
+                    <img src="../../../assets/images/deep_learning.png" alt="Deep Learning">
+                    <div class="related-post-content">
+                        <span class="related-post-category">Machine Learning</span>
+                        <h4>Deep Learning in Practice</h4>
+                        <span class="related-post-date">January 10, 2025</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Blog Footer -->
+    <footer class="blog-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Issam Sayyaf. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../publications.html">Publications</a>
+                <a href="../../../projects.html">Projects</a>
+                <a href="../../../blog.html">Blog</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/post-script.js"></script>
+</body>
+</html>

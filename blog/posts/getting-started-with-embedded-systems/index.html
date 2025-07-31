@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Embedded Systems - Issam Sayyaf</title>
+    <link rel="icon" type="image/png" href="../../../assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/blog-style.css">
+    <link rel="stylesheet" href="../../assets/post-style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../../../index.html" class="logo">Issam Sayyaf</a>
+        
+        <nav class="nav-links">
+            <a href="../../../index.html" class="nav-link">Home</a>
+            <a href="../../../publications.html" class="nav-link">Publications</a>
+            <a href="../../../projects.html" class="nav-link">Projects</a>
+            <a href="../../../blog.html" class="nav-link">Blog</a>
+            <a href="../../../files/Resume.pdf" class="nav-link">Resume</a>
+        </nav>
+        
+        <div class="nav-toggle" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main class="post-container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="../../../index.html"><i class="fas fa-home"></i> Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="../../../blog.html">Blog</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Getting Started with Embedded Systems</span>
+        </nav>
+
+        <!-- Post Header -->
+        <article class="post-article">
+            <header class="post-header">
+                <div class="post-meta-top">
+                    <span class="post-category">Embedded Systems</span>
+                    <span class="post-date">
+                        <i class="fas fa-calendar"></i>
+                        January 15, 2025
+                    </span>
+                    <span class="post-read-time">
+                        <i class="fas fa-clock"></i>
+                        8 min read
+                    </span>
+                </div>
+                
+                <h1 class="post-title">Getting Started with Embedded Systems: A Comprehensive Guide</h1>
+                
+                <div class="post-meta-bottom">
+                    <div class="author-info">
+                        <img src="../../../assets/images/issam.png" alt="Issam Sayyaf" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Issam Sayyaf</span>
+                            <span class="author-title">Embedded Systems Engineer</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn" onclick="sharePost()">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="action-btn" onclick="bookmarkPost()">
+                            <i class="fas fa-bookmark"></i> Save
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="post-featured-image">
+                <img src="../../../assets/images/stm32mp1.jpg" alt="Embedded Systems Development" class="featured-img">
+                <div class="image-caption">
+                    <p>Modern embedded systems development with STM32 microcontrollers</p>
+                </div>
+            </div>
+
+            <!-- Post Content -->
+            <div class="post-content">
+                <div class="post-intro">
+                    <p class="lead">Embedded systems are everywhere around us - from the microcontroller in your coffee maker to the complex systems in modern vehicles. This comprehensive guide will walk you through the fundamentals of embedded systems development, covering both hardware and software aspects.</p>
+                </div>
+
+                <h2><i class="fas fa-microchip"></i> What are Embedded Systems?</h2>
+                
+                <p>An embedded system is a computer system with a dedicated function within a larger mechanical or electrical system. Unlike general-purpose computers, embedded systems are designed to perform specific tasks efficiently and reliably.</p>
+
+                <blockquote>
+                    <p>"Embedded systems are the invisible computers that make our modern world possible. They're specialized, efficient, and designed to do one thing really well."</p>
+                </blockquote>
+
+                <h3>Key Characteristics</h3>
+                
+                <ul>
+                    <li><strong>Real-time operation:</strong> Many embedded systems must respond to inputs within strict time constraints</li>
+                    <li><strong>Resource constraints:</strong> Limited memory, processing power, and energy</li>
+                    <li><strong>Reliability:</strong> Must operate consistently in various environmental conditions</li>
+                    <li><strong>Cost-effectiveness:</strong> Optimized for production in large quantities</li>
+                </ul>
+
+                <h2><i class="fas fa-tools"></i> Essential Hardware Components</h2>
+
+                <p>Understanding the basic hardware components is crucial for embedded systems development:</p>
+
+                <h3>Microcontrollers vs Microprocessors</h3>
+
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Microcontroller</th>
+                                <th>Microprocessor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Integration</td>
+                                <td>CPU, Memory, I/O on single chip</td>
+                                <td>CPU only, external components needed</td>
+                            </tr>
+                            <tr>
+                                <td>Cost</td>
+                                <td>Lower</td>
+                                <td>Higher</td>
+                            </tr>
+                            <tr>
+                                <td>Power Consumption</td>
+                                <td>Lower</td>
+                                <td>Higher</td>
+                            </tr>
+                            <tr>
+                                <td>Performance</td>
+                                <td>Moderate</td>
+                                <td>High</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Popular Microcontroller Families</h3>
+
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4><i class="fas fa-chip"></i> ARM Cortex-M</h4>
+                        <p>Industry standard for 32-bit microcontrollers. Great performance-to-power ratio.</p>
+                        <ul>
+                            <li>STM32 series</li>
+                            <li>Nordic nRF series</li>
+                            <li>NXP LPC series</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-chip"></i> AVR</h4>
+                        <p>8-bit microcontrollers popular in hobbyist and educational projects.</p>
+                        <ul>
+                            <li>Arduino Uno (ATmega328P)</li>
+                            <li>ATmega series</li>
+                            <li>ATtiny series</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4><i class="fas fa-chip"></i> ESP32/ESP8266</h4>
+                        <p>Wi-Fi enabled microcontrollers perfect for IoT applications.</p>
+                        <ul>
+                            <li>Built-in Wi-Fi and Bluetooth</li>
+                            <li>Low cost</li>
+                            <li>Rich development ecosystem</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2><i class="fas fa-code"></i> Programming Fundamentals</h2>
+
+                <p>Embedded programming requires understanding both the hardware and software aspects:</p>
+
+                <h3>Programming Languages</h3>
+
+                <p>The choice of programming language depends on your specific requirements:</p>
+
+                <div class="code-example">
+                    <h4>C Programming Example - LED Blink</h4>
+                    <pre><code class="language-c">#include "stm32f4xx.h"
+
+void delay(uint32_t time) {
+    while(time--);
+}
+
+int main(void) {
+    // Enable GPIOA clock
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+    
+    // Configure PA5 as output
+    GPIOA->MODER |= GPIO_MODER_MODE5_0;
+    
+    while(1) {
+        // Turn on LED
+        GPIOA->ODR |= GPIO_ODR_OD5;
+        delay(1000000);
+        
+        // Turn off LED
+        GPIOA->ODR &= ~GPIO_ODR_OD5;
+        delay(1000000);
+    }
+}</code></pre>
+                </div>
+
+                <h3>Development Tools</h3>
+
+                <ul>
+                    <li><strong>IDEs:</strong> STM32CubeIDE, Keil uVision, IAR Embedded Workbench</li>
+                    <li><strong>Debuggers:</strong> ST-Link, J-Link, USB-to-Serial adapters</li>
+                    <li><strong>Simulators:</strong> Proteus, SimulIDE for circuit simulation</li>
+                </ul>
+
+                <h2><i class="fas fa-project-diagram"></i> Your First Project</h2>
+
+                <p>Let's walk through creating a simple temperature monitoring system:</p>
+
+                <h3>Project Requirements</h3>
+                <ul>
+                    <li>Read temperature from a digital sensor (DS18B20)</li>
+                    <li>Display temperature on an LCD</li>
+                    <li>Send data via UART for logging</li>
+                    <li>Trigger alarm if temperature exceeds threshold</li>
+                </ul>
+
+                <h3>Hardware Setup</h3>
+                <p>For this project, you'll need:</p>
+                <ul>
+                    <li>STM32F4 Discovery board</li>
+                    <li>DS18B20 temperature sensor</li>
+                    <li>16x2 LCD display</li>
+                    <li>Breadboard and jumper wires</li>
+                    <li>Pull-up resistor (4.7kΩ)</li>
+                </ul>
+
+                <div class="tip-box">
+                    <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                    <p>Always start with simple projects and gradually increase complexity. Master the basics before moving to advanced features like RTOS or wireless communication.</p>
+                </div>
+
+                <h2><i class="fas fa-rocket"></i> Next Steps</h2>
+
+                <p>Once you're comfortable with basic embedded programming, consider exploring:</p>
+
+                <ol>
+                    <li><strong>Real-Time Operating Systems (RTOS)</strong> - FreeRTOS, Zephyr</li>
+                    <li><strong>Communication Protocols</strong> - SPI, I2C, UART, CAN</li>
+                    <li><strong>Low Power Design</strong> - Sleep modes, power optimization</li>
+                    <li><strong>Wireless Communication</strong> - LoRa, WiFi, Bluetooth</li>
+                    <li><strong>Safety and Security</strong> - Functional safety, secure boot</li>
+                </ol>
+
+                <h2><i class="fas fa-book"></i> Recommended Resources</h2>
+
+                <div class="resource-links">
+                    <div class="resource-category">
+                        <h4>Books</h4>
+                        <ul>
+                            <li>"Programming Embedded Systems" by Michael Barr</li>
+                            <li>"Making Embedded Systems" by Elecia White</li>
+                            <li>"The Art of Designing Embedded Systems" by Jack Ganssle</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-category">
+                        <h4>Online Courses</h4>
+                        <ul>
+                            <li>Coursera - Introduction to Embedded Systems</li>
+                            <li>edX - Embedded Systems Programming</li>
+                            <li>Udemy - Mastering Microcontroller Programming</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-category">
+                        <h4>Communities</h4>
+                        <ul>
+                            <li>EmbeddedForum.com</li>
+                            <li>Reddit r/embedded</li>
+                            <li>STM32 Community</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2><i class="fas fa-comments"></i> Conclusion</h2>
+
+                <p>Embedded systems development is a fascinating field that combines hardware knowledge with software skills. Start with simple projects, understand the fundamentals, and gradually work your way up to more complex systems. The key is consistent practice and hands-on experimentation.</p>
+
+                <p>Remember, every expert was once a beginner. Don't be afraid to make mistakes - they're an essential part of the learning process in embedded systems development.</p>
+
+                <!-- Post Tags -->
+                <div class="post-tags">
+                    <h4>Tags:</h4>
+                    <span class="tag">embedded</span>
+                    <span class="tag">microcontrollers</span>
+                    <span class="tag">programming</span>
+                    <span class="tag">hardware</span>
+                    <span class="tag">stm32</span>
+                    <span class="tag">beginners</span>
+                </div>
+            </div>
+
+            <!-- Post Footer -->
+            <footer class="post-footer">
+                <div class="post-sharing">
+                    <h4>Share this article:</h4>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn()">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="#" class="share-btn facebook" onclick="shareOnFacebook()">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="#" class="share-btn copy" onclick="copyLink()">
+                            <i class="fas fa-link"></i> Copy Link
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="author-bio">
+                    <img src="../../../assets/images/issam.png" alt="Issam Sayyaf" class="author-bio-avatar">
+                    <div class="author-bio-content">
+                        <h4>About Issam Sayyaf</h4>
+                        <p>Embedded Systems Engineer with expertise in microcontroller programming, IoT development, and system architecture. Passionate about sharing knowledge and helping others learn embedded systems development.</p>
+                        <div class="author-social">
+                            <a href="#" class="author-social-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="author-social-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="author-social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </article>
+
+        <!-- Navigation to other posts -->
+        <nav class="post-navigation">
+            <a href="../deep-learning-in-practice/" class="nav-post next">
+                <div class="nav-post-content">
+                    <span class="nav-label">Next Article</span>
+                    <h4>Deep Learning in Practice: From Theory to Implementation</h4>
+                </div>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </nav>
+
+        <!-- Related Posts -->
+        <section class="related-posts">
+            <h3><i class="fas fa-newspaper"></i> Related Articles</h3>
+            <div class="related-posts-grid">
+                <a href="../iot-project-architecture/" class="related-post">
+                    <img src="../../../assets/images/arch_esp32_iot_project.jpeg" alt="IoT Architecture">
+                    <div class="related-post-content">
+                        <span class="related-post-category">IoT</span>
+                        <h4>Building Scalable IoT Project Architecture</h4>
+                        <span class="related-post-date">January 5, 2025</span>
+                    </div>
+                </a>
+                
+                <a href="../deep-learning-in-practice/" class="related-post">
+                    <img src="../../../assets/images/deep_learning.png" alt="Deep Learning">
+                    <div class="related-post-content">
+                        <span class="related-post-category">Machine Learning</span>
+                        <h4>Deep Learning in Practice</h4>
+                        <span class="related-post-date">January 10, 2025</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Blog Footer -->
+    <footer class="blog-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Issam Sayyaf. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../../../index.html">Home</a>
+                <a href="../../../publications.html">Publications</a>
+                <a href="../../../projects.html">Projects</a>
+                <a href="../../../blog.html">Blog</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/post-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "id": "getting-started-with-embedded-systems",
+      "title": "Getting Started with Embedded Systems: A Comprehensive Guide",
+      "excerpt": "An introduction to embedded systems development, covering hardware basics, programming fundamentals, and practical project examples.",
+      "author": "Issam Sayyaf",
+      "date": "2025-01-15",
+      "category": "Embedded Systems",
+      "tags": ["embedded", "microcontrollers", "programming", "hardware"],
+      "featured": true,
+      "readTime": "8 min read",
+      "image": "assets/images/stm32mp1.jpg"
+    },
+    {
+      "id": "deep-learning-in-practice",
+      "title": "Deep Learning in Practice: From Theory to Implementation",
+      "excerpt": "Exploring practical applications of deep learning, including real-world case studies and implementation strategies.",
+      "author": "Issam Sayyaf", 
+      "date": "2025-01-10",
+      "category": "Machine Learning",
+      "tags": ["deep-learning", "ai", "neural-networks", "python"],
+      "featured": true,
+      "readTime": "12 min read",
+      "image": "assets/images/deep_learning.png"
+    },
+    {
+      "id": "iot-project-architecture",
+      "title": "Building Scalable IoT Project Architecture",
+      "excerpt": "Design patterns and best practices for creating robust and scalable Internet of Things applications.",
+      "author": "Issam Sayyaf",
+      "date": "2025-01-05",
+      "category": "IoT",
+      "tags": ["iot", "architecture", "esp32", "cloud"],
+      "featured": false,
+      "readTime": "10 min read",
+      "image": "assets/images/arch_esp32_iot_project.jpeg"
+    }
+  ],
+  "categories": [
+    "Embedded Systems",
+    "Machine Learning", 
+    "IoT",
+    "Networking",
+    "Software Development",
+    "Research"
+  ],
+  "tags": [
+    "embedded",
+    "microcontrollers",
+    "programming",
+    "hardware",
+    "deep-learning",
+    "ai",
+    "neural-networks",
+    "python",
+    "iot",
+    "architecture",
+    "esp32",
+    "cloud",
+    "networking",
+    "research"
+  ]
+}
