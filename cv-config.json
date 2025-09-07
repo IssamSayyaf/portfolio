@@ -1,0 +1,319 @@
+{
+  "personalInfo": {
+    "name": "Issam SAYYAF",
+    "title": "PhD Researcher & Embedded Systems Engineer",
+    "photo": {
+      "src": "photo.jpg",
+      "alt": "Issam SAYYAF",
+      "width": "120px",
+      "height": "150px",
+      "placeholder": {
+        "text": "Photo<br>3cm x 4cm",
+        "fontSize": "11px"
+      }
+    },
+    "contact": [
+      {
+        "icon": "fas fa-map-marker-alt",
+        "text": "Nantes, France",
+        "type": "location"
+      },
+      {
+        "icon": "fas fa-phone",
+        "text": "+33 758 120 733",
+        "type": "phone"
+      },
+      {
+        "icon": "fas fa-envelope",
+        "text": "Issamsayyaf97@gmail.com",
+        "type": "email",
+        "link": "mailto:Issamsayyaf97@gmail.com"
+      },
+      {
+        "icon": "fab fa-linkedin",
+        "text": "LinkedIn",
+        "type": "social",
+        "link": "https://linkedin.com/in/issamsayyaf"
+      },
+      {
+        "icon": "fab fa-github",
+        "text": "GitHub",
+        "type": "social",
+        "link": "https://github.com/IssamSayyaf"
+      },
+      {
+        "icon": "fas fa-globe",
+        "text": "issam-sayyaf.com",
+        "type": "website",
+        "link": "https://issam-sayyaf.com"
+      }
+    ]
+  },
+  "sections": {
+    "left": [
+      {
+        "id": "professional-summary",
+        "title": "Professional Summary",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "paragraph",
+          "text": "PhD Researcher in Deep learning for Navigation System and Embedded Systems Engineer with 4+ years expertise. Worked on +3 projects to deliver the customized Linux kernel with drivers and applications. Lover of Embedded Systems and Embedded Linux.Published 5+ peer-reviewed papers in top conferences. Expert in bridging research with practical implementation.",
+          "fontSize": "13px"
+        }
+      },
+      {
+        "id": "professional-experience",
+        "title": "Professional Experience",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "work-items",
+          "items": [
+            {
+              "title": "PhD Researcher",
+              "company": "University of Gustave Eiffel, France",
+              "period": "Nov 2023 - Nov-2026",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Developed 3+ anomaly detection algorithms using deep learning  in IMU/GNSS/5G Real time processing",
+                "• Enhanced step detection by 23% using deep learning on 10,000+ data samples across 5 environments",
+                "• Analyzed 800+ minutes of GNSS signal anomalies, identifying key patterns and trends",
+                "• Improved 5G signal detection LOS/NLOS in indoor environments."
+              ],
+              "responsibilitiesFontSize": "12px"
+            },
+            {
+              "title": "Embedded Systems Engineer",
+              "company": "Hexabitz, USA (Freelance)",
+              "period": "Jun 2023 - Present",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Developed 3+ custom Linux images using Yocto, on 3 Hardware customize platforms using stm32mp1 and i.mx93",
+                "• Implemented 10+ device drivers for peripherals (GPIO, I2C, SPI, UART, LoraWAN, Zigbee) on embedded-beramatel and linux systems"
+              ],
+              "responsibilitiesFontSize": "12px"
+            },
+            {
+              "title": "Measurement Engineer",
+              "company": "University of Calabria, Italy",
+              "period": "Oct 2022 - Oct 2023",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Designed distributed measurement systems to monitor remotely using LabVIEW and Python"
+              ],
+              "responsibilitiesFontSize": "12px"
+            },
+            {
+              "title": "Teaching Assistant",
+              "company": "University of Aleppo, Syria",
+              "period": "Sep 2020 - Aug 2021",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Conducted 50+ lab sessions for 150+ students achieving",
+                "• Working on Antenna Design (HFSS/CST), Microwave Engineering, and RF Systems courses"              ],
+              "responsibilitiesFontSize": "13px"
+            }
+          ]
+        }
+      },
+
+      {
+        "id": "key-projects",
+        "title": "Key Projects",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "project-items",
+          "items": [
+            {
+              "title": "Muzziball System",
+              "period": "2024 - 2026", 
+              "description": ["Developing an customize linux image with Yocto for STM32MP1, integrating IMU, Audio (speaker/mic), BLE, Wifi, and charging system for smart ball application",
+            "Implementing embedded C++ applications for real-time data acquisition and processing on the STM32MP1 platform"],
+
+              "titleFontSize": "13px",
+              "descriptionFontSize": "12px"
+            },
+            {
+              "title": "Truck Monitoring System",
+              "period": "2023 - 2024", 
+              "description": ["Customize linux image with Yocto for NXP .i.MX93 Platform, integrating 5G, GNSS, IMU, and CAN bus for vehicle tracking",
+                              "Provide all the device drivers for all the peripherals"],
+
+              "titleFontSize": "13px",
+              "descriptionFontSize": "12px"
+            },
+            {
+              "title": "Wireless Crack Detection System",
+              "period": "2022-2023",
+              "description": "Built anode wireless sensor network for crack detection in heritage buildings (Hardware + Firmware + Cloud Dashboard) ",
+              "titleFontSize": "13px",
+              "descriptionFontSize": "12px"
+            }
+          ]
+        }
+      },
+      {
+        "id": "publications",
+        "title": "Publications & Research Impact",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "list",
+          "items": [
+            "• Sayyaf, M.I., et al., \"Anomaly Filtering for Pedestrian Dead Reckoning,\" IEEE/ION PLANS 2025",
+            "• Sayyaf, M.I., et al. \"Step Detection Enhanced by Anomaly Filtering,\" IEEE APSCON, Jan 2025",
+            "• Sayyaf, M.I., et al. \"Wireless Crack Detection System Based on IoT,\" IEEE MetroLivEnv, May 2023",
+            "• Sayyaf, M.I., et al. \"Heart Rate Evaluation by Smartphone: An Overview,\" IEEE HealthTech, Mar 2023",
+            "• Sayyaf, M.I., et al. \"Detection and Classification of Crack for Heritage Building,\" Metro Archaeo 2022"
+          ],
+          "fontSize": "12px"
+        }
+      }
+    ],
+    "right": [
+      {
+        "id": "education",
+        "title": "Education",
+        "icon": "",
+        "fontSize": "14px",
+        "content": {
+          "type": "education-items",
+          "items": [
+            {
+              "period": "Nov 2023 - Nov-2026",
+              "degree": "PhD in Deep Learning for Navigation Systems",
+              "institution": "University of Gustave Eiffel, France",
+              "details": "Thesis: \"Anomaly Detection for Positioning Signals (IMU/GNSS/5G)\"",
+              "periodFontSize": "11px",
+              "degreeFontSize": "13px",
+              "institutionFontSize": "12px",
+              "detailsFontSize": "11px",
+              "highlight": null
+            },
+            {
+              "period": "Sep 2021 - Oct 2023",
+              "degree": "Master's in Telecommunication Engineering",
+              "institution": "University of Calabria, Italy",
+              "details": "Specialization: Smart Sensing, Computing, and Networking (110/110 cum laude)",
+              "periodFontSize": "11px",
+              "degreeFontSize": "13px",
+              "institutionFontSize": "12px",
+              "detailsFontSize": "11px",
+              "highlight": null
+            },
+            {
+              "period": "Sep 2014 - Sep 2019",
+              "degree": "Bachelor's in Electronics and Communication Engineering",
+              "institution": "University of Aleppo, Syria",
+              "details": "GPA: 88.56% with distinction",
+              "periodFontSize": "11px",
+              "degreeFontSize": "13px",
+              "institutionFontSize": "12px",
+              "detailsFontSize": "11px",
+              "highlight": null
+            }
+          ]
+        }
+      },
+      {
+        "id": "technical-skills",
+        "title": "Technical Skills",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "skill-categories",
+          "categories": [
+            {
+              "name": "🖥️ Embedded Systems (4+ years)",
+              "skills": "Embedded Linux (Yocto, Buildroot), RTOS (FreeRTOS, Zephyr), ARM Cortex-M/STM32, NXP MPU/BSP Development, Bare-metal Programming, Interrupts, Bootloader, GPIO, UART, SPI, I2C",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            },
+            {
+              "name": "🤖 AI/ML (3+ years)",
+              "skills": "Deep Learning (CNNs, LSTMs, Transformers), TinyML/Edge AI , Signal Processing , Python ML Libraries (TensorFlow, PyTorch), Autoencoders, Classification, Regression, Inference, Training",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            },
+            {
+              "name": "📡 Wireless Communication (5+ years)",
+              "skills": "5G/LTE Positioning, Wi-Fi/Bluetooth/Zigbee, LoRaWAN/IoT Protocols, GNSS/GPS Systems, RF Engineering, Antenna Design, Protocol Stack",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            },
+            {
+              "name": "💻 Programming (7+ years)",
+              "skills": "Python, C/C++, Java, LabVIEW, MATLAB, Git, Debugging",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            }
+          ]
+        }
+      },
+      {
+        "id": "languages",
+        "title": "Languages",
+        "icon": "",
+        "fontSize": "14px",
+        "content": {
+          "type": "language-items",
+          "items": [
+            {
+              "language": "English 🇺🇸",
+              "level": "Professional C1"
+              
+            },
+            {
+              "language": "French 🇫🇷",
+              "level": "Intermediate B1"
+            },
+            {
+              "language": "Arabic",
+              "level": "Native"
+            }
+          ],
+          "fontSize": "12px"
+        }
+      },
+      {
+        "id": "certifications",
+        "title": "Key Certifications & Awards",
+        "icon": "",
+        "fontSize": "14px",
+        "content": {
+          "type": "list",
+          "items": [
+            "• Yocto Project Development Certified (Bootlin, 2024)",
+            "• Kernel Development Certified (Bootlin, 2024)",
+            "• Embedded Linux Development Expert (Bootlin, 2024)",
+            "• Tiny Machine Learning (TinyML Harvard, 2024)",
+            "• Deep Learning Specialization (Coursera, 2023)",
+            "• Reinforcement Learning Specialization (Coursera, 2023)"
+          ],
+          "fontSize": "12px"
+        }
+      }
+    ]
+  },
+  "styling": {
+    "header": {
+      "nameFontSize": "16px",
+      "titleFontSize": "16px",
+      "contactFontSize": "13px"
+    },
+    "layout": {
+      "leftColumnWidth": "65%",
+      "rightColumnWidth": "35%"
+    },
+    "footer": {
+      "text": "",
+      "fontSize": "12px"
+    }
+  }
+}
