@@ -58,7 +58,7 @@
         "fontSize": "16px",
         "content": {
           "type": "paragraph",
-          "text": "PhD Researcher in Deep learning for Navigation System and Embedded Systems Engineer with 4+ years expertise. Worked on +3 projects to deliver the customized Linux kernel with drivers and applications. Lover of Embedded Systems and Embedded Linux.Published 5+ peer-reviewed papers in top conferences. Expert in bridging research with practical implementation.",
+          "text": "Embedded Systems Engineer with 4+ years of experience designing real-time solutions, developing custom Linux kernels, and implementing device drivers and applications for STM32MP1 and NXP platforms. Successfully delivered 10+ innovative projects in embedded and wireless systems. Later, as a PhD Researcher, specialized in signal processing using deep learning, publishing 5+ peer-reviewed papers and bridging advanced research with practical implementation.",
           "fontSize": "13px"
         }
       },
@@ -72,7 +72,7 @@
           "items": [
             {
               "title": "PhD Researcher",
-              "company": "University of Gustave Eiffel, France 🇫🇷",
+              "company": "University of Gustave Eiffel, France",
               "period": "Nov 2023 - Nov-2026",
               "titleFontSize": "14px",
               "companyFontSize": "13px",
@@ -85,19 +85,8 @@
               "responsibilitiesFontSize": "12px"
             },
             {
-              "title": "Researcher",
-              "company": "Fraunhofer IIS (Remotly), Germany 🇩🇪",
-              "period": "Nov 2023 - Nov-2024",
-              "titleFontSize": "14px",
-              "companyFontSize": "13px",
-              "responsibilities": [
-                " Develop anomaly detection algorithm for IMU signal  to enhance the step detection system."
-              ],
-              "responsibilitiesFontSize": "12px"
-            },
-            {
               "title": "Embedded Systems Engineer",
-              "company": "Hexabitz, USA (Freelance) 🇺🇸",
+              "company": "Hexabitz, USA (Freelance)",
               "period": "Jun 2023 - Present",
               "titleFontSize": "14px",
               "companyFontSize": "13px",
@@ -109,7 +98,7 @@
             },
             {
               "title": "Measurement Engineer",
-              "company": "University of Calabria, Italy 🇮🇹",
+              "company": "University of Calabria, Italy",
               "period": "Oct 2022 - Oct 2023",
               "titleFontSize": "14px",
               "companyFontSize": "13px",
@@ -120,7 +109,7 @@
             },
             {
               "title": "Teaching Assistant",
-              "company": "University of Aleppo, Syria  ",
+              "company": "University of Aleppo, Syria",
               "period": "Sep 2020 - Aug 2021",
               "titleFontSize": "14px",
               "companyFontSize": "13px",
@@ -198,9 +187,9 @@
           "items": [
             {
               "period": "Nov 2023 - Nov-2026",
-              "degree": "PhD in Deep Learning for Navigation Systems",
+              "degree": "PhD in Signal Processing Using Deep Learning for Navigation Systems",
               "institution": "University of Gustave Eiffel, France",
-              "details": "Thesis: \"Anomaly Detection for Positioning Signals (IMU/GNSS/5G)\"",
+              "details": "Thesis: \"Develop Anomaly Detection Algorithm Using Deep Learning for Navigation Systems (IMU/GNSS/5G)\"",
               "periodFontSize": "11px",
               "degreeFontSize": "13px",
               "institutionFontSize": "12px",
@@ -209,9 +198,9 @@
             },
             {
               "period": "Sep 2021 - Oct 2023",
-              "degree": "Master's in Telecommunication Engineering",
+              "degree": "Master's in Telecommunication Engineering and Networks",
               "institution": "University of Calabria, Italy",
-              "details": "Specialization: Smart Sensing, Computing, and Networking (110/110 cum laude)",
+              "details": "Specialization: Internet of Things (IoT), Software-Defined Networking (SDN), Wireless Networks, Sensor Development (110/110 cum laude)",
               "periodFontSize": "11px",
               "degreeFontSize": "13px",
               "institutionFontSize": "12px",
@@ -222,7 +211,7 @@
               "period": "Sep 2014 - Sep 2019",
               "degree": "Bachelor's in Electronics and Communication Engineering",
               "institution": "University of Aleppo, Syria",
-              "details": "GPA: 88.56% with distinction",
+              "details": "Telecommunication Networks, Embedded System, Wireless Communication, GPA: 88.56% with distinction",
               "periodFontSize": "11px",
               "degreeFontSize": "13px",
               "institutionFontSize": "12px",
@@ -242,7 +231,7 @@
           "categories": [
             {
               "name": "🖥️ Embedded Systems (4+ years)",
-              "skills": "Embedded Linux (Yocto, Buildroot), RTOS (FreeRTOS, Zephyr), ARM Cortex-M/STM32, NXP MPU/BSP Development, Bare-metal Programming, Interrupts, Bootloader, GPIO, UART, SPI, I2C",
+              "skills": "Embedded Linux (Yocto, Buildroot), linux kernel driver, RTOS (FreeRTOS, Zephyr), ARM Cortex-M/STM32, NXP MPU/BSP Development, Bare-metal Programming, Interrupts, Bootloader, GPIO, UART, SPI, I2C",
               "nameFontSize": "13px",
               "skillsFontSize": "12px"
             },
@@ -253,8 +242,8 @@
               "skillsFontSize": "12px"
             },
             {
-              "name": "📡 Wireless Communication (5+ years)",
-              "skills": "5G/LTE Positioning, Wi-Fi/Bluetooth/Zigbee, LoRaWAN/IoT Protocols, GNSS/GPS Systems, RF Engineering, Antenna Design, Protocol Stack",
+              "name": "📡 Wireless Communication and Networking (5+ years)",
+              "skills": "5G/LTE Positioning, Wi-Fi/Bluetooth/Zigbee, LoRaWAN/IoT Protocols, GNSS/GPS Systems, RF Engineering, Antenna Design, Protocol Stack, IP Networking, Network Simulation mininet, Software-Defined Networking (SDN), Routing Protocols, Network Security, Networking Tools (Wireshark, tcpdump)",
               "nameFontSize": "13px",
               "skillsFontSize": "12px"
             },
@@ -276,12 +265,12 @@
           "type": "language-items",
           "items": [
             {
-              "language": "English 🇺🇸",
+              "language": "English ",
               "level": "Professional C1"
               
             },
             {
-              "language": "French 🇫🇷",
+              "language": "French ",
               "level": "Intermediate B1"
             },
             {
