@@ -5,6 +5,7 @@ class BlogManager {
         this.filteredPosts = [];
         this.currentPage = 1;
         this.postsPerPage = 6;
+        this.currentCategory = '';
         this.init();
     }
 
@@ -13,8 +14,10 @@ class BlogManager {
             console.log('Initializing blog...');
             await this.loadBlogData();
             console.log('Blog data loaded successfully');
+            this.checkURLParams();
             this.setupEventListeners();
             this.populateFilters();
+            this.renderCategoryCards();
             this.renderFeaturedPosts();
             this.renderPosts();
             console.log('Blog initialization complete');
@@ -40,6 +43,26 @@ class BlogManager {
         }
     }
 
+    checkURLParams() {
+        // Check for category filter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const category = urlParams.get('category');
+        if (category) {
+            // Find the category name from slug
+            const categoryObj = this.blogData.categories.find(c => c.slug === category);
+            if (categoryObj) {
+                this.currentCategory = categoryObj.name;
+                this.handleCategoryFilter(categoryObj.name);
+
+                // Update the category filter dropdown
+                const categoryFilter = document.getElementById('categoryFilter');
+                if (categoryFilter) {
+                    categoryFilter.value = categoryObj.name;
+                }
+            }
+        }
+    }
+
     setupEventListeners() {
         // Search functionality
         const searchInput = document.getElementById('searchInput');
@@ -54,6 +77,13 @@ class BlogManager {
         if (categoryFilter) {
             categoryFilter.addEventListener('change', (e) => {
                 this.handleCategoryFilter(e.target.value);
+                // Update URL
+                const category = this.blogData.categories.find(c => c.name === e.target.value);
+                if (category) {
+                    window.history.pushState({}, '', `?category=${category.slug}`);
+                } else {
+                    window.history.pushState({}, '', window.location.pathname);
+                }
             });
         }
 
@@ -78,42 +108,80 @@ class BlogManager {
     populateFilters() {
         const categoryFilter = document.getElementById('categoryFilter');
         if (categoryFilter && this.blogData.categories) {
+            // Clear existing options except the first one
+            categoryFilter.innerHTML = '<option value="">All Categories</option>';
+
             this.blogData.categories.forEach(category => {
                 const option = document.createElement('option');
-                option.value = category;
-                option.textContent = category;
+                option.value = category.name;
+                option.textContent = category.name;
                 categoryFilter.appendChild(option);
             });
         }
     }
 
+    renderCategoryCards() {
+        const categoryGrid = document.getElementById('categoryGrid');
+        if (!categoryGrid || !this.blogData || !this.blogData.categories) return;
+
+        categoryGrid.innerHTML = '';
+
+        this.blogData.categories.forEach(category => {
+            // Count posts in this category
+            const postCount = this.blogData.posts.filter(p => p.category === category.name).length;
+
+            const card = document.createElement('div');
+            card.className = 'category-card';
+            card.onclick = () => {
+                window.location.href = `blog.html?category=${category.slug}`;
+            };
+
+            card.innerHTML = `
+                <i class="${category.icon}"></i>
+                <h3>${category.name}</h3>
+                <p>${category.description}</p>
+                <span class="post-count">${postCount} article${postCount !== 1 ? 's' : ''}</span>
+            `;
+
+            categoryGrid.appendChild(card);
+        });
+    }
+
     handleSearch(searchTerm) {
         const term = searchTerm.toLowerCase().trim();
-        
+
         if (term === '') {
-            this.filteredPosts = [...this.blogData.posts];
+            this.filteredPosts = this.currentCategory
+                ? this.blogData.posts.filter(post => post.category === this.currentCategory)
+                : [...this.blogData.posts];
         } else {
-            this.filteredPosts = this.blogData.posts.filter(post => 
+            let basePosts = this.currentCategory
+                ? this.blogData.posts.filter(post => post.category === this.currentCategory)
+                : this.blogData.posts;
+
+            this.filteredPosts = basePosts.filter(post =>
                 post.title.toLowerCase().includes(term) ||
                 post.excerpt.toLowerCase().includes(term) ||
                 post.category.toLowerCase().includes(term) ||
                 post.tags.some(tag => tag.toLowerCase().includes(term))
             );
         }
-        
+
         this.currentPage = 1;
         this.renderPosts();
     }
 
     handleCategoryFilter(category) {
+        this.currentCategory = category;
+
         if (category === '') {
             this.filteredPosts = [...this.blogData.posts];
         } else {
-            this.filteredPosts = this.blogData.posts.filter(post => 
+            this.filteredPosts = this.blogData.posts.filter(post =>
                 post.category === category
             );
         }
-        
+
         this.currentPage = 1;
         this.renderPosts();
     }
@@ -135,19 +203,19 @@ class BlogManager {
     renderFeaturedPosts() {
         const featuredGrid = document.getElementById('featuredGrid');
         const featuredSection = document.getElementById('featuredPosts');
-        
+
         if (!featuredGrid || !this.blogData) return;
 
         const featuredPosts = this.blogData.posts.filter(post => post.featured);
-        
+
         if (featuredPosts.length === 0) {
-            featuredSection.style.display = 'none';
+            if (featuredSection) featuredSection.style.display = 'none';
             return;
         }
 
         // Clear any existing content (including fallback)
         featuredGrid.innerHTML = '';
-        
+
         featuredPosts.forEach((post, index) => {
             const postCard = this.createPostCard(post, true);
             postCard.style.animationDelay = `${index * 0.1}s`;
@@ -159,27 +227,27 @@ class BlogManager {
         const postsGrid = document.getElementById('postsGrid');
         const loadMoreBtn = document.getElementById('loadMoreBtn');
         const noResults = document.getElementById('noResults');
-        
+
         if (!postsGrid) return;
 
         // Show/hide no results message
         if (this.filteredPosts.length === 0) {
             postsGrid.innerHTML = '';
-            noResults.style.display = 'block';
-            loadMoreBtn.style.display = 'none';
+            if (noResults) noResults.style.display = 'block';
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
             return;
         } else {
-            noResults.style.display = 'none';
+            if (noResults) noResults.style.display = 'none';
         }
 
         // Calculate posts to show
         const startIndex = 0;
         const endIndex = this.currentPage * this.postsPerPage;
         const postsToShow = this.filteredPosts.slice(startIndex, endIndex);
-        
+
         // Clear and populate posts (including fallback content)
         postsGrid.innerHTML = '';
-        
+
         postsToShow.forEach((post, index) => {
             const postCard = this.createPostCard(post, false);
             postCard.style.animationDelay = `${index * 0.1}s`;
@@ -187,22 +255,30 @@ class BlogManager {
         });
 
         // Show/hide load more button
-        if (endIndex < this.filteredPosts.length) {
-            loadMoreBtn.style.display = 'block';
-        } else {
-            loadMoreBtn.style.display = 'none';
+        if (loadMoreBtn) {
+            if (endIndex < this.filteredPosts.length) {
+                loadMoreBtn.style.display = 'block';
+            } else {
+                loadMoreBtn.style.display = 'none';
+            }
         }
     }
 
     createPostCard(post, isFeatured = false) {
         const card = document.createElement('div');
         card.className = `post-card fade-in-up ${isFeatured ? 'featured' : ''}`;
-        card.onclick = () => this.openPost(post.id);
+        card.onclick = () => this.openPost(post);
 
         const formattedDate = this.formatDate(post.date);
-        
+
+        // Handle image path
+        let imagePath = post.image;
+        if (!imagePath.startsWith('http') && !imagePath.startsWith('/')) {
+            imagePath = imagePath;
+        }
+
         card.innerHTML = `
-            <img src="${post.image}" alt="${post.title}" class="post-image" onerror="this.src='assets/images/background.png'">
+            <img src="${imagePath}" alt="${post.title}" class="post-image" onerror="this.src='assets/images/background.png'">
             <div class="post-content">
                 <span class="post-category">${post.category}</span>
                 <h3 class="post-title">${post.title}</h3>
@@ -236,9 +312,10 @@ class BlogManager {
         return new Date(dateString).toLocaleDateString('en-US', options);
     }
 
-    openPost(postId) {
-        // Check if post folder exists, if not, show coming soon message
-        window.location.href = `blog/posts/${postId}/index.html`;
+    openPost(post) {
+        // Use the path from the post data
+        const path = post.path || `blog/posts/${post.id}/`;
+        window.location.href = path + 'index.html';
     }
 
     showError(message) {
@@ -287,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
         img.addEventListener('load', function() {
             this.style.opacity = '1';
         });
-        
+
         img.addEventListener('error', function() {
             this.src = './assets/images/background.png';
         });

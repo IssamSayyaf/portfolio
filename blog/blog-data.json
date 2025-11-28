@@ -1,51 +1,132 @@
 {
   "posts": [
     {
+      "id": "getting-started-with-zephyr-rtos",
+      "title": "Getting Started with Zephyr RTOS: A Complete Guide",
+      "excerpt": "Learn how to set up Zephyr RTOS, create your first project, and understand the fundamentals of this powerful real-time operating system for embedded devices.",
+      "author": "Issam Sayyaf",
+      "authorTitle": "PhD Researcher & Embedded Systems Engineer",
+      "date": "2025-01-20",
+      "category": "Zephyr OS",
+      "categorySlug": "zephyr-os",
+      "tags": ["zephyr", "rtos", "embedded", "nrf52", "stm32"],
+      "featured": true,
+      "readTime": "15 min read",
+      "image": "assets/images/stm32mp1.jpg",
+      "imageCaption": "Zephyr RTOS running on embedded hardware",
+      "type": "markdown",
+      "path": "blog/posts/zephyr-os/getting-started-with-zephyr-rtos/"
+    },
+    {
       "id": "getting-started-with-embedded-systems",
       "title": "Getting Started with Embedded Systems: A Comprehensive Guide",
       "excerpt": "An introduction to embedded systems development, covering hardware basics, programming fundamentals, and practical project examples.",
       "author": "Issam Sayyaf",
+      "authorTitle": "Embedded Systems Engineer",
       "date": "2025-01-15",
       "category": "Embedded Systems",
+      "categorySlug": "embedded-systems",
       "tags": ["embedded", "microcontrollers", "programming", "hardware"],
       "featured": true,
       "readTime": "8 min read",
-      "image": "assets/images/stm32mp1.jpg"
+      "image": "assets/images/stm32mp1.jpg",
+      "imageCaption": "Modern embedded systems development with STM32 microcontrollers",
+      "type": "html",
+      "path": "blog/posts/getting-started-with-embedded-systems/"
+    },
+    {
+      "id": "deep-learning-fundamentals",
+      "title": "Deep Learning Fundamentals: Neural Networks Explained",
+      "excerpt": "Understand the core concepts of deep learning, from perceptrons to convolutional neural networks, with practical examples and code implementations.",
+      "author": "Issam Sayyaf",
+      "authorTitle": "PhD Researcher",
+      "date": "2025-01-18",
+      "category": "Deep Learning",
+      "categorySlug": "deep-learning",
+      "tags": ["deep-learning", "neural-networks", "python", "tensorflow"],
+      "featured": true,
+      "readTime": "12 min read",
+      "image": "assets/images/deep_learning.png",
+      "imageCaption": "Neural network architecture visualization",
+      "type": "markdown",
+      "path": "blog/posts/deep-learning/deep-learning-fundamentals/"
     },
     {
       "id": "deep-learning-in-practice",
       "title": "Deep Learning in Practice: From Theory to Implementation",
       "excerpt": "Exploring practical applications of deep learning, including real-world case studies and implementation strategies.",
-      "author": "Issam Sayyaf", 
+      "author": "Issam Sayyaf",
+      "authorTitle": "PhD Researcher",
       "date": "2025-01-10",
-      "category": "Machine Learning",
+      "category": "Deep Learning",
+      "categorySlug": "deep-learning",
       "tags": ["deep-learning", "ai", "neural-networks", "python"],
-      "featured": true,
+      "featured": false,
       "readTime": "12 min read",
-      "image": "assets/images/deep_learning.png"
+      "image": "assets/images/deep_learning.png",
+      "imageCaption": "Deep learning model training process",
+      "type": "html",
+      "path": "blog/posts/deep-learning-in-practice/"
     },
     {
       "id": "iot-project-architecture",
       "title": "Building Scalable IoT Project Architecture",
       "excerpt": "Design patterns and best practices for creating robust and scalable Internet of Things applications.",
       "author": "Issam Sayyaf",
+      "authorTitle": "Embedded Systems Engineer",
       "date": "2025-01-05",
       "category": "IoT",
+      "categorySlug": "iot",
       "tags": ["iot", "architecture", "esp32", "cloud"],
       "featured": false,
       "readTime": "10 min read",
-      "image": "assets/images/arch_esp32_iot_project.jpeg"
+      "image": "assets/images/arch_esp32_iot_project.jpeg",
+      "imageCaption": "ESP32 IoT project architecture diagram",
+      "type": "html",
+      "path": "blog/posts/iot-project-architecture/"
     }
   ],
   "categories": [
-    "Embedded Systems",
-    "Machine Learning", 
-    "IoT",
-    "Networking",
-    "Software Development",
-    "Research"
+    {
+      "name": "Zephyr OS",
+      "slug": "zephyr-os",
+      "description": "Articles about Zephyr Real-Time Operating System",
+      "icon": "fas fa-microchip"
+    },
+    {
+      "name": "Deep Learning",
+      "slug": "deep-learning",
+      "description": "Machine learning and neural network tutorials",
+      "icon": "fas fa-brain"
+    },
+    {
+      "name": "Embedded Systems",
+      "slug": "embedded-systems",
+      "description": "Microcontroller programming and hardware",
+      "icon": "fas fa-microchip"
+    },
+    {
+      "name": "IoT",
+      "slug": "iot",
+      "description": "Internet of Things projects and tutorials",
+      "icon": "fas fa-wifi"
+    },
+    {
+      "name": "Networking",
+      "slug": "networking",
+      "description": "Network protocols and SDN topics",
+      "icon": "fas fa-network-wired"
+    },
+    {
+      "name": "Research",
+      "slug": "research",
+      "description": "Academic research and publications",
+      "icon": "fas fa-flask"
+    }
   ],
   "tags": [
+    "zephyr",
+    "rtos",
     "embedded",
     "microcontrollers",
     "programming",
@@ -54,10 +135,13 @@
     "ai",
     "neural-networks",
     "python",
+    "tensorflow",
     "iot",
     "architecture",
     "esp32",
     "cloud",
+    "nrf52",
+    "stm32",
     "networking",
     "research"
   ]
