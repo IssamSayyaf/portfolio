@@ -313,9 +313,14 @@ class BlogManager {
     }
 
     openPost(post) {
-        // Use the path from the post data
-        const path = post.path || `blog/posts/${post.id}/`;
-        window.location.href = path + 'index.html';
+        // For markdown posts, use the dynamic post viewer
+        // For HTML posts (legacy), use the direct path
+        if (post.type === 'markdown') {
+            window.location.href = `blog/post.html?id=${post.id}`;
+        } else {
+            const path = post.path || `blog/posts/${post.id}/`;
+            window.location.href = path + 'index.html';
+        }
     }
 
     showError(message) {
