@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Publications - Issam Sayyaf</title>
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <style>
+        html {
+            zoom: 1.0;
+            -moz-transform: scale(1.0);
+            -moz-transform-origin: 0 0;
+        }
+        
+        /* ...existing global styles... */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+        nav a.active, nav a:hover {
+            color: #0066cc;
+        }
+        main {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 800px;
+            border: none;
+        }
+        .project {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .project:last-child {
+            border-bottom: none;
+        }
+        
+        .project-image {
+            margin: 20px 0;
+        }
+        
+        .project-description p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .project-link {
+            margin-top: 20px;
+        }
+        
+        .project-link a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        
+        .project-link a:hover {
+            background-color: #0055aa;
+        }
+        
+        .project-link i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="index.html" class="logo">Issam Sayyaf</a>
+            <nav>
+            <a href="index.html">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+            <!-- <a href="projects.html" class="nav-link">Projects</a>
+            <a href="cv.html" class="nav-link" target="_blank">Resume</a> -->
+            </nav>
+        </header>
+
+        <main>
+            <h1 class="page-title">Deep Learning Projects</h1>
+
+            <div class="project">
+                <h2>Robust SmartStep: Anomaly Filtering for Pedestrian Dead Reckoning</h2>
+                
+                <div class="project-image" style="text-align: center;">
+                    <img src="assets/images/step_detection_comparison.png" alt="Step Detection Comparison" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div class="project-description">
+                    <p>A novel approach to improve step detection in Pedestrian Dead Reckoning (PDR) systems using deep learning-based anomaly filtering. This project focuses on enhancing the accuracy of step detection by distinguishing between genuine walking signals and mimic walking signals.</p>
+                    
+                    <p>Key Features:</p>
+                    <ul>
+                        <li>Advanced anomaly detection using segment-based autoencoders</li>
+                        <li>Real-time processing of IMU data for step detection</li>
+                        <li>Improved PDR accuracy through filtered step detection</li>
+                        <li>Robust handling of various walking patterns and anomalies</li>
+                        <li>Integration with existing positioning systems</li>
+                    </ul>
+
+                    <p>Technical Implementation:</p>
+                    <ul>
+                        <li>Deep learning architecture:
+                            <ul>
+                                <li>Segment-based autoencoder for anomaly detection</li>
+                                <li>Custom loss functions for optimal performance</li>
+                                <li>Real-time inference capabilities</li>
+                            </ul>
+                        </li>
+                        <li>Signal processing:
+                            <ul>
+                                <li>IMU data preprocessing and feature extraction</li>
+                                <li>Time-series analysis of walking patterns</li>
+                                <li>Integration with PDR algorithms</li>
+                            </ul>
+                        </li>
+                        <li>Performance evaluation:
+                            <ul>
+                                <li>Extensive testing with various walking scenarios</li>
+                                <li>Comparison with traditional step detection methods</li>
+                                <li>Quantitative analysis of positioning accuracy</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p>The project demonstrates significant improvements in PDR accuracy by effectively filtering out anomalous signals that could lead to incorrect step detection. This work has been published at the IEEE/ION Position, Location and Navigation Symposium (PLANS) 2025 in Utah, USA.</p>
+
+                    <p>Publication:</p>
+                    <ul>
+                        <li>Sayyaf, M. I., Zhu, N., & Renaudin, V. (2025). Advanced Step Detection with Anomaly Filtering for Enhanced Positioning Accuracy. <i>Proceedings of the 2025 IEEE/ION Position, Location and Navigation Symposium (PLANS)</i>, Utah, USA.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-link">
+                    <a href="https://gitlab.univ-eiffel.fr/issam/robust-smartstep" target="_blank">
+                        <i class="fab fa-gitlab"></i> View on GitLab
+                    </a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h2>RSNA Breast Cancer Detection</h2>
+                
+                <div class="project-image" style="text-align: center;">
+                    <img src="assets/images/CNN.png" alt="RSNA Breast Cancer Detection" style="width: 50%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div class="project-description">
+                    <p>Breast cancer is a significant cause of cancer-related fatalities among women globally. Timely detection of breast cancer is critical for successful treatment and improved survival rates. In recent times, deep learning techniques have emerged as promising tools for detecting breast cancer from medical images, including mammograms.</p>
+                    
+                    <p>The RSNA Breast Cancer Detection competition, hosted on Kaggle, serves as an important initiative to foster the development of machine learning models for breast cancer detection. Participants are provided with a dataset of mammogram images, accompanied by labels indicating the presence or absence of breast cancer. The primary challenge is to create deep learning models capable of accurately detecting breast cancer from these mammogram images.</p>
+                    
+                    <p>In this report, we embark on an exploration of the RSNA Breast Cancer Detection competition, where we will closely examine the approaches and techniques employed by the top-performing models. Our objective is to gain valuable insights into the best practices for utilizing deep learning methods in breast cancer detection and understand the advancements made in this critical field.</p>
+                </div>
+                
+                <div class="project-link">
+                    <a href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h2>Contradictory Text Analysis NLP Deep Learning</h2>
+                
+                <div class="project-image" style="text-align: center;">
+                    <img src="assets/images/BERT.png" alt="Contradictory Text Analysis NLP Deep Learning" style="width: 50%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+                
+                <div class="project-description">
+                    <p>We are conducting a classification task on pairs of sentences, which consist of a premise and a hypothesis. The task involves categorizing each pair into one of three categories - entailment, contradiction, or neutral.</p>
+
+                    <p>To illustrate this, let's consider an example using the following premise: "He came, he opened the door and I remember looking back and seeing the expression on his face, and I could tell that he was disappointed."</p>
+
+                    <p>For the first hypothesis, "Just by the look on his face when he came through the door I just knew that he was let down," we can infer that it is true based on the information in the premise. Therefore, this pair is related by entailment.</p>
+
+                    <p>For the second hypothesis, "He was trying not to make us feel guilty but we knew we had caused him trouble," we cannot reach a conclusion based on the information in the premise. Thus, this relationship is neutral.</p>
+
+                    <p>For the third hypothesis, "He was so excited and bursting with joy that he practically knocked the door off its frame," we know that it is untrue as it contradicts the information in the premise. Hence, this pair is related by contradiction.</p>
+
+                    <p>The dataset contains premise-hypothesis pairs in fifteen different languages, namely Arabic, Bulgarian, Chinese, German, Greek, English, Spanish, French, Hindi, Russian, Swahili, Thai, Turkish, Urdu, and Vietnamese. We are interested only with the English pairs.</p>
+                </div>
+                
+                <div class="project-link">
+                    <a href="https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-" target="_blank">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
+

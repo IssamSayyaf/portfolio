@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Issam Sayyaf - Portfolio</title>
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            zoom: 1.0;
+            -moz-transform: scale(1.0);
+            -moz-transform-origin: 0 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #2c3e50;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            transform-origin: top left;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-link:hover {
+            color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Updated profile container with more prominent background */
+        .profile-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            padding-top: 180px; /* Increased top padding to allow more background visibility */
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        /* Larger background image behind the profile */
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 250px; /* Increased height of the background area */
+            background: url('./assets/images/background.png') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        /* Move profile image down slightly to show more background */
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            border: 5px solid white; /* Optional: adds a white border around the image */
+            margin-top: -50px; /* Pull the image up slightly to overlap with background */
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #455a64;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center; /* centers the social links */
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            color: #455a64;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+        }
+
+        /* Section styles */
+        .section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1565C0;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            transition: width 0.8s ease;
+        }
+
+        .section.visible .section-title::after {
+            width: 100%;
+        }
+
+        .section-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .section-image {
+            width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-image:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0D47A1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @media (max-width: 968px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 250px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-image {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        /* Last News Slider Styles */
+        #last-news {
+            position: relative;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            height: 100px;
+            margin: 20px 0;
+        }
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .slide.active {
+            display: block;
+        }
+
+        /* Academic Cards Styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 280px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            color: #1565C0;
+        }
+        .card p {
+            font-size: 0.95rem;
+            padding: 0 15px 15px;
+            color: #455a64;
+        }
+
+        /* Updated Last News Slider Styles */
+        .news-slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 250px; /* adjust height as needed */
+        }
+        .news-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .news-slide.active {
+            opacity: 1;
+        }
+        .news-slide .news-text {
+            flex: 1;
+            order: 1;
+            text-align: left;
+        }
+        .news-slide img {
+            width: 250px;
+            margin-left: 20px;
+            border-radius: 10px;
+            order: 2;
+        }
+
+        /* Academic Excellence Cards - vertically stacked full-width with image beside text */
+        .academic-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        }
+      .academic-container .card {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          overflow: hidden;
+          transition: transform 0.3s ease;
+      }
+      .academic-container .card:hover {
+          transform: translateY(-5px);
+      }
+      .academic-container .card .card-content {
+          flex: 1;
+          text-align: left;
+          padding: 20px;
+          order: 1;
+      }
+      .academic-container .card img {
+      width: 200px; /* Increased size */
+      height: 200px;
+      object-fit: cover;
+      order: 2;
+      margin-left: 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-left: 1px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+        /* Project card styles */
+        .project-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            height: auto;
+            padding: 15px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 2;
+        }
+        
+        .category-tag {
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+        }
+        
+        .card-description {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+            margin: 10px 0;
+            text-align: left;
+        }
+        
+        .card-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        
+        .keyword {
+            background: rgba(33, 150, 243, 0.1);
+            color: #1565C0;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+        
+        /* Update card container to accommodate larger cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            width: 380px;
+            min-height: 500px;
+            overflow: visible;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(33, 150, 243, 0.1);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+            margin-top: 25px;
+            border-radius: 15px;
+            margin: 20px 15px 0 15px;
+            width: calc(100% - 30px);
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 15px;
+            color: #1565C0;
+            padding: 0 15px;
+            font-weight: 600;
+        }
+        
+        /* Enhanced project card styles */
+        .project-card {
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            height: auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(33, 150, 243, 0.2);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+        
+        .card-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 2;
+        }
+        
+        .category-tag {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+            margin: 15px 0;
+            text-align: left;
+            padding: 0 5px;
+            font-weight: 400;
+        }
+        
+        .card-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+            justify-content: center;
+            padding: 0 10px;
+        }
+        
+        .keyword {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(33, 150, 243, 0.08));
+            color: #1565C0;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .keyword:hover {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 0.1));
+            transform: translateY(-2px);
+        }
+        
+        .project-details {
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .project-detail-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .project-detail-card h3 {
+            color: #1565C0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .project-detail-card ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .project-detail-card li {
+            margin-bottom: 8px;
+        }
+        
+        .close-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: #1976D2;
+        }
+
+        /* Add these media queries after your existing styles */
+
+        /* Base styles for larger screens */
+        .section-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tablet styles */
+        @media (max-width: 1024px) {
+            body {
+                padding: 15px;
+            }
+
+            .section-content {
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .section-image {
+                width: 300px;
+            }
+
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .news-slide img {
+                width: 200px;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section-content {
+                flex-direction: column;
+            }
+
+            .section-image {
+                width: 100%;
+                max-width: 300px;
+                order: -1; /* Makes image appear before text on mobile */
+            }
+
+            .text-content {
+                text-align: left;
+            }
+
+            .news-slide {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            .news-slide img {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 0 15px 0;
+                order: -1;
+            }
+
+            .news-slider {
+                height: auto;
+                min-height: 350px;
+            }
+
+            .profile-container {
+                padding: 20px;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Small mobile styles */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .social-link {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .section-content {
+                padding: 15px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .section-content {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .profile-container {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Issam Sayyaf</a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="cv.html" class="nav-link">CV</a>
+        </nav>
+    </header>
+
+    <!-- Updated profile section: image centered above info -->
+    <div class="profile-container">
+        <img src="./assets/images/issam.png" alt="Issam Sayyaf" class="profile-image"/>
+        <div class="profile-content">
+            <h1 class="name">Issam Sayyaf</h1>
+            <h2 class="title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
+            <div class="social-links">
+                <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Last News Section with fade animation -->
+    <section class="section" id="last-news">
+        <h2 class="section-title">Last News</h2>
+        <div class="news-slider">
+            <div class="news-slide active">
+                <img src="./assets/images/geoloc1.png" alt="IPIN Conference">
+                <div class="news-text">
+                    <h3>News 1</h3>
+                    <p>Attending IPIN 2025 Conference in Tampere, Finland to present research on indoor positioning and navigation systems.</p>
+                </div>
+            </div>
+            <div class="news-slide">
+                <img src="./assets/images/geoloc1.png" alt="ION PLANS">
+                <div class="news-text">
+                    <h3>News 2</h3>
+                    <p>New publication accepted at an ION PLANS IEEE.</p>
+                </div>
+            </div>
+            <div class="news-slide">
+                <img src="./assets/images/APSCON.svg" alt="APSCON Conference">
+                <div class="news-text">
+                    <h3>News 3</h3>
+                    <p>New publication accepted at an IEEE conference APSCON "Step Detection Enhanced by Anomaly Filtering".</p>
+                </div>
+            </div>
+            <div class="news-slide">
+                <img src="./assets/images/geoloc1.png" alt="PhD Start">
+                <div class="news-text">
+                    <h3>News 4</h3>
+                    <p>Started my PhD position at GEOLOC Lab.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Embedded Yocto Projects Section -->
+    <section class="section" id="yocto-projects">
+        <h2 class="section-title">Embedded Projects</h2>
+        <div class="card-container">
+            <!-- Project 1: Muzziball Custom OS Development -->
+            <div class="card project-card" onclick="toggleProjectDetails('muzziball')">
+                <div class="card-category">
+                    <span class="category-tag">Embedded Linux</span>
+                    <span class="category-tag">Yocto Project</span>
+                </div>
+                <img src="assets/images/stm32mp1.jpg" alt="Muzziball Custom OS" />
+                <h3>Muzziball Custom OS Development</h3>
+                <p class="card-description">A custom Linux-based operating system built using Yocto Project for the Muzziball device, integrating hardware components and providing a robust foundation for advanced features.</p>
+                <div class="card-keywords">
+                    <span class="keyword">STM32MP1</span>
+                    <span class="keyword">BSP</span>
+                    <span class="keyword">WiFi/BLE</span>
+                    <span class="keyword">ALSA Audio</span>
+                </div>
+            </div>
+            
+            <!-- Project 2: Automotive Embedded System -->
+            <div class="card project-card" onclick="toggleProjectDetails('automotive')">
+                <div class="card-category">
+                    <span class="category-tag">Embedded Linux</span>
+                    <span class="category-tag">Automotive</span>
+                </div>
+                <img src="assets/images/airbox.jpeg" alt="Airbox Automotive System" />
+                <h3>Automotive Embedded System</h3>
+                <p class="card-description">A comprehensive automotive embedded system combining STM32MP1 and i.MX93 processors, providing a robust platform for modern vehicle applications with real-time processing capabilities.</p>
+                <div class="card-keywords">
+                    <span class="keyword">STM32MP1/i.MX93</span>
+                    <span class="keyword">4G LTE</span>
+                    <span class="keyword">GPS</span>
+                    <span class="keyword">Real-time</span>
+                </div>
+            </div>
+
+            <!-- Project 3: Muzziball Smart Interactive Ball -->
+            <div class="card project-card" onclick="toggleProjectDetails('muzziball-smart')">
+                <div class="card-category">
+                    <span class="category-tag">Embedded Systems</span>
+                    <span class="category-tag">IoT</span>
+                </div>
+                <img src="assets/images/Muzziball.jpg" alt="Muzziball Smart Interactive Ball" />
+                <h3>Muzziball Smart Interactive Ball</h3>
+                <p class="card-description">A sophisticated embedded system project that combines hardware and software to create an interactive ball with multiple sensors, actuators, and real-time data processing capabilities.</p>
+                <div class="card-keywords">
+                    <span class="keyword">IMU</span>
+                    <span class="keyword">RGB LED</span>
+                    <span class="keyword">Motion Control</span>
+                    <span class="keyword">Real-time</span>
+                </div>
+            </div>
+
+            <!-- Project 4: Wireless Crack Detection System -->
+            <div class="card project-card" onclick="toggleProjectDetails('crack-detection')">
+                <div class="card-category">
+                    <span class="category-tag">IoT</span>
+                    <span class="category-tag">Signal Processing</span>
+                </div>
+                <img src="assets/images/architecture with server.jpg" alt="Wireless Crack Detection System" />
+                <h3>Wireless Crack Detection System</h3>
+                <p class="card-description">A sophisticated real-time crack detection system combining Acoustic Emission technology with IoT capabilities for infrastructure monitoring and structural health assessment.</p>
+                <div class="card-keywords">
+                    <span class="keyword">Acoustic Emission</span>
+                    <span class="keyword">MQTT</span>
+                    <span class="keyword">GPS</span>
+                    <span class="keyword">Node-RED</span>
+                </div>
+            </div>
+
+            <!-- Project 5: Secure IoT System with AWS Integration -->
+            <div class="card project-card" onclick="toggleProjectDetails('aws-iot')">
+                <div class="card-category">
+                    <span class="category-tag">IoT Security</span>
+                    <span class="category-tag">Cloud Computing</span>
+                </div>
+                <img src="assets/images/arch_esp32_iot_project.jpeg" alt="Secure IoT System with AWS" />
+                <h3>Secure IoT System with AWS Integration</h3>
+                <p class="card-description">A comprehensive IoT security project implementing robust security measures throughout the IoT pipeline while providing intuitive monitoring and control interfaces.</p>
+                <div class="card-keywords">
+                    <span class="keyword">ESP32</span>
+                    <span class="keyword">AWS IoT Core</span>
+                    <span class="keyword">SSL/TLS</span>
+                    <span class="keyword">DynamoDB</span>
+                </div>
+            </div>
+
+            <!-- Project 6: Smart Home IoT System -->
+            <div class="card project-card" onclick="toggleProjectDetails('smart-home')">
+                <div class="card-category">
+                    <span class="category-tag">IoT</span>
+                    <span class="category-tag">Android</span>
+                </div>
+                <img src="assets/images/home.jpeg" alt="Smart Home IoT System" />
+                <h3>Smart Home IoT System with Android Control</h3>
+                <p class="card-description">A comprehensive smart home automation system featuring Android application interface, ESP32-based hardware control, and Firebase cloud integration for secure access.</p>
+                <div class="card-keywords">
+                    <span class="keyword">Android</span>
+                    <span class="keyword">ESP32</span>
+                    <span class="keyword">Firebase</span>
+                    <span class="keyword">HVAC Control</span>
+                </div>
+            </div>
+
+            <!-- Project 7: Free Space Optical Communication -->
+            <div class="card project-card" onclick="toggleProjectDetails('optical-comm')">
+                <div class="card-category">
+                    <span class="category-tag">Optical Communication</span>
+                    <span class="category-tag">Security</span>
+                </div>
+                <img src="assets/images/electromagntic.png" alt="Free Space Optical Communication System" />
+                <h3>Free Space Optical Communication System</h3>
+                <p class="card-description">A comprehensive study and implementation of secure free space optical communication using LASER technology and AES encryption with theoretical analysis and practical implementation.</p>
+                <div class="card-keywords">
+                    <span class="keyword">LASER</span>
+                    <span class="keyword">AES Encryption</span>
+                    <span class="keyword">MATLAB</span>
+                    <span class="keyword">Optisystem</span>
+                </div>
+            </div>
+
+            <!-- Project 8: Robust SmartStep -->
+            <div class="card project-card" onclick="toggleProjectDetails('robust-smartstep')">
+                <div class="card-category">
+                    <span class="category-tag">Deep Learning</span>
+                    <span class="category-tag">Signal Processing</span>
+                </div>
+                <img src="assets/images/step_detection_comparison.png" alt="Robust SmartStep Anomaly Filtering" />
+                <h3>Robust SmartStep: Anomaly Filtering for PDR</h3>
+                <p class="card-description">A novel approach to improve step detection in Pedestrian Dead Reckoning systems using deep learning-based anomaly filtering to distinguish genuine walking signals from anomalies.</p>
+                <div class="card-keywords">
+                    <span class="keyword">Autoencoder</span>
+                    <span class="keyword">IMU</span>
+                    <span class="keyword">PDR</span>
+                    <span class="keyword">Anomaly Detection</span>
+                </div>
+            </div>
+
+            <!-- Project 9: RSNA Breast Cancer Detection -->
+            <div class="card project-card" onclick="toggleProjectDetails('breast-cancer')">
+                <div class="card-category">
+                    <span class="category-tag">Deep Learning</span>
+                    <span class="category-tag">Medical AI</span>
+                </div>
+                <img src="assets/images/CNN.png" alt="RSNA Breast Cancer Detection" />
+                <h3>RSNA Breast Cancer Detection</h3>
+                <p class="card-description">Deep learning models for breast cancer detection from mammogram images, developed for the RSNA competition on Kaggle to improve early detection and survival rates.</p>
+                <div class="card-keywords">
+                    <span class="keyword">CNN</span>
+                    <span class="keyword">Mammography</span>
+                    <span class="keyword">Medical Imaging</span>
+                    <span class="keyword">Kaggle</span>
+                </div>
+            </div>
+
+            <!-- Project 10: Contradictory Text Analysis -->
+            <div class="card project-card" onclick="toggleProjectDetails('text-analysis')">
+                <div class="card-category">
+                    <span class="category-tag">NLP</span>
+                    <span class="category-tag">Deep Learning</span>
+                </div>
+                <img src="assets/images/BERT.png" alt="Contradictory Text Analysis NLP" />
+                <h3>Contradictory Text Analysis NLP</h3>
+                <p class="card-description">Classification of premise-hypothesis pairs into entailment, contradiction, or neutral categories using advanced NLP techniques and BERT-based models for multilingual text analysis.</p>
+                <div class="card-keywords">
+                    <span class="keyword">BERT</span>
+                    <span class="keyword">NLP</span>
+                    <span class="keyword">Classification</span>
+                    <span class="keyword">Multilingual</span>
+                </div>
+            </div>
+
+            <!-- Project 11: Dijkstra and Bellman-Ford RYU Controller -->
+            <div class="card project-card" onclick="toggleProjectDetails('sdn-routing')">
+                <div class="card-category">
+                    <span class="category-tag">SDN</span>
+                    <span class="category-tag">Networking</span>
+                </div>
+                <img src="assets/images/sdn.png" alt="SDN Topology" />
+                <h3>Dijkstra and Bellman-Ford RYU Controller</h3>
+                <p class="card-description">An advanced Software-Defined Networking project implementing both Dijkstra and Bellman-Ford shortest-path algorithms using the RYU controller for optimal network routing.</p>
+                <div class="card-keywords">
+                    <span class="keyword">RYU Controller</span>
+                    <span class="keyword">OpenFlow</span>
+                    <span class="keyword">Mininet</span>
+                    <span class="keyword">NetworkX</span>
+                </div>
+            </div>
+
+            <!-- Project 12: Load Balancing for Face Recognition -->
+            <div class="card project-card" onclick="toggleProjectDetails('wireless-loadbalancing')">
+                <div class="card-category">
+                    <span class="category-tag">Wireless Networks</span>
+                    <span class="category-tag">Load Balancing</span>
+                </div>
+                <img src="assets/images/sdn1.png" alt="Wireless Network Topology" />
+                <h3>Load Balancing for Face Recognition Video Streaming</h3>
+                <p class="card-description">A sophisticated load balancing solution for face recognition video streaming in wireless networks using Mininet-WiFi and RYU controller with QoS management.</p>
+                <div class="card-keywords">
+                    <span class="keyword">Mininet-WiFi</span>
+                    <span class="keyword">Face Recognition</span>
+                    <span class="keyword">QoS</span>
+                    <span class="keyword">PSNR Analysis</span>
+                </div>
+            </div>
+        </div>    <!-- Project Details (Hidden by default) -->
+    <div id="muzziball-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Muzziball Custom OS Development</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/stm32mp1.jpg" alt="Muzziball Custom OS" style="width: 30%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>A custom Linux-based operating system built using Yocto Project for the Muzziball device, integrating various hardware components and software dependencies. The system provides a robust foundation for the device's advanced features while ensuring optimal performance and reliability.</p>
+            <p><strong>Key features include:</strong></p>
+            <ul>
+                <li>Custom Yocto-based Linux distribution</li>
+                <li>STM32MP1 BSP development and integration</li>
+                <li>WiFi and Bluetooth Low Energy (BLE) support</li>
+                <li>ALSA audio system integration</li>
+                <li>RGB LED matrix display, IMU, and audio input/output</li>
+                <li>Power management system</li>
+            </ul>
+            <button onclick="toggleProjectDetails('muzziball')" class="close-btn">Close</button>
+        </div>
+    </div>
+    
+    <div id="automotive-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Automotive Embedded System</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/airbox.jpeg" alt="Airbox Automotive System" style="width: 20%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>A comprehensive automotive embedded system solution that has two versions one based on STM32MP1, and the other based on i.MX93 processors. This unified system provides a robust platform for modern vehicle applications, offering both real-time processing and advanced features.</p>
+            <p><strong>Key features include:</strong></p>
+            <ul>
+                <li>customize two linux kernel using yocto: STM32MP1 and i.MX93</li>
+                <li>Real-time processing capabilities for critical vehicle functions</li>
+                <li>Enhanced security features for automotive applications</li>
+                <li>4G LTE cellular connectivity for remote monitoring</li>
+                <li>GPS module for precise location tracking</li>
+                <li>Ethernet for high-speed data transfer</li>
+                <li>USB interfaces for peripheral expansion</li>
+                <li>WiFi for wireless connectivity</li>
+                <li>Bluetooth Low Energy (BLE) for short-range communication</li>
+                <li>Analog-to-Digital conversion (ADC) for sensor integration</li>
+            </ul>
+            <button onclick="toggleProjectDetails('automotive')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="muzziball-smart-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Muzziball - Smart Interactive Ball</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/Muzziball.jpg" alt="Muzziball Smart Interactive Ball" style="width: 40%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>A sophisticated embedded system project that combines hardware and software to create an interactive ball with multiple sensors and actuators. The system features advanced motion control, sensor integration, and real-time data processing capabilities.</p>
+            <p><strong>Key features include:</strong></p>
+            <ul>
+                <li>Advanced motion orchestration system for precise ball movement and control</li>
+                <li>IMU (Inertial Measurement Unit) integration for accurate motion tracking</li>
+                <li>Intelligent power mode management system to optimize battery life</li>
+                <li>RGB LED matrix for dynamic color display and visual feedback</li>
+                <li>Real-time data transmission to server for remote monitoring</li>
+                <li>Comprehensive battery management system with status reporting</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="crack-detection-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Wireless Crack Detection System</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <img src="assets/images/architecture with server.jpg" alt="System Architecture" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/expermints-setup.jpg" alt="Experimental Setup" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            <p>A sophisticated real-time crack detection system that combines Acoustic Emission (AE) technology with IoT capabilities. This master thesis project demonstrates the integration of embedded systems with cloud technologies for infrastructure monitoring.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Real-time crack detection using Acoustic Emission sensors</li>
+                <li>High-precision analog signal processing circuit</li>
+                <li>Microsecond-resolution GPS timestamping</li>
+                <li>MQTT protocol for reliable data transmission</li>
+                <li>Raspberry Pi-based smart gateway</li>
+                <li>Node-RED visualization interface</li>
+                <li>Multi-node support for distributed sensing</li>
+                <li>Cloud integration for data storage and analysis</li>
+            </ul>
+            <p>The system demonstrates the practical application of IoT technologies in structural health monitoring, providing a robust solution for real-time crack detection and infrastructure monitoring.</p>
+            <button onclick="toggleProjectDetails('crack-detection')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="aws-iot-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Secure IoT System with AWS Integration</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <img src="assets/images/arch_esp32_iot_project.jpeg" alt="IoT System Architecture" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/dashboard_esp_iot_project.jpeg" alt="IoT Dashboard Interface" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            <p>A comprehensive IoT security project focused on developing a secure system for collecting, transmitting, and storing sensor data in the cloud. The project implements robust security measures throughout the IoT pipeline while providing an intuitive user interface for monitoring and control.</p>
+            <p><strong>System Architecture:</strong></p>
+            <ul>
+                <li><strong>ESP32-based IoT device with multiple sensors:</strong>
+                    <ul>
+                        <li>Temperature and humidity monitoring</li>
+                        <li>Fire detection system</li>
+                        <li>Heating system control</li>
+                    </ul>
+                </li>
+                <li><strong>Security Implementation:</strong>
+                    <ul>
+                        <li>SSL/TLS encryption for MQTT communication</li>
+                        <li>Secure authentication and authorization</li>
+                    </ul>
+                </li>
+                <li><strong>Cloud Infrastructure:</strong>
+                    <ul>
+                        <li>AWS Lambda for serverless computing</li>
+                        <li>Amazon SNS for notifications</li>
+                        <li>Data storage in AWS DynamoDB</li>
+                        <li>AWS IoT Core for device management</li>
+                    </ul>
+                </li>
+            </ul>
+            <p><strong>Features:</strong></p>
+            <ul>
+                <li>Real-time monitoring through Node-RED dashboard</li>
+                <li>Automated alerts and notifications</li>
+                <li>Remote heating system control</li>
+                <li>Fire alarm system with instant alerts</li>
+                <li>Secure data storage and retrieval</li>
+                <li>Email and SMS notifications</li>
+            </ul>
+            <a href="https://github.com/IssamSayyaf/IoT-security" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
+            <button onclick="toggleProjectDetails('aws-iot')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="smart-home-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Smart Home IoT System with Android Control</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px;">
+                    <img src="assets/images/home.jpeg" alt="Smart Home Login Screen" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/login.jpeg" alt="Smart Home Control Panel" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/control.jpeg" alt="RGB Control Interface" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/sensors.jpeg" alt="Sensors Monitoring Panel" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            <p>A comprehensive smart home automation system featuring an Android application interface and ESP32-based hardware control. The system provides secure access, automated environmental control, and real-time monitoring capabilities through Firebase cloud integration.</p>
+            <p><strong>System Components:</strong></p>
+            <ul>
+                <li><strong>Android Application:</strong>
+                    <ul>
+                        <li>Secure login system with Firebase authentication</li>
+                        <li>Intuitive drawer navigation interface</li>
+                        <li>Real-time control and monitoring panels</li>
+                        <li>Responsive and modern UI design</li>
+                    </ul>
+                </li>
+                <li><strong>Control Features:</strong>
+                    <ul>
+                        <li>Automated and manual lighting control</li>
+                        <li>RGB LED color management with auto/manual modes</li>
+                        <li>Smart HVAC system with auto/manual temperature control</li>
+                        <li>Customizable automation rules</li>
+                    </ul>
+                </li>
+                <li><strong>Monitoring Capabilities:</strong>
+                    <ul>
+                        <li>Real-time temperature and humidity tracking</li>
+                        <li>Ambient light intensity measurement</li>
+                        <li>Fire detection system</li>
+                        <li>Gas leakage monitoring</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>The project demonstrates the practical implementation of IoT technology in home automation, combining secure cloud connectivity, mobile accessibility, and comprehensive environmental control in a user-friendly package.</p>
+            <button onclick="toggleProjectDetails('smart-home')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="optical-comm-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Free Space Optical Communication System with AES Encryption</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/2z7s-vDd1ow" 
+                    title="Free Space Optical Communication System Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                </iframe>
+            </div>
+            <p>A comprehensive study and implementation of a secure free space optical communication system using LASER technology and AES encryption. This project combines theoretical analysis with practical implementation, demonstrating advanced concepts in optical communication and data security.</p>
+            <p><strong>Theoretical Research:</strong></p>
+            <ul>
+                <li>Analysis of laser wavelength impact on attenuation rates (optimal at 1550nm)</li>
+                <li>Simulation using Optisystem for system modeling and verification</li>
+                <li>Study of fog effects on 650nm laser transmission</li>
+                <li>Mathematical modeling of distance vs. weather conditions vs. received optical power</li>
+                <li>Pioneer implementation of Eye Diagram analysis at Aleppo University</li>
+            </ul>
+            <p><strong>Practical Implementation:</strong></p>
+            <ul>
+                <li><strong>Custom hardware design:</strong>
+                    <ul>
+                        <li>Laser transmitter module</li>
+                        <li>Optical receiver with phototransistor</li>
+                        <li>OOK modulation circuit</li>
+                    </ul>
+                </li>
+                <li><strong>MATLAB-based user interface supporting:</strong>
+                    <ul>
+                        <li>Audio transmission</li>
+                        <li>Video streaming</li>
+                        <li>Text communication</li>
+                        <li>Image transfer</li>
+                    </ul>
+                </li>
+                <li>AES encryption implementation for secure data transmission</li>
+                <li>USB interface for data transfer between PC and optical system</li>
+                <li>Successful testing at 50m distance (theoretical range up to 100m)</li>
+            </ul>
+            <p>The system demonstrates practical applications of free space optics in secure communication, combining theoretical research with real-world implementation.</p>
+            <button onclick="toggleProjectDetails('optical-comm')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="robust-smartstep-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Robust SmartStep: Anomaly Filtering for Pedestrian Dead Reckoning</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/step_detection_comparison.png" alt="Step Detection Comparison" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>A novel approach to improve step detection in Pedestrian Dead Reckoning (PDR) systems using deep learning-based anomaly filtering. This project focuses on enhancing the accuracy of step detection by distinguishing between genuine walking signals and mimic walking signals.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Advanced anomaly detection using segment-based autoencoders</li>
+                <li>Real-time processing of IMU data for step detection</li>
+                <li>Improved PDR accuracy through filtered step detection</li>
+                <li>Robust handling of various walking patterns and anomalies</li>
+                <li>Integration with existing positioning systems</li>
+            </ul>
+            <p><strong>Technical Implementation:</strong></p>
+            <ul>
+                <li><strong>Deep learning architecture:</strong>
+                    <ul>
+                        <li>Segment-based autoencoder for anomaly detection</li>
+                        <li>Custom loss functions for optimal performance</li>
+                        <li>Real-time inference capabilities</li>
+                    </ul>
+                </li>
+                <li><strong>Signal processing:</strong>
+                    <ul>
+                        <li>IMU data preprocessing and feature extraction</li>
+                        <li>Time-series analysis of walking patterns</li>
+                        <li>Integration with PDR algorithms</li>
+                    </ul>
+                </li>
+                <li><strong>Performance evaluation:</strong>
+                    <ul>
+                        <li>Extensive testing with various walking scenarios</li>
+                        <li>Comparison with traditional step detection methods</li>
+                        <li>Quantitative analysis of positioning accuracy</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>The project demonstrates significant improvements in PDR accuracy by effectively filtering out anomalous signals that could lead to incorrect step detection. This work has been published at the IEEE/ION Position, Location and Navigation Symposium (PLANS) 2025 in Utah, USA.</p>
+            <p><strong>Publication:</strong></p>
+            <ul>
+                <li>Sayyaf, M. I., Zhu, N., & Renaudin, V. (2025). Advanced Step Detection with Anomaly Filtering for Enhanced Positioning Accuracy. <i>Proceedings of the 2025 IEEE/ION Position, Location and Navigation Symposium (PLANS)</i>, Utah, USA.</li>
+            </ul>
+            <a href="https://gitlab.univ-eiffel.fr/issam/robust-smartstep" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-gitlab"></i> View on GitLab</a>
+            <button onclick="toggleProjectDetails('robust-smartstep')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="breast-cancer-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>RSNA Breast Cancer Detection</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/CNN.png" alt="RSNA Breast Cancer Detection" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>Breast cancer is a significant cause of cancer-related fatalities among women globally. Timely detection of breast cancer is critical for successful treatment and improved survival rates. In recent times, deep learning techniques have emerged as promising tools for detecting breast cancer from medical images, including mammograms.</p>
+            <p>The RSNA Breast Cancer Detection competition, hosted on Kaggle, serves as an important initiative to foster the development of machine learning models for breast cancer detection. Participants are provided with a dataset of mammogram images, accompanied by labels indicating the presence or absence of breast cancer. The primary challenge is to create deep learning models capable of accurately detecting breast cancer from these mammogram images.</p>
+            <p>In this project, we explore the RSNA Breast Cancer Detection competition, examining the approaches and techniques employed by top-performing models. Our objective is to gain valuable insights into the best practices for utilizing deep learning methods in breast cancer detection and understand the advancements made in this critical field.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Deep learning models for mammogram analysis</li>
+                <li>Computer vision techniques for medical imaging</li>
+                <li>Data preprocessing and augmentation strategies</li>
+                <li>Model evaluation and performance optimization</li>
+                <li>Integration with clinical workflows</li>
+            </ul>
+            <a href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
+            <button onclick="toggleProjectDetails('breast-cancer')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="text-analysis-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Contradictory Text Analysis NLP Deep Learning</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/BERT.png" alt="Contradictory Text Analysis NLP Deep Learning" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>We are conducting a classification task on pairs of sentences, which consist of a premise and a hypothesis. The task involves categorizing each pair into one of three categories - entailment, contradiction, or neutral.</p>
+            <p><strong>Example Analysis:</strong></p>
+            <p>Using the premise: "He came, he opened the door and I remember looking back and seeing the expression on his face, and I could tell that he was disappointed."</p>
+            <ul>
+                <li><strong>Entailment example:</strong> "Just by the look on his face when he came through the door I just knew that he was let down" - This is true based on the premise information.</li>
+                <li><strong>Neutral example:</strong> "He was trying not to make us feel guilty but we knew we had caused him trouble" - Cannot be concluded from the premise.</li>
+                <li><strong>Contradiction example:</strong> "He was so excited and bursting with joy that he practically knocked the door off its frame" - This contradicts the premise information.</li>
+            </ul>
+            <p><strong>Technical Features:</strong></p>
+            <ul>
+                <li>Natural Language Processing with BERT-based models</li>
+                <li>Multi-class text classification (entailment, contradiction, neutral)</li>
+                <li>Multilingual support for 15 languages</li>
+                <li>Advanced text preprocessing and tokenization</li>
+                <li>Performance evaluation and model optimization</li>
+            </ul>
+            <p>The dataset contains premise-hypothesis pairs in fifteen different languages, namely Arabic, Bulgarian, Chinese, German, Greek, English, Spanish, French, Hindi, Russian, Swahili, Thai, Turkish, Urdu, and Vietnamese. This project focuses primarily on English pairs but demonstrates the multilingual capabilities of modern NLP models.</p>
+            <a href="https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
+            <button onclick="toggleProjectDetails('text-analysis')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="sdn-routing-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Dijkstra and Bellman-Ford RYU Controller</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/sdn.png" alt="SDN Topology" style="width: 80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>An advanced Software-Defined Networking (SDN) project that implements both Dijkstra and Bellman-Ford shortest-path algorithms using the RYU controller. This project demonstrates the practical application of network routing algorithms in SDN environments.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Implementation of both Dijkstra and Bellman-Ford algorithms for path computation</li>
+                <li>Network topology visualization using NetworkX library</li>
+                <li><strong>Support for multiple link cost metrics:</strong>
+                    <ul>
+                        <li>Bandwidth-based routing</li>
+                        <li>Delay-based routing</li>
+                        <li>Combined bandwidth and delay metrics</li>
+                        <li>Hop count-based routing</li>
+                    </ul>
+                </li>
+                <li>Integration with Mininet for network emulation</li>
+                <li>Real-time path computation and flow table updates</li>
+            </ul>
+            <p><strong>Technical Implementation:</strong></p>
+            <ul>
+                <li>Python-based RYU controller application</li>
+                <li>NetworkX for graph representation and algorithm implementation</li>
+                <li>OpenFlow protocol for SDN control</li>
+                <li>Mininet for network emulation and testing</li>
+            </ul>
+            <p>The project showcases the practical implementation of network routing algorithms in SDN environments, providing a flexible and efficient solution for path computation in software-defined networks.</p>
+            <a href="https://github.com/IssamSayyaf/Dijkstra-and-Bellman-Ford-RYU-contoller" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
+            <button onclick="toggleProjectDetails('sdn-routing')" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <div id="wireless-loadbalancing-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            <h3>Load Balancing for Face Recognition Video Streaming in Wireless Networks</h3>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="assets/images/sdn1.png" alt="Wireless Network Topology" style="width: 80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            <p>A sophisticated load balancing solution for face recognition video streaming in wireless networks, implemented using Mininet-WiFi and RYU controller. This project addresses the challenges of video streaming in wireless environments while maintaining high-quality face recognition performance.</p>
+            <p><strong>Key Features:</strong></p>
+            <ul>
+                <li>Dynamic load balancing for video streaming traffic</li>
+                <li>Integration with face recognition systems</li>
+                <li>Real-time network monitoring and path optimization</li>
+                <li>Support for multiple wireless access points</li>
+                <li>Quality of Service (QoS) management</li>
+                <li><strong>Performance metrics monitoring:</strong>
+                    <ul>
+                        <li>PSNR (Peak Signal-to-Noise Ratio) analysis</li>
+                        <li>Throughput measurement</li>
+                        <li>Network latency monitoring</li>
+                    </ul>
+                </li>
+            </ul>
+            <p><strong>Technical Implementation:</strong></p>
+            <ul>
+                <li>Mininet-WiFi for wireless network emulation</li>
+                <li>RYU controller for SDN-based network management</li>
+                <li>Custom load balancing algorithms</li>
+                <li>Integration with face recognition systems</li>
+                <li>Performance analysis tools and metrics</li>
+            </ul>
+            <p>The project demonstrates the effective application of SDN principles in wireless networks, particularly for resource-intensive applications like video streaming and face recognition. It provides a robust solution for maintaining high-quality video transmission while optimizing network resources.</p>
+            <a href="https://github.com/IssamSayyaf/Load-Balancing-Technique-for-Face-Recognition-Video-Streaming-in-Wireless-Networks-main" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
+            <button onclick="toggleProjectDetails('wireless-loadbalancing')" class="close-btn">Close</button>
+        </div>
+    </div>
+</section>
+
+    <script>
+        function handleScroll() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const offset = window.innerHeight * 0.8;
+                
+                if (rect.top < offset) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            handleScroll();
+        });
+
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // Change slide every 5 seconds
+
+        // Auto-cycle Last News Slider with fade animation
+        const newsSlides = document.querySelectorAll('.news-slide');
+        let currentNewsSlide = 0;
+        setInterval(() => {
+            newsSlides[currentNewsSlide].classList.remove('active');
+            currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
+            newsSlides[currentNewsSlide].classList.add('active');
+        }, 5000); // Change news every 5 seconds
+        
+        // Toggle project details
+        function toggleProjectDetails(projectId) {
+            const details = document.getElementById(projectId + '-details');
+            const allDetails = document.querySelectorAll('.project-details');
+            
+            // Hide all other project details
+            allDetails.forEach(detail => {
+                if (detail.id !== projectId + '-details') {
+                    detail.style.display = 'none';
+                }
+            });
+            
+            // Toggle current project details
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

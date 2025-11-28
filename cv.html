@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">CV</title>
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.4;
+            color: #333;
+        }
+        
+        /* CV Container */
+        .cv-container {
+            max-width: 210mm;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 2px solid #e5e7eb;
+            padding: 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-left {
+            flex: 1;
+        }
+        
+        /* Main Content */
+        .main-content {
+            display: flex;
+            min-height: calc(297mm - 140px);
+        }
+        
+        .left-column {
+            padding: 25px;
+            background: white;
+        }
+        
+        .right-column {
+            background: #f8fafc;
+            padding: 25px;
+            border-left: 1px solid #e5e7eb;
+        }
+        
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-weight: bold;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 4px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Work and Project Items */
+        .work-item, .project-item {
+            border-left: 4px solid #3b82f6;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .item-title {
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .item-subtitle {
+            color: #2563eb;
+            font-weight: 500;
+        }
+        
+        .item-date {
+            font-size: 12px;
+            color: #6b7280;
+            white-space: nowrap;
+        }
+        
+        .item-description, .responsibilities {
+            color: #4b5563;
+            line-height: 1.5;
+        }
+        
+        .responsibilities {
+            list-style: none;
+        }
+        
+        .responsibilities li {
+            margin-bottom: 4px;
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 18px;
+        }
+        
+        .highlight-box {
+            background-color: #fef3c7;
+            border-left: 3px solid #f59e0b;
+            padding: 8px;
+            border-radius: 4px;
+            margin: 4px 0;
+        }
+        
+        /* Skills */
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+        
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .contact-item a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Social Media Icons */
+        .contact-item i {
+            width: 16px;
+            text-align: center;
+        }
+        
+        .contact-item .fa-linkedin {
+            color: #0077b5;
+        }
+        
+        .contact-item .fa-github {
+            color: #333;
+        }
+        
+        .contact-item .fa-globe {
+            color: #2563eb;
+        }
+        
+        /* Photo */
+        .photo-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .photo-container img {
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-placeholder {
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9fafb;
+        }
+        
+        .photo-text {
+            color: #9ca3af;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .error-message {
+            background-color: #fee;
+            border: 2px solid #f87171;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            color: #dc2626;
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .cv-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                max-width: none !important;
+                width: 100% !important;
+            }
+            
+            .main-content {
+                min-height: auto !important;
+            }
+            
+            @page {
+                size: A4;
+                margin: 1cm;
+            }
+            
+            /* Avoid breaking inside important sections */
+            .work-item, .project-item, .education-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .error-message {
+                display: none;
+            }
+        }
+
+        /* Navigation Bar */
+        .site-nav {
+            max-width: 1400px;
+            margin: 0 auto 20px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-nav .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .site-nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .site-nav .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .site-nav .nav-link:hover,
+        .site-nav .nav-link.active {
+            color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+        }
+
+        @media print {
+            .site-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Site Navigation -->
+    <nav class="site-nav">
+        <a href="index.html" class="logo">Issam Sayyaf</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="cv.html" class="nav-link active">CV</a>
+        </div>
+    </nav>
+
+    <!-- CV Container -->
+    <div class="cv-container" id="cvContainer">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 id="name-title">Loading...</h1>
+                    <p id="job-title">Loading...</p>
+                    <div id="contact-info" class="contact-info">
+                        <!-- Contact info will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Photo -->
+                <div class="photo-container" id="photo-container">
+                    <!-- Photo will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Left column -->
+            <div class="left-column" id="left-column">
+                <!-- Sections will be populated by JavaScript -->
+            </div>
+            
+            <!-- Right column -->
+            <div class="right-column" id="right-column">
+                <!-- Sections will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div id="footer" style="background-color: #f9fafb; padding: 15px; text-align: center; border-top: 1px solid #e5e7eb;">
+            <!-- Footer will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Enhanced error handling
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript Error:', e.error);
+            showError(`JavaScript Error: ${e.error.message}`);
+        });
+
+        function showError(message) {
+            const container = document.getElementById('cvContainer');
+            container.innerHTML = `
+                <div class="error-message">
+                    <h2>Error Loading CV</h2>
+                    <p><strong>Details:</strong> ${message}</p>
+                    <p><strong>Possible solutions:</strong></p>
+                    <ul>
+                        <li>Check if cv-config.json file exists</li>
+                        <li>Verify JSON syntax is valid</li>
+                        <li>Ensure the server is running</li>
+                        <li>Check browser console for more details</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        // CV Configuration data embedded directly
+        const cvConfig = {
+
+  "personalInfo": {
+    "name": "Issam SAYYAF",
+    "title": "PhD Researcher & Embedded Systems Engineer",
+    "photo": {
+      "src": "photo.jpg",
+      "alt": "Issam SAYYAF",
+      "width": "120px",
+      "height": "150px",
+      "placeholder": {
+        "text": "Photo<br>3cm x 4cm",
+        "fontSize": "11px"
+      }
+    },
+    "contact": [
+      {
+        "icon": "fas fa-map-marker-alt",
+        "text": "Nantes, France",
+        "type": "location"
+      },
+      {
+        "icon": "fas fa-phone",
+        "text": "+33 758 120 733",
+        "type": "phone"
+      },
+      {
+        "icon": "fas fa-envelope",
+        "text": "Issamsayyaf97@gmail.com",
+        "type": "email",
+        "link": "mailto:Issamsayyaf97@gmail.com"
+      },
+      {
+        "icon": "fab fa-linkedin",
+        "text": "LinkedIn",
+        "type": "social",
+        "link": "https://linkedin.com/in/issamsayyaf"
+      },
+      {
+        "icon": "fab fa-github",
+        "text": "GitHub",
+        "type": "social",
+        "link": "https://github.com/IssamSayyaf"
+      },
+      {
+        "icon": "fas fa-globe",
+        "text": "issam-sayyaf.com",
+        "type": "website",
+        "link": "https://issam-sayyaf.com"
+      }
+    ]
+  },
+  "sections": {
+    "left": [
+      {
+        "id": "professional-summary",
+        "title": "Professional Summary",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "paragraph",
+          "text": "Embedded Systems Engineer with 4+ years of experience designing real-time solutions, developing custom Linux kernels, and implementing device drivers and applications for STM32MP1 and NXP platforms. Successfully delivered 10+ innovative projects in embedded and wireless systems. Later, as a PhD Researcher, specialized in signal processing using deep learning, publishing 5+ peer-reviewed papers and bridging advanced research with practical implementation.",
+          "fontSize": "13px"
+        }
+      },
+      {
+        "id": "professional-experience",
+        "title": "Professional Experience",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "work-items",
+          "items": [
+            {
+              "title": "PhD Researcher",
+              "company": "University of Gustave Eiffel, France",
+              "period": "Nov 2023 - Nov-2026",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Developed 3+ anomaly detection algorithms using deep learning  in IMU/GNSS/5G Real time processing",
+                "• Enhanced step detection by 23% using deep learning on 10,000+ data samples across 5 environments",
+                "• Analyzed 800+ minutes of GNSS signal anomalies, identifying key patterns and trends",
+                "• Improved 5G signal detection LOS/NLOS in indoor environments."
+              ],
+              "responsibilitiesFontSize": "12px"
+            },
+            {
+              "title": "Embedded Systems Engineer",
+              "company": "Hexabitz, USA (Freelance)",
+              "period": "Jun 2023 - Present",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Developed 3+ custom Linux images using Yocto, on 3 Hardware customize platforms using stm32mp1 and i.mx93",
+                "• Implemented 10+ device drivers for peripherals (GPIO, I2C, SPI, UART, LoraWAN, Zigbee) on embedded-beramatel and linux systems"
+              ],
+              "responsibilitiesFontSize": "12px"
+            },
+            {
+              "title": "Measurement Engineer",
+              "company": "University of Calabria, Italy",
+              "period": "Oct 2022 - Oct 2023",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Designed distributed measurement systems to monitor remotely using LabVIEW and Python"
+              ],
+              "responsibilitiesFontSize": "12px"
+            },
+            {
+              "title": "Teaching Assistant",
+              "company": "University of Aleppo, Syria",
+              "period": "Sep 2020 - Aug 2021",
+              "titleFontSize": "14px",
+              "companyFontSize": "13px",
+              "responsibilities": [
+                "• Conducted 50+ lab sessions for 150+ students achieving",
+                "• Working on Antenna Design (HFSS/CST), Microwave Engineering, and RF Systems courses"              ],
+              "responsibilitiesFontSize": "13px"
+            }
+          ]
+        }
+      },
+
+      {
+        "id": "key-projects",
+        "title": "Key Projects",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "project-items",
+          "items": [
+            {
+              "title": "Muzziball System",
+              "period": "2024 - 2026", 
+              "description": ["Developing an customize linux image with Yocto for STM32MP1, integrating IMU, Audio (speaker/mic), BLE, Wifi, and charging system for smart ball application",
+            "Implementing embedded C++ applications for real-time data acquisition and processing on the STM32MP1 platform"],
+
+              "titleFontSize": "13px",
+              "descriptionFontSize": "12px"
+            },
+            {
+              "title": "Truck Monitoring System",
+              "period": "2023 - 2024", 
+              "description": ["Customize linux image with Yocto for NXP .i.MX93 Platform, integrating 5G, GNSS, IMU, and CAN bus for vehicle tracking",
+                              "Provide all the device drivers for all the peripherals"],
+
+              "titleFontSize": "13px",
+              "descriptionFontSize": "12px"
+            },
+            {
+              "title": "Wireless Crack Detection System",
+              "period": "2022-2023",
+              "description": "Built anode wireless sensor network for crack detection in heritage buildings (Hardware + Firmware + Cloud Dashboard) ",
+              "titleFontSize": "13px",
+              "descriptionFontSize": "12px"
+            }
+          ]
+        }
+      },
+      {
+        "id": "publications",
+        "title": "Publications & Research Impact",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "list",
+          "items": [
+            "• Sayyaf, M.I., et al., \"Anomaly Filtering for Pedestrian Dead Reckoning,\" IEEE/ION PLANS 2025",
+            "• Sayyaf, M.I., et al. \"Step Detection Enhanced by Anomaly Filtering,\" IEEE APSCON, Jan 2025",
+            "• Sayyaf, M.I., et al. \"Wireless Crack Detection System Based on IoT,\" IEEE MetroLivEnv, May 2023",
+            "• Sayyaf, M.I., et al. \"Heart Rate Evaluation by Smartphone: An Overview,\" IEEE HealthTech, Mar 2023",
+            "• Sayyaf, M.I., et al. \"Detection and Classification of Crack for Heritage Building,\" Metro Archaeo 2022"
+          ],
+          "fontSize": "12px"
+        }
+      }
+    ],
+    "right": [
+      {
+        "id": "education",
+        "title": "Education",
+        "icon": "",
+        "fontSize": "14px",
+        "content": {
+          "type": "education-items",
+          "items": [
+            {
+              "period": "Nov 2023 - Nov-2026",
+              "degree": "PhD in Signal Processing Using Deep Learning for Navigation Systems",
+              "institution": "University of Gustave Eiffel, France",
+              "details": "Thesis: \"Develop Anomaly Detection Algorithm Using Deep Learning for Navigation Systems (IMU/GNSS/5G)\"",
+              "periodFontSize": "11px",
+              "degreeFontSize": "13px",
+              "institutionFontSize": "12px",
+              "detailsFontSize": "11px",
+              "highlight": null
+            },
+            {
+              "period": "Sep 2021 - Oct 2023",
+              "degree": "Master's in Telecommunication Engineering and Networks",
+              "institution": "University of Calabria, Italy",
+              "details": "Specialization: Internet of Things (IoT), Software-Defined Networking (SDN), Wireless Networks, Sensor Development (110/110 cum laude)",
+              "periodFontSize": "11px",
+              "degreeFontSize": "13px",
+              "institutionFontSize": "12px",
+              "detailsFontSize": "11px",
+              "highlight": null
+            },
+            {
+              "period": "Sep 2014 - Sep 2019",
+              "degree": "Bachelor's in Electronics and Communication Engineering",
+              "institution": "University of Aleppo, Syria",
+              "details": "Telecommunication Networks, Embedded System, Wireless Communication, GPA: 88.56% with distinction",
+              "periodFontSize": "11px",
+              "degreeFontSize": "13px",
+              "institutionFontSize": "12px",
+              "detailsFontSize": "11px",
+              "highlight": null
+            }
+          ]
+        }
+      },
+      {
+        "id": "technical-skills",
+        "title": "Technical Skills",
+        "icon": "",
+        "fontSize": "16px",
+        "content": {
+          "type": "skill-categories",
+          "categories": [
+            {
+              "name": "🖥️ Embedded Systems (4+ years)",
+              "skills": "Embedded Linux (Yocto, Buildroot), linux kernel driver, RTOS (FreeRTOS, Zephyr), ARM Cortex-M/STM32, NXP MPU/BSP Development, Bare-metal Programming, Interrupts, Bootloader, GPIO, UART, SPI, I2C",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            },
+            {
+              "name": "🤖 AI/ML (3+ years)",
+              "skills": "Deep Learning (CNNs, LSTMs, Transformers), TinyML/Edge AI , Signal Processing , Python ML Libraries (TensorFlow, PyTorch), Autoencoders, Classification, Regression, Inference, Training",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            },
+            {
+              "name": "📡 Wireless Communication and Networking (5+ years)",
+              "skills": "5G/LTE Positioning, Wi-Fi/Bluetooth/Zigbee, LoRaWAN/IoT Protocols, GNSS/GPS Systems, RF Engineering, Antenna Design, Protocol Stack, IP Networking, Network Simulation mininet, Software-Defined Networking (SDN), Routing Protocols, Network Security, Networking Tools (Wireshark, tcpdump)",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            },
+            {
+              "name": "💻 Programming (7+ years)",
+              "skills": "Python, C/C++, Java, LabVIEW, MATLAB, Git, Debugging",
+              "nameFontSize": "13px",
+              "skillsFontSize": "12px"
+            }
+          ]
+        }
+      },
+      {
+        "id": "languages",
+        "title": "Languages",
+        "icon": "",
+        "fontSize": "14px",
+        "content": {
+          "type": "language-items",
+          "items": [
+            {
+              "language": "English ",
+              "level": "Professional C1"
+              
+            },
+            {
+              "language": "French ",
+              "level": "Intermediate B1"
+            },
+            {
+              "language": "Arabic",
+              "level": "Native"
+            }
+          ],
+          "fontSize": "12px"
+        }
+      },
+      {
+        "id": "certifications",
+        "title": "Key Certifications & Awards",
+        "icon": "",
+        "fontSize": "14px",
+        "content": {
+          "type": "list",
+          "items": [
+            "• Yocto Project Development Certified (Bootlin, 2024)",
+            "• Kernel Development Certified (Bootlin, 2024)",
+            "• Embedded Linux Development Expert (Bootlin, 2024)",
+            "• Tiny Machine Learning (TinyML Harvard, 2024)",
+            "• Deep Learning Specialization (Coursera, 2023)",
+            "• Reinforcement Learning Specialization (Coursera, 2023)"
+          ],
+          "fontSize": "12px"
+        }
+      }
+    ]
+  },
+  "styling": {
+    "header": {
+      "nameFontSize": "16px",
+      "titleFontSize": "16px",
+      "contactFontSize": "13px"
+    },
+    "layout": {
+      "leftColumnWidth": "65%",
+      "rightColumnWidth": "35%"
+    },
+    "footer": {
+      "text": "",
+      "fontSize": "12px"
+    }
+  }
+
+};
+
+        // Load CV configuration and render
+        function loadCV() {
+            try {
+                console.log('Loading CV with embedded configuration...');
+                
+                // Validate config structure
+                if (!cvConfig.personalInfo) {
+                    throw new Error('Missing personalInfo in configuration');
+                }
+                
+                if (!cvConfig.sections) {
+                    throw new Error('Missing sections in configuration');
+                }
+                
+                if (!cvConfig.styling) {
+                    throw new Error('Missing styling in configuration');
+                }
+                
+                console.log('Rendering CV...');
+                renderCV(cvConfig);
+                
+            } catch (error) {
+                console.error('Error loading CV configuration:', error);
+                showError(error.message);
+            }
+        }
+
+        function renderCV(config) {
+            try {
+                console.log('Setting page title...');
+                // Set page title
+                document.getElementById('page-title').textContent = `${config.personalInfo.name} - CV`;
+                
+                console.log('Rendering header...');
+                // Render header
+                renderHeader(config);
+                
+                console.log('Rendering sections...');
+                // Render sections
+                renderSections(config);
+                
+                console.log('Rendering footer...');
+                // Render footer
+                renderFooter(config);
+                
+                console.log('CV rendered successfully!');
+            } catch (error) {
+                console.error('Error rendering CV:', error);
+                showError(`Rendering error: ${error.message}`);
+            }
+        }
+
+        function renderHeader(config) {
+            const { personalInfo, styling } = config;
+            
+            // Name and title
+            const nameElement = document.getElementById('name-title');
+            nameElement.textContent = personalInfo.name;
+            nameElement.style.fontSize = styling.header.nameFontSize;
+            nameElement.style.fontWeight = 'bold';
+            nameElement.style.color = '#1f2937';
+            nameElement.style.marginBottom = '4px';
+            
+            const titleElement = document.getElementById('job-title');
+            titleElement.textContent = personalInfo.title;
+            titleElement.style.color = '#6b7280';
+            titleElement.style.fontSize = styling.header.titleFontSize;
+            titleElement.style.marginBottom = '12px';
+            
+            // Contact info
+            const contactContainer = document.getElementById('contact-info');
+            contactContainer.style.fontSize = styling.header.contactFontSize;
+            contactContainer.innerHTML = '';
+            
+            personalInfo.contact.forEach(contact => {
+                const contactItem = document.createElement('div');
+                contactItem.className = 'contact-item';
+                
+                const icon = document.createElement('i');
+                icon.className = contact.icon;
+                icon.style.color = '#6b7280';
+                contactItem.appendChild(icon);
+                
+                if (contact.link) {
+                    const link = document.createElement('a');
+                    link.href = contact.link;
+                    link.textContent = contact.text;
+                    if (contact.type === 'social' || contact.type === 'website') {
+                        link.target = '_blank';
+                    }
+                    // Add specific handling for email links
+                    if (contact.type === 'email') {
+                        link.addEventListener('click', function(e) {
+                            console.log('Email link clicked:', contact.link);
+                            // Let the default behavior happen (open email client)
+                        });
+                    }
+                    contactItem.appendChild(link);
+                } else {
+                    const span = document.createElement('span');
+                    span.textContent = contact.text;
+                    contactItem.appendChild(span);
+                }
+                
+                contactContainer.appendChild(contactItem);
+            });
+            
+            // Photo
+            const photoContainer = document.getElementById('photo-container');
+            photoContainer.style.width = personalInfo.photo.width;
+            photoContainer.style.height = personalInfo.photo.height;
+            
+            const img = document.createElement('img');
+            img.src = personalInfo.photo.src;
+            img.alt = personalInfo.photo.alt;
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            img.style.borderRadius = '8px';
+            
+            const placeholder = document.createElement('div');
+            placeholder.className = 'photo-placeholder';
+            placeholder.style.width = '100%';
+            placeholder.style.height = '100%';
+            placeholder.style.display = 'none';
+            
+            const placeholderText = document.createElement('div');
+            placeholderText.className = 'photo-text';
+            placeholderText.style.fontSize = personalInfo.photo.placeholder.fontSize;
+            placeholderText.innerHTML = personalInfo.photo.placeholder.text;
+            placeholder.appendChild(placeholderText);
+            
+            img.onerror = function() {
+                this.style.display = 'none';
+                placeholder.style.display = 'flex';
+            };
+            
+            photoContainer.appendChild(img);
+            photoContainer.appendChild(placeholder);
+        }
+
+        function renderSections(config) {
+            const leftColumn = document.getElementById('left-column');
+            const rightColumn = document.getElementById('right-column');
+            
+            leftColumn.style.width = config.styling.layout.leftColumnWidth;
+            rightColumn.style.width = config.styling.layout.rightColumnWidth;
+            
+            leftColumn.innerHTML = '';
+            rightColumn.innerHTML = '';
+            
+            // Render left column sections
+            config.sections.left.forEach(section => {
+                const sectionElement = renderSection(section);
+                leftColumn.appendChild(sectionElement);
+            });
+            
+            // Render right column sections
+            config.sections.right.forEach(section => {
+                const sectionElement = renderSection(section);
+                rightColumn.appendChild(sectionElement);
+            });
+        }
+
+        function renderSection(section) {
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'section';
+            
+            // Section title
+            const title = document.createElement('h2');
+            title.className = 'section-title';
+            title.style.fontSize = section.fontSize;
+            title.textContent = section.title;
+            sectionDiv.appendChild(title);
+            
+            // Section content
+            const content = renderContent(section.content);
+            sectionDiv.appendChild(content);
+            
+            return sectionDiv;
+        }
+
+        function renderContent(content) {
+            const container = document.createElement('div');
+            
+            switch (content.type) {
+                case 'paragraph':
+                    const p = document.createElement('p');
+                    p.textContent = content.text;
+                    p.style.color = '#4b5563';
+                    p.style.lineHeight = '1.6';
+                    p.style.fontSize = content.fontSize;
+                    container.appendChild(p);
+                    break;
+                    
+                case 'work-items':
+                    content.items.forEach(item => {
+                        const workItem = document.createElement('div');
+                        workItem.className = 'work-item';
+                        
+                        const header = document.createElement('div');
+                        header.className = 'item-header';
+                        
+                        const leftDiv = document.createElement('div');
+                        const title = document.createElement('div');
+                        title.className = 'item-title';
+                        title.style.fontSize = item.titleFontSize;
+                        title.textContent = item.title;
+                        leftDiv.appendChild(title);
+                        
+                        const company = document.createElement('div');
+                        company.className = 'item-subtitle';
+                        company.style.fontSize = item.companyFontSize;
+                        company.textContent = item.company;
+                        leftDiv.appendChild(company);
+                        
+                        const period = document.createElement('div');
+                        period.className = 'item-date';
+                        period.textContent = item.period;
+                        
+                        header.appendChild(leftDiv);
+                        header.appendChild(period);
+                        workItem.appendChild(header);
+                        
+                        const responsibilities = document.createElement('ul');
+                        responsibilities.className = 'responsibilities';
+                        responsibilities.style.fontSize = item.responsibilitiesFontSize;
+                        item.responsibilities.forEach(resp => {
+                            const li = document.createElement('li');
+                            li.textContent = resp;
+                            responsibilities.appendChild(li);
+                        });
+                        workItem.appendChild(responsibilities);
+                        
+                        container.appendChild(workItem);
+                    });
+                    break;
+                    
+                case 'project-items':
+                    content.items.forEach(item => {
+                        const projectItem = document.createElement('div');
+                        projectItem.className = 'project-item';
+                        
+                        const header = document.createElement('div');
+                        header.className = 'item-header';
+                        
+                        const title = document.createElement('div');
+                        title.className = 'item-title';
+                        title.style.fontSize = item.titleFontSize;
+                        title.textContent = item.title;
+                        
+                        const period = document.createElement('div');
+                        period.className = 'item-date';
+                        period.textContent = item.period;
+                        
+                        header.appendChild(title);
+                        header.appendChild(period);
+                        projectItem.appendChild(header);
+                        
+                        const description = document.createElement('div');
+                        description.className = 'item-description';
+                        description.style.fontSize = item.descriptionFontSize;
+                        description.textContent = item.description;
+                        projectItem.appendChild(description);
+                        
+                        container.appendChild(projectItem);
+                    });
+                    break;
+                    
+                case 'list':
+                    content.items.forEach(item => {
+                        const div = document.createElement('div');
+                        div.style.marginBottom = '12px';
+                        div.style.fontSize = content.fontSize;
+                        div.style.color = '#4b5563';
+                        div.style.lineHeight = '1.5';
+                        div.textContent = item;
+                        container.appendChild(div);
+                    });
+                    break;
+                    
+                case 'education-items':
+                    content.items.forEach(item => {
+                        const educationItem = document.createElement('div');
+                        educationItem.className = 'education-item';
+                        
+                        const period = document.createElement('div');
+                        period.style.fontSize = item.periodFontSize;
+                        period.style.color = '#6b7280';
+                        period.style.marginBottom = '4px';
+                        period.textContent = item.period;
+                        educationItem.appendChild(period);
+                        
+                        const degree = document.createElement('div');
+                        degree.style.fontWeight = '600';
+                        degree.style.fontSize = item.degreeFontSize;
+                        degree.style.color = '#1f2937';
+                        degree.style.marginBottom = '2px';
+                        degree.textContent = item.degree;
+                        educationItem.appendChild(degree);
+                        
+                        const institution = document.createElement('div');
+                        institution.style.fontSize = item.institutionFontSize;
+                        institution.style.color = '#2563eb';
+                        institution.style.marginBottom = '4px';
+                        institution.textContent = item.institution;
+                        educationItem.appendChild(institution);
+                        
+                        if (item.highlight) {
+                            const highlight = document.createElement('div');
+                            highlight.className = 'highlight-box';
+                            
+                            const highlightText = document.createElement('div');
+                            highlightText.style.fontSize = item.highlight.fontSize;
+                            highlightText.style.color = '#92400e';
+                            highlightText.style.fontWeight = '600';
+                            highlightText.textContent = item.highlight.text;
+                            highlight.appendChild(highlightText);
+                            
+                            const subtext = document.createElement('div');
+                            subtext.style.fontSize = item.highlight.fontSize;
+                            subtext.style.color = '#6b7280';
+                            subtext.textContent = item.highlight.subtext;
+                            highlight.appendChild(subtext);
+                            
+                            educationItem.appendChild(highlight);
+                        }
+                        
+                        const details = document.createElement('div');
+                        details.style.fontSize = item.detailsFontSize;
+                        details.style.color = '#6b7280';
+                        details.style.lineHeight = '1.4';
+                        details.textContent = item.details;
+                        educationItem.appendChild(details);
+                        
+                        container.appendChild(educationItem);
+                    });
+                    break;
+                    
+                case 'skill-categories':
+                    content.categories.forEach(category => {
+                        const skillCategory = document.createElement('div');
+                        skillCategory.className = 'skill-category';
+                        
+                        const header = document.createElement('div');
+                        header.className = 'skill-header';
+                        
+                        const name = document.createElement('div');
+                        name.style.fontWeight = '600';
+                        name.style.fontSize = category.nameFontSize;
+                        name.style.color = '#1f2937';
+                        name.textContent = category.name;
+                        header.appendChild(name);
+                        
+                        skillCategory.appendChild(header);
+                        
+                        const skills = document.createElement('div');
+                        skills.style.fontSize = category.skillsFontSize;
+                        skills.style.color = '#4b5563';
+                        skills.style.lineHeight = '1.4';
+                        skills.textContent = category.skills;
+                        skillCategory.appendChild(skills);
+                        
+                        container.appendChild(skillCategory);
+                    });
+                    break;
+                    
+                case 'language-items':
+                    content.items.forEach(item => {
+                        const langDiv = document.createElement('div');
+                        langDiv.style.display = 'flex';
+                        langDiv.style.justifyContent = 'space-between';
+                        langDiv.style.marginBottom = '8px';
+                        langDiv.style.fontSize = content.fontSize;
+                        
+                        const language = document.createElement('span');
+                        language.textContent = item.language;
+                        langDiv.appendChild(language);
+                        
+                        const level = document.createElement('span');
+                        level.textContent = item.level;
+                        langDiv.appendChild(level);
+                        
+                        container.appendChild(langDiv);
+                    });
+                    break;
+                    
+                case 'award-items':
+                    content.items.forEach(item => {
+                        const awardDiv = document.createElement('div');
+                        awardDiv.style.display = 'flex';
+                        awardDiv.style.justifyContent = 'space-between';
+                        awardDiv.style.marginBottom = '8px';
+                        awardDiv.style.fontSize = content.fontSize;
+                        
+                        const award = document.createElement('span');
+                        award.textContent = item.award;
+                        awardDiv.appendChild(award);
+                        
+                        const year = document.createElement('span');
+                        year.textContent = item.year;
+                        awardDiv.appendChild(year);
+                        
+                        container.appendChild(awardDiv);
+                    });
+                    break;
+                    
+                default:
+                    const errorDiv = document.createElement('div');
+                    errorDiv.style.color = 'red';
+                    errorDiv.textContent = `Unknown content type: ${content.type}`;
+                    container.appendChild(errorDiv);
+            }
+            
+            return container;
+        }
+
+        function renderFooter(config) {
+            const footer = document.getElementById('footer');
+            footer.innerHTML = '';
+            const p = document.createElement('p');
+            p.style.fontSize = config.styling.footer.fontSize;
+            p.style.color = '#6b7280';
+            p.textContent = config.styling.footer.text;
+            footer.appendChild(p);
+        }
+
+        // Keyboard shortcut for printing
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+
+        // Load CV when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, starting CV load...');
+            loadCV();
+        });
+    </script>
+</body>
+</html>

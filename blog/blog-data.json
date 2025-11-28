@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": "getting-started-with-zephyr-rtos",
+      "title": "Getting Started with Zephyr RTOS - A Complete Guide",
+      "excerpt": "Learn how to set up Zephyr RTOS, create your first project, and understand the fundamentals of this powerful real-time operating system for embedded devices.",
+      "author": "Issam Sayyaf",
+      "authorTitle": "PhD Researcher & Embedded Systems Engineer",
+      "date": "2025-01-20",
+      "category": "Zephyr OS",
+      "categorySlug": "zephyr-os",
+      "tags": [
+        "zephyr",
+        "rtos",
+        "embedded",
+        "nrf52",
+        "stm32"
+      ],
+      "featured": true,
+      "readTime": "15 min read",
+      "image": "assets/images/stm32mp1.jpg",
+      "imageCaption": "Zephyr RTOS running on embedded hardware",
+      "type": "markdown",
+      "path": "blog/posts/zephyr-os/getting-started-with-zephyr-rtos/"
+    },
+    {
+      "id": "deep-learning-fundamentals",
+      "title": "Deep Learning Fundamentals - Neural Networks Explained",
+      "excerpt": "Understand the core concepts of deep learning, from perceptrons to convolutional neural networks, with practical examples and code implementations.",
+      "author": "Issam Sayyaf",
+      "authorTitle": "PhD Researcher",
+      "date": "2025-01-18",
+      "category": "Deep Learning",
+      "categorySlug": "deep-learning",
+      "tags": [
+        "deep-learning",
+        "neural-networks",
+        "python",
+        "tensorflow"
+      ],
+      "featured": true,
+      "readTime": "12 min read",
+      "image": "assets/images/deep_learning.png",
+      "imageCaption": "Neural network architecture visualization",
+      "type": "markdown",
+      "path": "blog/posts/deep-learning/deep-learning-fundamentals/"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Zephyr OS",
+      "slug": "zephyr-os",
+      "description": "Articles about Zephyr OS",
+      "icon": "fas fa-microchip"
+    },
+    {
+      "name": "Deep Learning",
+      "slug": "deep-learning",
+      "description": "Articles about Deep Learning",
+      "icon": "fas fa-brain"
+    }
+  ],
+  "tags": [
+    "deep-learning",
+    "embedded",
+    "neural-networks",
+    "nrf52",
+    "python",
+    "rtos",
+    "stm32",
+    "tensorflow",
+    "zephyr"
+  ]
+}

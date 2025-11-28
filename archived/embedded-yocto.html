@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Build OS Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        html {
+            zoom: 1.0;
+            -moz-transform: scale(1.0);
+            -moz-transform-origin: 0 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #2c3e50;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+        nav a.active, nav a:hover {
+            color: #0066cc;
+        }
+        main {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .project {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .project:last-child {
+            border-bottom: none;
+        }
+        .project-image {
+            margin: 20px 0;
+        }
+        .project-description p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .project-link {
+            margin-top: 20px;
+        }
+        .project-link a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .project-link a:hover {
+            background-color: #0055aa;
+        }
+        .project-link i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Issam Sayyaf</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="cv.html" class="nav-link" target="_blank">Resume</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Yocto Projects</h1>
+
+        <div class="project">
+            <h2>Muzziball Custom OS Development</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <img src="assets/images/stm32mp1.jpg" alt="Muzziball Custom OS" style="width: 30%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            
+            <div class="project-description">
+                <p>A custom Linux-based operating system built using Yocto Project for the Muzziball device, integrating various hardware components and software dependencies. The system provides a robust foundation for the device's advanced features while ensuring optimal performance and reliability.</p>
+                
+                <p>Key features include:</p>
+                <ul>
+                    <li>Custom Yocto-based Linux distribution</li>
+                    <li>STM32MP1 BSP development and integration</li>
+                    <li>WiFi and Bluetooth Low Energy (BLE) support</li>
+                    <li>ALSA audio system integration</li>
+                    <li>RGB LED matrix display, IMU, and audio input/output</li>
+                    <li>Power management system</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="project">
+            <h2>Automotive Embedded System</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <img src="assets/images/airbox.jpeg" alt="Airbox Automotive System" style="width: 20%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            
+            <div class="project-description">
+                <p>A comprehensive automotive embedded system solution that combines the reliability of STM32MP1 with the advanced capabilities of i.MX93 processors. This unified system provides a robust platform for modern vehicle applications, offering both real-time processing and advanced features.</p>
+                
+                <p>Key features include:</p>
+                <ul>
+                    <li>Two versions of the system: STM32MP1 and i.MX93</li>
+                    <li>Real-time processing capabilities for critical vehicle functions</li>
+                    <li>Automotive-grade hardware integration and safety features</li>
+                    <li>Enhanced security features for automotive applications</li>
+                    <li>4G LTE cellular connectivity for remote monitoring</li>
+                    <li>GPS module for precise location tracking</li>
+                    <li>Ethernet for high-speed data transfer</li>
+                    <li>USB interfaces for peripheral expansion</li>
+                    <li>WiFi for wireless connectivity</li>
+                    <li>Bluetooth Low Energy (BLE) for short-range communication</li>
+                    <li>Advanced analog-to-digital conversion (ADC) for sensor integration</li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="project">
+            <h2>Custom Android 15 Tablet</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <img src="assets/images/android-boot.jpeg" alt="Android 15 Boot Screen" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/android-home.jpeg" alt="Android 15 Home Screen" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            
+            <div class="project-description">
+                <p>A fully functional custom tablet built from scratch using AOSP (Android Open Source Project) and Raspberry Pi hardware. This project demonstrates deep expertise in embedded systems and Android internals, from bootloader configuration to system service optimization.</p>
+                
+                <p>Technical Implementation:</p>
+                <ul>
+                    <li>Built Android 15 from AOSP source code with custom configurations</li>
+
+                    <li>Implemented touchscreen driver support and input system optimization</li>
+
+                </ul>
+
+                <p>Key Components:</p>
+                <ul>
+                    <li>AOSP (Android Open Source Project) 15</li>
+                    <li>Raspberry Pi hardware platform</li>
+                    <li>touchscreen integration</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Issam Sayyaf. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 

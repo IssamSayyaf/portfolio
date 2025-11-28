@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Zephyr RTOS - Issam Sayyaf</title>
+    <meta name="description" content="Learn how to set up Zephyr RTOS, create your first project, and understand the fundamentals of this powerful real-time operating system for embedded devices.">
+    <link rel="icon" type="image/png" href="../../../../assets/images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <!-- Highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- Language-specific highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/ini.min.js"></script>
+    <link rel="stylesheet" href="../../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../assets/blog-style.css">
+    <link rel="stylesheet" href="../../../assets/post-style.css">
+    <link rel="stylesheet" href="../../../assets/markdown-style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="../../../../index.html" class="logo">Issam Sayyaf</a>
+
+        <nav class="nav-links">
+            <a href="../../../../index.html" class="nav-link">Home</a>
+            <a href="../../../../publications.html" class="nav-link">Publications</a>
+            <a href="../../../../blog.html" class="nav-link">Blog</a>
+            <a href="../../../../about.html" class="nav-link">About</a>
+        </nav>
+
+        <div class="nav-toggle" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main class="post-container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="breadcrumb">
+            <a href="../../../../index.html"><i class="fas fa-home"></i> Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="../../../../blog.html">Blog</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="../../../../blog.html?category=zephyr-os">Zephyr OS</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Getting Started with Zephyr RTOS</span>
+        </nav>
+
+        <!-- Post Article -->
+        <article class="post-article">
+            <header class="post-header">
+                <div class="post-meta-top">
+                    <span class="post-category">Zephyr OS</span>
+                    <span class="post-date">
+                        <i class="fas fa-calendar"></i>
+                        January 20, 2025
+                    </span>
+                    <span class="post-read-time">
+                        <i class="fas fa-clock"></i>
+                        <span id="reading-time">15 min read</span>
+                    </span>
+                </div>
+
+                <h1 class="post-title">Getting Started with Zephyr RTOS: A Complete Guide</h1>
+
+                <div class="post-meta-bottom">
+                    <div class="author-info">
+                        <img src="../../../../assets/images/issam.png" alt="Issam Sayyaf" class="author-avatar">
+                        <div class="author-details">
+                            <span class="author-name">Issam Sayyaf</span>
+                            <span class="author-title">PhD Researcher & Embedded Systems Engineer</span>
+                        </div>
+                    </div>
+
+                    <div class="post-actions">
+                        <button class="action-btn" onclick="sharePost()">
+                            <i class="fas fa-share"></i> Share
+                        </button>
+                        <button class="action-btn" onclick="bookmarkPost()">
+                            <i class="fas fa-bookmark"></i> Save
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="post-featured-image">
+                <img src="../../../../assets/images/stm32mp1.jpg" alt="Zephyr RTOS Development" class="featured-img">
+                <div class="image-caption">
+                    <p>Zephyr RTOS running on embedded hardware</p>
+                </div>
+            </div>
+
+            <!-- Table of Contents -->
+            <aside class="table-of-contents" id="table-of-contents">
+                <!-- Generated by JavaScript -->
+            </aside>
+
+            <!-- Post Content - Markdown will be loaded here -->
+            <div class="post-content">
+                <div id="markdown-content" data-markdown="index.md">
+                    <div class="loading-content">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading article content...</p>
+                    </div>
+                </div>
+
+                <!-- Post Tags -->
+                <div class="post-tags">
+                    <h4>Tags:</h4>
+                    <span class="tag">zephyr</span>
+                    <span class="tag">rtos</span>
+                    <span class="tag">embedded</span>
+                    <span class="tag">nrf52</span>
+                    <span class="tag">stm32</span>
+                </div>
+            </div>
+
+            <!-- Post Footer -->
+            <footer class="post-footer">
+                <div class="post-sharing">
+                    <h4>Share this article:</h4>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn twitter" onclick="shareOnTwitter(); return false;">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="#" class="share-btn linkedin" onclick="shareOnLinkedIn(); return false;">
+                            <i class="fab fa-linkedin"></i> LinkedIn
+                        </a>
+                        <a href="#" class="share-btn facebook" onclick="shareOnFacebook(); return false;">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </a>
+                        <a href="#" class="share-btn copy" onclick="copyLink(); return false;">
+                            <i class="fas fa-link"></i> Copy Link
+                        </a>
+                    </div>
+                </div>
+
+                <div class="author-bio">
+                    <img src="../../../../assets/images/issam.png" alt="Issam Sayyaf" class="author-bio-avatar">
+                    <div class="author-bio-content">
+                        <h4>About Issam Sayyaf</h4>
+                        <p>PhD Researcher in Signal Processing and Embedded Systems Engineer with expertise in microcontroller programming, IoT development, and system architecture. Passionate about sharing knowledge and helping others learn.</p>
+                        <div class="author-social">
+                            <a href="https://www.linkedin.com/in/issamsayyaf/" class="author-social-link" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/IssamSayyaf" class="author-social-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:issamsayyaf97@gmail.com" class="author-social-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </article>
+
+        <!-- Related Posts -->
+        <section class="related-posts">
+            <h3><i class="fas fa-newspaper"></i> Related Articles</h3>
+            <div class="related-posts-grid">
+                <a href="../../getting-started-with-embedded-systems/" class="related-post">
+                    <img src="../../../../assets/images/stm32mp1.jpg" alt="Embedded Systems">
+                    <div class="related-post-content">
+                        <span class="related-post-category">Embedded Systems</span>
+                        <h4>Getting Started with Embedded Systems</h4>
+                        <span class="related-post-date">January 15, 2025</span>
+                    </div>
+                </a>
+
+                <a href="../../iot-project-architecture/" class="related-post">
+                    <img src="../../../../assets/images/arch_esp32_iot_project.jpeg" alt="IoT Architecture">
+                    <div class="related-post-content">
+                        <span class="related-post-category">IoT</span>
+                        <h4>Building Scalable IoT Project Architecture</h4>
+                        <span class="related-post-date">January 5, 2025</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="image-modal" onclick="closeImageModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-image" src="" alt="">
+        <p class="modal-caption"></p>
+    </div>
+
+    <!-- Blog Footer -->
+    <footer class="blog-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Issam Sayyaf. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../../../../index.html">Home</a>
+                <a href="../../../../publications.html">Publications</a>
+                <a href="../../../../blog.html">Blog</a>
+                <a href="../../../../about.html">About</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../assets/post-loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+{
+  "projects": [
+    {
+      "id": "pedestrian-dead-reckoning",
+      "title": "Pedestrian Dead Reckoning with Deep Learning",
+      "excerpt": "AI-powered indoor positioning system using smartphone IMU sensors and anomaly detection.",
+      "description": "Research project implementing deep learning models for accurate pedestrian navigation without GPS.",
+      "category": "Research",
+      "categorySlug": "research",
+      "tags": [
+        "deep-learning",
+        "positioning",
+        "python",
+        "tensorflow",
+        "signal-processing"
+      ],
+      "featured": true,
+      "image": "assets/images/deep_learning.png",
+      "imageCaption": "Neural network architecture for step detection",
+      "status": "in-progress",
+      "date": "2025-01-10",
+      "github": "",
+      "demo": "",
+      "technologies": [
+        "Python",
+        "TensorFlow",
+        "NumPy",
+        "Matplotlib",
+        "Scikit-learn"
+      ],
+      "path": "projects/research/pedestrian-dead-reckoning/"
+    },
+    {
+      "id": "zephyr-sensor-hub",
+      "title": "Zephyr RTOS Sensor Hub",
+      "excerpt": "A multi-sensor data collection platform built on Zephyr RTOS with BLE connectivity and cloud integration.",
+      "description": "Complete IoT sensor hub featuring temperature, humidity, and motion sensors with real-time data streaming.",
+      "category": "Embedded Systems",
+      "categorySlug": "embedded-systems",
+      "tags": [
+        "zephyr",
+        "rtos",
+        "ble",
+        "sensors",
+        "nrf52"
+      ],
+      "featured": true,
+      "image": "assets/images/stm32mp1.jpg",
+      "imageCaption": "Sensor hub running on nRF52840 development kit",
+      "status": "completed",
+      "date": "2024-12-15",
+      "github": "https://github.com/IssamSayyaf/zephyr-sensor-hub",
+      "demo": "",
+      "technologies": [
+        "Zephyr RTOS",
+        "C",
+        "BLE",
+        "nRF52840",
+        "Python"
+      ],
+      "path": "projects/embedded-systems/zephyr-sensor-hub/"
+    },
+    {
+      "id": "iot-crack-detection",
+      "title": "IoT Wireless Crack Detection System",
+      "excerpt": "Wireless structural health monitoring system using acoustic emission sensors and ESP32.",
+      "description": "Master's thesis project - Real-time crack detection in heritage buildings using IoT and acoustic emission analysis.",
+      "category": "IoT",
+      "categorySlug": "iot",
+      "tags": [
+        "iot",
+        "esp32",
+        "acoustic-emission",
+        "wireless",
+        "monitoring"
+      ],
+      "featured": true,
+      "image": "assets/images/arch_esp32_iot_project.jpeg",
+      "imageCaption": "System architecture for wireless crack detection",
+      "status": "completed",
+      "date": "2023-10-01",
+      "github": "",
+      "demo": "",
+      "technologies": [
+        "ESP32",
+        "C++",
+        "MQTT",
+        "LoRa",
+        "Python"
+      ],
+      "path": "projects/iot/iot-crack-detection/"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Research",
+      "slug": "research",
+      "description": "Projects in Research",
+      "icon": "fas fa-flask"
+    },
+    {
+      "name": "Embedded Systems",
+      "slug": "embedded-systems",
+      "description": "Projects in Embedded Systems",
+      "icon": "fas fa-microchip"
+    },
+    {
+      "name": "IoT",
+      "slug": "iot",
+      "description": "Projects in IoT",
+      "icon": "fas fa-wifi"
+    }
+  ],
+  "statuses": {
+    "completed": {
+      "label": "Completed",
+      "color": "#27ae60"
+    },
+    "in-progress": {
+      "label": "In Progress",
+      "color": "#f39c12"
+    },
+    "planned": {
+      "label": "Planned",
+      "color": "#3498db"
+    }
+  }
+}
