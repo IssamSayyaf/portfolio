@@ -256,9 +256,66 @@
                 display: none;
             }
         }
+
+        /* Navigation Bar */
+        .site-nav {
+            max-width: 1400px;
+            margin: 0 auto 20px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-nav .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .site-nav .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .site-nav .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .site-nav .nav-link:hover,
+        .site-nav .nav-link.active {
+            color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+        }
+
+        @media print {
+            .site-nav {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Site Navigation -->
+    <nav class="site-nav">
+        <a href="index.html" class="logo">Issam Sayyaf</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="cv.html" class="nav-link active">CV</a>
+        </div>
+    </nav>
+
     <!-- CV Container -->
     <div class="cv-container" id="cvContainer">
         <!-- Header -->
