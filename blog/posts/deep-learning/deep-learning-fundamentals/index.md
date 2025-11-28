@@ -1,3 +1,19 @@
+---
+id: deep-learning-fundamentals
+title: Deep Learning Fundamentals - Neural Networks Explained
+excerpt: Understand the core concepts of deep learning, from perceptrons to convolutional neural networks, with practical examples and code implementations.
+author: Issam Sayyaf
+authorTitle: PhD Researcher
+date: 2025-01-18
+category: Deep Learning
+categorySlug: deep-learning
+tags: [deep-learning, neural-networks, python, tensorflow]
+featured: true
+readTime: 12 min read
+image: assets/images/deep_learning.png
+imageCaption: Neural network architecture visualization
+---
+
 # Deep Learning Fundamentals: Neural Networks Explained
 
 Deep learning has revolutionized the field of artificial intelligence, enabling breakthroughs in computer vision, natural language processing, and countless other domains. In this comprehensive guide, we'll explore the fundamental concepts of deep learning and build our understanding from the ground up.

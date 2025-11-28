@@ -1,3 +1,19 @@
+---
+id: getting-started-with-zephyr-rtos
+title: Getting Started with Zephyr RTOS - A Complete Guide
+excerpt: Learn how to set up Zephyr RTOS, create your first project, and understand the fundamentals of this powerful real-time operating system for embedded devices.
+author: Issam Sayyaf
+authorTitle: PhD Researcher & Embedded Systems Engineer
+date: 2025-01-20
+category: Zephyr OS
+categorySlug: zephyr-os
+tags: [zephyr, rtos, embedded, nrf52, stm32]
+featured: true
+readTime: 15 min read
+image: assets/images/stm32mp1.jpg
+imageCaption: Zephyr RTOS running on embedded hardware
+---
+
 # Getting Started with Zephyr RTOS
 
 Zephyr is a scalable, real-time operating system (RTOS) supporting multiple hardware architectures, optimized for resource-constrained devices, and built with security in mind. In this comprehensive guide, we'll explore how to get started with Zephyr RTOS.
