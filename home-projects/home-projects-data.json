@@ -1,0 +1,124 @@
+{
+  "projects": [
+    {
+      "id": "muzziball-os",
+      "title": "Muzziball Custom OS Development",
+      "description": "A custom Linux-based operating system built using Yocto Project for the Muzziball device, integrating hardware components and providing a robust foundation for advanced features.",
+      "categories": ["Embedded Linux", "Yocto Project"],
+      "keywords": ["STM32MP1", "BSP", "WiFi/BLE", "ALSA Audio"],
+      "image": "assets/images/stm32mp1.jpg",
+      "detailsFile": "home-projects/muzziball-os/details.md",
+      "order": 1
+    },
+    {
+      "id": "automotive-system",
+      "title": "Automotive Embedded System",
+      "description": "A comprehensive automotive embedded system combining STM32MP1 and i.MX93 processors, providing a robust platform for modern vehicle applications with real-time processing capabilities.",
+      "categories": ["Embedded Linux", "Automotive"],
+      "keywords": ["STM32MP1/i.MX93", "4G LTE", "GPS", "Real-time"],
+      "image": "assets/images/airbox.jpeg",
+      "detailsFile": "home-projects/automotive-system/details.md",
+      "order": 2
+    },
+    {
+      "id": "muzziball-smart",
+      "title": "Muzziball Smart Interactive Ball",
+      "description": "A sophisticated embedded system project that combines hardware and software to create an interactive ball with multiple sensors, actuators, and real-time data processing capabilities.",
+      "categories": ["Embedded Systems", "IoT"],
+      "keywords": ["IMU", "RGB LED", "Motion Control", "Real-time"],
+      "image": "assets/images/Muzziball.jpg",
+      "detailsFile": "home-projects/muzziball-smart/details.md",
+      "order": 3
+    },
+    {
+      "id": "crack-detection",
+      "title": "Wireless Crack Detection System",
+      "description": "A sophisticated real-time crack detection system combining Acoustic Emission technology with IoT capabilities for infrastructure monitoring and structural health assessment.",
+      "categories": ["IoT", "Signal Processing"],
+      "keywords": ["Acoustic Emission", "MQTT", "GPS", "Node-RED"],
+      "image": "assets/images/architecture with server.jpg",
+      "detailsFile": "home-projects/crack-detection/details.md",
+      "order": 4
+    },
+    {
+      "id": "aws-iot",
+      "title": "Secure IoT System with AWS Integration",
+      "description": "A comprehensive IoT security project implementing robust security measures throughout the IoT pipeline while providing intuitive monitoring and control interfaces.",
+      "categories": ["IoT Security", "Cloud Computing"],
+      "keywords": ["ESP32", "AWS IoT Core", "SSL/TLS", "DynamoDB"],
+      "image": "assets/images/arch_esp32_iot_project.jpeg",
+      "detailsFile": "home-projects/aws-iot/details.md",
+      "order": 5
+    },
+    {
+      "id": "smart-home",
+      "title": "Smart Home IoT System with Android Control",
+      "description": "A comprehensive smart home automation system featuring Android application interface, ESP32-based hardware control, and Firebase cloud integration for secure access.",
+      "categories": ["IoT", "Android"],
+      "keywords": ["Android", "ESP32", "Firebase", "HVAC Control"],
+      "image": "assets/images/home.jpeg",
+      "detailsFile": "home-projects/smart-home/details.md",
+      "order": 6
+    },
+    {
+      "id": "optical-comm",
+      "title": "Free Space Optical Communication System",
+      "description": "A comprehensive study and implementation of secure free space optical communication using LASER technology and AES encryption with theoretical analysis and practical implementation.",
+      "categories": ["Optical Communication", "Security"],
+      "keywords": ["LASER", "AES Encryption", "MATLAB", "Optisystem"],
+      "image": "assets/images/electromagntic.png",
+      "detailsFile": "home-projects/optical-comm/details.md",
+      "order": 7
+    },
+    {
+      "id": "robust-smartstep",
+      "title": "Robust SmartStep: Anomaly Filtering for PDR",
+      "description": "A novel approach to improve step detection in Pedestrian Dead Reckoning systems using deep learning-based anomaly filtering to distinguish genuine walking signals from anomalies.",
+      "categories": ["Deep Learning", "Signal Processing"],
+      "keywords": ["Autoencoder", "IMU", "PDR", "Anomaly Detection"],
+      "image": "assets/images/step_detection_comparison.png",
+      "detailsFile": "home-projects/robust-smartstep/details.md",
+      "order": 8
+    },
+    {
+      "id": "breast-cancer",
+      "title": "RSNA Breast Cancer Detection",
+      "description": "Deep learning models for breast cancer detection from mammogram images, developed for the RSNA competition on Kaggle to improve early detection and survival rates.",
+      "categories": ["Deep Learning", "Medical AI"],
+      "keywords": ["CNN", "Mammography", "Medical Imaging", "Kaggle"],
+      "image": "assets/images/CNN.png",
+      "detailsFile": "home-projects/breast-cancer/details.md",
+      "order": 9
+    },
+    {
+      "id": "text-analysis",
+      "title": "Contradictory Text Analysis NLP",
+      "description": "Classification of premise-hypothesis pairs into entailment, contradiction, or neutral categories using advanced NLP techniques and BERT-based models for multilingual text analysis.",
+      "categories": ["NLP", "Deep Learning"],
+      "keywords": ["BERT", "NLP", "Classification", "Multilingual"],
+      "image": "assets/images/BERT.png",
+      "detailsFile": "home-projects/text-analysis/details.md",
+      "order": 10
+    },
+    {
+      "id": "sdn-routing",
+      "title": "Dijkstra and Bellman-Ford RYU Controller",
+      "description": "An advanced Software-Defined Networking project implementing both Dijkstra and Bellman-Ford shortest-path algorithms using the RYU controller for optimal network routing.",
+      "categories": ["SDN", "Networking"],
+      "keywords": ["RYU Controller", "OpenFlow", "Mininet", "NetworkX"],
+      "image": "assets/images/sdn.png",
+      "detailsFile": "home-projects/sdn-routing/details.md",
+      "order": 11
+    },
+    {
+      "id": "wireless-loadbalancing",
+      "title": "Load Balancing for Face Recognition Video Streaming",
+      "description": "A sophisticated load balancing solution for face recognition video streaming in wireless networks using Mininet-WiFi and RYU controller with QoS management.",
+      "categories": ["Wireless Networks", "Load Balancing"],
+      "keywords": ["Mininet-WiFi", "Face Recognition", "QoS", "PSNR Analysis"],
+      "image": "assets/images/sdn1.png",
+      "detailsFile": "home-projects/wireless-loadbalancing/details.md",
+      "order": 12
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "publications": [
+    {
+      "id": "plans-2025",
+      "title": "Anomaly Filtering for Pedestrian Dead Reckoning Using Segment-Based Autoencoders",
+      "authors": "Mohamad Issam SAYYAF, Ni Zhu, Valerie Renaudin",
+      "date": "April 2025",
+      "type": "Conference",
+      "venue": "2025 IEEE/ION Position, Location and Navigation Symposium (PLANS)",
+      "location": "Salt Lake City, UT",
+      "pages": "53-62",
+      "abstract": "Advanced step detection with anomaly filtering for enhanced positioning accuracy using segment-based autoencoders.",
+      "image": "assets/images/step_detection_comparison.png",
+      "link": "https://ieeexplore.ieee.org/document/11028276",
+      "detailsFile": "publications/plans-2025/details.md",
+      "order": 3
+    },
+    {
+      "id": "apscon-2025",
+      "title": "Step Detection Enhanced by Anomaly Filtering",
+      "authors": "Mohamad Issam SAYYAF, Ni Zhu, Valerie Renaudin, Tobias Feigl",
+      "date": "January 2025",
+      "type": "Conference",
+      "venue": "3rd International IEEE Applied Sensing Conference (APSCON)",
+      "location": "Hyderabad, India",
+      "abstract": "Enhanced step detection methodology using anomaly filtering techniques for improved accuracy in pedestrian navigation systems.",
+      "image": "assets/images/APSCON.svg",
+      "link": "https://ieeexplore.ieee.org/document/11144204",
+      "detailsFile": "publications/apscon-2025/details.md",
+      "order": 4
+    },
+    {
+      "id": "sensors-2025",
+      "title": "Time Series Anomaly Detection for Sensor Data: Models, Metrics and Methodologies – A Review",
+      "authors": "Mohamad Issam SAYYAF, Pavel Pascacio, Ni Zhu, Valerie Renaudin",
+      "date": "October 2025",
+      "type": "Journal",
+      "venue": "IEEE Sensors Journal",
+      "location": "",
+      "abstract": "Comprehensive survey of 43 papers covering state-of-the-art time series anomaly detection models with methodology-driven taxonomy and practical metrics analysis.",
+      "image": "assets/images/time_series_anomaly_detection.png",
+      "link": "https://ieeexplore.ieee.org/document/11196038",
+      "detailsFile": "publications/sensors-2025/details.md",
+      "order": 1
+    },
+    {
+      "id": "gnss-threat-2025",
+      "title": "GNSS Positioning Under Threat: The Rising Risk to Existing Systems and the Role of Alternative Indoor and Seamless Navigation Technologies",
+      "authors": "Valerie Renaudin, Mohamad Issam Sayyaf, Frédéric Le Bourhis, Miguel Ortiz",
+      "date": "2025",
+      "type": "Journal",
+      "venue": "Journal of the Institute of Navigation (J-ISPIN)",
+      "location": "",
+      "abstract": "Investigation of escalating GNSS threats through real-world case studies with 819-minute open-source attack dataset and analysis of alternative indoor navigation solutions.",
+      "image": "assets/images/J-ISPIN_GraphicAbstract_01.png",
+      "link": "",
+      "detailsFile": "publications/gnss-threat-2025/details.md",
+      "order": 2
+    },
+
+    {
+      "id": "metrolivenv-2023",
+      "title": "Wireless Crack Detection System Based on IoT and Acoustic Emission",
+      "authors": "Mohamad Issam Sayyaf, Francesco Lamonaca",
+      "date": "May 2023",
+      "type": "Conference",
+      "venue": "2023 IEEE International Workshop on Metrology for Living Environment (MetroLivEnv)",
+      "abstract": "Implementation of a wireless IoT system for structural health monitoring using acoustic emission sensors.",
+      "image": "assets/images/architecture with server.jpg",
+      "link": "https://ieeexplore.ieee.org/document/10164053/",
+      "detailsFile": "publications/metrolivenv-2023/details.md",
+      "order": 5
+    },
+        {
+      "id": "master-thesis-2023",
+      "title": "Design and Realization of a Wireless Crack Detection System Based on IoT and Acoustic Emission",
+      "authors": "Mohamad Issam Sayyaf, Francesco Lamonaca",
+      "date": "October 2023",
+      "type": "Master Thesis",
+      "venue": "University of Calabria",
+      "abstract": "A comprehensive IoT-based system for real-time crack detection using acoustic emission technology and wireless sensor networks.",
+      "image": "assets/images/architecture with server.jpg",
+      "link": "https://www.researchgate.net/publication/374775819_Design_and_Realization_of_a_Wireless_Crack_Detection_System_Based_on_IoT_and_Acoustic_Emission",
+      "detailsFile": "publications/master-thesis-2023/details.md",
+      "order": 6
+    }
+    
+  ]
+}

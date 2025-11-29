@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <title>Embedded Applications - Issam Sayyaf</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        html {
+            zoom: 1.0;
+            -moz-transform: scale(1.0);
+            -moz-transform-origin: 0 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #2c3e50;
+            transform-origin: top left;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+        nav a.active, nav a:hover {
+            color: #0066cc;
+        }
+        main {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        .project {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .project:last-child {
+            border-bottom: none;
+        }
+        .project-image {
+            margin: 20px 0;
+        }
+        .project-description p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .project-link {
+            margin-top: 20px;
+        }
+        .project-link a {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .project-link a:hover {
+            background-color: #0055aa;
+        }
+        .project-link i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Issam Sayyaf</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="cv.html" class="nav-link" target="_blank">Resume</a>
+        </nav>
+    </header>
+    <main>
+        <h1 class="page-title">Embedded Applications</h1>
+
+        <div class="project">
+            <h2>Muzziball - Smart Interactive Ball</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <img src="assets/images/Muzziball.jpg" alt="Muzziball Smart Interactive Ball" style="width: 40%; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>
+            
+            <div class="project-description">
+                <p>A sophisticated embedded system project that combines hardware and software to create an interactive ball with multiple sensors and actuators. The system features advanced motion control, sensor integration, and real-time data processing capabilities.</p>
+                
+                <p>Key features include:</p>
+                <ul>
+                    <li>Advanced motion orchestration system for precise ball movement and control</li>
+                    <li>IMU (Inertial Measurement Unit) integration for accurate motion tracking</li>
+                    <li>Intelligent power mode management system to optimize battery life</li>
+                    <li>RGB LED matrix for dynamic color display and visual feedback</li>
+                    <li>Real-time data transmission to server for remote monitoring</li>
+                    <li>Comprehensive battery management system with status reporting</li>
+                </ul>
+            </div>
+            
+            <div class="project-link">
+                <a href="https://github.com/IssamSayyaf/stener" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Wireless Crack Detection System</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <img src="assets/images/architecture with server.jpg" alt="System Architecture" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/expermints-setup.jpg" alt="Experimental Setup" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            
+            <div class="project-description">
+                <p>A sophisticated real-time crack detection system that combines Acoustic Emission (AE) technology with IoT capabilities. This master thesis project demonstrates the integration of embedded systems with cloud technologies for infrastructure monitoring.</p>
+                
+                <p>Key Features:</p>
+                <ul>
+                    <li>Real-time crack detection using Acoustic Emission sensors</li>
+                    <li>High-precision analog signal processing circuit</li>
+                    <li>Microsecond-resolution GPS timestamping</li>
+                    <li>MQTT protocol for reliable data transmission</li>
+                    <li>Raspberry Pi-based smart gateway</li>
+                    <li>Node-RED visualization interface</li>
+                    <li>Multi-node support for distributed sensing</li>
+                    <li>Cloud integration for data storage and analysis</li>
+                </ul>
+
+                <p>The system demonstrates the practical application of IoT technologies in structural health monitoring, providing a robust solution for real-time crack detection and infrastructure monitoring. The implementation showcases the integration of various technologies including embedded systems, wireless communication, cloud computing, and data visualization.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Secure IoT System with AWS Integration</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <img src="assets/images/arch_esp32_iot_project.jpeg" alt="IoT System Architecture" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/dashboard_esp_iot_project.jpeg" alt="IoT Dashboard Interface" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            
+            <div class="project-description">
+                <p>A comprehensive IoT security project focused on developing a secure system for collecting, transmitting, and storing sensor data in the cloud. The project implements robust security measures throughout the IoT pipeline while providing an intuitive user interface for monitoring and control.</p>
+                
+                <p>System Architecture:</p>
+                <ul>
+                    <li>ESP32-based IoT device with multiple sensors:
+                        <ul>
+                            <li>Temperature and humidity monitoring</li>
+                            <li>Fire detection system</li>
+                            <li>Heating system control</li>
+                        </ul>
+                    </li>
+                    <li>Security Implementation:
+                        <ul>
+                            <li>SSL/TLS encryption for MQTT communication</li>
+                            <li>AWS IoT Core integration with X.509 certificates</li>
+                            <li>Secure authentication and authorization</li>
+                            <li>Encrypted data storage in AWS DynamoDB</li>
+                        </ul>
+                    </li>
+                    <li>Cloud Infrastructure:
+                        <ul>
+                            <li>AWS Lambda for serverless computing</li>
+                            <li>Amazon SNS for notifications</li>
+                            <li>AWS IoT Core for device management</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>Features:</p>
+                <ul>
+                    <li>Real-time monitoring through Node-RED dashboard</li>
+                    <li>Automated alerts and notifications</li>
+                    <li>Remote heating system control</li>
+                    <li>Fire alarm system with instant alerts</li>
+                    <li>Secure data storage and retrieval</li>
+                    <li>Email and SMS notifications</li>
+                </ul>
+
+                <p>The project serves as a model for implementing security best practices in IoT systems, demonstrating the integration of embedded systems with cloud services while maintaining high security standards.</p>
+            </div>
+            
+            <div class="project-link">
+                <a href="https://github.com/IssamSayyaf/IoT-security" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Smart Home IoT System with Android Control</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px;">
+                    <img src="assets/images/home.jpeg" alt="Smart Home Login Screen" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/login.jpeg" alt="Smart Home Control Panel" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/control.jpeg" alt="RGB Control Interface" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="assets/images/sensors.jpeg" alt="Sensors Monitoring Panel" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+            
+            <div class="project-description">
+                <p>A comprehensive smart home automation system featuring an Android application interface and ESP32-based hardware control. The system provides secure access, automated environmental control, and real-time monitoring capabilities through Firebase cloud integration.</p>
+                
+                <p>System Components:</p>
+                <ul>
+                    <li>Android Application:
+                        <ul>
+                            <li>Secure login system with Firebase authentication</li>
+                            <li>Intuitive drawer navigation interface</li>
+                            <li>Real-time control and monitoring panels</li>
+                            <li>Responsive and modern UI design</li>
+                        </ul>
+                    </li>
+                    <li>Control Features:
+                        <ul>
+                            <li>Automated and manual lighting control</li>
+                            <li>RGB LED color management with auto/manual modes</li>
+                            <li>Smart HVAC system with auto/manual temperature control</li>
+                            <li>Customizable automation rules</li>
+                        </ul>
+                    </li>
+                    <li>Monitoring Capabilities:
+                        <ul>
+                            <li>Real-time temperature and humidity tracking</li>
+                            <li>Ambient light intensity measurement</li>
+                            <li>Fire detection system</li>
+                            <li>Gas leakage monitoring</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>Technical Implementation:</p>
+                <ul>
+                    <li>Hardware:
+                        <ul>
+                            <li>ESP32 microcontroller for device control</li>
+                            <li>Multiple environmental sensors</li>
+                            <li>RGB LED lighting system</li>
+                            <li>HVAC control interface</li>
+                        </ul>
+                    </li>
+                    <li>Software Stack:
+                        <ul>
+                            <li>Native Android application development</li>
+                            <li>Firebase Realtime Database integration</li>
+                            <li>Secure user authentication system</li>
+                            <li>Real-time data synchronization</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>The project demonstrates the practical implementation of IoT technology in home automation, combining secure cloud connectivity, mobile accessibility, and comprehensive environmental control in a user-friendly package.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <h2>Free Space Optical Communication System with AES Encryption</h2>
+            
+            <div class="project-image" style="text-align: center;">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/2z7s-vDd1ow" 
+                    title="Free Space Optical Communication System Demo" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+                </iframe>
+            </div>
+            
+            <div class="project-description">
+                <p>A comprehensive study and implementation of a secure free space optical communication system using LASER technology and AES encryption. This project combines theoretical analysis with practical implementation, demonstrating advanced concepts in optical communication and data security.</p>
+                
+                <p>Theoretical Research:</p>
+                <ul>
+                    <li>Analysis of laser wavelength impact on attenuation rates (optimal at 1550nm)</li>
+                    <li>Simulation using Optisystem for system modeling and verification</li>
+                    <li>Study of fog effects on 650nm laser transmission</li>
+                    <li>Mathematical modeling of:
+                        <ul>
+                            <li>Distance vs. weather conditions vs. received optical power</li>
+                            <li>Distance vs. weather conditions vs. BER vs. transmitter power</li>
+                        </ul>
+                    </li>
+                    <li>Pioneer implementation of Eye Diagram analysis at Aleppo University</li>
+                </ul>
+
+                <p>Practical Implementation:</p>
+                <ul>
+                    <li>Custom hardware design:
+                        <ul>
+                            <li>Laser transmitter module</li>
+                            <li>Optical receiver with phototransistor</li>
+                            <li>OOK modulation circuit</li>
+                        </ul>
+                    </li>
+                    <li>MATLAB-based user interface supporting multiple file types:
+                        <ul>
+                            <li>Audio transmission</li>
+                            <li>Video streaming</li>
+                            <li>Text communication</li>
+                            <li>Image transfer</li>
+                        </ul>
+                    </li>
+                    <li>AES encryption implementation for secure data transmission</li>
+                    <li>USB interface for data transfer between PC and optical system</li>
+                    <li>Successful testing at 50m distance (theoretical range up to 100m)</li>
+                </ul>
+
+                <p>The system demonstrates practical applications of free space optics in secure communication, combining theoretical research with real-world implementation. The successful integration of AES encryption ensures data security while maintaining reliable optical transmission over significant distances.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Issam Sayyaf. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

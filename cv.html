@@ -268,12 +268,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            animation: fadeIn 0.5s ease-out;
         }
 
         .site-nav .logo {
             font-size: 1.2rem;
             color: #0066cc;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .site-nav .nav-links {
@@ -290,10 +292,26 @@
             transition: all 0.3s ease;
         }
 
-        .site-nav .nav-link:hover,
+        .site-nav .nav-link:hover {
+            color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+            transform: translateY(-2px);
+        }
+
         .site-nav .nav-link.active {
             color: #0066cc;
             background: rgba(0, 102, 204, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media print {
@@ -312,7 +330,7 @@
             <a href="publications.html" class="nav-link">Publications</a>
             <a href="projects.html" class="nav-link">Projects</a>
             <a href="blog.html" class="nav-link">Blog</a>
-            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
             <a href="cv.html" class="nav-link active">CV</a>
         </div>
     </nav>

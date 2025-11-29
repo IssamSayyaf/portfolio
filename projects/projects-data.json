@@ -1,6 +1,97 @@
 {
   "projects": [
     {
+      "id": "robust-smartstep",
+      "title": "Robust SmartStep: Anomaly Filtering for PDR",
+      "excerpt": "Deep learning-based anomaly filtering for enhanced step detection in Pedestrian Dead Reckoning systems.",
+      "description": "Novel approach using segment-based autoencoders to distinguish genuine walking signals from anomalies for improved PDR accuracy.",
+      "category": "Deep Learning",
+      "categorySlug": "deep-learning",
+      "tags": [
+        "deep-learning",
+        "autoencoder",
+        "pdr",
+        "positioning",
+        "signal-processing"
+      ],
+      "featured": false,
+      "image": "assets/images/step_detection_comparison.png",
+      "imageCaption": "Step detection comparison with and without anomaly filtering",
+      "status": "completed",
+      "date": "2025-04-01",
+      "github": "",
+      "gitlab": "https://gitlab.univ-eiffel.fr/issam/robust-smartstep",
+      "demo": "",
+      "technologies": [
+        "Python",
+        "TensorFlow",
+        "NumPy",
+        "Pandas",
+        "Matplotlib"
+      ],
+      "path": "projects/deep-learning/robust-smartstep/"
+    },
+    {
+      "id": "rsna-breast-cancer",
+      "title": "RSNA Breast Cancer Detection",
+      "excerpt": "Deep learning model for breast cancer detection from mammogram images using CNNs.",
+      "description": "Kaggle competition project exploring state-of-the-art deep learning techniques for accurate breast cancer detection in medical imaging.",
+      "category": "Deep Learning",
+      "categorySlug": "deep-learning",
+      "tags": [
+        "deep-learning",
+        "cnn",
+        "medical-imaging",
+        "kaggle",
+        "classification"
+      ],
+      "featured": false,
+      "image": "assets/images/CNN.png",
+      "imageCaption": "CNN architecture for breast cancer detection",
+      "status": "completed",
+      "date": "2024-06-15",
+      "github": "https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection",
+      "demo": "",
+      "technologies": [
+        "Python",
+        "TensorFlow",
+        "Keras",
+        "OpenCV",
+        "Scikit-learn"
+      ],
+      "path": "projects/deep-learning/rsna-breast-cancer/"
+    },
+    {
+      "id": "contradictory-text-nlp",
+      "title": "Contradictory Text Analysis NLP",
+      "excerpt": "BERT-based text classification for identifying entailment, contradiction, and neutral relationships in sentence pairs.",
+      "description": "NLP deep learning project using transformers to classify semantic relationships between premise-hypothesis pairs.",
+      "category": "Deep Learning",
+      "categorySlug": "deep-learning",
+      "tags": [
+        "nlp",
+        "bert",
+        "transformers",
+        "text-classification",
+        "deep-learning"
+      ],
+      "featured": false,
+      "image": "assets/images/BERT.png",
+      "imageCaption": "BERT model for natural language understanding",
+      "status": "completed",
+      "date": "2024-03-20",
+      "github": "https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-",
+      "demo": "",
+      "technologies": [
+        "Python",
+        "Transformers",
+        "BERT",
+        "PyTorch",
+        "Pandas"
+      ],
+      "path": "projects/deep-learning/contradictory-text-nlp/"
+    },
+    {
       "id": "pedestrian-dead-reckoning",
       "title": "Pedestrian Dead Reckoning with Deep Learning",
       "excerpt": "AI-powered indoor positioning system using smartphone IMU sensors and anomaly detection.",
@@ -14,7 +105,7 @@
         "tensorflow",
         "signal-processing"
       ],
-      "featured": true,
+      "featured": false,
       "image": "assets/images/deep_learning.png",
       "imageCaption": "Neural network architecture for step detection",
       "status": "in-progress",
@@ -44,7 +135,7 @@
         "sensors",
         "nrf52"
       ],
-      "featured": true,
+      "featured": false,
       "image": "assets/images/stm32mp1.jpg",
       "imageCaption": "Sensor hub running on nRF52840 development kit",
       "status": "completed",
@@ -61,6 +152,156 @@
       "path": "projects/embedded-systems/zephyr-sensor-hub/"
     },
     {
+      "id": "muzziball-smart",
+      "title": "Muzziball - Smart Interactive Ball",
+      "excerpt": "Sophisticated embedded system combining hardware and software to create an interactive ball with sensors and actuators.",
+      "description": "Advanced motion control system with IMU integration, RGB LED matrix, and real-time data transmission capabilities.",
+      "category": "Embedded Systems",
+      "categorySlug": "embedded-systems",
+      "tags": [
+        "embedded",
+        "imu",
+        "sensors",
+        "led-matrix",
+        "motion-control"
+      ],
+      "featured": false,
+      "image": "assets/images/Muzziball.jpg",
+      "imageCaption": "Muzziball Smart Interactive Ball",
+      "status": "completed",
+      "date": "2024-09-15",
+      "github": "https://github.com/IssamSayyaf/stener",
+      "demo": "",
+      "technologies": [
+        "C/C++",
+        "IMU",
+        "RTOS",
+        "Wireless",
+        "Battery Management"
+      ],
+      "path": "projects/embedded-systems/muzziball-smart/"
+    },
+    {
+      "id": "wireless-crack-detection",
+      "title": "Wireless Crack Detection System",
+      "excerpt": "Real-time crack detection system combining Acoustic Emission technology with IoT capabilities for infrastructure monitoring.",
+      "description": "Master thesis project demonstrating integration of embedded systems with cloud technologies using Raspberry Pi gateway and MQTT protocol.",
+      "category": "Embedded Systems",
+      "categorySlug": "embedded-systems",
+      "tags": [
+        "iot",
+        "acoustic-emission",
+        "raspberry-pi",
+        "mqtt",
+        "monitoring"
+      ],
+      "featured": true,
+      "image": "assets/images/architecture with server.jpg",
+      "imageCaption": "Wireless crack detection system architecture",
+      "status": "completed",
+      "date": "2023-10-01",
+      "github": "",
+      "demo": "",
+      "technologies": [
+        "Raspberry Pi",
+        "MQTT",
+        "Node-RED",
+        "GPS",
+        "Cloud Integration"
+      ],
+      "path": "projects/embedded-systems/wireless-crack-detection/"
+    },
+    {
+      "id": "aws-iot-security",
+      "title": "Secure IoT System with AWS Integration",
+      "excerpt": "Comprehensive IoT security project with ESP32, implementing SSL/TLS encryption and AWS cloud integration.",
+      "description": "Secure sensor data collection and cloud storage system with X.509 certificates, Lambda functions, and real-time monitoring dashboard.",
+      "category": "Embedded Systems",
+      "categorySlug": "embedded-systems",
+      "tags": [
+        "aws",
+        "iot",
+        "esp32",
+        "security",
+        "ssl-tls"
+      ],
+      "featured": true,
+      "image": "assets/images/arch_esp32_iot_project.jpeg",
+      "imageCaption": "AWS IoT security system architecture",
+      "status": "completed",
+      "date": "2024-05-20",
+      "github": "https://github.com/IssamSayyaf/IoT-security",
+      "demo": "",
+      "technologies": [
+        "ESP32",
+        "AWS IoT Core",
+        "Lambda",
+        "DynamoDB",
+        "Node-RED"
+      ],
+      "path": "projects/embedded-systems/aws-iot-security/"
+    },
+    {
+      "id": "smart-home-android",
+      "title": "Smart Home IoT System with Android Control",
+      "excerpt": "Comprehensive smart home automation featuring Android app interface and ESP32 hardware with Firebase integration.",
+      "description": "Complete home automation solution with secure authentication, automated environmental control, and real-time sensor monitoring.",
+      "category": "Embedded Systems",
+      "categorySlug": "embedded-systems",
+      "tags": [
+        "android",
+        "esp32",
+        "firebase",
+        "home-automation",
+        "iot"
+      ],
+      "featured": false,
+      "image": "assets/images/home.jpeg",
+      "imageCaption": "Smart home system with Android control interface",
+      "status": "completed",
+      "date": "2024-03-10",
+      "github": "",
+      "demo": "",
+      "technologies": [
+        "Android",
+        "ESP32",
+        "Firebase",
+        "Sensors",
+        "HVAC Control"
+      ],
+      "path": "projects/embedded-systems/smart-home-android/"
+    },
+    {
+      "id": "optical-communication",
+      "title": "Free Space Optical Communication with AES Encryption",
+      "excerpt": "Secure free space optical communication system using LASER technology with AES encryption and MATLAB interface.",
+      "description": "Comprehensive study combining theoretical analysis with practical implementation, supporting audio, video, text, and image transmission.",
+      "category": "Embedded Systems",
+      "categorySlug": "embedded-systems",
+      "tags": [
+        "laser",
+        "optics",
+        "encryption",
+        "matlab",
+        "communication"
+      ],
+      "featured": false,
+      "image": "assets/images/electromagntic.png",
+      "imageCaption": "Free space optical communication system",
+      "status": "completed",
+      "date": "2022-06-15",
+      "github": "",
+      "demo": "",
+      "technologies": [
+        "LASER",
+        "AES Encryption",
+        "MATLAB",
+        "Optisystem",
+        "OOK Modulation"
+      ],
+      "path": "projects/embedded-systems/optical-communication/"
+    },
+    {
       "id": "iot-crack-detection",
       "title": "IoT Wireless Crack Detection System",
       "excerpt": "Wireless structural health monitoring system using acoustic emission sensors and ESP32.",
@@ -74,7 +315,7 @@
         "wireless",
         "monitoring"
       ],
-      "featured": true,
+      "featured": false,
       "image": "assets/images/arch_esp32_iot_project.jpeg",
       "imageCaption": "System architecture for wireless crack detection",
       "status": "completed",
@@ -92,6 +333,12 @@
     }
   ],
   "categories": [
+    {
+      "name": "Deep Learning",
+      "slug": "deep-learning",
+      "description": "Projects in Deep Learning and AI",
+      "icon": "fas fa-brain"
+    },
     {
       "name": "Research",
       "slug": "research",

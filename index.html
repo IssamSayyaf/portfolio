@@ -6,6 +6,7 @@
     <title>Issam Sayyaf - Portfolio</title>
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -771,7 +772,7 @@
             <a href="publications.html" class="nav-link">Publications</a>
             <a href="projects.html" class="nav-link">Projects</a>
             <a href="blog.html" class="nav-link">Blog</a>
-            <a href="about.html" class="nav-link">About</a>
+            <a href="contact.html" class="nav-link">Contact</a>
             <a href="cv.html" class="nav-link">CV</a>
         </nav>
     </header>
@@ -837,609 +838,13 @@
     <!-- Embedded Yocto Projects Section -->
     <section class="section" id="yocto-projects">
         <h2 class="section-title">Embedded Projects</h2>
-        <div class="card-container">
-            <!-- Project 1: Muzziball Custom OS Development -->
-            <div class="card project-card" onclick="toggleProjectDetails('muzziball')">
-                <div class="card-category">
-                    <span class="category-tag">Embedded Linux</span>
-                    <span class="category-tag">Yocto Project</span>
-                </div>
-                <img src="assets/images/stm32mp1.jpg" alt="Muzziball Custom OS" />
-                <h3>Muzziball Custom OS Development</h3>
-                <p class="card-description">A custom Linux-based operating system built using Yocto Project for the Muzziball device, integrating hardware components and providing a robust foundation for advanced features.</p>
-                <div class="card-keywords">
-                    <span class="keyword">STM32MP1</span>
-                    <span class="keyword">BSP</span>
-                    <span class="keyword">WiFi/BLE</span>
-                    <span class="keyword">ALSA Audio</span>
-                </div>
-            </div>
-            
-            <!-- Project 2: Automotive Embedded System -->
-            <div class="card project-card" onclick="toggleProjectDetails('automotive')">
-                <div class="card-category">
-                    <span class="category-tag">Embedded Linux</span>
-                    <span class="category-tag">Automotive</span>
-                </div>
-                <img src="assets/images/airbox.jpeg" alt="Airbox Automotive System" />
-                <h3>Automotive Embedded System</h3>
-                <p class="card-description">A comprehensive automotive embedded system combining STM32MP1 and i.MX93 processors, providing a robust platform for modern vehicle applications with real-time processing capabilities.</p>
-                <div class="card-keywords">
-                    <span class="keyword">STM32MP1/i.MX93</span>
-                    <span class="keyword">4G LTE</span>
-                    <span class="keyword">GPS</span>
-                    <span class="keyword">Real-time</span>
-                </div>
-            </div>
-
-            <!-- Project 3: Muzziball Smart Interactive Ball -->
-            <div class="card project-card" onclick="toggleProjectDetails('muzziball-smart')">
-                <div class="card-category">
-                    <span class="category-tag">Embedded Systems</span>
-                    <span class="category-tag">IoT</span>
-                </div>
-                <img src="assets/images/Muzziball.jpg" alt="Muzziball Smart Interactive Ball" />
-                <h3>Muzziball Smart Interactive Ball</h3>
-                <p class="card-description">A sophisticated embedded system project that combines hardware and software to create an interactive ball with multiple sensors, actuators, and real-time data processing capabilities.</p>
-                <div class="card-keywords">
-                    <span class="keyword">IMU</span>
-                    <span class="keyword">RGB LED</span>
-                    <span class="keyword">Motion Control</span>
-                    <span class="keyword">Real-time</span>
-                </div>
-            </div>
-
-            <!-- Project 4: Wireless Crack Detection System -->
-            <div class="card project-card" onclick="toggleProjectDetails('crack-detection')">
-                <div class="card-category">
-                    <span class="category-tag">IoT</span>
-                    <span class="category-tag">Signal Processing</span>
-                </div>
-                <img src="assets/images/architecture with server.jpg" alt="Wireless Crack Detection System" />
-                <h3>Wireless Crack Detection System</h3>
-                <p class="card-description">A sophisticated real-time crack detection system combining Acoustic Emission technology with IoT capabilities for infrastructure monitoring and structural health assessment.</p>
-                <div class="card-keywords">
-                    <span class="keyword">Acoustic Emission</span>
-                    <span class="keyword">MQTT</span>
-                    <span class="keyword">GPS</span>
-                    <span class="keyword">Node-RED</span>
-                </div>
-            </div>
-
-            <!-- Project 5: Secure IoT System with AWS Integration -->
-            <div class="card project-card" onclick="toggleProjectDetails('aws-iot')">
-                <div class="card-category">
-                    <span class="category-tag">IoT Security</span>
-                    <span class="category-tag">Cloud Computing</span>
-                </div>
-                <img src="assets/images/arch_esp32_iot_project.jpeg" alt="Secure IoT System with AWS" />
-                <h3>Secure IoT System with AWS Integration</h3>
-                <p class="card-description">A comprehensive IoT security project implementing robust security measures throughout the IoT pipeline while providing intuitive monitoring and control interfaces.</p>
-                <div class="card-keywords">
-                    <span class="keyword">ESP32</span>
-                    <span class="keyword">AWS IoT Core</span>
-                    <span class="keyword">SSL/TLS</span>
-                    <span class="keyword">DynamoDB</span>
-                </div>
-            </div>
-
-            <!-- Project 6: Smart Home IoT System -->
-            <div class="card project-card" onclick="toggleProjectDetails('smart-home')">
-                <div class="card-category">
-                    <span class="category-tag">IoT</span>
-                    <span class="category-tag">Android</span>
-                </div>
-                <img src="assets/images/home.jpeg" alt="Smart Home IoT System" />
-                <h3>Smart Home IoT System with Android Control</h3>
-                <p class="card-description">A comprehensive smart home automation system featuring Android application interface, ESP32-based hardware control, and Firebase cloud integration for secure access.</p>
-                <div class="card-keywords">
-                    <span class="keyword">Android</span>
-                    <span class="keyword">ESP32</span>
-                    <span class="keyword">Firebase</span>
-                    <span class="keyword">HVAC Control</span>
-                </div>
-            </div>
-
-            <!-- Project 7: Free Space Optical Communication -->
-            <div class="card project-card" onclick="toggleProjectDetails('optical-comm')">
-                <div class="card-category">
-                    <span class="category-tag">Optical Communication</span>
-                    <span class="category-tag">Security</span>
-                </div>
-                <img src="assets/images/electromagntic.png" alt="Free Space Optical Communication System" />
-                <h3>Free Space Optical Communication System</h3>
-                <p class="card-description">A comprehensive study and implementation of secure free space optical communication using LASER technology and AES encryption with theoretical analysis and practical implementation.</p>
-                <div class="card-keywords">
-                    <span class="keyword">LASER</span>
-                    <span class="keyword">AES Encryption</span>
-                    <span class="keyword">MATLAB</span>
-                    <span class="keyword">Optisystem</span>
-                </div>
-            </div>
-
-            <!-- Project 8: Robust SmartStep -->
-            <div class="card project-card" onclick="toggleProjectDetails('robust-smartstep')">
-                <div class="card-category">
-                    <span class="category-tag">Deep Learning</span>
-                    <span class="category-tag">Signal Processing</span>
-                </div>
-                <img src="assets/images/step_detection_comparison.png" alt="Robust SmartStep Anomaly Filtering" />
-                <h3>Robust SmartStep: Anomaly Filtering for PDR</h3>
-                <p class="card-description">A novel approach to improve step detection in Pedestrian Dead Reckoning systems using deep learning-based anomaly filtering to distinguish genuine walking signals from anomalies.</p>
-                <div class="card-keywords">
-                    <span class="keyword">Autoencoder</span>
-                    <span class="keyword">IMU</span>
-                    <span class="keyword">PDR</span>
-                    <span class="keyword">Anomaly Detection</span>
-                </div>
-            </div>
-
-            <!-- Project 9: RSNA Breast Cancer Detection -->
-            <div class="card project-card" onclick="toggleProjectDetails('breast-cancer')">
-                <div class="card-category">
-                    <span class="category-tag">Deep Learning</span>
-                    <span class="category-tag">Medical AI</span>
-                </div>
-                <img src="assets/images/CNN.png" alt="RSNA Breast Cancer Detection" />
-                <h3>RSNA Breast Cancer Detection</h3>
-                <p class="card-description">Deep learning models for breast cancer detection from mammogram images, developed for the RSNA competition on Kaggle to improve early detection and survival rates.</p>
-                <div class="card-keywords">
-                    <span class="keyword">CNN</span>
-                    <span class="keyword">Mammography</span>
-                    <span class="keyword">Medical Imaging</span>
-                    <span class="keyword">Kaggle</span>
-                </div>
-            </div>
-
-            <!-- Project 10: Contradictory Text Analysis -->
-            <div class="card project-card" onclick="toggleProjectDetails('text-analysis')">
-                <div class="card-category">
-                    <span class="category-tag">NLP</span>
-                    <span class="category-tag">Deep Learning</span>
-                </div>
-                <img src="assets/images/BERT.png" alt="Contradictory Text Analysis NLP" />
-                <h3>Contradictory Text Analysis NLP</h3>
-                <p class="card-description">Classification of premise-hypothesis pairs into entailment, contradiction, or neutral categories using advanced NLP techniques and BERT-based models for multilingual text analysis.</p>
-                <div class="card-keywords">
-                    <span class="keyword">BERT</span>
-                    <span class="keyword">NLP</span>
-                    <span class="keyword">Classification</span>
-                    <span class="keyword">Multilingual</span>
-                </div>
-            </div>
-
-            <!-- Project 11: Dijkstra and Bellman-Ford RYU Controller -->
-            <div class="card project-card" onclick="toggleProjectDetails('sdn-routing')">
-                <div class="card-category">
-                    <span class="category-tag">SDN</span>
-                    <span class="category-tag">Networking</span>
-                </div>
-                <img src="assets/images/sdn.png" alt="SDN Topology" />
-                <h3>Dijkstra and Bellman-Ford RYU Controller</h3>
-                <p class="card-description">An advanced Software-Defined Networking project implementing both Dijkstra and Bellman-Ford shortest-path algorithms using the RYU controller for optimal network routing.</p>
-                <div class="card-keywords">
-                    <span class="keyword">RYU Controller</span>
-                    <span class="keyword">OpenFlow</span>
-                    <span class="keyword">Mininet</span>
-                    <span class="keyword">NetworkX</span>
-                </div>
-            </div>
-
-            <!-- Project 12: Load Balancing for Face Recognition -->
-            <div class="card project-card" onclick="toggleProjectDetails('wireless-loadbalancing')">
-                <div class="card-category">
-                    <span class="category-tag">Wireless Networks</span>
-                    <span class="category-tag">Load Balancing</span>
-                </div>
-                <img src="assets/images/sdn1.png" alt="Wireless Network Topology" />
-                <h3>Load Balancing for Face Recognition Video Streaming</h3>
-                <p class="card-description">A sophisticated load balancing solution for face recognition video streaming in wireless networks using Mininet-WiFi and RYU controller with QoS management.</p>
-                <div class="card-keywords">
-                    <span class="keyword">Mininet-WiFi</span>
-                    <span class="keyword">Face Recognition</span>
-                    <span class="keyword">QoS</span>
-                    <span class="keyword">PSNR Analysis</span>
-                </div>
-            </div>
-        </div>    <!-- Project Details (Hidden by default) -->
-    <div id="muzziball-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Muzziball Custom OS Development</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/stm32mp1.jpg" alt="Muzziball Custom OS" style="width: 30%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>A custom Linux-based operating system built using Yocto Project for the Muzziball device, integrating various hardware components and software dependencies. The system provides a robust foundation for the device's advanced features while ensuring optimal performance and reliability.</p>
-            <p><strong>Key features include:</strong></p>
-            <ul>
-                <li>Custom Yocto-based Linux distribution</li>
-                <li>STM32MP1 BSP development and integration</li>
-                <li>WiFi and Bluetooth Low Energy (BLE) support</li>
-                <li>ALSA audio system integration</li>
-                <li>RGB LED matrix display, IMU, and audio input/output</li>
-                <li>Power management system</li>
-            </ul>
-            <button onclick="toggleProjectDetails('muzziball')" class="close-btn">Close</button>
+        <div class="card-container" id="projects-card-container">
+            <!-- Projects will be dynamically loaded here -->
         </div>
-    </div>
-    
-    <div id="automotive-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Automotive Embedded System</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/airbox.jpeg" alt="Airbox Automotive System" style="width: 20%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>A comprehensive automotive embedded system solution that has two versions one based on STM32MP1, and the other based on i.MX93 processors. This unified system provides a robust platform for modern vehicle applications, offering both real-time processing and advanced features.</p>
-            <p><strong>Key features include:</strong></p>
-            <ul>
-                <li>customize two linux kernel using yocto: STM32MP1 and i.MX93</li>
-                <li>Real-time processing capabilities for critical vehicle functions</li>
-                <li>Enhanced security features for automotive applications</li>
-                <li>4G LTE cellular connectivity for remote monitoring</li>
-                <li>GPS module for precise location tracking</li>
-                <li>Ethernet for high-speed data transfer</li>
-                <li>USB interfaces for peripheral expansion</li>
-                <li>WiFi for wireless connectivity</li>
-                <li>Bluetooth Low Energy (BLE) for short-range communication</li>
-                <li>Analog-to-Digital conversion (ADC) for sensor integration</li>
-            </ul>
-            <button onclick="toggleProjectDetails('automotive')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="muzziball-smart-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Muzziball - Smart Interactive Ball</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/Muzziball.jpg" alt="Muzziball Smart Interactive Ball" style="width: 40%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>A sophisticated embedded system project that combines hardware and software to create an interactive ball with multiple sensors and actuators. The system features advanced motion control, sensor integration, and real-time data processing capabilities.</p>
-            <p><strong>Key features include:</strong></p>
-            <ul>
-                <li>Advanced motion orchestration system for precise ball movement and control</li>
-                <li>IMU (Inertial Measurement Unit) integration for accurate motion tracking</li>
-                <li>Intelligent power mode management system to optimize battery life</li>
-                <li>RGB LED matrix for dynamic color display and visual feedback</li>
-                <li>Real-time data transmission to server for remote monitoring</li>
-                <li>Comprehensive battery management system with status reporting</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="crack-detection-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Wireless Crack Detection System</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                    <img src="assets/images/architecture with server.jpg" alt="System Architecture" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <img src="assets/images/expermints-setup.jpg" alt="Experimental Setup" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                </div>
-            </div>
-            <p>A sophisticated real-time crack detection system that combines Acoustic Emission (AE) technology with IoT capabilities. This master thesis project demonstrates the integration of embedded systems with cloud technologies for infrastructure monitoring.</p>
-            <p><strong>Key Features:</strong></p>
-            <ul>
-                <li>Real-time crack detection using Acoustic Emission sensors</li>
-                <li>High-precision analog signal processing circuit</li>
-                <li>Microsecond-resolution GPS timestamping</li>
-                <li>MQTT protocol for reliable data transmission</li>
-                <li>Raspberry Pi-based smart gateway</li>
-                <li>Node-RED visualization interface</li>
-                <li>Multi-node support for distributed sensing</li>
-                <li>Cloud integration for data storage and analysis</li>
-            </ul>
-            <p>The system demonstrates the practical application of IoT technologies in structural health monitoring, providing a robust solution for real-time crack detection and infrastructure monitoring.</p>
-            <button onclick="toggleProjectDetails('crack-detection')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="aws-iot-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Secure IoT System with AWS Integration</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                    <img src="assets/images/arch_esp32_iot_project.jpeg" alt="IoT System Architecture" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <img src="assets/images/dashboard_esp_iot_project.jpeg" alt="IoT Dashboard Interface" style="width: 48%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                </div>
-            </div>
-            <p>A comprehensive IoT security project focused on developing a secure system for collecting, transmitting, and storing sensor data in the cloud. The project implements robust security measures throughout the IoT pipeline while providing an intuitive user interface for monitoring and control.</p>
-            <p><strong>System Architecture:</strong></p>
-            <ul>
-                <li><strong>ESP32-based IoT device with multiple sensors:</strong>
-                    <ul>
-                        <li>Temperature and humidity monitoring</li>
-                        <li>Fire detection system</li>
-                        <li>Heating system control</li>
-                    </ul>
-                </li>
-                <li><strong>Security Implementation:</strong>
-                    <ul>
-                        <li>SSL/TLS encryption for MQTT communication</li>
-                        <li>Secure authentication and authorization</li>
-                    </ul>
-                </li>
-                <li><strong>Cloud Infrastructure:</strong>
-                    <ul>
-                        <li>AWS Lambda for serverless computing</li>
-                        <li>Amazon SNS for notifications</li>
-                        <li>Data storage in AWS DynamoDB</li>
-                        <li>AWS IoT Core for device management</li>
-                    </ul>
-                </li>
-            </ul>
-            <p><strong>Features:</strong></p>
-            <ul>
-                <li>Real-time monitoring through Node-RED dashboard</li>
-                <li>Automated alerts and notifications</li>
-                <li>Remote heating system control</li>
-                <li>Fire alarm system with instant alerts</li>
-                <li>Secure data storage and retrieval</li>
-                <li>Email and SMS notifications</li>
-            </ul>
-            <a href="https://github.com/IssamSayyaf/IoT-security" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
-            <button onclick="toggleProjectDetails('aws-iot')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="smart-home-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Smart Home IoT System with Android Control</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; margin-bottom: 20px;">
-                    <img src="assets/images/home.jpeg" alt="Smart Home Login Screen" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <img src="assets/images/login.jpeg" alt="Smart Home Control Panel" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <img src="assets/images/control.jpeg" alt="RGB Control Interface" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <img src="assets/images/sensors.jpeg" alt="Sensors Monitoring Panel" style="width: 23%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                </div>
-            </div>
-            <p>A comprehensive smart home automation system featuring an Android application interface and ESP32-based hardware control. The system provides secure access, automated environmental control, and real-time monitoring capabilities through Firebase cloud integration.</p>
-            <p><strong>System Components:</strong></p>
-            <ul>
-                <li><strong>Android Application:</strong>
-                    <ul>
-                        <li>Secure login system with Firebase authentication</li>
-                        <li>Intuitive drawer navigation interface</li>
-                        <li>Real-time control and monitoring panels</li>
-                        <li>Responsive and modern UI design</li>
-                    </ul>
-                </li>
-                <li><strong>Control Features:</strong>
-                    <ul>
-                        <li>Automated and manual lighting control</li>
-                        <li>RGB LED color management with auto/manual modes</li>
-                        <li>Smart HVAC system with auto/manual temperature control</li>
-                        <li>Customizable automation rules</li>
-                    </ul>
-                </li>
-                <li><strong>Monitoring Capabilities:</strong>
-                    <ul>
-                        <li>Real-time temperature and humidity tracking</li>
-                        <li>Ambient light intensity measurement</li>
-                        <li>Fire detection system</li>
-                        <li>Gas leakage monitoring</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>The project demonstrates the practical implementation of IoT technology in home automation, combining secure cloud connectivity, mobile accessibility, and comprehensive environmental control in a user-friendly package.</p>
-            <button onclick="toggleProjectDetails('smart-home')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="optical-comm-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Free Space Optical Communication System with AES Encryption</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <iframe width="100%" height="400" src="https://www.youtube.com/embed/2z7s-vDd1ow" 
-                    title="Free Space Optical Communication System Demo" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
-                </iframe>
-            </div>
-            <p>A comprehensive study and implementation of a secure free space optical communication system using LASER technology and AES encryption. This project combines theoretical analysis with practical implementation, demonstrating advanced concepts in optical communication and data security.</p>
-            <p><strong>Theoretical Research:</strong></p>
-            <ul>
-                <li>Analysis of laser wavelength impact on attenuation rates (optimal at 1550nm)</li>
-                <li>Simulation using Optisystem for system modeling and verification</li>
-                <li>Study of fog effects on 650nm laser transmission</li>
-                <li>Mathematical modeling of distance vs. weather conditions vs. received optical power</li>
-                <li>Pioneer implementation of Eye Diagram analysis at Aleppo University</li>
-            </ul>
-            <p><strong>Practical Implementation:</strong></p>
-            <ul>
-                <li><strong>Custom hardware design:</strong>
-                    <ul>
-                        <li>Laser transmitter module</li>
-                        <li>Optical receiver with phototransistor</li>
-                        <li>OOK modulation circuit</li>
-                    </ul>
-                </li>
-                <li><strong>MATLAB-based user interface supporting:</strong>
-                    <ul>
-                        <li>Audio transmission</li>
-                        <li>Video streaming</li>
-                        <li>Text communication</li>
-                        <li>Image transfer</li>
-                    </ul>
-                </li>
-                <li>AES encryption implementation for secure data transmission</li>
-                <li>USB interface for data transfer between PC and optical system</li>
-                <li>Successful testing at 50m distance (theoretical range up to 100m)</li>
-            </ul>
-            <p>The system demonstrates practical applications of free space optics in secure communication, combining theoretical research with real-world implementation.</p>
-            <button onclick="toggleProjectDetails('optical-comm')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="robust-smartstep-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Robust SmartStep: Anomaly Filtering for Pedestrian Dead Reckoning</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/step_detection_comparison.png" alt="Step Detection Comparison" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>A novel approach to improve step detection in Pedestrian Dead Reckoning (PDR) systems using deep learning-based anomaly filtering. This project focuses on enhancing the accuracy of step detection by distinguishing between genuine walking signals and mimic walking signals.</p>
-            <p><strong>Key Features:</strong></p>
-            <ul>
-                <li>Advanced anomaly detection using segment-based autoencoders</li>
-                <li>Real-time processing of IMU data for step detection</li>
-                <li>Improved PDR accuracy through filtered step detection</li>
-                <li>Robust handling of various walking patterns and anomalies</li>
-                <li>Integration with existing positioning systems</li>
-            </ul>
-            <p><strong>Technical Implementation:</strong></p>
-            <ul>
-                <li><strong>Deep learning architecture:</strong>
-                    <ul>
-                        <li>Segment-based autoencoder for anomaly detection</li>
-                        <li>Custom loss functions for optimal performance</li>
-                        <li>Real-time inference capabilities</li>
-                    </ul>
-                </li>
-                <li><strong>Signal processing:</strong>
-                    <ul>
-                        <li>IMU data preprocessing and feature extraction</li>
-                        <li>Time-series analysis of walking patterns</li>
-                        <li>Integration with PDR algorithms</li>
-                    </ul>
-                </li>
-                <li><strong>Performance evaluation:</strong>
-                    <ul>
-                        <li>Extensive testing with various walking scenarios</li>
-                        <li>Comparison with traditional step detection methods</li>
-                        <li>Quantitative analysis of positioning accuracy</li>
-                    </ul>
-                </li>
-            </ul>
-            <p>The project demonstrates significant improvements in PDR accuracy by effectively filtering out anomalous signals that could lead to incorrect step detection. This work has been published at the IEEE/ION Position, Location and Navigation Symposium (PLANS) 2025 in Utah, USA.</p>
-            <p><strong>Publication:</strong></p>
-            <ul>
-                <li>Sayyaf, M. I., Zhu, N., & Renaudin, V. (2025). Advanced Step Detection with Anomaly Filtering for Enhanced Positioning Accuracy. <i>Proceedings of the 2025 IEEE/ION Position, Location and Navigation Symposium (PLANS)</i>, Utah, USA.</li>
-            </ul>
-            <a href="https://gitlab.univ-eiffel.fr/issam/robust-smartstep" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-gitlab"></i> View on GitLab</a>
-            <button onclick="toggleProjectDetails('robust-smartstep')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="breast-cancer-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>RSNA Breast Cancer Detection</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/CNN.png" alt="RSNA Breast Cancer Detection" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>Breast cancer is a significant cause of cancer-related fatalities among women globally. Timely detection of breast cancer is critical for successful treatment and improved survival rates. In recent times, deep learning techniques have emerged as promising tools for detecting breast cancer from medical images, including mammograms.</p>
-            <p>The RSNA Breast Cancer Detection competition, hosted on Kaggle, serves as an important initiative to foster the development of machine learning models for breast cancer detection. Participants are provided with a dataset of mammogram images, accompanied by labels indicating the presence or absence of breast cancer. The primary challenge is to create deep learning models capable of accurately detecting breast cancer from these mammogram images.</p>
-            <p>In this project, we explore the RSNA Breast Cancer Detection competition, examining the approaches and techniques employed by top-performing models. Our objective is to gain valuable insights into the best practices for utilizing deep learning methods in breast cancer detection and understand the advancements made in this critical field.</p>
-            <p><strong>Key Features:</strong></p>
-            <ul>
-                <li>Deep learning models for mammogram analysis</li>
-                <li>Computer vision techniques for medical imaging</li>
-                <li>Data preprocessing and augmentation strategies</li>
-                <li>Model evaluation and performance optimization</li>
-                <li>Integration with clinical workflows</li>
-            </ul>
-            <a href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
-            <button onclick="toggleProjectDetails('breast-cancer')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="text-analysis-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Contradictory Text Analysis NLP Deep Learning</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/BERT.png" alt="Contradictory Text Analysis NLP Deep Learning" style="width: 50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>We are conducting a classification task on pairs of sentences, which consist of a premise and a hypothesis. The task involves categorizing each pair into one of three categories - entailment, contradiction, or neutral.</p>
-            <p><strong>Example Analysis:</strong></p>
-            <p>Using the premise: "He came, he opened the door and I remember looking back and seeing the expression on his face, and I could tell that he was disappointed."</p>
-            <ul>
-                <li><strong>Entailment example:</strong> "Just by the look on his face when he came through the door I just knew that he was let down" - This is true based on the premise information.</li>
-                <li><strong>Neutral example:</strong> "He was trying not to make us feel guilty but we knew we had caused him trouble" - Cannot be concluded from the premise.</li>
-                <li><strong>Contradiction example:</strong> "He was so excited and bursting with joy that he practically knocked the door off its frame" - This contradicts the premise information.</li>
-            </ul>
-            <p><strong>Technical Features:</strong></p>
-            <ul>
-                <li>Natural Language Processing with BERT-based models</li>
-                <li>Multi-class text classification (entailment, contradiction, neutral)</li>
-                <li>Multilingual support for 15 languages</li>
-                <li>Advanced text preprocessing and tokenization</li>
-                <li>Performance evaluation and model optimization</li>
-            </ul>
-            <p>The dataset contains premise-hypothesis pairs in fifteen different languages, namely Arabic, Bulgarian, Chinese, German, Greek, English, Spanish, French, Hindi, Russian, Swahili, Thai, Turkish, Urdu, and Vietnamese. This project focuses primarily on English pairs but demonstrates the multilingual capabilities of modern NLP models.</p>
-            <a href="https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
-            <button onclick="toggleProjectDetails('text-analysis')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="sdn-routing-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Dijkstra and Bellman-Ford RYU Controller</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/sdn.png" alt="SDN Topology" style="width: 80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>An advanced Software-Defined Networking (SDN) project that implements both Dijkstra and Bellman-Ford shortest-path algorithms using the RYU controller. This project demonstrates the practical application of network routing algorithms in SDN environments.</p>
-            <p><strong>Key Features:</strong></p>
-            <ul>
-                <li>Implementation of both Dijkstra and Bellman-Ford algorithms for path computation</li>
-                <li>Network topology visualization using NetworkX library</li>
-                <li><strong>Support for multiple link cost metrics:</strong>
-                    <ul>
-                        <li>Bandwidth-based routing</li>
-                        <li>Delay-based routing</li>
-                        <li>Combined bandwidth and delay metrics</li>
-                        <li>Hop count-based routing</li>
-                    </ul>
-                </li>
-                <li>Integration with Mininet for network emulation</li>
-                <li>Real-time path computation and flow table updates</li>
-            </ul>
-            <p><strong>Technical Implementation:</strong></p>
-            <ul>
-                <li>Python-based RYU controller application</li>
-                <li>NetworkX for graph representation and algorithm implementation</li>
-                <li>OpenFlow protocol for SDN control</li>
-                <li>Mininet for network emulation and testing</li>
-            </ul>
-            <p>The project showcases the practical implementation of network routing algorithms in SDN environments, providing a flexible and efficient solution for path computation in software-defined networks.</p>
-            <a href="https://github.com/IssamSayyaf/Dijkstra-and-Bellman-Ford-RYU-contoller" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
-            <button onclick="toggleProjectDetails('sdn-routing')" class="close-btn">Close</button>
-        </div>
-    </div>
-
-    <div id="wireless-loadbalancing-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            <h3>Load Balancing for Face Recognition Video Streaming in Wireless Networks</h3>
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="assets/images/sdn1.png" alt="Wireless Network Topology" style="width: 80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>
-            <p>A sophisticated load balancing solution for face recognition video streaming in wireless networks, implemented using Mininet-WiFi and RYU controller. This project addresses the challenges of video streaming in wireless environments while maintaining high-quality face recognition performance.</p>
-            <p><strong>Key Features:</strong></p>
-            <ul>
-                <li>Dynamic load balancing for video streaming traffic</li>
-                <li>Integration with face recognition systems</li>
-                <li>Real-time network monitoring and path optimization</li>
-                <li>Support for multiple wireless access points</li>
-                <li>Quality of Service (QoS) management</li>
-                <li><strong>Performance metrics monitoring:</strong>
-                    <ul>
-                        <li>PSNR (Peak Signal-to-Noise Ratio) analysis</li>
-                        <li>Throughput measurement</li>
-                        <li>Network latency monitoring</li>
-                    </ul>
-                </li>
-            </ul>
-            <p><strong>Technical Implementation:</strong></p>
-            <ul>
-                <li>Mininet-WiFi for wireless network emulation</li>
-                <li>RYU controller for SDN-based network management</li>
-                <li>Custom load balancing algorithms</li>
-                <li>Integration with face recognition systems</li>
-                <li>Performance analysis tools and metrics</li>
-            </ul>
-            <p>The project demonstrates the effective application of SDN principles in wireless networks, particularly for resource-intensive applications like video streaming and face recognition. It provides a robust solution for maintaining high-quality video transmission while optimizing network resources.</p>
-            <a href="https://github.com/IssamSayyaf/Load-Balancing-Technique-for-Face-Recognition-Video-Streaming-in-Wireless-Networks-main" target="_blank" style="display: inline-block; margin: 20px 0; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;"><i class="fab fa-github"></i> View on GitHub</a>
-            <button onclick="toggleProjectDetails('wireless-loadbalancing')" class="close-btn">Close</button>
-        </div>
-    </div>
-</section>
+        
+        <!-- Project Details Container (dynamically populated) -->
+        <div id="project-details-container"></div>
+    </section>
 
     <script>
         function handleScroll() {
@@ -1475,6 +880,141 @@
             currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
             newsSlides[currentNewsSlide].classList.add('active');
         }, 5000); // Change news every 5 seconds
+        
+        // Dynamic Project Loader for Home Page
+        class HomeProjectLoader {
+            constructor() {
+                this.projectsData = null;
+                this.init();
+            }
+
+            async init() {
+                try {
+                    console.log('Loading projects data...');
+                    await this.loadProjectsData();
+                    console.log('Projects data loaded:', this.projectsData);
+                    this.renderProjects();
+                    console.log('Projects rendered');
+                    this.setupDetailModals();
+                    console.log('Detail modals setup complete');
+                } catch (error) {
+                    console.error('Error loading projects:', error);
+                }
+            }
+
+            async loadProjectsData() {
+                const response = await fetch('home-projects/home-projects-data.json');
+                if (!response.ok) throw new Error('Failed to load projects data');
+                this.projectsData = await response.json();
+            }
+
+            renderProjects() {
+                const container = document.getElementById('projects-card-container');
+                const sortedProjects = this.projectsData.projects.sort((a, b) => a.order - b.order);
+                
+                let html = '';
+                sortedProjects.forEach(project => {
+                    html += this.createProjectCard(project);
+                });
+                
+                container.innerHTML = html;
+            }
+
+            createProjectCard(project) {
+                const categories = project.categories.map(cat => 
+                    `<span class="category-tag">${cat}</span>`
+                ).join('\n                    ');
+                
+                const keywords = project.keywords.map(kw => 
+                    `<span class="keyword">${kw}</span>`
+                ).join('\n                    ');
+                
+                return `
+            <!-- Project: ${project.title} -->
+            <div class="card project-card" onclick="toggleProjectDetails('${project.id}')">
+                <div class="card-category">
+                    ${categories}
+                </div>
+                <img src="${project.image}" alt="${project.title}" />
+                <h3>${project.title}</h3>
+                <p class="card-description">${project.description}</p>
+                <div class="card-keywords">
+                    ${keywords}
+                </div>
+            </div>
+                `;
+            }
+
+            async setupDetailModals() {
+                const detailsContainer = document.getElementById('project-details-container');
+                if (!detailsContainer) return;
+                
+                let html = '';
+                for (const project of this.projectsData.projects) {
+                    const content = await this.loadMarkdownContent(project.detailsFile);
+                    html += this.createDetailModal(project, content);
+                }
+                detailsContainer.innerHTML = html;
+            }
+
+            async loadMarkdownContent(filePath) {
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) return '<p>Content not available.</p>';
+                    const markdown = await response.text();
+                    
+                    // Convert markdown to HTML using marked.js if available
+                    if (typeof marked !== 'undefined') {
+                        return marked.parse(markdown);
+                    }
+                    // Fallback: simple markdown to HTML conversion
+                    return this.simpleMarkdownToHTML(markdown);
+                } catch (error) {
+                    console.error('Error loading markdown:', error);
+                    return '<p>Content not available.</p>';
+                }
+            }
+
+            simpleMarkdownToHTML(markdown) {
+                return markdown
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^## (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^# (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                    .replace(/^- (.+)$/gim, '<li>$1</li>')
+                    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+                    .replace(/\n/g, '<br>');
+            }
+
+            createDetailModal(project, content) {
+                const imageSection = project.image ? `
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="${project.image}" alt="${project.title}" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>` : '';
+                
+                return `
+    <div id="${project.id}-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            ${imageSection}
+            ${content}
+            <button onclick="toggleProjectDetails('${project.id}')" class="close-btn">Close</button>
+        </div>
+    </div>
+                `;
+            }
+        }
+
+        // Initialize the project loader when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('DOMContentLoaded - Initializing HomeProjectLoader...');
+                new HomeProjectLoader();
+            });
+        } else {
+            console.log('DOM already loaded - Initializing HomeProjectLoader immediately...');
+            new HomeProjectLoader();
+        }
         
         // Toggle project details
         function toggleProjectDetails(projectId) {
