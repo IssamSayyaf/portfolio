@@ -3,315 +3,638 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">CV</title>
-    <!-- Font Awesome for social media icons -->
+    <title>Issam SAYYAF - CV</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2d5a8a;
+            --accent: #0077b5;
+            --accent-gold: #d4a853;
+            --text-dark: #1a1a2e;
+            --text-medium: #4a4a5a;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-sidebar: #1e3a5f;
+            --border: #e2e8f0;
+            --skill-bg: #e5e7eb;
+            --skill-fill: linear-gradient(90deg, #1e3a5f, #2d5a8a);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            line-height: 1.4;
-            color: #333;
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            line-height: 1.5;
+            color: var(--text-dark);
         }
-        
-        /* CV Container */
+
         .cv-container {
             max-width: 210mm;
-            margin: 40px auto;
+            margin: 0 auto;
             background: white;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            border-radius: 4px;
+            overflow: hidden;
         }
-        
+
         /* Header */
         .header {
-            background: white;
-            border-bottom: 2px solid #e5e7eb;
-            padding: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 30px 35px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
+            transform: skewX(-20deg);
+            transform-origin: top right;
+        }
+
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .header-left {
             flex: 1;
         }
-        
-        /* Main Content */
-        .main-content {
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-size: 16px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+
+        .contact-grid {
             display: flex;
-            min-height: calc(297mm - 140px);
+            flex-wrap: wrap;
+            gap: 12px 24px;
         }
-        
-        .left-column {
-            padding: 25px;
-            background: white;
-        }
-        
-        .right-column {
-            background: #f8fafc;
-            padding: 25px;
-            border-left: 1px solid #e5e7eb;
-        }
-        
-        /* Sections */
-        .section {
-            margin-bottom: 25px;
-        }
-        
-        .section-title {
-            font-weight: bold;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 4px;
-            margin-bottom: 15px;
+
+        .contact-item {
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.9);
         }
-        
-        /* Work and Project Items */
-        .work-item, .project-item {
-            border-left: 4px solid #3b82f6;
-            padding-left: 15px;
+
+        .contact-item i {
+            width: 16px;
+            text-align: center;
+            color: var(--accent-gold);
+        }
+
+        .contact-item a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        .photo-container {
+            width: 110px;
+            height: 140px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Main Layout */
+        .main-content {
+            display: flex;
+        }
+
+        .left-column {
+            flex: 0 0 65%;
+            padding: 28px 30px;
+            border-right: 1px solid var(--border);
+        }
+
+        .right-column {
+            flex: 0 0 35%;
+            padding: 28px 25px;
+            background: var(--bg-light);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 26px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        /* Professional Summary */
+        .summary-text {
+            color: var(--text-medium);
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Work Items */
+        .work-item {
             margin-bottom: 20px;
+            padding-left: 16px;
+            border-left: 3px solid var(--primary-light);
+            position: relative;
         }
-        
-        .item-header {
+
+        .work-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 9px;
+            height: 9px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        .work-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
-        
-        .item-title {
-            font-weight: bold;
-            color: #1f2937;
+
+        .work-title {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-dark);
         }
-        
-        .item-subtitle {
-            color: #2563eb;
-            font-weight: 500;
+
+        .work-company {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--accent);
         }
-        
-        .item-date {
-            font-size: 12px;
-            color: #6b7280;
+
+        .work-date {
+            font-size: 11px;
+            color: var(--text-light);
+            background: var(--bg-light);
+            padding: 2px 8px;
+            border-radius: 3px;
             white-space: nowrap;
         }
-        
-        .item-description, .responsibilities {
-            color: #4b5563;
+
+        .work-responsibilities {
+            list-style: none;
+            font-size: 12px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .work-responsibilities li {
+            margin-bottom: 3px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .work-responsibilities li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-size: 10px;
+        }
+
+        /* Project Items */
+        .project-item {
+            margin-bottom: 16px;
+            padding: 12px;
+            background: rgba(30, 58, 95, 0.03);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .project-date {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        .project-description {
+            font-size: 12px;
+            color: var(--text-medium);
             line-height: 1.5;
         }
-        
-        .responsibilities {
-            list-style: none;
-        }
-        
-        .responsibilities li {
-            margin-bottom: 4px;
-        }
-        
+
         /* Education */
         .education-item {
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-period {
+            font-size: 10px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text-dark);
+            margin-bottom: 2px;
+            line-height: 1.4;
+        }
+
+        .edu-institution {
+            font-size: 11px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .edu-details {
+            font-size: 10px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* Skills with Progress Bars */
+        .skill-category {
             margin-bottom: 18px;
         }
-        
-        .highlight-box {
-            background-color: #fef3c7;
-            border-left: 3px solid #f59e0b;
-            padding: 8px;
-            border-radius: 4px;
-            margin: 4px 0;
+
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
         }
-        
-        /* Skills */
-        .skill-category {
-            margin-bottom: 15px;
+
+        .skill-category-icon {
+            font-size: 14px;
         }
-        
-        .skill-header {
+
+        .skill-category-name {
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+
+        .skill-category-years {
+            font-size: 10px;
+            color: white;
+            background: var(--primary);
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        .skill-item {
+            margin-bottom: 8px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .skill-name {
+            font-size: 11px;
+            color: var(--text-medium);
+        }
+
+        .skill-level {
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: var(--skill-bg);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: var(--skill-fill);
+            border-radius: 3px;
+            position: relative;
+            transition: width 0.5s ease;
+        }
+
+        .skill-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .skill-tag {
+            font-size: 9px;
+            padding: 2px 6px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            color: var(--text-medium);
+        }
+
+        /* Languages */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .language-item:last-child {
+            border-bottom: none;
+        }
+
+        .language-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .language-level {
+            font-size: 10px;
+            color: white;
+            background: var(--primary-light);
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        /* Certifications Section */
+        .cert-category {
+            margin-bottom: 14px;
+        }
+
+        .cert-category-header {
             display: flex;
             align-items: center;
             gap: 8px;
             margin-bottom: 6px;
+            padding: 6px 10px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 4px;
         }
-        
-        /* Contact */
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+
+        .cert-category-icon {
+            color: var(--accent-gold);
+            font-size: 12px;
         }
-        
-        .contact-item {
+
+        .cert-category-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+            flex: 1;
+        }
+
+        .cert-count {
+            font-size: 10px;
+            color: white;
+            background: rgba(255,255,255,0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .cert-items {
+            padding-left: 12px;
+        }
+
+        .cert-item {
+            font-size: 10px;
+            color: var(--text-medium);
+            padding: 3px 0;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .cert-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        .cert-link {
             display: flex;
             align-items: center;
             gap: 6px;
-        }
-        
-        .contact-item a {
-            color: #2563eb;
+            margin-top: 12px;
+            padding: 10px;
+            background: linear-gradient(135deg, #0077b5, #005885);
+            border-radius: 6px;
             text-decoration: none;
-        }
-        
-        .contact-item a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Social Media Icons */
-        .contact-item i {
-            width: 16px;
-            text-align: center;
-        }
-        
-        .contact-item .fa-linkedin {
-            color: #0077b5;
-        }
-        
-        .contact-item .fa-github {
-            color: #333;
-        }
-        
-        .contact-item .fa-globe {
-            color: #2563eb;
-        }
-        
-        /* Photo */
-        .photo-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-        
-        .photo-container img {
-            transition: opacity 0.3s ease;
-        }
-        
-        .photo-placeholder {
-            border: 2px solid #d1d5db;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f9fafb;
-        }
-        
-        .photo-text {
-            color: #9ca3af;
-            text-align: center;
-            line-height: 1.2;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .error-message {
-            background-color: #fee;
-            border: 2px solid #f87171;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px;
-            color: #dc2626;
+        .cert-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
         }
-        
+
+        .cert-link i {
+            color: white;
+            font-size: 16px;
+        }
+
+        .cert-link-text {
+            font-size: 11px;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Publications */
+        .publication-item {
+            font-size: 11px;
+            color: var(--text-medium);
+            margin-bottom: 10px;
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .publication-item::before {
+            content: '📄';
+            position: absolute;
+            left: 0;
+            font-size: 10px;
+        }
+
         /* Print Styles */
         @media print {
             body {
                 background: white !important;
-                margin: 0 !important;
                 padding: 0 !important;
             }
-            
+
             .cv-container {
                 box-shadow: none !important;
-                margin: 0 !important;
+                border-radius: 0 !important;
                 max-width: none !important;
-                width: 100% !important;
             }
-            
-            .main-content {
-                min-height: auto !important;
+
+            .skill-fill::after {
+                animation: none;
             }
-            
+
             @page {
                 size: A4;
-                margin: 1cm;
+                margin: 0.5cm;
             }
-            
-            /* Avoid breaking inside important sections */
+
             .work-item, .project-item, .education-item {
                 page-break-inside: avoid;
                 break-inside: avoid;
             }
-
-            .error-message {
-                display: none;
-            }
         }
 
-        /* Navigation Bar */
+        /* Site Navigation */
         .site-nav {
-            max-width: 1400px;
+            max-width: 210mm;
             margin: 0 auto 20px;
-            padding: 1rem;
+            padding: 1rem 1.5rem;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            animation: fadeIn 0.5s ease-out;
         }
 
         .site-nav .logo {
-            font-size: 1.2rem;
-            color: #0066cc;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--primary);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-weight: 600;
         }
 
         .site-nav .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 8px;
         }
 
         .site-nav .nav-link {
-            color: #666;
+            color: var(--text-medium);
             text-decoration: none;
-            font-size: 0.9rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 20px;
             transition: all 0.3s ease;
         }
 
-        .site-nav .nav-link:hover {
-            color: #0066cc;
-            background: rgba(0, 102, 204, 0.1);
-            transform: translateY(-2px);
-        }
-
+        .site-nav .nav-link:hover,
         .site-nav .nav-link.active {
-            color: #0066cc;
-            background: rgba(0, 102, 204, 0.1);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            color: var(--primary);
+            background: rgba(30, 58, 95, 0.1);
         }
 
         @media print {
@@ -335,831 +658,521 @@
         </div>
     </nav>
 
-    <!-- CV Container -->
-    <div class="cv-container" id="cvContainer">
+    <div class="cv-container">
         <!-- Header -->
         <div class="header">
             <div class="header-content">
                 <div class="header-left">
-                    <h1 id="name-title">Loading...</h1>
-                    <p id="job-title">Loading...</p>
-                    <div id="contact-info" class="contact-info">
-                        <!-- Contact info will be populated by JavaScript -->
+                    <h1 class="name">ISSAM SAYYAF</h1>
+                    <p class="job-title">PhD Researcher & Embedded Systems Engineer</p>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nantes, France</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+33 758 120 733</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:Issamsayyaf97@gmail.com">Issamsayyaf97@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/in/issamsayyaf" target="_blank">LinkedIn</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/IssamSayyaf" target="_blank">GitHub</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-globe"></i>
+                            <a href="https://issam-sayyaf.com" target="_blank">issam-sayyaf.com</a>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Photo -->
-                <div class="photo-container" id="photo-container">
-                    <!-- Photo will be populated by JavaScript -->
+                <div class="photo-container">
+                    <img src="photo.jpg" alt="Issam SAYYAF" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
-        
-        <!-- Main content -->
+
+        <!-- Main Content -->
         <div class="main-content">
-            <!-- Left column -->
-            <div class="left-column" id="left-column">
-                <!-- Sections will be populated by JavaScript -->
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Professional Summary -->
+                <div class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p class="summary-text">
+                        Embedded Systems Engineer with 4+ years of experience designing real-time solutions, 
+                        developing custom Linux kernels, RTOS, and implementing device drivers and applications for STM32MP1 and NXP platforms.
+                        As a PhD Researcher, working on advanced and edge AI for time-series anomaly detection, focusing on signal processing, 
+                        GNSS/IMU navigation integrity, and efficient on-device learning. 
+                        Published 8+ peer-reviewed papers and actively bridging cutting-edge research with practical embedded implementation.
+                      
+                    </p>
+                </div>
+
+                <!-- Professional Experience -->
+                <div class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">PhD Researcher</div>
+                                <div class="work-company">University of Gustave Eiffel, France</div>
+                            </div>
+                            <span class="work-date">Nov 2023 - Nov 2026</span>
+                        </div>
+                        <ul class="work-responsibilities">
+                            <li>Developed 3+ anomaly detection algorithms using deep learning in IMU/GNSS/5G real-time processing</li>
+                            <li>Enhanced step detection by 23% using deep learning on 10,000+ data samples across 5 environments</li>
+                            <li>Analyzed 800+ minutes of GNSS signal anomalies, identifying jamming and spoofing</li>
+                            <li>Improved 5G signal detection LOS/NLOS in indoor environments</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">Embedded Systems Engineer</div>
+                                <div class="work-company">Hexabitz, USA (Freelance)</div>
+                            </div>
+                            <span class="work-date">Jun 2023 - Sep 2025</span>
+                        </div>
+                        <ul class="work-responsibilities">
+                            <li>Developed 3+ custom Linux images using Yocto on 3 hardware platforms (STM32MP1, i.MX93)</li>
+                            <li>Implemented 10+ device drivers for peripherals (GPIO, I2C, SPI, UART, LoRaWAN, Zigbee)</li>
+                            <li>Developed a C++ embedded Linux application that orchestrates all device drivers and integrates with Pure Data (Pd) to deliver the full interactive behavior of the Muzziball system.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">Measurement Engineer</div>
+                                <div class="work-company">University of Calabria, Italy</div>
+                            </div>
+                            <span class="work-date">Oct 2022 - Oct 2023</span>
+                        </div>
+                        <ul class="work-responsibilities">
+                            <li>Designed distributed measurement systems for remote monitoring using LabVIEW and Python</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-title">Teaching Assistant</div>
+                                <div class="work-company">University of Aleppo, Syria</div>
+                            </div>
+                            <span class="work-date">Sep 2020 - Aug 2021</span>
+                        </div>
+                        <ul class="work-responsibilities">
+                            <li>Conducted 50+ lab sessions for 150+ students</li>
+                            <li>Working on Antenna Design (HFSS/CST), Microwave Engineering, and RF Systems courses</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Key Projects -->
+                <div class="section">
+                    <h2 class="section-title">Key Projects</h2>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">Step Detection with Anomaly Filtering for PDR</span>
+                            <span class="project-date">2024 - 2025</span>
+                        </div>
+                        <p class="project-description">
+                            Developed lightweight deep learning-based anomaly detection algorithms for pedestrian dead reckoning (PDR) using IMU data. Enhanced step detection accuracy by 23% through unsupervised anomaly filtering on 10,000+ samples across 5 environments. Optimized model for embedded deployment and validated on smartphone platforms.
+                            <br>
+                            <span style="display: flex; gap: 15px; margin-top: 6px;">
+                                <a href="https://github.com/IssamSayyaf/Step-Detection-Anomaly-Filtering-PDR" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://ieeexplore.ieee.org/document/XXXXXX" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> IEEE/ION PLANS 2025</a>
+                                <a href="https://ieeexplore.ieee.org/document/XXXXXX" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> IEEE APSCON 2025</a>
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">5G LOS/NLOS Signal Classification</span>
+                            <span class="project-date">2024 - 2025</span>
+                        </div>
+                        <p class="project-description">
+                            Designed and implemented deep learning models for Line-of-Sight (LOS) and Non-Line-of-Sight (NLOS) detection in 5G indoor positioning systems. Extracted Channel Impulse Response (CIR) features and developed Autoencoder Adversarial based anomaly detection frameworks for improved signal characterization and localization accuracy.
+                            <br>
+                            <span style="display: flex; gap: 15px; margin-top: 6px;">
+                                <a href="https://github.com/IssamSayyaf/5G-LOS-NLOS-Classification" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> GitHub</a>
+                                <a href="https://ieeexplore.ieee.org/document/XXXXXX" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> Paper (Coming Soon)</a>
+                            </span>
+                        </p>
+                    </div>
+
+
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">Muzziball System</span>
+                            <span class="project-date">2024 - 2026</span>
+                        </div>
+                        <p class="project-description">
+                            Developing custom Linux image with Yocto for STM32MP1, integrating IMU, Audio, BLE, WiFi, and charging system. Implementing embedded C++ applications for real-time data acquisition.
+                        </p>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">Truck Monitoring System</span>
+                            <span class="project-date">2023 - 2024</span>
+                        </div>
+                        <p class="project-description">
+                            Custom Linux image with Yocto for NXP i.MX93, integrating 5G, GNSS, IMU, and CAN bus for vehicle tracking. Developed all device drivers for peripherals.
+                        </p>
+                    </div>
+                    <div class="project-item">
+                    <div class="project-header">
+                            <span class="project-title">RSNA Breast Cancer Detection</span>
+                            <span class="project-date">2023</span>
+                        </div>
+                        <p class="project-description">
+                            Developed deep learning models for breast cancer detection using mammography images from the RSNA screening dataset. Implemented CNN architectures for tumor classification and localization, applying data augmentation and transfer learning techniques to improve diagnostic accuracy.
+                            <br><a href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> View on GitHub</a>
+                        </p>
+                    </div>
+
+                      <div class="project-item">
+                          <div class="project-header">
+                              <span class="project-title">Contradictory Text Analysis (NLP)</span>
+                              <span class="project-date">2023</span>
+                          </div>
+                          <p class="project-description">
+                              Built NLP deep learning models for detecting contradictory statements in multilingual text pairs. Utilized transformer-based architectures (BERT) for natural language inference (NLI), achieving robust classification of entailment, neutral, and contradiction relationships.
+                              <br><a href="https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> View on GitHub</a>
+
+                          </p>
+                      </div>
+                    <div class="project-item">
+                        <div class="project-header">
+                            <span class="project-title">Wireless Crack Detection System</span>
+                            <span class="project-date">2022 - 2023</span>
+                        </div>
+                        <p class="project-description">
+                            Built wireless sensor network for crack detection in heritage buildings (Hardware + Firmware + Cloud Dashboard).
+                                    <br><a href="https://ieeexplore.ieee.org/document/10164041" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> IEEE MetroLivEnv 2023 Paper</a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Publications -->
+                <div class="section">
+                  <h2 class="section-title">Publications & Research</h2>
+                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Time Series Anomaly Detection for Sensor Data: Models, Metrics and Methodologies – A Review," IEEE Sensors Journal, Oct 2025 </div>
+                  <div class="publication-item">Renaudin, V., <strong>Sayyaf, M.I.</strong>,  et al. "GNSS Positioning Under Threat: The Rising Risk to Existing Systems and the Role of Alternative Indoor and Seamless Navigation Technologies," <strong>Journal of the Institute of Navigation (J-ISPIN)</strong>, 2025</div>
+                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al., "Anomaly Filtering for Pedestrian Dead Reckoning," IEEE/ION PLANS 2025</div>
+                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Step Detection Enhanced by Anomaly Filtering," IEEE APSCON, Jan 2025</div>
+                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Wireless Crack Detection System Based on IoT," IEEE MetroLivEnv, May 2023</div>
+                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Heart Rate Evaluation by Smartphone: An Overview," IEEE HealthTech, Mar 2023</div>
+                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Detection and Classification of Crack for Heritage Building," Metro Archaeo 2022</div>
+                  <div class="publication-item">Moisan, T., Fu, H., Renaudin, V., <strong>Sayyaf, M.I.</strong> "From Research to App: Personalized Inertial Navigation for the Visually Impaired," IEEE IPIN 2025, Sep 2025</div>
+                  </div>
             </div>
-            
-            <!-- Right column -->
-            <div class="right-column" id="right-column">
-                <!-- Sections will be populated by JavaScript -->
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Education -->
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    
+                    <div class="education-item">
+                        <div class="edu-period">Nov 2023 - Nov 2026</div>
+                        <div class="edu-degree">PhD in Signal Processing & Deep Learning for Navigation Systems</div>
+                        <div class="edu-institution">University of Gustave Eiffel, France</div>
+                        <div class="edu-details">Thesis: "Anomaly Detection Using Deep Learning for Navigation Systems (IMU/GNSS/5G)"</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="edu-period">Sep 2021 - Oct 2023</div>
+                        <div class="edu-degree">Master's in Telecommunication Engineering & Networks</div>
+                        <div class="edu-institution">University of Calabria, Italy</div>
+                        <div class="edu-details">IoT, SDN, Wireless Networks, Sensor Development — 110/110 cum laude</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="edu-period">Sep 2014 - Sep 2019</div>
+                        <div class="edu-degree">Bachelor's in Electronics & Communication Engineering</div>
+                        <div class="edu-institution">University of Aleppo, Syria</div>
+                        <div class="edu-details">Telecommunication, Embedded Systems, Wireless — GPA: 88.56% with distinction</div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills with Progress Bars -->
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+
+                    <!-- Embedded Systems -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <span class="skill-category-icon">🖥️</span>
+                            <span class="skill-category-name">Embedded Systems</span>
+                            <span class="skill-category-years">4+ years</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Embedded Linux (Yocto/Buildroot)</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">RTOS (FreeRTOS, Zephyr)</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ARM Cortex-M/STM32/NXP</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Linux Kernel & Device Drivers</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">FPGA Programming VHDL</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">BSP</span>
+                            <span class="skill-tag">Bootloader</span>
+                            <span class="skill-tag">GPIO</span>
+                            <span class="skill-tag">UART</span>
+                            <span class="skill-tag">SPI</span>
+                            <span class="skill-tag">I2C</span>
+                        </div>
+                    </div>
+
+                    <!-- AI/ML -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <span class="skill-category-icon">🤖</span>
+                            <span class="skill-category-name">AI & Machine Learning</span>
+                            <span class="skill-category-years">4+ years</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Deep Learning (CNNs, LSTMs, Transformers)</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">TensorFlow / PyTorch</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">TinyML / Edge AI</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Autoencoders</span>
+                            <span class="skill-tag">Signal Processing</span>
+                            <span class="skill-tag">Classification</span>
+                        </div>
+                    </div>
+
+                    <!-- Wireless -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <span class="skill-category-icon">📡</span>
+                            <span class="skill-category-name">Wireless & Networking</span>
+                            <span class="skill-category-years">5+ years</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">5G,LTE, and mobile Telecommunication</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">IoT Protocols and IoT Security (LoRaWAN, Zigbee, BLE, Wi-Fi, etc)</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Digital Signal Processing</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">SDN</span>
+                            <span class="skill-tag">DSP</span>
+                            <span class="skill-tag">WiFi</span>
+                            <span class="skill-tag">Bluetooth</span>
+                        </div>
+                    </div>
+
+                    <!-- Programming -->
+                    <div class="skill-category">
+                        <div class="skill-category-header">
+                            <span class="skill-category-icon">💻</span>
+                            <span class="skill-category-name">Programming</span>
+                            <span class="skill-category-years">7+ years</span>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C/C++</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MATLAB / LabVIEW</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Debugging</span>
+                            <span class="skill-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <span class="language-level">C1 Professional</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">French</span>
+                        <span class="language-level">B1 Intermediate</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Arabic</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                </div>
+
+                <!-- Certifications & Courses -->
+                <div class="section">
+                    <h2 class="section-title">Certifications & Courses</h2>
+
+                    <div class="cert-category">
+                        <div class="cert-category-header">
+                            <i class="fas fa-microchip cert-category-icon"></i>
+                            <span class="cert-category-name">Embedded Linux</span>
+                            <span class="cert-count">3 courses</span>
+                        </div>
+                        <div class="cert-items">
+                            <div class="cert-item">Yocto Project Development (Bootlin, 2024)</div>
+                            <div class="cert-item">Linux Kernel Development (Bootlin, 2024)</div>
+                            <div class="cert-item">Embedded Linux Development (Bootlin, 2024)</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-category">
+                        <div class="cert-category-header">
+                            <i class="fas fa-brain cert-category-icon"></i>
+                            <span class="cert-category-name">Deep Learning & AI</span>
+                            <span class="cert-count">3 courses</span>
+                        </div>
+                        <div class="cert-items">
+                            <div class="cert-item">Deep Learning Specialization (Coursera, 2023)</div>
+                            <div class="cert-item">Reinforcement Learning Specialization (Coursera, 2023)</div>
+                            <div class="cert-item">TinyML (Harvard, 2024)</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-category">
+                        <div class="cert-category-header">
+                            <i class="fas fa-cogs cert-category-icon"></i>
+                            <span class="cert-category-name">RTOS & Firmware</span>
+                            <span class="cert-count">2 courses</span>
+                        </div>
+                        <div class="cert-items">
+                            <div class="cert-item">FreeRTOS Real-Time Programming</div>
+                            <div class="cert-item">Zephyr RTOS Development</div>
+                        </div>
+                    </div>
+
+                    <div class="cert-category">
+                        <div class="cert-category-header">
+                            <i class="fas fa-drafting-compass cert-category-icon"></i>
+                            <span class="cert-category-name">PCB & Hardware Design</span>
+                            <span class="cert-count">2 courses</span>
+                        </div>
+                        <div class="cert-items">
+                            <div class="cert-item">PCB Design with KiCad</div>
+                            <div class="cert-item">Hardware Design Fundamentals</div>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Link -->
+                    <a href="https://www.linkedin.com/in/issamsayyaf/details/certifications/" target="_blank" class="cert-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span class="cert-link-text">View All Certifications on LinkedIn →</span>
+                    </a>
+                </div>
             </div>
-        </div>
-        
-        <!-- Footer -->
-        <div id="footer" style="background-color: #f9fafb; padding: 15px; text-align: center; border-top: 1px solid #e5e7eb;">
-            <!-- Footer will be populated by JavaScript -->
         </div>
     </div>
 
     <script>
-        // Enhanced error handling
-        window.addEventListener('error', function(e) {
-            console.error('JavaScript Error:', e.error);
-            showError(`JavaScript Error: ${e.error.message}`);
-        });
-
-        function showError(message) {
-            const container = document.getElementById('cvContainer');
-            container.innerHTML = `
-                <div class="error-message">
-                    <h2>Error Loading CV</h2>
-                    <p><strong>Details:</strong> ${message}</p>
-                    <p><strong>Possible solutions:</strong></p>
-                    <ul>
-                        <li>Check if cv-config.json file exists</li>
-                        <li>Verify JSON syntax is valid</li>
-                        <li>Ensure the server is running</li>
-                        <li>Check browser console for more details</li>
-                    </ul>
-                </div>
-            `;
-        }
-
-        // CV Configuration data embedded directly
-        const cvConfig = {
-
-  "personalInfo": {
-    "name": "Issam SAYYAF",
-    "title": "PhD Researcher & Embedded Systems Engineer",
-    "photo": {
-      "src": "photo.jpg",
-      "alt": "Issam SAYYAF",
-      "width": "120px",
-      "height": "150px",
-      "placeholder": {
-        "text": "Photo<br>3cm x 4cm",
-        "fontSize": "11px"
-      }
-    },
-    "contact": [
-      {
-        "icon": "fas fa-map-marker-alt",
-        "text": "Nantes, France",
-        "type": "location"
-      },
-      {
-        "icon": "fas fa-phone",
-        "text": "+33 758 120 733",
-        "type": "phone"
-      },
-      {
-        "icon": "fas fa-envelope",
-        "text": "Issamsayyaf97@gmail.com",
-        "type": "email",
-        "link": "mailto:Issamsayyaf97@gmail.com"
-      },
-      {
-        "icon": "fab fa-linkedin",
-        "text": "LinkedIn",
-        "type": "social",
-        "link": "https://linkedin.com/in/issamsayyaf"
-      },
-      {
-        "icon": "fab fa-github",
-        "text": "GitHub",
-        "type": "social",
-        "link": "https://github.com/IssamSayyaf"
-      },
-      {
-        "icon": "fas fa-globe",
-        "text": "issam-sayyaf.com",
-        "type": "website",
-        "link": "https://issam-sayyaf.com"
-      }
-    ]
-  },
-  "sections": {
-    "left": [
-      {
-        "id": "professional-summary",
-        "title": "Professional Summary",
-        "icon": "",
-        "fontSize": "16px",
-        "content": {
-          "type": "paragraph",
-          "text": "Embedded Systems Engineer with 4+ years of experience designing real-time solutions, developing custom Linux kernels, and implementing device drivers and applications for STM32MP1 and NXP platforms. Successfully delivered 10+ innovative projects in embedded and wireless systems. Later, as a PhD Researcher, specialized in signal processing using deep learning, publishing 5+ peer-reviewed papers and bridging advanced research with practical implementation.",
-          "fontSize": "13px"
-        }
-      },
-      {
-        "id": "professional-experience",
-        "title": "Professional Experience",
-        "icon": "",
-        "fontSize": "16px",
-        "content": {
-          "type": "work-items",
-          "items": [
-            {
-              "title": "PhD Researcher",
-              "company": "University of Gustave Eiffel, France",
-              "period": "Nov 2023 - Nov-2026",
-              "titleFontSize": "14px",
-              "companyFontSize": "13px",
-              "responsibilities": [
-                "• Developed 3+ anomaly detection algorithms using deep learning  in IMU/GNSS/5G Real time processing",
-                "• Enhanced step detection by 23% using deep learning on 10,000+ data samples across 5 environments",
-                "• Analyzed 800+ minutes of GNSS signal anomalies, identifying key patterns and trends",
-                "• Improved 5G signal detection LOS/NLOS in indoor environments."
-              ],
-              "responsibilitiesFontSize": "12px"
-            },
-            {
-              "title": "Embedded Systems Engineer",
-              "company": "Hexabitz, USA (Freelance)",
-              "period": "Jun 2023 - Present",
-              "titleFontSize": "14px",
-              "companyFontSize": "13px",
-              "responsibilities": [
-                "• Developed 3+ custom Linux images using Yocto, on 3 Hardware customize platforms using stm32mp1 and i.mx93",
-                "• Implemented 10+ device drivers for peripherals (GPIO, I2C, SPI, UART, LoraWAN, Zigbee) on embedded-beramatel and linux systems"
-              ],
-              "responsibilitiesFontSize": "12px"
-            },
-            {
-              "title": "Measurement Engineer",
-              "company": "University of Calabria, Italy",
-              "period": "Oct 2022 - Oct 2023",
-              "titleFontSize": "14px",
-              "companyFontSize": "13px",
-              "responsibilities": [
-                "• Designed distributed measurement systems to monitor remotely using LabVIEW and Python"
-              ],
-              "responsibilitiesFontSize": "12px"
-            },
-            {
-              "title": "Teaching Assistant",
-              "company": "University of Aleppo, Syria",
-              "period": "Sep 2020 - Aug 2021",
-              "titleFontSize": "14px",
-              "companyFontSize": "13px",
-              "responsibilities": [
-                "• Conducted 50+ lab sessions for 150+ students achieving",
-                "• Working on Antenna Design (HFSS/CST), Microwave Engineering, and RF Systems courses"              ],
-              "responsibilitiesFontSize": "13px"
-            }
-          ]
-        }
-      },
-
-      {
-        "id": "key-projects",
-        "title": "Key Projects",
-        "icon": "",
-        "fontSize": "16px",
-        "content": {
-          "type": "project-items",
-          "items": [
-            {
-              "title": "Muzziball System",
-              "period": "2024 - 2026", 
-              "description": ["Developing an customize linux image with Yocto for STM32MP1, integrating IMU, Audio (speaker/mic), BLE, Wifi, and charging system for smart ball application",
-            "Implementing embedded C++ applications for real-time data acquisition and processing on the STM32MP1 platform"],
-
-              "titleFontSize": "13px",
-              "descriptionFontSize": "12px"
-            },
-            {
-              "title": "Truck Monitoring System",
-              "period": "2023 - 2024", 
-              "description": ["Customize linux image with Yocto for NXP .i.MX93 Platform, integrating 5G, GNSS, IMU, and CAN bus for vehicle tracking",
-                              "Provide all the device drivers for all the peripherals"],
-
-              "titleFontSize": "13px",
-              "descriptionFontSize": "12px"
-            },
-            {
-              "title": "Wireless Crack Detection System",
-              "period": "2022-2023",
-              "description": "Built anode wireless sensor network for crack detection in heritage buildings (Hardware + Firmware + Cloud Dashboard) ",
-              "titleFontSize": "13px",
-              "descriptionFontSize": "12px"
-            }
-          ]
-        }
-      },
-      {
-        "id": "publications",
-        "title": "Publications & Research Impact",
-        "icon": "",
-        "fontSize": "16px",
-        "content": {
-          "type": "list",
-          "items": [
-            "• Sayyaf, M.I., et al., \"Anomaly Filtering for Pedestrian Dead Reckoning,\" IEEE/ION PLANS 2025",
-            "• Sayyaf, M.I., et al. \"Step Detection Enhanced by Anomaly Filtering,\" IEEE APSCON, Jan 2025",
-            "• Sayyaf, M.I., et al. \"Wireless Crack Detection System Based on IoT,\" IEEE MetroLivEnv, May 2023",
-            "• Sayyaf, M.I., et al. \"Heart Rate Evaluation by Smartphone: An Overview,\" IEEE HealthTech, Mar 2023",
-            "• Sayyaf, M.I., et al. \"Detection and Classification of Crack for Heritage Building,\" Metro Archaeo 2022"
-          ],
-          "fontSize": "12px"
-        }
-      }
-    ],
-    "right": [
-      {
-        "id": "education",
-        "title": "Education",
-        "icon": "",
-        "fontSize": "14px",
-        "content": {
-          "type": "education-items",
-          "items": [
-            {
-              "period": "Nov 2023 - Nov-2026",
-              "degree": "PhD in Signal Processing Using Deep Learning for Navigation Systems",
-              "institution": "University of Gustave Eiffel, France",
-              "details": "Thesis: \"Develop Anomaly Detection Algorithm Using Deep Learning for Navigation Systems (IMU/GNSS/5G)\"",
-              "periodFontSize": "11px",
-              "degreeFontSize": "13px",
-              "institutionFontSize": "12px",
-              "detailsFontSize": "11px",
-              "highlight": null
-            },
-            {
-              "period": "Sep 2021 - Oct 2023",
-              "degree": "Master's in Telecommunication Engineering and Networks",
-              "institution": "University of Calabria, Italy",
-              "details": "Specialization: Internet of Things (IoT), Software-Defined Networking (SDN), Wireless Networks, Sensor Development (110/110 cum laude)",
-              "periodFontSize": "11px",
-              "degreeFontSize": "13px",
-              "institutionFontSize": "12px",
-              "detailsFontSize": "11px",
-              "highlight": null
-            },
-            {
-              "period": "Sep 2014 - Sep 2019",
-              "degree": "Bachelor's in Electronics and Communication Engineering",
-              "institution": "University of Aleppo, Syria",
-              "details": "Telecommunication Networks, Embedded System, Wireless Communication, GPA: 88.56% with distinction",
-              "periodFontSize": "11px",
-              "degreeFontSize": "13px",
-              "institutionFontSize": "12px",
-              "detailsFontSize": "11px",
-              "highlight": null
-            }
-          ]
-        }
-      },
-      {
-        "id": "technical-skills",
-        "title": "Technical Skills",
-        "icon": "",
-        "fontSize": "16px",
-        "content": {
-          "type": "skill-categories",
-          "categories": [
-            {
-              "name": "🖥️ Embedded Systems (4+ years)",
-              "skills": "Embedded Linux (Yocto, Buildroot), linux kernel driver, RTOS (FreeRTOS, Zephyr), ARM Cortex-M/STM32, NXP MPU/BSP Development, Bare-metal Programming, Interrupts, Bootloader, GPIO, UART, SPI, I2C",
-              "nameFontSize": "13px",
-              "skillsFontSize": "12px"
-            },
-            {
-              "name": "🤖 AI/ML (3+ years)",
-              "skills": "Deep Learning (CNNs, LSTMs, Transformers), TinyML/Edge AI , Signal Processing , Python ML Libraries (TensorFlow, PyTorch), Autoencoders, Classification, Regression, Inference, Training",
-              "nameFontSize": "13px",
-              "skillsFontSize": "12px"
-            },
-            {
-              "name": "📡 Wireless Communication and Networking (5+ years)",
-              "skills": "5G/LTE Positioning, Wi-Fi/Bluetooth/Zigbee, LoRaWAN/IoT Protocols, GNSS/GPS Systems, RF Engineering, Antenna Design, Protocol Stack, IP Networking, Network Simulation mininet, Software-Defined Networking (SDN), Routing Protocols, Network Security, Networking Tools (Wireshark, tcpdump)",
-              "nameFontSize": "13px",
-              "skillsFontSize": "12px"
-            },
-            {
-              "name": "💻 Programming (7+ years)",
-              "skills": "Python, C/C++, Java, LabVIEW, MATLAB, Git, Debugging",
-              "nameFontSize": "13px",
-              "skillsFontSize": "12px"
-            }
-          ]
-        }
-      },
-      {
-        "id": "languages",
-        "title": "Languages",
-        "icon": "",
-        "fontSize": "14px",
-        "content": {
-          "type": "language-items",
-          "items": [
-            {
-              "language": "English ",
-              "level": "Professional C1"
-              
-            },
-            {
-              "language": "French ",
-              "level": "Intermediate B1"
-            },
-            {
-              "language": "Arabic",
-              "level": "Native"
-            }
-          ],
-          "fontSize": "12px"
-        }
-      },
-      {
-        "id": "certifications",
-        "title": "Key Certifications & Awards",
-        "icon": "",
-        "fontSize": "14px",
-        "content": {
-          "type": "list",
-          "items": [
-            "• Yocto Project Development Certified (Bootlin, 2024)",
-            "• Kernel Development Certified (Bootlin, 2024)",
-            "• Embedded Linux Development Expert (Bootlin, 2024)",
-            "• Tiny Machine Learning (TinyML Harvard, 2024)",
-            "• Deep Learning Specialization (Coursera, 2023)",
-            "• Reinforcement Learning Specialization (Coursera, 2023)"
-          ],
-          "fontSize": "12px"
-        }
-      }
-    ]
-  },
-  "styling": {
-    "header": {
-      "nameFontSize": "16px",
-      "titleFontSize": "16px",
-      "contactFontSize": "13px"
-    },
-    "layout": {
-      "leftColumnWidth": "65%",
-      "rightColumnWidth": "35%"
-    },
-    "footer": {
-      "text": "",
-      "fontSize": "12px"
-    }
-  }
-
-};
-
-        // Load CV configuration and render
-        function loadCV() {
-            try {
-                console.log('Loading CV with embedded configuration...');
-                
-                // Validate config structure
-                if (!cvConfig.personalInfo) {
-                    throw new Error('Missing personalInfo in configuration');
+        // Animate skill bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.skill-fill');
+                    fills.forEach(fill => {
+                        const width = fill.style.width;
+                        fill.style.width = '0';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 100);
+                    });
                 }
-                
-                if (!cvConfig.sections) {
-                    throw new Error('Missing sections in configuration');
-                }
-                
-                if (!cvConfig.styling) {
-                    throw new Error('Missing styling in configuration');
-                }
-                
-                console.log('Rendering CV...');
-                renderCV(cvConfig);
-                
-            } catch (error) {
-                console.error('Error loading CV configuration:', error);
-                showError(error.message);
-            }
-        }
-
-        function renderCV(config) {
-            try {
-                console.log('Setting page title...');
-                // Set page title
-                document.getElementById('page-title').textContent = `${config.personalInfo.name} - CV`;
-                
-                console.log('Rendering header...');
-                // Render header
-                renderHeader(config);
-                
-                console.log('Rendering sections...');
-                // Render sections
-                renderSections(config);
-                
-                console.log('Rendering footer...');
-                // Render footer
-                renderFooter(config);
-                
-                console.log('CV rendered successfully!');
-            } catch (error) {
-                console.error('Error rendering CV:', error);
-                showError(`Rendering error: ${error.message}`);
-            }
-        }
-
-        function renderHeader(config) {
-            const { personalInfo, styling } = config;
-            
-            // Name and title
-            const nameElement = document.getElementById('name-title');
-            nameElement.textContent = personalInfo.name;
-            nameElement.style.fontSize = styling.header.nameFontSize;
-            nameElement.style.fontWeight = 'bold';
-            nameElement.style.color = '#1f2937';
-            nameElement.style.marginBottom = '4px';
-            
-            const titleElement = document.getElementById('job-title');
-            titleElement.textContent = personalInfo.title;
-            titleElement.style.color = '#6b7280';
-            titleElement.style.fontSize = styling.header.titleFontSize;
-            titleElement.style.marginBottom = '12px';
-            
-            // Contact info
-            const contactContainer = document.getElementById('contact-info');
-            contactContainer.style.fontSize = styling.header.contactFontSize;
-            contactContainer.innerHTML = '';
-            
-            personalInfo.contact.forEach(contact => {
-                const contactItem = document.createElement('div');
-                contactItem.className = 'contact-item';
-                
-                const icon = document.createElement('i');
-                icon.className = contact.icon;
-                icon.style.color = '#6b7280';
-                contactItem.appendChild(icon);
-                
-                if (contact.link) {
-                    const link = document.createElement('a');
-                    link.href = contact.link;
-                    link.textContent = contact.text;
-                    if (contact.type === 'social' || contact.type === 'website') {
-                        link.target = '_blank';
-                    }
-                    // Add specific handling for email links
-                    if (contact.type === 'email') {
-                        link.addEventListener('click', function(e) {
-                            console.log('Email link clicked:', contact.link);
-                            // Let the default behavior happen (open email client)
-                        });
-                    }
-                    contactItem.appendChild(link);
-                } else {
-                    const span = document.createElement('span');
-                    span.textContent = contact.text;
-                    contactItem.appendChild(span);
-                }
-                
-                contactContainer.appendChild(contactItem);
             });
-            
-            // Photo
-            const photoContainer = document.getElementById('photo-container');
-            photoContainer.style.width = personalInfo.photo.width;
-            photoContainer.style.height = personalInfo.photo.height;
-            
-            const img = document.createElement('img');
-            img.src = personalInfo.photo.src;
-            img.alt = personalInfo.photo.alt;
-            img.style.width = '100%';
-            img.style.height = '100%';
-            img.style.objectFit = 'cover';
-            img.style.borderRadius = '8px';
-            
-            const placeholder = document.createElement('div');
-            placeholder.className = 'photo-placeholder';
-            placeholder.style.width = '100%';
-            placeholder.style.height = '100%';
-            placeholder.style.display = 'none';
-            
-            const placeholderText = document.createElement('div');
-            placeholderText.className = 'photo-text';
-            placeholderText.style.fontSize = personalInfo.photo.placeholder.fontSize;
-            placeholderText.innerHTML = personalInfo.photo.placeholder.text;
-            placeholder.appendChild(placeholderText);
-            
-            img.onerror = function() {
-                this.style.display = 'none';
-                placeholder.style.display = 'flex';
-            };
-            
-            photoContainer.appendChild(img);
-            photoContainer.appendChild(placeholder);
-        }
+        }, { threshold: 0.2 });
 
-        function renderSections(config) {
-            const leftColumn = document.getElementById('left-column');
-            const rightColumn = document.getElementById('right-column');
-            
-            leftColumn.style.width = config.styling.layout.leftColumnWidth;
-            rightColumn.style.width = config.styling.layout.rightColumnWidth;
-            
-            leftColumn.innerHTML = '';
-            rightColumn.innerHTML = '';
-            
-            // Render left column sections
-            config.sections.left.forEach(section => {
-                const sectionElement = renderSection(section);
-                leftColumn.appendChild(sectionElement);
-            });
-            
-            // Render right column sections
-            config.sections.right.forEach(section => {
-                const sectionElement = renderSection(section);
-                rightColumn.appendChild(sectionElement);
-            });
-        }
-
-        function renderSection(section) {
-            const sectionDiv = document.createElement('div');
-            sectionDiv.className = 'section';
-            
-            // Section title
-            const title = document.createElement('h2');
-            title.className = 'section-title';
-            title.style.fontSize = section.fontSize;
-            title.textContent = section.title;
-            sectionDiv.appendChild(title);
-            
-            // Section content
-            const content = renderContent(section.content);
-            sectionDiv.appendChild(content);
-            
-            return sectionDiv;
-        }
-
-        function renderContent(content) {
-            const container = document.createElement('div');
-            
-            switch (content.type) {
-                case 'paragraph':
-                    const p = document.createElement('p');
-                    p.textContent = content.text;
-                    p.style.color = '#4b5563';
-                    p.style.lineHeight = '1.6';
-                    p.style.fontSize = content.fontSize;
-                    container.appendChild(p);
-                    break;
-                    
-                case 'work-items':
-                    content.items.forEach(item => {
-                        const workItem = document.createElement('div');
-                        workItem.className = 'work-item';
-                        
-                        const header = document.createElement('div');
-                        header.className = 'item-header';
-                        
-                        const leftDiv = document.createElement('div');
-                        const title = document.createElement('div');
-                        title.className = 'item-title';
-                        title.style.fontSize = item.titleFontSize;
-                        title.textContent = item.title;
-                        leftDiv.appendChild(title);
-                        
-                        const company = document.createElement('div');
-                        company.className = 'item-subtitle';
-                        company.style.fontSize = item.companyFontSize;
-                        company.textContent = item.company;
-                        leftDiv.appendChild(company);
-                        
-                        const period = document.createElement('div');
-                        period.className = 'item-date';
-                        period.textContent = item.period;
-                        
-                        header.appendChild(leftDiv);
-                        header.appendChild(period);
-                        workItem.appendChild(header);
-                        
-                        const responsibilities = document.createElement('ul');
-                        responsibilities.className = 'responsibilities';
-                        responsibilities.style.fontSize = item.responsibilitiesFontSize;
-                        item.responsibilities.forEach(resp => {
-                            const li = document.createElement('li');
-                            li.textContent = resp;
-                            responsibilities.appendChild(li);
-                        });
-                        workItem.appendChild(responsibilities);
-                        
-                        container.appendChild(workItem);
-                    });
-                    break;
-                    
-                case 'project-items':
-                    content.items.forEach(item => {
-                        const projectItem = document.createElement('div');
-                        projectItem.className = 'project-item';
-                        
-                        const header = document.createElement('div');
-                        header.className = 'item-header';
-                        
-                        const title = document.createElement('div');
-                        title.className = 'item-title';
-                        title.style.fontSize = item.titleFontSize;
-                        title.textContent = item.title;
-                        
-                        const period = document.createElement('div');
-                        period.className = 'item-date';
-                        period.textContent = item.period;
-                        
-                        header.appendChild(title);
-                        header.appendChild(period);
-                        projectItem.appendChild(header);
-                        
-                        const description = document.createElement('div');
-                        description.className = 'item-description';
-                        description.style.fontSize = item.descriptionFontSize;
-                        description.textContent = item.description;
-                        projectItem.appendChild(description);
-                        
-                        container.appendChild(projectItem);
-                    });
-                    break;
-                    
-                case 'list':
-                    content.items.forEach(item => {
-                        const div = document.createElement('div');
-                        div.style.marginBottom = '12px';
-                        div.style.fontSize = content.fontSize;
-                        div.style.color = '#4b5563';
-                        div.style.lineHeight = '1.5';
-                        div.textContent = item;
-                        container.appendChild(div);
-                    });
-                    break;
-                    
-                case 'education-items':
-                    content.items.forEach(item => {
-                        const educationItem = document.createElement('div');
-                        educationItem.className = 'education-item';
-                        
-                        const period = document.createElement('div');
-                        period.style.fontSize = item.periodFontSize;
-                        period.style.color = '#6b7280';
-                        period.style.marginBottom = '4px';
-                        period.textContent = item.period;
-                        educationItem.appendChild(period);
-                        
-                        const degree = document.createElement('div');
-                        degree.style.fontWeight = '600';
-                        degree.style.fontSize = item.degreeFontSize;
-                        degree.style.color = '#1f2937';
-                        degree.style.marginBottom = '2px';
-                        degree.textContent = item.degree;
-                        educationItem.appendChild(degree);
-                        
-                        const institution = document.createElement('div');
-                        institution.style.fontSize = item.institutionFontSize;
-                        institution.style.color = '#2563eb';
-                        institution.style.marginBottom = '4px';
-                        institution.textContent = item.institution;
-                        educationItem.appendChild(institution);
-                        
-                        if (item.highlight) {
-                            const highlight = document.createElement('div');
-                            highlight.className = 'highlight-box';
-                            
-                            const highlightText = document.createElement('div');
-                            highlightText.style.fontSize = item.highlight.fontSize;
-                            highlightText.style.color = '#92400e';
-                            highlightText.style.fontWeight = '600';
-                            highlightText.textContent = item.highlight.text;
-                            highlight.appendChild(highlightText);
-                            
-                            const subtext = document.createElement('div');
-                            subtext.style.fontSize = item.highlight.fontSize;
-                            subtext.style.color = '#6b7280';
-                            subtext.textContent = item.highlight.subtext;
-                            highlight.appendChild(subtext);
-                            
-                            educationItem.appendChild(highlight);
-                        }
-                        
-                        const details = document.createElement('div');
-                        details.style.fontSize = item.detailsFontSize;
-                        details.style.color = '#6b7280';
-                        details.style.lineHeight = '1.4';
-                        details.textContent = item.details;
-                        educationItem.appendChild(details);
-                        
-                        container.appendChild(educationItem);
-                    });
-                    break;
-                    
-                case 'skill-categories':
-                    content.categories.forEach(category => {
-                        const skillCategory = document.createElement('div');
-                        skillCategory.className = 'skill-category';
-                        
-                        const header = document.createElement('div');
-                        header.className = 'skill-header';
-                        
-                        const name = document.createElement('div');
-                        name.style.fontWeight = '600';
-                        name.style.fontSize = category.nameFontSize;
-                        name.style.color = '#1f2937';
-                        name.textContent = category.name;
-                        header.appendChild(name);
-                        
-                        skillCategory.appendChild(header);
-                        
-                        const skills = document.createElement('div');
-                        skills.style.fontSize = category.skillsFontSize;
-                        skills.style.color = '#4b5563';
-                        skills.style.lineHeight = '1.4';
-                        skills.textContent = category.skills;
-                        skillCategory.appendChild(skills);
-                        
-                        container.appendChild(skillCategory);
-                    });
-                    break;
-                    
-                case 'language-items':
-                    content.items.forEach(item => {
-                        const langDiv = document.createElement('div');
-                        langDiv.style.display = 'flex';
-                        langDiv.style.justifyContent = 'space-between';
-                        langDiv.style.marginBottom = '8px';
-                        langDiv.style.fontSize = content.fontSize;
-                        
-                        const language = document.createElement('span');
-                        language.textContent = item.language;
-                        langDiv.appendChild(language);
-                        
-                        const level = document.createElement('span');
-                        level.textContent = item.level;
-                        langDiv.appendChild(level);
-                        
-                        container.appendChild(langDiv);
-                    });
-                    break;
-                    
-                case 'award-items':
-                    content.items.forEach(item => {
-                        const awardDiv = document.createElement('div');
-                        awardDiv.style.display = 'flex';
-                        awardDiv.style.justifyContent = 'space-between';
-                        awardDiv.style.marginBottom = '8px';
-                        awardDiv.style.fontSize = content.fontSize;
-                        
-                        const award = document.createElement('span');
-                        award.textContent = item.award;
-                        awardDiv.appendChild(award);
-                        
-                        const year = document.createElement('span');
-                        year.textContent = item.year;
-                        awardDiv.appendChild(year);
-                        
-                        container.appendChild(awardDiv);
-                    });
-                    break;
-                    
-                default:
-                    const errorDiv = document.createElement('div');
-                    errorDiv.style.color = 'red';
-                    errorDiv.textContent = `Unknown content type: ${content.type}`;
-                    container.appendChild(errorDiv);
-            }
-            
-            return container;
-        }
-
-        function renderFooter(config) {
-            const footer = document.getElementById('footer');
-            footer.innerHTML = '';
-            const p = document.createElement('p');
-            p.style.fontSize = config.styling.footer.fontSize;
-            p.style.color = '#6b7280';
-            p.textContent = config.styling.footer.text;
-            footer.appendChild(p);
-        }
-
-        // Keyboard shortcut for printing
-        document.addEventListener('keydown', function(e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-                e.preventDefault();
-                window.print();
-            }
-        });
-
-        // Load CV when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, starting CV load...');
-            loadCV();
+        document.querySelectorAll('.skill-category').forEach(cat => {
+            observer.observe(cat);
         });
     </script>
 </body>
