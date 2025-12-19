@@ -279,27 +279,6 @@
             }
         }
 
-        /* Last News Slider Styles */
-        #last-news {
-            position: relative;
-        }
-        .slider {
-            position: relative;
-            overflow: hidden;
-            height: 100px;
-            margin: 20px 0;
-        }
-        .slide {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            font-size: 1rem;
-            color: #333;
-        }
-        .slide.active {
-            display: block;
-        }
-
         /* Academic Cards Styles */
         .card-container {
             display: flex;
@@ -333,44 +312,6 @@
             font-size: 0.95rem;
             padding: 0 15px 15px;
             color: #455a64;
-        }
-
-        /* Updated Last News Slider Styles */
-        .news-slider {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 250px; /* adjust height as needed */
-        }
-        .news-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .news-slide.active {
-            opacity: 1;
-        }
-        .news-slide .news-text {
-            flex: 1;
-            order: 1;
-            text-align: left;
-        }
-        .news-slide img {
-            width: 250px;
-            margin-left: 20px;
-            border-radius: 10px;
-            order: 2;
         }
 
         /* Academic Excellence Cards - vertically stacked full-width with image beside text */
@@ -409,6 +350,62 @@
       border-left: 1px solid #ddd;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
+
+        /* Services section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+        .service-media {
+            width: 100%;
+            height: 140px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--accent, #1565C0), var(--accent-2, #0D47A1));
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+        }
+        .service-card h3 {
+            color: #1565C0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .service-card p {
+            color: #455a64;
+            margin-bottom: 12px;
+        }
+        .service-card .service-list {
+            padding-left: 18px;
+            color: #455a64;
+            line-height: 1.5;
+        }
+        .service-card .service-list li { margin-bottom: 6px; }
 
         /* Project card styles */
         .project-card {
@@ -800,36 +797,85 @@
         </div>
     </div>
 
-    <!-- Last News Section with fade animation -->
-    <section class="section" id="last-news">
-        <h2 class="section-title">Last News</h2>
-        <div class="news-slider">
-            <div class="news-slide active">
-                <img src="./assets/images/geoloc1.png" alt="IPIN Conference">
-                <div class="news-text">
-                    <h3>News 1</h3>
-                    <p>Attending IPIN 2025 Conference in Tampere, Finland to present research on indoor positioning and navigation systems.</p>
-                </div>
-            </div>
-            <div class="news-slide">
-                <img src="./assets/images/geoloc1.png" alt="ION PLANS">
-                <div class="news-text">
-                    <h3>News 2</h3>
-                    <p>New publication accepted at an ION PLANS IEEE.</p>
-                </div>
-            </div>
-            <div class="news-slide">
-                <img src="./assets/images/APSCON.svg" alt="APSCON Conference">
-                <div class="news-text">
-                    <h3>News 3</h3>
-                    <p>New publication accepted at an IEEE conference APSCON "Step Detection Enhanced by Anomaly Filtering".</p>
-                </div>
-            </div>
-            <div class="news-slide">
-                <img src="./assets/images/geoloc1.png" alt="PhD Start">
-                <div class="news-text">
-                    <h3>News 4</h3>
-                    <p>Started my PhD position at GEOLOC Lab.</p>
+    <!-- Services Section (replaces Last News) -->
+    <section class="section" id="services">
+        <h2 class="section-title">Services</h2>
+        <div class="section-content">
+            <div class="text-content" style="width:100%;">
+                <h3 style="margin-bottom:10px;">Comprehensive embedded systems solutions tailored to your needs</h3>
+                <div class="services-grid">
+                    <div class="service-card" style="--accent:#00695c;--accent-2:#00897b;">
+                        <div class="service-media" aria-hidden="true" style="background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 320 200%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop stop-color=%22%2300695c%22/%3E%3Cstop offset=%221%22 stop-color=%22%2300897b%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%22320%22 height=%22200%22 fill=%22url(%23g)%22/%3E%3Crect x=%2260%22 y=%2250%22 width=%22200%22 height=%22110%22 rx=%2214%22 ry=%2214%22 fill=%22rgba(255,255,255,0.12)%22 stroke=%22rgba(255,255,255,0.7)%22 stroke-width=%224%22/%3E%3Crect x=%22100%22 y=%2280%22 width=%22120%22 height=%2250%22 rx=%228%22 fill=%22rgba(255,255,255,0.9)%22/%3E%3Crect x=%22115%22 y=%2290%22 width=%2240%22 height=%2230%22 rx=%226%22 fill=%22%2300695c%22/%3E%3Crect x=%22165%22 y=%2290%22 width=%2240%22 height=%2230%22 rx=%226%22 fill=%22%2300897b%22/%3E%3Crect x=%22120%22 y=%22135%22 width=%2280%22 height=%228%22 rx=%224%22 fill=%22rgba(255,255,255,0.8)%22/%3E%3C/svg%3E');"></div>
+                        <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-microchip"></i></div>
+                        <h3>Hardware Proof of Concept</h3>
+                        <p>Rapid bring-up on development boards and sensor kits to validate ideas with real measurements.</p>
+                        <ul class="service-list">
+                            <li>Board bring-up &amp; driver integration</li>
+                            <li>Sensor data capture &amp; telemetry</li>
+                            <li>Latency, power, and reliability checks</li>
+                            <li>Demo-ready firmware &amp; reports</li>
+                        </ul>
+                    </div>
+                    <div class="service-card" style="--accent:#4a148c;--accent-2:#6a1b9a;">
+                        <div class="service-media" aria-hidden="true" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMjAgMjAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBzdG9wLWNvbG9yPScjNGExNDhjJy8+PHN0b3Agb2Zmc2V0PScxJyBzdG9wLWNvbG9yPScjNmExYjlhJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzMyMCcgaGVpZ2h0PScyMDAnIGZpbGw9J3VybCgjZyknLz48cmVjdCB4PSc1MCcgeT0nNDUnIHdpZHRoPScyMjAnIGhlaWdodD0nMTEwJyByeD0nMTYnIHJ5PScxNicgZmlsbD0ncmdiYSgyNTUsMjU1LDI1NSwwLjEyKScgc3Ryb2tlPSdyZ2JhKDI1NSwyNTUsMjU1LDAuNyknIHN0cm9rZS13aWR0aD0nNCcvPjxwYXRoIGQ9J005MCA4MCBoNDAgdi0yMCBoMjAgdjIwIGg0MCB2MjAgaC00MCB2MjAgaC0yMCB2LTIwIGgtNDB6JyBmaWxsPSdyZ2JhKDI1NSwyNTUsMjU1LDAuOSknLz48Y2lyY2xlIGN4PSc5MCcgY3k9JzEwMCcgcj0nNicgZmlsbD0nIzRhMTQ4YycvPjxjaXJjbGUgY3g9JzEzMCcgY3k9JzYwJyByPSc2JyBmaWxsPScjNGExNDhjJy8+PGNpcmNsZSBjeD0nMTcwJyBjeT0nMTAwJyByPSc2JyBmaWxsPScjNGExNDhjJy8+PGNpcmNsZSBjeD0nMjEwJyBjeT0nMTIwJyByPSc2JyBmaWxsPScjNGExNDhjJy8+PHBhdGggZD0nTTEzMCA2MCBMMTMwIDQwJyBzdHJva2U9J3JnYmEoMjU1LDI1NSwyNTUsMC43NSknIHN0cm9rZS13aWR0aD0nNCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJy8+PHBhdGggZD0nTTE3MCAxMDAgTDE5MCAxMDAgTDIxMCAxMjAnIHN0cm9rZT0ncmdiYSgyNTUsMjU1LDI1NSwwLjc1KScgc3Ryb2tlLXdpZHRoPSc0JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIGZpbGw9J25vbmUnLz48L3N2Zz4=');"></div>
+                        <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Deep Learning Solutions</h3>
+                        <p>Model design, training, optimization, and deployment across edge and cloud for detection, prediction, and analytics workloads.</p>
+                        <ul class="service-list">
+                            <li>Problem framing &amp; data pipelines</li>
+                            <li>Model training &amp; quantization</li>
+                            <li>Edge/embedded deployment (TensorRT, TFLite)</li>
+                            <li>MLOps guidance &amp; benchmarking</li>
+                        </ul>
+                    </div>
+                    <div class="service-card" style="--accent:#1b5e20;--accent-2:#2e7d32;">
+                        <div class="service-media" aria-hidden="true" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMjAgMjAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBzdG9wLWNvbG9yPScjMWI1ZTIwJy8+PHN0b3Agb2Zmc2V0PScxJyBzdG9wLWNvbG9yPScjMmU3ZDMyJy8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9JzMyMCcgaGVpZ2h0PScyMDAnIGZpbGw9J3VybCgjZyknLz48cmVjdCB4PSc3MCcgeT0nNTAnIHdpZHRoPScxODAnIGhlaWdodD0nMTAwJyByeD0nMTInIHJ5PScxMicgZmlsbD0ncmdiYSgyNTUsMjU1LDI1NSwwLjEyKScgc3Ryb2tlPSdyZ2JhKDI1NSwyNTUsMjU1LDAuNyknIHN0cm9rZS13aWR0aD0nNCcvPjxyZWN0IHg9JzEwMCcgeT0nODAnIHdpZHRoPScxMjAnIGhlaWdodD0nNDAnIHJ4PSc4JyBmaWxsPSdyZ2JhKDI1NSwyNTUsMjU1LDAuOSknLz48Y2lyY2xlIGN4PScxMTAnIGN5PScxMDAnIHI9JzYnIGZpbGw9JyMxYjVlMjAnLz48Y2lyY2xlIGN4PScxNDAnIGN5PScxMDAnIHI9JzYnIGZpbGw9JyMxYjVlMjAnLz48Y2lyY2xlIGN4PScxNzAnIGN5PScxMDAnIHI9JzYnIGZpbGw9JyMxYjVlMjAnLz48Y2lyY2xlIGN4PScyMDAnIGN5PScxMDAnIHI9JzYnIGZpbGw9JyMxYjVlMjAnLz48L3N2Zz4=');"></div>
+                        <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-microchip"></i></div>
+                        <h3>Embedded Linux Development</h3>
+                        <p>Custom Linux kernel development, Yocto Project, Buildroot, device drivers, and BSP development for your hardware platforms.</p>
+                        <ul class="service-list">
+                            <li>Kernel customization &amp; optimization</li>
+                            <li>Device driver development</li>
+                            <li>Yocto/Buildroot configuration</li>
+                            <li>Boot optimization</li>
+                        </ul>
+                    </div>
+                    <div class="service-card" style="--accent:#1565C0;--accent-2:#0D47A1;">
+                        <div class="service-media" aria-hidden="true" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMjAgMjAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2cyJyB4MT0nMCcgeTE9JzAnIHgyPScxJyB5Mj0nMSc+PHN0b3Agc3RvcC1jb2xvcj0nIzBENDdBMScvPjxzdG9wIG9mZnNldD0nMScgc3RvcC1jb2xvcj0nIzE1NjVDMCcvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSczMjAnIGhlaWdodD0nMjAwJyBmaWxsPSd1cmwoI2cyKScvPjxwYXRoIGQ9J00zMCAxNDAgUTgwIDgwIDE0MCAxMjAgVDI2MCAxMDAnIGZpbGw9J25vbmUnIHN0cm9rZT0ncmdiYSgyNTUsMjU1LDI1NSwwLjY1KScgc3Ryb2tlLXdpZHRoPScxMCcgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJy8+PGNpcmNsZSBjeD0nODAnIGN5PScxMTAnIHI9JzEwJyBmaWxsPSdyZ2JhKDI1NSwyNTUsMjU1LDAuODUpJy8+PGNpcmNsZSBjeD0nMTUwJyBjeT0nMTMwJyByPScxMCcgZmlsbD0ncmdiYSgyNTUsMjU1LDI1NSwwLjg1KScvPjxjaXJjbGUgY3g9JzIyMCcgY3k9JzEwNScgcj0nMTAnIGZpbGw9J3JnYmEoMjU1LDI1NSwyNTUsMC44NSknLz48cGF0aCBkPSdNMTEwIDYwIGwzMCAyMCAtMzAgMjAgeicgZmlsbD0ncmdiYSgyNTUsMjU1LDI1NSwwLjcpJy8+PHBhdGggZD0nTTIwMCA2MCBsMzAgMjAgLTMwIDIwIHonIGZpbGw9J3JnYmEoMjU1LDI1NSwyNTUsMC43KScvPjwvc3ZnPg==');"></div>
+                        <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-sitemap"></i></div>
+                        <h3>Zephyr RTOS Solutions</h3>
+                        <p>Real-time embedded systems with Zephyr RTOS for IoT devices, wearables, and resource-constrained platforms.</p>
+                        <ul class="service-list">
+                            <li>Zephyr application development</li>
+                            <li>Custom board support</li>
+                            <li>Driver implementation</li>
+                            <li>Power management</li>
+                        </ul>
+                    </div>
+                    <div class="service-card" style="--accent:#c62828;--accent-2:#ad1457;">
+                        <div class="service-media" aria-hidden="true" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMjAgMjAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2czJyB4MT0nMCcgeTE9JzAnIHgyPScxJyB5Mj0nMSc+PHN0b3Agc3RvcC1jb2xvcj0nI2M2MjgyOCcvPjxzdG9wIG9mZnNldD0nMScgc3RvcC1jb2xvcj0nI2FkMTQ1NycvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSczMjAnIGhlaWdodD0nMjAwJyBmaWxsPSd1cmwoI2czKScvPjxyZWN0IHg9JzYwJyB5PSc1MCcgd2lkdGg9JzIwMCcgaGVpZ2h0PScxMjAnIHJ4PScxNCcgcnk9JzE0JyBmaWxsPSdyZ2JhKDI1NSwyNTUsMjU1LDAuMTQpJyBzdHJva2U9J3JnYmEoMjU1LDI1NSwyNTUsMC43NSknIHN0cm9rZS13aWR0aD0nNCcvPjxyZWN0IHg9JzEwMCcgeT0nODAnIHdpZHRoPScxMjAnIGhlaWdodD0nNjAnIHJ4PScxMCcgcnk9JzEwJyBmaWxsPSdyZ2JhKDI1NSwyNTUsMjU1LDAuOSknLz48Y2lyY2xlIGN4PScxMTUnIGN5PScxMDAnIHI9JzYnIGZpbGw9JyNjNjI4MjgnLz48Y2lyY2xlIGN4PScyMDUnIGN5PScxMDAnIHI9JzYnIGZpbGw9JyNjNjI4MjgnLz48cmVjdCB4PScxMzUnIHk9Jzk1JyB3aWR0aD0nNTAnIGhlaWdodD0nMTAnIHJ4PSc0JyBmaWxsPScjYzYyODI4Jy8+PHJlY3QgeD0nMTQwJyB5PScxMTUnIHdpZHRoPSc0MCcgaGVpZ2h0PSc2JyByeD0nMycgZmlsbD0nI2M2MjgyOCcvPjxyZWN0IHg9JzgwJyB5PScxNDAnIHdpZHRoPScxMicgaGVpZ2h0PScyMCcgcng9JzMnIGZpbGw9J3JnYmEoMjU1LDI1NSwyNTUsMC44NSknLz48cmVjdCB4PScyMjgnIHk9JzE0MCcgd2lkdGg9JzEyJyBoZWlnaHQ9JzIwJyByeD0nMycgZmlsbD0ncmdiYSgyNTUsMjU1LDI1NSwwLjg1KScvPjwvc3ZnPg==');"></div>
+                        <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-microchip-ai"></i></div>
+                        <h3>Firmware Development</h3>
+                        <p>Low-level firmware development for microcontrollers and embedded processors with focus on performance and reliability.</p>
+                        <ul class="service-list">
+                            <li>Bare-metal programming</li>
+                            <li>Bootloader development</li>
+                            <li>HAL implementation</li>
+                            <li>Protocol stacks</li>
+                        </ul>
+                    </div>
+                    <div class="service-card" style="--accent:#ef6c00;--accent-2:#d84315;">
+                        <div class="service-media" aria-hidden="true" style="background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMjAgMjAwJz48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9J2c0JyB4MT0nMCcgeTE9JzAnIHgyPScxJyB5Mj0nMSc+PHN0b3Agc3RvcC1jb2xvcj0nI2VmNmMwMCcvPjxzdG9wIG9mZnNldD0nMScgc3RvcC1jb2xvcj0nI2Q4NDMxNScvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSczMjAnIGhlaWdodD0nMjAwJyBmaWxsPSd1cmwoI2c0KScvPjxyZWN0IHg9JzcwJyB5PSc2MCcgd2lkdGg9JzE4MCcgaGVpZ2h0PScxMDAnIHJ4PScxMicgcnk9JzEyJyBmaWxsPSdyZ2JhKDI1NSwyNTUsMjU1LDAuOSknLz48cmVjdCB4PSc4MCcgeT0nNzAnIHdpZHRoPScxNjAnIGhlaWdodD0nODAnIHJ4PSc4JyByeT0nOCcgZmlsbD0ncmdiYSgwLDAsMCwwLjA1KScvPjxyZWN0IHg9JzkwJyB5PSc4NScgd2lkdGg9JzcwJyBoZWlnaHQ9JzgnIHJ4PSc0JyBmaWxsPScjZWY2YzAwJy8+PHJlY3QgeD0nOTAnIHk9JzEwMCcgd2lkdGg9JzEyMCcgaGVpZ2h0PSc4JyByeD0nNCcgZmlsbD0nI2VmNmMwMCcvPjxyZWN0IHg9JzkwJyB5PScxMTUnIHdpZHRoPSc5MCcgaGVpZ2h0PSc4JyByeD0nNCcgZmlsbD0nI2VmNmMwMCcvPjxwYXRoIGQ9J00yMzAgNjAgTDI1MCA3MCBMMjUwIDE0MCBMMjMwIDEzMCBaJyBmaWxsPSdyZ2JhKDAsMCwwLDAuMDgpJy8+PC9zdmc+');"></div>
+                        <div class="service-icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3>Professional Training</h3>
+                        <p>Comprehensive training programs in embedded systems, Linux kernel programming, and RTOS development.</p>
+                        <ul class="service-list">
+                            <li>Corporate training programs</li>
+                            <li>Online courses</li>
+                            <li>Hands-on workshops</li>
+                            <li>Custom curriculum</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -864,23 +910,6 @@
             handleScroll();
         });
 
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        const slideInterval = setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000); // Change slide every 5 seconds
-
-        // Auto-cycle Last News Slider with fade animation
-        const newsSlides = document.querySelectorAll('.news-slide');
-        let currentNewsSlide = 0;
-        setInterval(() => {
-            newsSlides[currentNewsSlide].classList.remove('active');
-            currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
-            newsSlides[currentNewsSlide].classList.add('active');
-        }, 5000); // Change news every 5 seconds
-        
         // Dynamic Project Loader for Home Page
         class HomeProjectLoader {
             constructor() {
