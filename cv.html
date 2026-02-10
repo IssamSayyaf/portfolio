@@ -3,518 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Issam SAYYAF - CV</title>
+    <title>Issam SAYYAF - Embedded Systems Engineer & PhD Researcher</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1e3a5f;
-            --primary-light: #2d5a8a;
-            --accent: #0077b5;
-            --accent-gold: #d4a853;
-            --text-dark: #1a1a2e;
-            --text-medium: #4a4a5a;
-            --text-light: #6b7280;
-            --bg-light: #f8fafc;
-            --bg-sidebar: #1e3a5f;
-            --border: #e2e8f0;
-            --skill-bg: #e5e7eb;
-            --skill-fill: linear-gradient(90deg, #1e3a5f, #2d5a8a);
+            --primary: #0f2b46;
+            --primary-mid: #1a3d5c;
+            --accent: #2563eb;
+            --text: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border: #cbd5e1;
+            --border-light: #e2e8f0;
+            --bg-subtle: #f8fafc;
+            --tag-bg: #f0f7ff;
+            --tag-border: #c7ddf7;
+            --tag-text: #1e40af;
+            --warm: #f59e0b;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+            background: #e2e8f0;
             min-height: 100vh;
-            padding: 40px 20px;
-            line-height: 1.5;
-            color: var(--text-dark);
+            padding: 30px 20px;
+            color: var(--text);
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .cv-container {
+        .cv-page {
             max-width: 210mm;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border-radius: 4px;
-            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 8px 40px rgba(0,0,0,0.08);
         }
 
-        /* Header */
+        /* ── HEADER ── */
         .header {
             background: var(--primary);
             color: white;
-            padding: 30px 35px;
-            position: relative;
-            overflow: hidden;
+            padding: 28px 36px 24px;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.05) 100%);
-            transform: skewX(-20deg);
-            transform-origin: top right;
-        }
-
-        .header-content {
+        .header-top {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+            align-items: flex-start;
+            margin-bottom: 14px;
         }
 
-        .header-left {
-            flex: 1;
-        }
-
-        .name {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
-
-        .job-title {
-            font-size: 16px;
-            font-weight: 300;
-            color: rgba(255,255,255,0.9);
-            letter-spacing: 0.5px;
-            margin-bottom: 18px;
-        }
-
-        .contact-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 24px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .contact-item i {
-            width: 16px;
-            text-align: center;
-            color: var(--accent-gold);
-        }
-
-        .contact-item a {
-            color: rgba(255,255,255,0.9);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .contact-item a:hover {
-            color: var(--accent-gold);
-        }
-
-        .photo-container {
+        .photo-box {
             width: 110px;
-            height: 140px;
-            border-radius: 6px;
+            height: 110px;
+            border-radius: 50%;
             overflow: hidden;
             border: 3px solid rgba(255,255,255,0.3);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-shrink: 0;
+            margin-left: 24px;
         }
 
-        .photo-container img {
+        .photo-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        /* Main Layout */
-        .main-content {
+        .name {
+            font-family: 'IBM Plex Serif', serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .title {
+            font-size: 15px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.85);
+            margin-top: 4px;
+            letter-spacing: 0.3px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid rgba(245, 158, 11, 0.5);
+            display: inline-block;
+        }
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-size: 12.5px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .contact-row a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+
+        .contact-row a:hover { text-decoration: underline; }
+
+        .contact-row i {
+            margin-right: 5px;
+            font-size: 11px;
+            opacity: 0.7;
+        }
+
+        /* ── LAYOUT ── */
+        .body-layout {
             display: flex;
         }
 
-        .left-column {
-            flex: 0 0 65%;
-            padding: 28px 30px;
-            border-right: 1px solid var(--border);
+        .col-main {
+            flex: 0 0 62%;
+            padding: 24px 28px 28px;
         }
 
-        .right-column {
-            flex: 0 0 35%;
-            padding: 28px 25px;
-            background: var(--bg-light);
+        .col-side {
+            flex: 0 0 38%;
+            padding: 24px 24px 28px;
+            background: var(--bg-subtle);
+            border-left: 1px solid var(--border-light);
         }
 
-        /* Section Styling */
-        .section {
-            margin-bottom: 26px;
-        }
+        /* ── SECTIONS ── */
+        .section { margin-bottom: 22px; }
+        .section:last-child { margin-bottom: 0; }
 
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-            border-bottom: 2px solid var(--primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--accent-gold);
-        }
-
-        /* Professional Summary */
-        .summary-text {
-            color: var(--text-medium);
+        .section-heading {
+            font-family: 'IBM Plex Serif', serif;
             font-size: 13px;
-            line-height: 1.7;
-            text-align: justify;
-        }
-
-        /* Work Items */
-        .work-item {
-            margin-bottom: 20px;
-            padding-left: 16px;
-            border-left: 3px solid var(--primary-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--primary);
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+            border-bottom: 1.5px solid var(--primary);
             position: relative;
         }
 
-        .work-item::before {
+        .section-heading::after {
             content: '';
             position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 9px;
-            height: 9px;
-            background: var(--accent-gold);
-            border-radius: 50%;
+            bottom: -1.5px;
+            left: 0;
+            width: 40px;
+            height: 1.5px;
+            background: var(--warm);
         }
 
-        .work-header {
+        /* ── SUMMARY ── */
+        .summary {
+            font-size: 12.5px;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ── EXPERIENCE ── */
+        .exp-entry { margin-bottom: 16px; }
+        .exp-entry:last-child { margin-bottom: 0; }
+
+        .exp-row {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 6px;
+            align-items: baseline;
+            margin-bottom: 1px;
         }
 
-        .work-title {
+        .exp-title {
+            font-size: 13.5px;
             font-weight: 700;
-            font-size: 14px;
-            color: var(--text-dark);
+            color: var(--text);
         }
 
-        .work-company {
-            font-weight: 600;
-            font-size: 13px;
-            color: var(--accent);
-        }
-
-        .work-date {
+        .exp-date {
             font-size: 11px;
-            color: var(--text-light);
-            background: var(--bg-light);
-            padding: 2px 8px;
-            border-radius: 3px;
+            color: var(--text-muted);
             white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: 12px;
         }
 
-        .work-responsibilities {
+        .exp-company {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .exp-bullets {
             list-style: none;
             font-size: 12px;
-            color: var(--text-medium);
-            line-height: 1.6;
+            color: var(--text-secondary);
+            line-height: 1.55;
         }
 
-        .work-responsibilities li {
-            margin-bottom: 3px;
-            padding-left: 12px;
+        .exp-bullets li {
+            padding-left: 14px;
             position: relative;
+            margin-bottom: 3px;
         }
 
-        .work-responsibilities li::before {
+        .exp-bullets li::before {
             content: '▸';
             position: absolute;
             left: 0;
-            color: var(--accent-gold);
+            color: var(--accent);
             font-size: 10px;
+            top: 1px;
         }
 
-        /* Project Items */
-        .project-item {
-            margin-bottom: 16px;
-            padding: 12px;
-            background: rgba(30, 58, 95, 0.03);
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-gold);
+        /* ── PROJECTS ── */
+        .proj-entry {
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 6px;
-        }
-
-        .project-title {
-            font-weight: 700;
-            font-size: 13px;
-            color: var(--text-dark);
-        }
-
-        .project-date {
-            font-size: 11px;
-            color: var(--text-light);
-        }
-
-        .project-description {
-            font-size: 12px;
-            color: var(--text-medium);
-            line-height: 1.5;
-        }
-
-        /* Education */
-        .education-item {
-            margin-bottom: 16px;
-            padding-bottom: 14px;
-            border-bottom: 1px dashed var(--border);
-        }
-
-        .education-item:last-child {
+        .proj-entry:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .edu-period {
-            font-size: 10px;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .proj-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
             margin-bottom: 3px;
         }
 
-        .edu-degree {
+        .proj-title {
+            font-size: 12.5px;
             font-weight: 700;
+            color: var(--text);
+        }
+
+        .proj-date {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .proj-desc {
+            font-size: 11.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ── EDUCATION ── */
+        .edu-entry {
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .edu-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-date {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .edu-degree {
             font-size: 12px;
-            color: var(--text-dark);
-            margin-bottom: 2px;
+            font-weight: 700;
+            color: var(--text);
+            margin: 2px 0 1px;
             line-height: 1.4;
         }
 
-        .edu-institution {
-            font-size: 11px;
+        .edu-school {
+            font-size: 11.5px;
             color: var(--accent);
             font-weight: 600;
-            margin-bottom: 4px;
         }
 
-        .edu-details {
-            font-size: 10px;
-            color: var(--text-light);
-            line-height: 1.4;
+        .edu-note {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            margin-top: 2px;
         }
 
-        /* Skills with Progress Bars */
-        .skill-category {
-            margin-bottom: 18px;
+        /* ── SKILLS (no bars!) ── */
+        .skills-group {
+            margin-bottom: 16px;
         }
 
-        .skill-category-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
+        .skills-group:last-child { margin-bottom: 0; }
 
-        .skill-category-icon {
-            font-size: 14px;
-        }
-
-        .skill-category-name {
-            font-weight: 700;
+        .skills-label {
             font-size: 12px;
-            color: var(--text-dark);
-        }
-
-        .skill-category-years {
-            font-size: 10px;
-            color: white;
-            background: var(--primary);
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: auto;
-        }
-
-        .skill-item {
-            margin-bottom: 8px;
-        }
-
-        .skill-info {
+            font-weight: 700;
+            color: var(--primary-mid);
+            margin-bottom: 5px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 4px;
+            gap: 6px;
         }
 
-        .skill-name {
-            font-size: 11px;
-            color: var(--text-medium);
+        .skills-context {
+            font-size: 10.5px;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 6px;
+            line-height: 1.45;
         }
 
-        .skill-level {
-            font-size: 10px;
-            color: var(--text-light);
-        }
-
-        .skill-bar {
-            height: 6px;
-            background: var(--skill-bg);
-            border-radius: 3px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .skill-fill {
-            height: 100%;
-            background: var(--skill-fill);
-            border-radius: 3px;
-            position: relative;
-            transition: width 0.5s ease;
-        }
-
-        .skill-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .skill-tags {
+        .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 4px;
-            margin-top: 8px;
         }
 
-        .skill-tag {
-            font-size: 9px;
-            padding: 2px 6px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 3px;
-            color: var(--text-medium);
-        }
-
-        /* Languages */
-        .language-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .language-item:last-child {
-            border-bottom: none;
-        }
-
-        .language-name {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .language-level {
-            font-size: 10px;
-            color: white;
-            background: var(--primary-light);
-            padding: 3px 10px;
+        .tag {
+            font-size: 10.5px;
+            padding: 3px 8px;
+            background: var(--tag-bg);
+            border: 1px solid var(--tag-border);
             border-radius: 12px;
+            color: var(--tag-text);
+            font-weight: 500;
         }
 
-        /* Certifications Section */
-        .cert-category {
-            margin-bottom: 14px;
+        /* ── CERTIFICATIONS ── */
+        .cert-group {
+            margin-bottom: 10px;
         }
 
-        .cert-category-header {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-            padding: 6px 10px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            border-radius: 4px;
+        .cert-label {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 3px;
         }
 
-        .cert-category-icon {
-            color: var(--accent-gold);
-            font-size: 12px;
+        .cert-list {
+            font-size: 10.5px;
+            color: var(--text-secondary);
+            line-height: 1.5;
         }
 
-        .cert-category-name {
-            font-size: 11px;
-            font-weight: 600;
-            color: white;
-            flex: 1;
-        }
-
-        .cert-count {
-            font-size: 10px;
-            color: white;
-            background: rgba(255,255,255,0.2);
-            padding: 2px 8px;
-            border-radius: 10px;
-        }
-
-        .cert-items {
+        .cert-list span {
+            display: block;
             padding-left: 12px;
-        }
-
-        .cert-item {
-            font-size: 10px;
-            color: var(--text-medium);
-            padding: 3px 0;
-            padding-left: 10px;
             position: relative;
         }
 
-        .cert-item::before {
+        .cert-list span::before {
             content: '✓';
             position: absolute;
             left: 0;
@@ -523,657 +369,364 @@
             font-weight: bold;
         }
 
-        .cert-link {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 12px;
-            padding: 10px;
-            background: linear-gradient(135deg, #0077b5, #005885);
-            border-radius: 6px;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .cert-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
-        }
-
-        .cert-link i {
-            color: white;
-            font-size: 16px;
-        }
-
-        .cert-link-text {
-            font-size: 11px;
-            color: white;
-            font-weight: 600;
-        }
-
-        /* Publications */
-        .publication-item {
-            font-size: 11px;
-            color: var(--text-medium);
-            margin-bottom: 10px;
-            padding-left: 14px;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .publication-item::before {
-            content: '📄';
-            position: absolute;
-            left: 0;
-            font-size: 10px;
-        }
-
-        /* Print Styles */
-        @media print {
-            body {
-                background: white !important;
-                padding: 0 !important;
-            }
-
-            .cv-container {
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                max-width: none !important;
-            }
-
-            .skill-fill::after {
-                animation: none;
-            }
-
-            @page {
-                size: A4;
-                margin: 0.5cm;
-            }
-
-            .work-item, .project-item, .education-item {
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-        }
-
-        /* Site Navigation */
-        .site-nav {
-            max-width: 210mm;
-            margin: 0 auto 20px;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        /* ── LANGUAGES ── */
+        .lang-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            font-size: 11.5px;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .site-nav .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
+        .lang-row:last-child { border-bottom: none; }
+
+        .lang-name { font-weight: 600; color: var(--text); }
+
+        .lang-level {
+            font-size: 10.5px;
+            color: var(--text-muted);
         }
 
-        .site-nav .nav-links {
-            display: flex;
-            gap: 8px;
+        /* ── PUBLICATIONS ── */
+        .pub-item {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-bottom: 7px;
+            line-height: 1.5;
+            padding-left: 12px;
+            position: relative;
         }
 
-        .site-nav .nav-link {
-            color: var(--text-medium);
-            text-decoration: none;
-            font-size: 0.85rem;
-            padding: 6px 14px;
-            border-radius: 20px;
-            transition: all 0.3s ease;
+        .pub-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
         }
 
-        .site-nav .nav-link:hover,
-        .site-nav .nav-link.active {
-            color: var(--primary);
-            background: rgba(30, 58, 95, 0.1);
+        .pub-item strong {
+            color: var(--text);
         }
 
+        /* ── PRINT ── */
         @media print {
-            .site-nav {
-                display: none;
-            }
+            body { background: white; padding: 0; }
+            .cv-page { box-shadow: none; max-width: none; }
+            @page { size: A4; margin: 0.4cm; }
+            .exp-entry, .edu-entry, .proj-entry { break-inside: avoid; }
         }
     </style>
 </head>
 <body>
-    <!-- Site Navigation -->
-    <nav class="site-nav">
-        <a href="index.html" class="logo">Issam Sayyaf</a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="publications.html" class="nav-link">Publications</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="blog.html" class="nav-link">Blog</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-            <a href="cv.html" class="nav-link active">CV</a>
-        </div>
-    </nav>
 
-    <div class="cv-container">
-        <!-- Header -->
-        <div class="header">
-            <div class="header-content">
-                <div class="header-left">
-                    <h1 class="name">ISSAM SAYYAF</h1>
-                    <p class="job-title">PhD Researcher & Embedded Systems Engineer</p>
-                    <div class="contact-grid">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Nantes, France</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+33 758 120 733</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:Issamsayyaf97@gmail.com">Issamsayyaf97@gmail.com</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-linkedin"></i>
-                            <a href="https://linkedin.com/in/issamsayyaf" target="_blank">LinkedIn</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-github"></i>
-                            <a href="https://github.com/IssamSayyaf" target="_blank">GitHub</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <a href="https://issam-sayyaf.com" target="_blank">issam-sayyaf.com</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="photo-container">
-                    <img src="photo.jpg" alt="Issam SAYYAF" onerror="this.style.display='none'">
-                </div>
+<div class="cv-page">
+
+    <!-- ════ HEADER ════ -->
+    <div class="header">
+        <div class="header-top">
+            <div>
+                <h1 class="name">ISSAM SAYYAF</h1>
+                <p class="title">Embedded Systems Engineer · PhD Researcher</p>
+            </div>
+            <div class="photo-box">
+                <img src="data:image/jpeg;base64,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" alt="Issam SAYYAF" onerror="this.parentElement.style.display='none'">
             </div>
         </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Left Column -->
-            <div class="left-column">
-                <!-- Professional Summary -->
-                <div class="section">
-                    <h2 class="section-title">Professional Summary</h2>
-                    <p class="summary-text">
-                        Embedded Systems Engineer with 4+ years of experience designing real-time solutions, 
-                        developing custom Linux kernels, RTOS, and implementing device drivers and applications for STM32MP1 and NXP platforms.
-                        As a PhD Researcher, working on advanced and edge AI for time-series anomaly detection, focusing on signal processing, 
-                        GNSS/IMU navigation integrity, and efficient on-device learning. 
-                        Published 8+ peer-reviewed papers and actively bridging cutting-edge research with practical embedded implementation.
-                      
-                    </p>
-                </div>
-
-                <!-- Professional Experience -->
-                <div class="section">
-                    <h2 class="section-title">Professional Experience</h2>
-                    
-                    <div class="work-item">
-                        <div class="work-header">
-                            <div>
-                                <div class="work-title">PhD Researcher</div>
-                                <div class="work-company">University of Gustave Eiffel, France</div>
-                            </div>
-                            <span class="work-date">Nov 2023 - Nov 2026</span>
-                        </div>
-                        <ul class="work-responsibilities">
-                            <li>Developed 3+ anomaly detection algorithms using deep learning in IMU/GNSS/5G real-time processing</li>
-                            <li>Enhanced step detection by 23% using deep learning on 10,000+ data samples across 5 environments</li>
-                            <li>Analyzed 800+ minutes of GNSS signal anomalies, identifying jamming and spoofing</li>
-                            <li>Improved 5G signal detection LOS/NLOS in indoor environments</li>
-                        </ul>
-                    </div>
-
-                    <div class="work-item">
-                        <div class="work-header">
-                            <div>
-                                <div class="work-title">Embedded Systems Engineer</div>
-                                <div class="work-company">Hexabitz, USA (Freelance)</div>
-                            </div>
-                            <span class="work-date">Jun 2023 - Sep 2025</span>
-                        </div>
-                        <ul class="work-responsibilities">
-                            <li>Developed 3+ custom Linux images using Yocto on 3 hardware platforms (STM32MP1, i.MX93)</li>
-                            <li>Implemented 10+ device drivers for peripherals (GPIO, I2C, SPI, UART, LoRaWAN, Zigbee)</li>
-                            <li>Developed a C++ embedded Linux application that orchestrates all device drivers and integrates with Pure Data (Pd) to deliver the full interactive behavior of the Muzziball system.</li>
-                        </ul>
-                    </div>
-
-                    <div class="work-item">
-                        <div class="work-header">
-                            <div>
-                                <div class="work-title">Measurement Engineer</div>
-                                <div class="work-company">University of Calabria, Italy</div>
-                            </div>
-                            <span class="work-date">Oct 2022 - Oct 2023</span>
-                        </div>
-                        <ul class="work-responsibilities">
-                            <li>Designed distributed measurement systems for remote monitoring using LabVIEW and Python</li>
-                        </ul>
-                    </div>
-
-                    <div class="work-item">
-                        <div class="work-header">
-                            <div>
-                                <div class="work-title">Teaching Assistant</div>
-                                <div class="work-company">University of Aleppo, Syria</div>
-                            </div>
-                            <span class="work-date">Sep 2020 - Aug 2021</span>
-                        </div>
-                        <ul class="work-responsibilities">
-                            <li>Conducted 50+ lab sessions for 150+ students</li>
-                            <li>Working on Antenna Design (HFSS/CST), Microwave Engineering, and RF Systems courses</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Key Projects -->
-                <div class="section">
-                    <h2 class="section-title">Key Projects</h2>
-                    
-                    <div class="project-item">
-                        <div class="project-header">
-                            <span class="project-title">Step Detection with Anomaly Filtering for PDR</span>
-                            <span class="project-date">2024 - 2025</span>
-                        </div>
-                        <p class="project-description">
-                            Developed lightweight deep learning-based anomaly detection algorithms for pedestrian dead reckoning (PDR) using IMU data. Enhanced step detection accuracy by 23% through unsupervised anomaly filtering on 10,000+ samples across 5 environments. Optimized model for embedded deployment and validated on smartphone platforms.
-                            <br>
-                            <span style="display: flex; gap: 15px; margin-top: 6px;">
-                                <a href="https://github.com/IssamSayyaf/Step-Detection-Anomaly-Filtering-PDR" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="https://ieeexplore.ieee.org/document/XXXXXX" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> IEEE/ION PLANS 2025</a>
-                                <a href="https://ieeexplore.ieee.org/document/XXXXXX" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> IEEE APSCON 2025</a>
-                            </span>
-                        </p>
-                    </div>
-                    
-                    <div class="project-item">
-                        <div class="project-header">
-                            <span class="project-title">5G LOS/NLOS Signal Classification</span>
-                            <span class="project-date">2024 - 2025</span>
-                        </div>
-                        <p class="project-description">
-                            Designed and implemented deep learning models for Line-of-Sight (LOS) and Non-Line-of-Sight (NLOS) detection in 5G indoor positioning systems. Extracted Channel Impulse Response (CIR) features and developed Autoencoder Adversarial based anomaly detection frameworks for improved signal characterization and localization accuracy.
-                            <br>
-                            <span style="display: flex; gap: 15px; margin-top: 6px;">
-                                <a href="https://github.com/IssamSayyaf/5G-LOS-NLOS-Classification" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> GitHub</a>
-                                <a href="https://ieeexplore.ieee.org/document/XXXXXX" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> Paper (Coming Soon)</a>
-                            </span>
-                        </p>
-                    </div>
-
-
-                    <div class="project-item">
-                        <div class="project-header">
-                            <span class="project-title">Muzziball System</span>
-                            <span class="project-date">2024 - 2026</span>
-                        </div>
-                        <p class="project-description">
-                            Developing custom Linux image with Yocto for STM32MP1, integrating IMU, Audio, BLE, WiFi, and charging system. Implementing embedded C++ applications for real-time data acquisition.
-                        </p>
-                    </div>
-
-                    <div class="project-item">
-                        <div class="project-header">
-                            <span class="project-title">Truck Monitoring System</span>
-                            <span class="project-date">2023 - 2024</span>
-                        </div>
-                        <p class="project-description">
-                            Custom Linux image with Yocto for NXP i.MX93, integrating 5G, GNSS, IMU, and CAN bus for vehicle tracking. Developed all device drivers for peripherals.
-                        </p>
-                    </div>
-                    <div class="project-item">
-                    <div class="project-header">
-                            <span class="project-title">RSNA Breast Cancer Detection</span>
-                            <span class="project-date">2023</span>
-                        </div>
-                        <p class="project-description">
-                            Developed deep learning models for breast cancer detection using mammography images from the RSNA screening dataset. Implemented CNN architectures for tumor classification and localization, applying data augmentation and transfer learning techniques to improve diagnostic accuracy.
-                            <br><a href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> View on GitHub</a>
-                        </p>
-                    </div>
-
-                      <div class="project-item">
-                          <div class="project-header">
-                              <span class="project-title">Contradictory Text Analysis (NLP)</span>
-                              <span class="project-date">2023</span>
-                          </div>
-                          <p class="project-description">
-                              Built NLP deep learning models for detecting contradictory statements in multilingual text pairs. Utilized transformer-based architectures (BERT) for natural language inference (NLI), achieving robust classification of entailment, neutral, and contradiction relationships.
-                              <br><a href="https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fab fa-github"></i> View on GitHub</a>
-
-                          </p>
-                      </div>
-                    <div class="project-item">
-                        <div class="project-header">
-                            <span class="project-title">Wireless Crack Detection System</span>
-                            <span class="project-date">2022 - 2023</span>
-                        </div>
-                        <p class="project-description">
-                            Built wireless sensor network for crack detection in heritage buildings (Hardware + Firmware + Cloud Dashboard).
-                                    <br><a href="https://ieeexplore.ieee.org/document/10164041" target="_blank" style="color: var(--accent); font-size: 11px;"><i class="fas fa-file-alt"></i> IEEE MetroLivEnv 2023 Paper</a>
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Publications -->
-                <div class="section">
-                  <h2 class="section-title">Publications & Research</h2>
-                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Time Series Anomaly Detection for Sensor Data: Models, Metrics and Methodologies – A Review," IEEE Sensors Journal, Oct 2025 </div>
-                  <div class="publication-item">Renaudin, V., <strong>Sayyaf, M.I.</strong>,  et al. "GNSS Positioning Under Threat: The Rising Risk to Existing Systems and the Role of Alternative Indoor and Seamless Navigation Technologies," <strong>Journal of the Institute of Navigation (J-ISPIN)</strong>, 2025</div>
-                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al., "Anomaly Filtering for Pedestrian Dead Reckoning," IEEE/ION PLANS 2025</div>
-                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Step Detection Enhanced by Anomaly Filtering," IEEE APSCON, Jan 2025</div>
-                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Wireless Crack Detection System Based on IoT," IEEE MetroLivEnv, May 2023</div>
-                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Heart Rate Evaluation by Smartphone: An Overview," IEEE HealthTech, Mar 2023</div>
-                  <div class="publication-item"><strong>Sayyaf, M.I.</strong>, et al. "Detection and Classification of Crack for Heritage Building," Metro Archaeo 2022</div>
-                  <div class="publication-item">Moisan, T., Fu, H., Renaudin, V., <strong>Sayyaf, M.I.</strong> "From Research to App: Personalized Inertial Navigation for the Visually Impaired," IEEE IPIN 2025, Sep 2025</div>
-                  </div>
-            </div>
-
-            <!-- Right Column -->
-            <div class="right-column">
-                <!-- Education -->
-                <div class="section">
-                    <h2 class="section-title">Education</h2>
-                    
-                    <div class="education-item">
-                        <div class="edu-period">Nov 2023 - Nov 2026</div>
-                        <div class="edu-degree">PhD in Signal Processing & Deep Learning for Navigation Systems</div>
-                        <div class="edu-institution">University of Gustave Eiffel, France</div>
-                        <div class="edu-details">Thesis: "Anomaly Detection Using Deep Learning for Navigation Systems (IMU/GNSS/5G)"</div>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="edu-period">Sep 2021 - Oct 2023</div>
-                        <div class="edu-degree">Master's in Telecommunication Engineering & Networks</div>
-                        <div class="edu-institution">University of Calabria, Italy</div>
-                        <div class="edu-details">IoT, SDN, Wireless Networks, Sensor Development — 110/110 cum laude</div>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="edu-period">Sep 2014 - Sep 2019</div>
-                        <div class="edu-degree">Bachelor's in Electronics & Communication Engineering</div>
-                        <div class="edu-institution">University of Aleppo, Syria</div>
-                        <div class="edu-details">Telecommunication, Embedded Systems, Wireless — GPA: 88.56% with distinction</div>
-                    </div>
-                </div>
-
-                <!-- Technical Skills with Progress Bars -->
-                <div class="section">
-                    <h2 class="section-title">Technical Skills</h2>
-
-                    <!-- Embedded Systems -->
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <span class="skill-category-icon">🖥️</span>
-                            <span class="skill-category-name">Embedded Systems</span>
-                            <span class="skill-category-years">4+ years</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Embedded Linux (Yocto/Buildroot)</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">RTOS (FreeRTOS, Zephyr)</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">ARM Cortex-M/STM32/NXP</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Linux Kernel & Device Drivers</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">FPGA Programming VHDL</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">BSP</span>
-                            <span class="skill-tag">Bootloader</span>
-                            <span class="skill-tag">GPIO</span>
-                            <span class="skill-tag">UART</span>
-                            <span class="skill-tag">SPI</span>
-                            <span class="skill-tag">I2C</span>
-                        </div>
-                    </div>
-
-                    <!-- AI/ML -->
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <span class="skill-category-icon">🤖</span>
-                            <span class="skill-category-name">AI & Machine Learning</span>
-                            <span class="skill-category-years">4+ years</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Deep Learning (CNNs, LSTMs, Transformers)</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">TensorFlow / PyTorch</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">TinyML / Edge AI</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Autoencoders</span>
-                            <span class="skill-tag">Signal Processing</span>
-                            <span class="skill-tag">Classification</span>
-                        </div>
-                    </div>
-
-                    <!-- Wireless -->
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <span class="skill-category-icon">📡</span>
-                            <span class="skill-category-name">Wireless & Networking</span>
-                            <span class="skill-category-years">5+ years</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">5G,LTE, and mobile Telecommunication</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">IoT Protocols and IoT Security (LoRaWAN, Zigbee, BLE, Wi-Fi, etc)</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Digital Signal Processing</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">SDN</span>
-                            <span class="skill-tag">DSP</span>
-                            <span class="skill-tag">WiFi</span>
-                            <span class="skill-tag">Bluetooth</span>
-                        </div>
-                    </div>
-
-                    <!-- Programming -->
-                    <div class="skill-category">
-                        <div class="skill-category-header">
-                            <span class="skill-category-icon">💻</span>
-                            <span class="skill-category-name">Programming</span>
-                            <span class="skill-category-years">7+ years</span>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">C/C++</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">MATLAB / LabVIEW</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
-                        </div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Debugging</span>
-                            <span class="skill-tag">Linux</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Languages -->
-                <div class="section">
-                    <h2 class="section-title">Languages</h2>
-                    <div class="language-item">
-                        <span class="language-name">English</span>
-                        <span class="language-level">C1 Professional</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">French</span>
-                        <span class="language-level">B1 Intermediate</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">Arabic</span>
-                        <span class="language-level">Native</span>
-                    </div>
-                </div>
-
-                <!-- Certifications & Courses -->
-                <div class="section">
-                    <h2 class="section-title">Certifications & Courses</h2>
-
-                    <div class="cert-category">
-                        <div class="cert-category-header">
-                            <i class="fas fa-microchip cert-category-icon"></i>
-                            <span class="cert-category-name">Embedded Linux</span>
-                            <span class="cert-count">3 courses</span>
-                        </div>
-                        <div class="cert-items">
-                            <div class="cert-item">Yocto Project Development (Bootlin, 2024)</div>
-                            <div class="cert-item">Linux Kernel Development (Bootlin, 2024)</div>
-                            <div class="cert-item">Embedded Linux Development (Bootlin, 2024)</div>
-                        </div>
-                    </div>
-
-                    <div class="cert-category">
-                        <div class="cert-category-header">
-                            <i class="fas fa-brain cert-category-icon"></i>
-                            <span class="cert-category-name">Deep Learning & AI</span>
-                            <span class="cert-count">3 courses</span>
-                        </div>
-                        <div class="cert-items">
-                            <div class="cert-item">Deep Learning Specialization (Coursera, 2023)</div>
-                            <div class="cert-item">Reinforcement Learning Specialization (Coursera, 2023)</div>
-                            <div class="cert-item">TinyML (Harvard, 2024)</div>
-                        </div>
-                    </div>
-
-                    <div class="cert-category">
-                        <div class="cert-category-header">
-                            <i class="fas fa-cogs cert-category-icon"></i>
-                            <span class="cert-category-name">RTOS & Firmware</span>
-                            <span class="cert-count">2 courses</span>
-                        </div>
-                        <div class="cert-items">
-                            <div class="cert-item">FreeRTOS Real-Time Programming</div>
-                            <div class="cert-item">Zephyr RTOS Development</div>
-                        </div>
-                    </div>
-
-                    <div class="cert-category">
-                        <div class="cert-category-header">
-                            <i class="fas fa-drafting-compass cert-category-icon"></i>
-                            <span class="cert-category-name">PCB & Hardware Design</span>
-                            <span class="cert-count">2 courses</span>
-                        </div>
-                        <div class="cert-items">
-                            <div class="cert-item">PCB Design with KiCad</div>
-                            <div class="cert-item">Hardware Design Fundamentals</div>
-                        </div>
-                    </div>
-
-                    <!-- LinkedIn Link -->
-                    <a href="https://www.linkedin.com/in/issamsayyaf/details/certifications/" target="_blank" class="cert-link">
-                        <i class="fab fa-linkedin"></i>
-                        <span class="cert-link-text">View All Certifications on LinkedIn →</span>
-                    </a>
-                </div>
-            </div>
+        <div class="contact-row">
+            <span><i class="fas fa-map-marker-alt"></i>Nantes, France</span>
+            <span><i class="fas fa-phone"></i>+33 758 120 733</span>
+            <span><i class="fas fa-envelope"></i><a href="mailto:Issamsayyaf97@gmail.com">Issamsayyaf97@gmail.com</a></span>
+            <span><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/issamsayyaf" target="_blank">linkedin.com/in/issamsayyaf</a></span>
+            <span><i class="fab fa-github"></i><a href="https://github.com/IssamSayyaf" target="_blank">github.com/IssamSayyaf</a></span>
+            <span><i class="fas fa-globe"></i><a href="https://issam-sayyaf.com" target="_blank">issam-sayyaf.com</a></span>
         </div>
     </div>
 
-    <script>
-        // Animate skill bars on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const fills = entry.target.querySelectorAll('.skill-fill');
-                    fills.forEach(fill => {
-                        const width = fill.style.width;
-                        fill.style.width = '0';
-                        setTimeout(() => {
-                            fill.style.width = width;
-                        }, 100);
-                    });
-                }
-            });
-        }, { threshold: 0.2 });
+    <!-- ════ BODY ════ -->
+    <div class="body-layout">
 
-        document.querySelectorAll('.skill-category').forEach(cat => {
-            observer.observe(cat);
-        });
-    </script>
+        <!-- ──── MAIN COLUMN ──── -->
+        <div class="col-main">
+
+            <!-- Summary -->
+            <div class="section">
+                <h2 class="section-heading">Summary</h2>
+                <p class="summary">
+                    Embedded Systems Engineer with 4+ years of experience bringing products to life — from custom Linux BSPs (Yocto/Buildroot) and device drivers to RTOS-based real-time systems on STM32MP1 and NXP i.MX platforms. Currently completing a PhD in signal processing and deep learning for navigation systems, with 8+ peer-reviewed publications. Passionate about bridging R&D innovation with reliable, production-ready embedded solutions across automotive, IoT, and sensor-fusion domains.
+                </p>
+            </div>
+
+            <!-- Experience -->
+            <div class="section">
+                <h2 class="section-heading">Professional Experience</h2>
+
+                <div class="exp-entry">
+                    <div class="exp-row">
+                        <span class="exp-title">Embedded Systems Engineer</span>
+                        <span class="exp-date">Jun 2023 – Oct 2025</span>
+                    </div>
+                    <div class="exp-company">Hexabitz, USA (Remote)</div>
+                    <ul class="exp-bullets">
+                        <li>Built 3+ custom Linux images with Yocto/OpenEmbedded for STM32MP157 and NXP i.MX93 platforms, including U-Boot, kernel configuration, and root filesystem customization</li>
+                        <li>Developed 10+ Linux device drivers (GPIO, I2C, SPI, UART, LoRaWAN, Zigbee, BLE) and integrated them into BSP layers with device-tree overlays</li>
+                        <li>Designed embedded C++ application orchestrating IMU, audio codec, BLE, Wi-Fi, and battery management for the Muzziball product, interfacing with Pure Data for real-time audio processing</li>
+                        <li>Implemented CAN bus, 5G modem, and GNSS drivers for NXP i.MX93-based truck monitoring system</li>
+                    </ul>
+                </div>
+
+                <div class="exp-entry">
+                    <div class="exp-row">
+                        <span class="exp-title">PhD Researcher – Signal Processing & Edge AI</span>
+                        <span class="exp-date">Nov 2023 – Nov 2026</span>
+                    </div>
+                    <div class="exp-company">GEOLOC Lab, Université Gustave Eiffel, France</div>
+                    <ul class="exp-bullets">
+                        <li>Developed deep learning anomaly detection algorithms for IMU, GNSS, and 5G sensor fusion in real-time navigation</li>
+                        <li>Improved pedestrian step detection accuracy by 23% using unsupervised anomaly filtering on 10,000+ samples across 5 environments</li>
+                        <li>Analyzed 800+ min of GNSS signal data, identifying jamming and spoofing patterns for integrity monitoring</li>
+                        <li>Designed autoencoder-based LOS/NLOS classification for 5G indoor positioning using CIR feature extraction</li>
+                    </ul>
+                </div>
+
+                <div class="exp-entry">
+                    <div class="exp-row">
+                        <span class="exp-title">Measurement Engineer</span>
+                        <span class="exp-date">Oct 2022 – Oct 2023</span>
+                    </div>
+                    <div class="exp-company">University of Calabria, Italy</div>
+                    <ul class="exp-bullets">
+                        <li>Designed distributed sensor measurement systems for structural health monitoring using LabVIEW and Python</li>
+                        <li>Built wireless IoT crack detection system (hardware, firmware, cloud dashboard) for heritage buildings</li>
+                    </ul>
+                </div>
+
+                <div class="exp-entry">
+                    <div class="exp-row">
+                        <span class="exp-title">Teaching Assistant – RF & Embedded Systems</span>
+                        <span class="exp-date">Sep 2020 – Aug 2021</span>
+                    </div>
+                    <div class="exp-company">University of Aleppo, Syria</div>
+                    <ul class="exp-bullets">
+                        <li>Led 50+ lab sessions for 150+ students in antenna design (HFSS/CST), microwave engineering, and RF systems</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Key Projects -->
+            <div class="section">
+                <h2 class="section-heading">Key Projects</h2>
+
+                <div class="proj-entry">
+                    <div class="proj-row">
+                        <span class="proj-title">Muzziball – Embedded Linux Product (Yocto + STM32MP1)</span>
+                        <span class="proj-date">2024 – 2026</span>
+                    </div>
+                    <p class="proj-desc">Custom Yocto image for STM32MP157 integrating IMU, audio, BLE, Wi-Fi, and charging subsystem. Full BSP, device drivers, and embedded C++ application for real-time sensor data acquisition and audio processing.</p>
+                </div>
+
+                <div class="proj-entry">
+                    <div class="proj-row">
+                        <span class="proj-title">Truck Monitoring System (Yocto + NXP i.MX93)</span>
+                        <span class="proj-date">2023 – 2024</span>
+                    </div>
+                    <p class="proj-desc">Custom Linux BSP for vehicle fleet tracking. Developed drivers for 5G modem, GNSS receiver, IMU, and CAN bus. Integrated connectivity stack and OTA update mechanism.</p>
+                </div>
+
+                <div class="proj-entry">
+                    <div class="proj-row">
+                        <span class="proj-title">Step Detection with Anomaly Filtering for PDR</span>
+                        <span class="proj-date">2024 – 2025</span>
+                    </div>
+                    <p class="proj-desc">Lightweight deep learning anomaly detection for pedestrian dead reckoning using IMU data. 23% accuracy improvement, optimized for embedded deployment. Published at IEEE/ION PLANS 2025 and IEEE APSCON 2025.</p>
+                </div>
+
+                <div class="proj-entry">
+                    <div class="proj-row">
+                        <span class="proj-title">Wireless Crack Detection System (IoT)</span>
+                        <span class="proj-date">2022 – 2023</span>
+                    </div>
+                    <p class="proj-desc">End-to-end IoT system: acoustic emission sensor hardware, STM32 firmware, wireless communication, and cloud dashboard. Published at IEEE MetroLivEnv 2023.</p>
+                </div>
+            </div>
+
+            <!-- Publications -->
+            <div class="section">
+                <h2 class="section-heading">Selected Publications</h2>
+                <div class="pub-item"><strong>Sayyaf, M.I.</strong> et al., "Time Series Anomaly Detection for Sensor Data: Models, Metrics and Methodologies – A Review," <em>IEEE Sensors Journal</em>, 2025</div>
+                <div class="pub-item">Renaudin, V., <strong>Sayyaf, M.I.</strong> et al., "GNSS Positioning Under Threat…," <em>Journal of the Institute of Navigation</em>, 2025</div>
+                <div class="pub-item"><strong>Sayyaf, M.I.</strong> et al., "Anomaly Filtering for Pedestrian Dead Reckoning," <em>IEEE/ION PLANS</em>, 2025</div>
+                <div class="pub-item"><strong>Sayyaf, M.I.</strong> et al., "Step Detection Enhanced by Anomaly Filtering," <em>IEEE APSCON</em>, 2025</div>
+                <div class="pub-item"><strong>Sayyaf, M.I.</strong> et al., "Wireless Crack Detection System Based on IoT," <em>IEEE MetroLivEnv</em>, 2023</div>
+                <div class="pub-item" style="font-size:10.5px; color: var(--text-muted); padding-left:12px;">+ 3 additional publications (8 total) — see <a href="https://issam-sayyaf.com" style="color: var(--accent);">issam-sayyaf.com</a></div>
+            </div>
+
+        </div>
+
+        <!-- ──── SIDE COLUMN ──── -->
+        <div class="col-side">
+
+            <!-- Education -->
+            <div class="section">
+                <h2 class="section-heading">Education</h2>
+
+                <div class="edu-entry">
+                    <div class="edu-date">Nov 2023 – Nov 2026</div>
+                    <div class="edu-degree">PhD – Signal Processing & Deep Learning for Navigation</div>
+                    <div class="edu-school">Université Gustave Eiffel, France</div>
+                    <div class="edu-note">Anomaly detection for IMU/GNSS/5G systems</div>
+                </div>
+
+                <div class="edu-entry">
+                    <div class="edu-date">Sep 2021 – Oct 2023</div>
+                    <div class="edu-degree">M.Sc. – Telecommunication Engineering & Networks</div>
+                    <div class="edu-school">University of Calabria, Italy</div>
+                    <div class="edu-note">110/110 cum laude · IoT, SDN, Wireless Sensors</div>
+                </div>
+
+                <div class="edu-entry">
+                    <div class="edu-date">Sep 2014 – Sep 2019</div>
+                    <div class="edu-degree">B.Sc. – Electronics & Communication Engineering</div>
+                    <div class="edu-school">University of Aleppo, Syria</div>
+                    <div class="edu-note">88.56% with distinction</div>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="section">
+                <h2 class="section-heading">Technical Skills</h2>
+
+                <div class="skills-group">
+                    <div class="skills-label">Embedded Linux & BSP</div>
+                    <div class="skills-context">Built 3+ production Yocto images; wrote kernel modules and device-tree configurations for STM32MP1 and i.MX93</div>
+                    <div class="tags">
+                        <span class="tag">Yocto / OpenEmbedded</span>
+                        <span class="tag">Buildroot</span>
+                        <span class="tag">U-Boot</span>
+                        <span class="tag">Device Tree</span>
+                        <span class="tag">Linux Kernel</span>
+                        <span class="tag">Systemd</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-label">Device Drivers & Peripherals</div>
+                    <div class="skills-context">Implemented 10+ drivers for I2C/SPI/UART sensors, LoRaWAN, Zigbee, BLE, CAN bus, and GNSS receivers</div>
+                    <div class="tags">
+                        <span class="tag">GPIO</span>
+                        <span class="tag">I2C</span>
+                        <span class="tag">SPI</span>
+                        <span class="tag">UART</span>
+                        <span class="tag">CAN</span>
+                        <span class="tag">DMA</span>
+                        <span class="tag">Interrupt Handling</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-label">RTOS & Firmware</div>
+                    <div class="skills-context">Developed real-time applications on FreeRTOS and Zephyr for ARM Cortex-M based MCUs</div>
+                    <div class="tags">
+                        <span class="tag">FreeRTOS</span>
+                        <span class="tag">Zephyr</span>
+                        <span class="tag">STM32 HAL</span>
+                        <span class="tag">ARM Cortex-M/A</span>
+                        <span class="tag">NXP i.MX</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-label">Programming & Tools</div>
+                    <div class="skills-context">5+ years C/C++ for firmware; Python for ML pipelines, data analysis, and test automation</div>
+                    <div class="tags">
+                        <span class="tag">C / C++</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">GDB</span>
+                        <span class="tag">JTAG</span>
+                        <span class="tag">MATLAB</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-label">AI / ML & Signal Processing</div>
+                    <div class="skills-context">Published 8 papers on deep learning for anomaly detection in sensor time-series; experience with TinyML for edge deployment</div>
+                    <div class="tags">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">TinyML</span>
+                        <span class="tag">DSP</span>
+                        <span class="tag">Autoencoders</span>
+                        <span class="tag">Time-Series Analysis</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-label">Wireless & Connectivity</div>
+                    <div class="skills-context">Integrated 5G, LoRaWAN, Zigbee, BLE, and Wi-Fi stacks in embedded products</div>
+                    <div class="tags">
+                        <span class="tag">5G / LTE</span>
+                        <span class="tag">LoRaWAN</span>
+                        <span class="tag">BLE</span>
+                        <span class="tag">Zigbee</span>
+                        <span class="tag">Wi-Fi</span>
+                        <span class="tag">TCP/IP</span>
+                        <span class="tag">SDN</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="section">
+                <h2 class="section-heading">Certifications</h2>
+
+                <div class="cert-group">
+                    <div class="cert-label">Bootlin (2024)</div>
+                    <div class="cert-list">
+                        <span>Yocto Project Development</span>
+                        <span>Linux Kernel Driver Development</span>
+                        <span>Embedded Linux Development</span>
+                    </div>
+                </div>
+
+                <div class="cert-group">
+                    <div class="cert-label">Deep Learning & Edge AI</div>
+                    <div class="cert-list">
+                        <span>Deep Learning Specialization (Coursera)</span>
+                        <span>TinyML (Harvard)</span>
+                    </div>
+                </div>
+
+                <div class="cert-group">
+                    <div class="cert-label">RTOS</div>
+                    <div class="cert-list">
+                        <span>FreeRTOS Real-Time Programming</span>
+                        <span>Zephyr RTOS Development</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="section">
+                <h2 class="section-heading">Languages</h2>
+                <div class="lang-row">
+                    <span class="lang-name">English</span>
+                    <span class="lang-level">C1 – Professional</span>
+                </div>
+                <div class="lang-row">
+                    <span class="lang-name">French</span>
+                    <span class="lang-level">B1 – Intermediate</span>
+                </div>
+                <div class="lang-row">
+                    <span class="lang-name">Arabic</span>
+                    <span class="lang-level">Native</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
