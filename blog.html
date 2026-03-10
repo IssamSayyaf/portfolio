@@ -2,254 +2,310 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Issam Sayyaf</title>
+    <meta name="description" content="Articles on embedded systems, deep learning, signal processing, and software development.">
     <link rel="icon" type="image/png" href="assets/images/icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            zoom: 1.0;
-            -moz-transform: scale(1.0);
-            -moz-transform-origin: 0 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background: #f8f9fa;
-            color: #2c3e50;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            transform-origin: top left;
-        }
-
-        /* Header styles */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .logo {
-            font-size: 1.2rem;
-            color: #0066cc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-link:hover {
-            color: #0066cc;
-            background: rgba(0, 102, 204, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .nav-link.active {
-            color: #0066cc;
-            background: rgba(0, 102, 204, 0.1);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-    <link rel="stylesheet" href="blog/assets/blog-style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 </head>
 <body>
-    <header class="header">
-        <a href="index.html" class="logo">Issam Sayyaf</a>
-        <nav class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="publications.html" class="nav-link">Publications</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="blog.html" class="nav-link active">Blog</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-            <a href="cv.html" class="nav-link">CV</a>
+
+<div class="aurora">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a href="index.html" class="site-logo">Issam Sayyaf</a>
+        <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+        <nav class="site-nav">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="publications.html">Publications</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cv.html">CV</a>
         </nav>
-    </header>
+    </div>
+</header>
 
-    <main class="blog-container">
-        <!-- Blog Header -->
-        <section class="blog-header">
-            <div class="blog-title">
-                <h1><i class="fas fa-blog"></i> My Blog</h1>
-                <p>Insights, tutorials, and thoughts on technology, embedded systems, and software development</p>
+<main>
+    <section class="page-header">
+        <div class="container">
+            <div class="overline" style="justify-content:center"><i class="fas fa-satellite"></i> Transmissions</div>
+            <h1>Blog <span class="gradient-text">Posts</span></h1>
+            <p class="subtitle">Insights and tutorials on embedded systems, deep learning, and signal processing</p>
+            <div class="page-stats" id="pageStats"></div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="cat-pills reveal" id="categoryGrid"></div>
+
+        <div class="filters-bar reveal">
+            <div class="search-field">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search articles...">
             </div>
-        </section>
-
-        <!-- Categories Section -->
-        <section class="categories-section">
-            <h2><i class="fas fa-folder-open"></i> Browse by Category</h2>
-            <div class="category-grid" id="categoryGrid">
-                <!-- Generated by JavaScript from blog-data.json -->
-            </div>
-        </section>
-
-        <!-- Blog Controls -->
-        <section class="blog-controls">
-            <div class="search-filter-container">
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Search articles...">
-                </div>
-
-                <div class="filter-container">
-                    <select id="categoryFilter">
-                        <option value="">All Categories</option>
-                        <!-- Categories populated dynamically from blog-data.json -->
-                    </select>
-
-                    <div class="sort-container">
-                        <select id="sortBy">
-                            <option value="date-desc">Latest First</option>
-                            <option value="date-asc">Oldest First</option>
-                            <option value="title">Title A-Z</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Posts -->
-        <section class="featured-posts" id="featuredPosts">
-            <h2><i class="fas fa-star"></i> Featured Articles</h2>
-            <div class="featured-grid" id="featuredGrid">
-                <!-- Fallback content in case JavaScript fails -->
-                <div class="post-card featured fade-in-up" onclick="window.location.href='blog/posts/getting-started-with-embedded-systems/index.html'">
-                    <img src="assets/images/stm32mp1.jpg" alt="Getting Started with Embedded Systems" class="post-image">
-                    <div class="post-content">
-                        <span class="post-category">Embedded Systems</span>
-                        <h3 class="post-title">Getting Started with Embedded Systems: A Comprehensive Guide</h3>
-                        <p class="post-excerpt">An introduction to embedded systems development, covering hardware basics, programming fundamentals, and practical project examples.</p>
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fas fa-calendar"></i>
-                                January 15, 2025
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fas fa-clock"></i>
-                                8 min read
-                            </span>
-                        </div>
-                        <div class="post-tags">
-                            <span class="tag">embedded</span>
-                            <span class="tag">microcontrollers</span>
-                            <span class="tag">programming</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="post-card featured fade-in-up" onclick="window.location.href='blog/posts/deep-learning-in-practice/index.html'">
-                    <img src="assets/images/deep_learning.png" alt="Deep Learning in Practice" class="post-image">
-                    <div class="post-content">
-                        <span class="post-category">Machine Learning</span>
-                        <h3 class="post-title">Deep Learning in Practice: From Theory to Implementation</h3>
-                        <p class="post-excerpt">Exploring practical applications of deep learning, including real-world case studies and implementation strategies.</p>
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fas fa-calendar"></i>
-                                January 10, 2025
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fas fa-clock"></i>
-                                12 min read
-                            </span>
-                        </div>
-                        <div class="post-tags">
-                            <span class="tag">deep-learning</span>
-                            <span class="tag">ai</span>
-                            <span class="tag">python</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- All Posts -->
-        <section class="all-posts">
-            <h2><i class="fas fa-newspaper"></i> All Articles</h2>
-            <div class="posts-grid" id="postsGrid">
-                <!-- Fallback content in case JavaScript fails -->
-                <div class="post-card fade-in-up" onclick="window.location.href='blog/posts/iot-project-architecture/index.html'">
-                    <img src="assets/images/arch_esp32_iot_project.jpeg" alt="IoT Project Architecture" class="post-image">
-                    <div class="post-content">
-                        <span class="post-category">IoT</span>
-                        <h3 class="post-title">Building Scalable IoT Project Architecture</h3>
-                        <p class="post-excerpt">Design patterns and best practices for creating robust and scalable Internet of Things applications.</p>
-                        <div class="post-meta">
-                            <span class="post-date">
-                                <i class="fas fa-calendar"></i>
-                                January 5, 2025
-                            </span>
-                            <span class="post-read-time">
-                                <i class="fas fa-clock"></i>
-                                10 min read
-                            </span>
-                        </div>
-                        <div class="post-tags">
-                            <span class="tag">iot</span>
-                            <span class="tag">architecture</span>
-                            <span class="tag">esp32</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Load More Button -->
-        <div class="load-more-container">
-            <button id="loadMoreBtn" class="load-more-btn" style="display: none;">
-                <i class="fas fa-plus"></i> Load More Articles
-            </button>
+            <select class="select-field" id="categoryFilter"><option value="">All Categories</option></select>
+            <select class="select-field" id="sortBy">
+                <option value="date-desc">Latest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="title">Title A-Z</option>
+            </select>
         </div>
 
-        <!-- No Results Message -->
-        <div class="no-results" id="noResults" style="display: none;">
-            <i class="fas fa-search"></i>
-            <h3>No articles found</h3>
-            <p>Try adjusting your search terms or filters</p>
+        <div class="holo-grid holo-grid-page reveal" id="postsGrid"></div>
+        <div class="empty-state" id="noResults" style="display:none">
+            <i class="fas fa-satellite-dish"></i>
+            <h3>No signal detected</h3>
+            <p>Try adjusting your search or filters</p>
         </div>
-    </main>
 
-    <!-- Blog Navigation Footer -->
-    <footer class="blog-footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Issam Sayyaf. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="publications.html">Publications</a>
-                <a href="projects.html">Projects</a>
+        <div class="load-more">
+            <button id="loadMoreBtn" class="btn btn-secondary" style="display:none"><i class="fas fa-plus"></i> Load More</button>
+        </div>
+
+        <div id="blog-details-container"></div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container"><div class="footer-inner">
+        <p>&copy; 2025 Issam Sayyaf. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Home</a><a href="projects.html">Projects</a>
+            <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+        </div>
+    </div></div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+class BlogManager {
+    constructor() { this.data = null; this.filtered = []; this.page = 1; this.perPage = 6; this.curCat = ''; this.init(); }
+
+    async init() {
+        try {
+            const res = await fetch('blog/blog-data.json');
+            this.data = await res.json();
+            this.filtered = [...this.data.posts];
+            this.sort('date-desc');
+            this.checkURL();
+            this.listen();
+            this.populateFilters();
+            this.renderCats();
+            this.renderStats();
+            this.renderPosts();
+            this.setupModals();
+        } catch (e) { console.error(e); }
+    }
+
+    checkURL() {
+        const slug = new URLSearchParams(location.search).get('category');
+        if (slug) {
+            const cat = this.data.categories.find(c => c.slug === slug);
+            if (cat) { this.curCat = cat.name; this.filterCat(cat.name); document.getElementById('categoryFilter').value = cat.name; }
+        }
+    }
+
+    listen() {
+        document.getElementById('searchInput')?.addEventListener('input', e => this.search(e.target.value));
+        document.getElementById('categoryFilter')?.addEventListener('change', e => {
+            this.filterCat(e.target.value);
+            const cat = this.data.categories.find(c => c.name === e.target.value);
+            history.pushState({}, '', cat ? `?category=${cat.slug}` : location.pathname);
+        });
+        document.getElementById('sortBy')?.addEventListener('change', e => { this.sort(e.target.value); this.renderPosts(); });
+        document.getElementById('loadMoreBtn')?.addEventListener('click', () => { this.page++; this.renderPosts(); });
+    }
+
+    populateFilters() {
+        const sel = document.getElementById('categoryFilter');
+        this.data.categories.forEach(c => { sel.innerHTML += `<option value="${c.name}">${c.name}</option>`; });
+    }
+
+    renderStats() {
+        const el = document.getElementById('pageStats');
+        const total = this.data.posts.length;
+        const cats = this.data.categories.length;
+        el.innerHTML = `
+            <span class="page-stat"><span class="page-stat-num">${total}</span> articles</span>
+            <span class="page-stat-sep">/</span>
+            <span class="page-stat"><span class="page-stat-num">${cats}</span> topics</span>
+        `;
+    }
+
+    renderCats() {
+        const grid = document.getElementById('categoryGrid');
+        grid.innerHTML = this.data.categories.map(c => {
+            const n = this.data.posts.filter(p => p.category === c.name).length;
+            return `<button class="cat-pill" onclick="location.href='blog.html?category=${c.slug}'">
+                <i class="${c.icon}"></i> ${c.name} <span class="cat-pill-count">${n}</span>
+            </button>`;
+        }).join('');
+    }
+
+    search(term) {
+        const s = term.toLowerCase().trim();
+        const base = this.curCat ? this.data.posts.filter(p => p.category === this.curCat) : this.data.posts;
+        this.filtered = s ? base.filter(p =>
+            p.title.toLowerCase().includes(s) || p.excerpt.toLowerCase().includes(s) ||
+            p.tags.some(t => t.toLowerCase().includes(s))
+        ) : [...base];
+        this.page = 1; this.renderPosts();
+    }
+
+    filterCat(c) {
+        this.curCat = c;
+        this.filtered = c ? this.data.posts.filter(p => p.category === c) : [...this.data.posts];
+        this.page = 1; this.renderPosts();
+    }
+
+    sort(by) {
+        switch (by) {
+            case 'date-desc': this.filtered.sort((a, b) => new Date(b.date) - new Date(a.date)); break;
+            case 'date-asc': this.filtered.sort((a, b) => new Date(a.date) - new Date(b.date)); break;
+            case 'title': this.filtered.sort((a, b) => a.title.localeCompare(b.title)); break;
+        }
+    }
+
+    renderPosts() {
+        const grid = document.getElementById('postsGrid');
+        const btn = document.getElementById('loadMoreBtn');
+        const empty = document.getElementById('noResults');
+        if (!this.filtered.length) { grid.innerHTML = ''; empty.style.display = 'block'; btn.style.display = 'none'; return; }
+        empty.style.display = 'none';
+        const end = this.page * this.perPage;
+        grid.innerHTML = this.filtered.slice(0, end).map((p, i) => this.holoCard(p, i)).join('');
+        btn.style.display = end < this.filtered.length ? 'inline-flex' : 'none';
+    }
+
+    holoCard(post, i) {
+        const date = new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        const tags = post.tags.slice(0, 3).map(t => `<span class="tech-badge">${t}</span>`).join('');
+        const num = String(i + 1).padStart(3, '0');
+
+        return `<div class="holo-card" onclick="openBlog('${post.id}')" style="cursor:pointer">
+            <div class="holo-card-bg"><img src="${post.image}" alt="${post.title}" onerror="this.src='assets/images/background.png'"></div>
+            <div class="holo-scanline"></div>
+            <div class="holo-card-content">
+                <div class="holo-top">
+                    <span class="holo-id">LOG-${num}</span>
+                    <span class="badge badge-primary">${post.category}</span>
+                </div>
+                <div class="holo-bottom">
+                    <h3>${post.title}</h3>
+                    <p>${post.excerpt}</p>
+                    <div class="tags-list">${tags}</div>
+                    <div class="holo-date"><i class="fas fa-calendar"></i> ${date} <span style="margin-left:8px"><i class="fas fa-clock"></i> ${post.readTime}</span></div>
+                </div>
+                <div class="holo-corner holo-corner-tl"></div>
+                <div class="holo-corner holo-corner-tr"></div>
+                <div class="holo-corner holo-corner-bl"></div>
+                <div class="holo-corner holo-corner-br"></div>
             </div>
-        </div>
-    </footer>
+        </div>`;
+    }
 
-    <script src="blog/assets/blog-script.js"></script>
+    async setupModals() {
+        if (!document.getElementById('detail-overlay')) {
+            const overlay = document.createElement('div');
+            overlay.id = 'detail-overlay';
+            overlay.className = 'detail-overlay';
+            overlay.addEventListener('click', () => closeBlog());
+            document.body.appendChild(overlay);
+        }
+
+        const container = document.getElementById('blog-details-container');
+        const posts = this.data.posts;
+        let html = '';
+        for (let i = 0; i < posts.length; i++) {
+            const p = posts[i];
+            const prev = posts[i - 1];
+            const next = posts[i + 1];
+            const date = new Date(p.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            const tags = p.tags.map(t => `<span class="tech-badge">${t}</span>`).join('');
+            const num = String(i + 1).padStart(3, '0');
+
+            let content;
+            try {
+                const mdPath = p.path + 'index.md';
+                const res = await fetch(mdPath);
+                let md = await res.text();
+                // Strip frontmatter
+                md = md.replace(/^---[\s\S]*?---\s*/, '');
+                content = typeof marked !== 'undefined' ? marked.parse(md) : md;
+            } catch {
+                content = `<h1>${p.title}</h1><p>${p.excerpt}</p>`;
+            }
+
+            html += `<div id="${p.id}-detail" class="detail-panel" data-index="${i}">
+                <div class="detail-header">
+                    <div class="detail-header-left">
+                        <span class="holo-id">LOG-${num}</span>
+                        <span class="detail-title-sm">${p.title}</span>
+                    </div>
+                    <button class="detail-close" onclick="closeBlog()" aria-label="Close"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="detail-hero">
+                    <img src="${p.image}" alt="${p.title}" onerror="this.src='assets/images/background.png'">
+                    <div class="hud-corner hud-tl"></div>
+                    <div class="hud-corner hud-tr"></div>
+                    <div class="hud-corner hud-bl"></div>
+                    <div class="hud-corner hud-br"></div>
+                </div>
+                <div class="detail-meta-bar">
+                    <span class="badge badge-primary">${p.category}</span>
+                    <span class="badge badge-outline">${date}</span>
+                    <span class="badge badge-outline"><i class="fas fa-clock" style="margin-right:3px"></i> ${p.readTime}</span>
+                    ${tags}
+                </div>
+                <div class="detail-body">
+                    <div style="font-size:0.75rem;color:var(--text-3);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);font-family:var(--mono)">
+                        <i class="fas fa-user" style="margin-right:6px;color:var(--accent)"></i>${p.author} &mdash; ${p.authorTitle}
+                    </div>
+                    ${content}
+                </div>
+                <div class="detail-footer">
+                    <div class="detail-nav">
+                        ${prev ? `<button onclick="openBlog('${prev.id}')"><i class="fas fa-chevron-left"></i> Prev</button>` : ''}
+                        ${next ? `<button onclick="openBlog('${next.id}')">Next <i class="fas fa-chevron-right"></i></button>` : ''}
+                    </div>
+                    <button class="btn btn-primary btn-sm" onclick="closeBlog()"><i class="fas fa-times"></i> Close</button>
+                </div>
+            </div>`;
+        }
+        container.innerHTML = html;
+    }
+}
+
+function openBlog(id) {
+    const overlay = document.getElementById('detail-overlay');
+    document.querySelectorAll('.detail-panel').forEach(d => d.classList.remove('open'));
+    const el = document.getElementById(id + '-detail');
+    if (el) {
+        el.classList.add('open');
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        el.querySelector('.detail-body')?.scrollTo(0, 0);
+    }
+}
+
+function closeBlog() {
+    document.querySelectorAll('.detail-panel').forEach(d => d.classList.remove('open'));
+    const overlay = document.getElementById('detail-overlay');
+    if (overlay) overlay.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeBlog(); });
+document.addEventListener('DOMContentLoaded', () => new BlogManager());
+</script>
 </body>
 </html>
