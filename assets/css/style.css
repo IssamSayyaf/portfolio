@@ -893,55 +893,357 @@ body::after {
 }
 
 /* ============================================
+   HIRE-ME STATUS BADGE
+   ============================================ */
+.status-badge {
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 16px;
+    background:rgba(52,211,153,0.06);
+    border:1px solid rgba(52,211,153,0.15);
+    border-radius:var(--r-full);
+    font-family:var(--mono);font-size:0.68rem;font-weight:600;
+    color:var(--green);
+    margin-bottom:18px;
+    animation:badge-glow 3s ease-in-out infinite alternate;
+    cursor:default;
+}
+.status-badge::before {
+    content:'';
+    width:8px;height:8px;border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 8px var(--green), 0 0 16px rgba(52,211,153,0.4);
+    animation:pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:0.5;transform:scale(0.85)}
+}
+@keyframes badge-glow {
+    from{box-shadow:0 0 12px -6px rgba(52,211,153,0.2)}
+    to{box-shadow:0 0 24px -6px rgba(52,211,153,0.35)}
+}
+
+/* ============================================
+   HIGHLIGHT STRIP (social proof)
+   ============================================ */
+.highlight-strip {
+    display:flex;align-items:center;justify-content:center;
+    gap:24px;flex-wrap:wrap;
+    padding:14px 20px;
+    margin-top:20px;
+    background:rgba(129,140,248,0.03);
+    border:1px solid rgba(129,140,248,0.06);
+    border-radius:12px;
+}
+.highlight-item {
+    display:flex;align-items:center;gap:6px;
+    font-size:0.72rem;color:var(--text-2);
+    font-family:var(--mono);
+    white-space:nowrap;
+}
+.highlight-item i {
+    color:var(--accent);font-size:0.7rem;opacity:0.7;
+}
+.highlight-sep {
+    width:1px;height:14px;background:var(--border-hover);
+    flex-shrink:0;
+}
+
+/* ============================================
+   CTA DOWNLOAD BUTTON (prominent CV download)
+   ============================================ */
+.btn-download {
+    background:linear-gradient(135deg, #818cf8, #a78bfa);
+    color:#0a0a0f;
+    font-weight:700;
+    box-shadow:0 2px 12px rgba(129,140,248,0.3), 0 0 30px -8px rgba(129,140,248,0.2);
+    position:relative;
+    overflow:hidden;
+}
+.btn-download::after {
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%);
+    background-size:250% 100%;background-position:200% 0;
+    transition:background-position 0.6s ease;
+}
+.btn-download:hover::after {
+    background-position:-50% 0;
+}
+.btn-download:hover {
+    transform:translateY(-2px);
+    box-shadow:0 4px 24px rgba(129,140,248,0.45), 0 0 40px -8px rgba(167,139,250,0.3);
+    color:#0a0a0f;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
+
+/* --- Tablet landscape / small desktop (1024px) --- */
 @media (max-width:1024px){
     .bento-grid{grid-template-columns:repeat(2,1fr)}
-    .tile-hero{grid-column:1/3;grid-row:1/2;min-height:320px}
-    .tile-about{grid-column:1/3;grid-row:2/2}
-    .tile-news{grid-column:1/2;grid-row:3/3}
-    .tile-stats{grid-column:2/3;grid-row:3/3}
-    .tile-pub{grid-column:1/3;grid-row:4/4}
-    .tile-skills{grid-column:1/3;grid-row:5/5}
+    .tile-hero{grid-column:1/-1;grid-row:auto;min-height:320px}
+    .tile-about{grid-column:1/-1;grid-row:auto}
+    .tile-news{grid-column:1/2;grid-row:auto}
+    .tile-stats{grid-column:2/3;grid-row:auto}
+    .tile-pub{grid-column:1/-1;grid-row:auto}
+    .tile-skills{grid-column:1/-1;grid-row:auto}
     .grid-3{grid-template-columns:repeat(2,1fr)}
+    .highlight-strip{gap:16px}
 }
 
+/* --- Tablet portrait / large phone (768px) --- */
 @media (max-width:768px){
-    :root{--hdr:52px}
+    :root{--hdr:56px}
+
+    /* Nav */
     .nav-toggle{display:flex}
-    .site-nav{display:none;position:absolute;top:var(--hdr);left:8px;right:8px;background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:6px;flex-direction:column;box-shadow:0 12px 40px rgba(0,0,0,0.5);z-index:999}
-    .site-nav.open{display:flex}
-    .site-nav a{padding:10px 12px}
-    .bento-grid{grid-template-columns:1fr}
+    .site-nav{
+        display:none;position:absolute;top:var(--hdr);left:8px;right:8px;
+        background:rgba(12,12,18,0.97);
+        backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+        border:1px solid var(--border-hover);border-radius:14px;
+        padding:8px;flex-direction:column;
+        box-shadow:0 16px 48px rgba(0,0,0,0.6), 0 0 0 1px rgba(129,140,248,0.05);
+        z-index:999;
+    }
+    .site-nav.open{display:flex;animation:fadeUp 0.25s ease}
+    .site-nav a{padding:12px 14px;font-size:0.85rem;border-radius:10px}
+    .site-nav a:hover,.site-nav a.active{background:rgba(129,140,248,0.08)}
+
+    /* Bento grid — single column */
+    .bento-grid{grid-template-columns:1fr;gap:10px}
     .tile-hero,.tile-about,.tile-news,.tile-stats,.tile-pub,.tile-skills{grid-column:1/-1;grid-row:auto}
-    .tile-hero{min-height:auto;padding:36px 20px}
-    .hero-avatar{width:90px;height:90px}
+    .tile-hero{min-height:auto;padding:40px 24px}
+    .tile-hero h1{font-size:clamp(1.8rem,6vw,2.4rem)}
+    .tile-hero .tagline{font-size:0.88rem;max-width:380px}
+    .hero-avatar{width:96px;height:96px}
+    .hero-cta{gap:6px}
+    .hero-cta .btn{padding:8px 14px;font-size:0.75rem}
+
+    /* Tiles */
+    .bento-tile{padding:22px;border-radius:18px}
+    .tile-about h2{font-size:0.95rem}
+    .tile-about li{font-size:0.78rem}
+    .tile-stats{flex-direction:row;gap:32px}
+    .stat-number{font-size:2rem}
+
+    /* Grids */
     .grid-2,.grid-3,.grid-auto{grid-template-columns:1fr}
-    .about-card{flex-direction:column}
-    .about-card img{width:100%;max-width:260px;order:-1}
-    .news-slide{flex-direction:column;gap:12px;padding:18px}
-    .news-slide img{width:100%;height:110px}
-    .news-track{min-height:280px}
-    .filters-bar{flex-direction:column;align-items:stretch}
+
+    /* About */
+    .about-card{flex-direction:column;padding:22px;gap:18px}
+    .about-card img{width:100%;max-width:280px;order:-1;align-self:center}
+
+    /* News carousel */
+    .news-slide{flex-direction:column;gap:14px;padding:20px}
+    .news-slide img{width:100%;height:140px;border-radius:10px}
+    .news-track{min-height:320px}
+    .news-content h3{font-size:0.95rem}
+    .news-content p{font-size:0.82rem}
+
+    /* Filters */
+    .filters-bar{flex-direction:column;align-items:stretch;gap:6px;padding:10px}
     .select-field{width:100%}
-    .page-header{padding:calc(var(--hdr)+60px) 0 24px}
-    .section{padding:32px 0}
-    .footer-inner{flex-direction:column;text-align:center}
-    .footer-links{justify-content:center}
-    .form-card{padding:20px}
+
+    /* Page sections */
+    .page-header{padding:calc(var(--hdr)+50px) 0 28px}
+    .page-header h1{font-size:clamp(1.5rem,5vw,2rem)}
+    .section{padding:36px 0}
+
+    /* Footer */
+    .footer-inner{flex-direction:column;text-align:center;gap:8px}
+    .footer-links{justify-content:center;flex-wrap:wrap}
+
+    /* Forms & contact */
+    .form-card{padding:22px}
     .contact-methods{grid-template-columns:1fr}
-    .aurora .orb{opacity:0.12}
+    .contact-item{padding:14px}
+
+    /* Detail panel */
+    .detail-panel{width:100vw}
+    .detail-hero{height:160px}
+    .detail-body{padding:20px}
+    .detail-header{padding:12px 16px}
+    .detail-meta-bar{padding:12px 16px;gap:6px}
+    .detail-footer{padding:12px 16px}
+    .detail-footer .detail-nav button{font-size:0.65rem;padding:5px 10px}
+
+    /* Holo grid */
+    .holo-grid{grid-template-columns:1fr;grid-auto-rows:220px}
+    .holo-large{grid-column:span 1}
+    .holo-bottom h3{font-size:0.95rem}
+
+    /* Holo page grid */
+    .holo-grid-page{grid-template-columns:1fr;grid-auto-rows:260px}
+    .holo-grid-page .holo-card,.holo-featured{grid-column:span 1 !important}
+
+    /* Highlights */
+    .highlight-strip{gap:10px;padding:12px 14px}
+    .highlight-item{font-size:0.65rem}
+    .highlight-sep{display:none}
+
+    /* Aurora toned down for perf */
+    .aurora .orb{opacity:0.1}
+    .aurora .orb-1{width:350px;height:350px}
+    .aurora .orb-2{width:300px;height:300px}
+    .aurora .orb-3{width:250px;height:250px}
+
+    /* Reduce noise overlay on mobile for perf */
+    body::after{opacity:0.25}
+
+    /* Status badge */
+    .status-badge{font-size:0.62rem;padding:5px 12px;margin-bottom:14px}
 }
 
+/* --- Phone (480px) --- */
 @media (max-width:480px){
-    .container,.container-narrow{padding:0 12px}
-    .hero-cta{flex-direction:column;align-items:center}
-    .hero-cta .btn{width:100%;justify-content:center}
-    .cat-grid{grid-template-columns:repeat(2,1fr)}
+    .container,.container-narrow{padding:0 14px}
+
+    /* Hero CTA stacks vertically */
+    .hero-cta{flex-direction:column;align-items:center;width:100%;max-width:280px;margin:0 auto}
+    .hero-cta .btn{width:100%;justify-content:center;padding:10px 16px;font-size:0.78rem}
+
+    /* Smaller tiles */
+    .bento-tile{padding:18px;border-radius:16px}
+    .tile-hero{padding:32px 18px}
+    .tile-hero h1{font-size:1.7rem}
+    .tile-hero .tagline{font-size:0.82rem;line-height:1.6}
+    .hero-avatar{width:80px;height:80px;margin-bottom:18px}
+
+    /* Stats side by side */
+    .tile-stats{flex-direction:row;gap:24px;padding:20px}
+    .stat-number{font-size:1.8rem}
+    .stat-label{font-size:0.6rem}
+
+    /* Skills */
+    .skill-tag{font-size:0.6rem;padding:2px 8px}
+    .skill-group-label{font-size:0.6rem}
+
+    /* Category grid */
+    .cat-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+    .cat-card{padding:12px}
+    .cat-card i{font-size:1.1rem;margin-bottom:6px}
+    .cat-card h3{font-size:0.72rem}
+
+    /* News */
+    .news-track{min-height:340px}
+    .news-slide{padding:16px}
+    .news-slide img{height:120px}
+
+    /* Cards */
+    .card-body{padding:14px}
+    .card-body h3{font-size:0.88rem}
+    .card-body p{font-size:0.78rem}
+    .card-img{height:160px}
+
+    /* About */
+    .about-card{padding:18px;gap:14px}
+    .about-card .text-body h2{font-size:1rem}
+    .about-card .text-body p,.about-card .text-body li{font-size:0.82rem}
+    .about-card img{max-width:100%;border-radius:10px}
+
+    /* Detail panel */
+    .detail-body h1{font-size:1.15rem}
+    .detail-body h2{font-size:0.9rem}
+    .detail-body p{font-size:0.82rem}
+    .detail-hero{height:130px}
+    .detail-meta-bar{padding:10px 14px;gap:4px}
+    .detail-meta-bar .badge,.detail-meta-bar .tech-badge{font-size:0.55rem;padding:2px 6px}
+
+    /* Pub cards */
+    .pub-card img{height:140px}
+    .pub-card-body{padding:14px}
+    .pub-card-body h3{font-size:0.82rem}
+
+    /* Form */
+    .form-card{padding:16px;border-radius:14px}
+    .form-card h2{font-size:1.1rem;margin-bottom:16px}
+    .form-group input,.form-group textarea{padding:9px 12px;font-size:0.84rem}
+    .form-group label{font-size:0.72rem}
+
+    /* Highlights wrap tighter */
+    .highlight-strip{padding:10px;gap:8px}
+    .highlight-item{font-size:0.6rem;gap:4px}
+
+    /* Page header */
+    .page-header{padding:calc(var(--hdr)+40px) 0 20px}
+    .page-header .subtitle{font-size:0.85rem}
+}
+
+/* --- Very small phones (360px) --- */
+@media (max-width:360px){
+    .container,.container-narrow{padding:0 10px}
+    .tile-hero{padding:28px 14px}
+    .tile-hero h1{font-size:1.5rem}
+    .bento-tile{padding:16px;border-radius:14px}
+    .hero-cta .btn{font-size:0.72rem;padding:9px 14px}
+    .news-track{min-height:360px}
+    .about-card img{max-width:100%}
+}
+
+/* --- iPad specific (portrait) --- */
+@media (min-width:768px) and (max-width:1024px) and (orientation:portrait) {
+    .bento-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    .tile-hero{grid-column:1/-1;min-height:300px;padding:44px 28px}
+    .tile-about{grid-column:1/-1}
+    .tile-news{grid-column:1/2}
+    .tile-stats{grid-column:2/3}
+    .tile-pub{grid-column:1/-1}
+    .tile-skills{grid-column:1/-1}
+    .holo-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:240px}
+    .about-card img{width:200px}
+    .news-slide{gap:20px;padding:22px}
+    .news-slide img{width:180px;height:130px}
+    .news-track{min-height:200px}
+}
+
+/* --- iPad landscape --- */
+@media (min-width:1024px) and (max-width:1366px) and (orientation:landscape) {
+    .bento-grid{grid-template-columns:repeat(4,1fr);gap:10px}
+    .tile-hero h1{font-size:2.2rem}
+    .tile-hero .tagline{font-size:0.9rem}
+}
+
+/* ============================================
+   TOUCH DEVICE ENHANCEMENTS
+   ============================================ */
+@media (hover:none) and (pointer:coarse) {
+    /* Disable hover effects that don't work well on touch */
+    .bento-tile:hover{transform:none}
+    .bento-tile::before{display:none}
+    .holo-card:hover{transform:translateY(-2px) scale(1)}
+    .card:hover{transform:translateY(-2px)}
+    .about-card:hover{transform:none}
+    .contact-item:hover{transform:translateY(-2px)}
+    .contact-item::before{display:none}
+    .about-card::before{display:none}
+
+    /* Larger tap targets */
+    .site-nav a{padding:12px 14px;min-height:44px;display:flex;align-items:center}
+    .news-dot{width:10px;height:10px;padding:0}
+    .news-dot.active{width:28px}
+    .btn{min-height:44px}
+    .detail-close{width:40px;height:40px;font-size:1rem}
+    .detail-footer .detail-nav button{padding:8px 16px;min-height:40px}
+
+    /* Always show scanline corners (no hover on touch) */
+    .holo-card .holo-scanline{opacity:0.5}
+    .holo-card .holo-corner{border-color:rgba(129,140,248,0.25)}
+}
+
+/* ============================================
+   SAFE AREA (notched phones)
+   ============================================ */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .site-header{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+    .site-footer{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+    .detail-panel{padding-bottom:env(safe-area-inset-bottom)}
+    .detail-footer{padding-bottom:calc(14px + env(safe-area-inset-bottom))}
 }
 
 @media print{
-    .site-header,.site-footer,.filters-bar,.load-more,.nav-toggle,.aurora{display:none!important}
+    .site-header,.site-footer,.filters-bar,.load-more,.nav-toggle,.aurora,.status-badge,.highlight-strip{display:none!important}
     body{background:#fff;color:#111}
     body::after{display:none}
     .card,.about-card,.bento-tile{break-inside:avoid;border:1px solid #ddd;background:#fff}
