@@ -1,366 +1,1041 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Issam Sayyaf - PhD Researcher & Embedded Systems Engineer</title>
-    <meta name="description" content="PhD Researcher in Signal Processing and Embedded Systems Engineer. Building intelligent systems at the intersection of deep learning, signal processing, and embedded hardware.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Issam Sayyaf - Portfolio</title>
     <link rel="icon" type="image/png" href="assets/images/icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            zoom: 1.0;
+            -moz-transform: scale(1.0);
+            -moz-transform-origin: 0 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: #f8f9fa;
+            color: #2c3e50;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            transform-origin: top left;
+        }
+
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-link:hover {
+            color: #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Updated profile container with more prominent background */
+        .profile-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 40px;
+            background: white;
+            padding: 30px;
+            padding-top: 180px; /* Increased top padding to allow more background visibility */
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        /* Larger background image behind the profile */
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 250px; /* Increased height of the background area */
+            background: url('./assets/images/background.png') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        /* Move profile image down slightly to show more background */
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            border: 5px solid white; /* Optional: adds a white border around the image */
+            margin-top: -50px; /* Pull the image up slightly to overlap with background */
+        }
+
+        .profile-image:hover {
+            transform: scale(1.02);
+        }
+
+        .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .name {
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #455a64;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center; /* centers the social links */
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            color: #455a64;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+            color: #2196F3;
+        }
+
+        /* Section styles */
+        .section {
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #1565C0;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            transition: width 0.8s ease;
+        }
+
+        .section.visible .section-title::after {
+            width: 100%;
+        }
+
+        .section-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .section-image {
+            width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-image:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
+        }
+
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0D47A1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0; 
+                transform: translateX(-30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0); 
+            }
+        }
+
+        @media (max-width: 968px) {
+            .profile-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 250px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .section-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-image {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        /* Last News Slider Styles */
+        #last-news {
+            position: relative;
+        }
+        .slider {
+            position: relative;
+            overflow: hidden;
+            height: 100px;
+            margin: 20px 0;
+        }
+        .slide {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            font-size: 1rem;
+            color: #333;
+        }
+        .slide.active {
+            display: block;
+        }
+
+        /* Academic Cards Styles */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 280px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 15px 0 10px;
+            color: #1565C0;
+        }
+        .card p {
+            font-size: 0.95rem;
+            padding: 0 15px 15px;
+            color: #455a64;
+        }
+
+        /* Updated Last News Slider Styles */
+        .news-slider {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 250px; /* adjust height as needed */
+        }
+        .news-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .news-slide.active {
+            opacity: 1;
+        }
+        .news-slide .news-text {
+            flex: 1;
+            order: 1;
+            text-align: left;
+        }
+        .news-slide img {
+            width: 250px;
+            margin-left: 20px;
+            border-radius: 10px;
+            order: 2;
+        }
+
+        /* Academic Excellence Cards - vertically stacked full-width with image beside text */
+        .academic-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        }
+      .academic-container .card {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          overflow: hidden;
+          transition: transform 0.3s ease;
+      }
+      .academic-container .card:hover {
+          transform: translateY(-5px);
+      }
+      .academic-container .card .card-content {
+          flex: 1;
+          text-align: left;
+          padding: 20px;
+          order: 1;
+      }
+      .academic-container .card img {
+      width: 200px; /* Increased size */
+      height: 200px;
+      object-fit: cover;
+      order: 2;
+      margin-left: 20px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-left: 1px solid #ddd;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+        /* Project card styles */
+        .project-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            height: auto;
+            padding: 15px;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .card-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 2;
+        }
+        
+        .category-tag {
+            background: linear-gradient(45deg, #2196F3, #0D47A1);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+        }
+        
+        .card-description {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.4;
+            margin: 10px 0;
+            text-align: left;
+        }
+        
+        .card-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+        
+        .keyword {
+            background: rgba(33, 150, 243, 0.1);
+            color: #1565C0;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+        
+        /* Update card container to accommodate larger cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            width: 380px;
+            min-height: 500px;
+            overflow: visible;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(33, 150, 243, 0.1);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid #ddd;
+            margin-top: 25px;
+            border-radius: 15px;
+            margin: 20px 15px 0 15px;
+            width: calc(100% - 30px);
+        }
+        
+        .card h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 15px;
+            color: #1565C0;
+            padding: 0 15px;
+            font-weight: 600;
+        }
+        
+        /* Enhanced project card styles */
+        .project-card {
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            height: auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(33, 150, 243, 0.2);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+        
+        .card-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 2;
+        }
+        
+        .category-tag {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-description {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+            margin: 15px 0;
+            text-align: left;
+            padding: 0 5px;
+            font-weight: 400;
+        }
+        
+        .card-keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+            justify-content: center;
+            padding: 0 10px;
+        }
+        
+        .keyword {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(33, 150, 243, 0.08));
+            color: #1565C0;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .keyword:hover {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 0.1));
+            transform: translateY(-2px);
+        }
+        
+        .project-details {
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .project-detail-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .project-detail-card h3 {
+            color: #1565C0;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .project-detail-card ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .project-detail-card li {
+            margin-bottom: 8px;
+        }
+        
+        .close-btn {
+            background: #2196F3;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: #1976D2;
+        }
+
+        /* Add these media queries after your existing styles */
+
+        /* Base styles for larger screens */
+        .section-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tablet styles */
+        @media (max-width: 1024px) {
+            body {
+                padding: 15px;
+            }
+
+            .section-content {
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .section-image {
+                width: 300px;
+            }
+
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .news-slide img {
+                width: 200px;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section-content {
+                flex-direction: column;
+            }
+
+            .section-image {
+                width: 100%;
+                max-width: 300px;
+                order: -1; /* Makes image appear before text on mobile */
+            }
+
+            .text-content {
+                text-align: left;
+            }
+
+            .news-slide {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            .news-slide img {
+                width: 100%;
+                max-width: 250px;
+                margin: 0 0 15px 0;
+                order: -1;
+            }
+
+            .news-slider {
+                height: auto;
+                min-height: 350px;
+            }
+
+            .profile-container {
+                padding: 20px;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Small mobile styles */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .name {
+                font-size: 1.8rem;
+            }
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .social-link {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+
+            .section-content {
+                padding: 15px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .section-content {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .profile-container {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<div class="aurora">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-</div>
-
-<header class="site-header">
-    <div class="header-inner">
-        <a href="index.html" class="site-logo">Issam Sayyaf</a>
-        <button class="nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
-        <nav class="site-nav">
-            <a href="index.html" class="active">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="publications.html">Publications</a>
-            <a href="blog.html">Blog</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="cv.html">CV</a>
+    <header class="header">
+        <a href="#" class="logo">Issam Sayyaf</a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="publications.html" class="nav-link">Publications</a>
+<!--             <a href="projects.html" class="nav-link">Projects</a> -->
+            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="cv.html" class="nav-link">CV</a>
         </nav>
-    </div>
-</header>
+    </header>
 
-<main>
-    <!-- Bento Hero Grid -->
-    <section class="bento-hero">
-        <div class="container">
-            <div class="bento-grid reveal">
-                <!-- Hero tile: avatar + name + CTA -->
-                <div class="bento-tile tile-hero">
-                    <div class="status-badge">Open to Opportunities</div>
-                    <img src="assets/images/issam.png" alt="Issam Sayyaf" class="hero-avatar">
-                    <h1>Issam <span class="gradient-text">Sayyaf</span></h1>
-                    <p class="tagline">PhD Researcher in Signal Processing & Embedded Systems Engineer. Building intelligent systems at the intersection of deep learning, signal processing, and embedded hardware.</p>
-                    <div class="hero-cta">
-                        <a href="cv.html" class="btn btn-download"><i class="fas fa-file-download"></i> Download CV</a>
-                        <a href="https://github.com/IssamSayyaf" class="btn btn-secondary" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.linkedin.com/in/issamsayyaf/" class="btn btn-secondary" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                        <a href="mailto:issamsayyaf97@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Hire Me</a>
-                    </div>
-                    <div class="highlight-strip">
-                        <div class="highlight-item"><i class="fas fa-graduation-cap"></i> PhD Researcher</div>
-                        <div class="highlight-sep"></div>
-                        <div class="highlight-item"><i class="fas fa-file-alt"></i> 6 Publications</div>
-                        <div class="highlight-sep"></div>
-                        <div class="highlight-item"><i class="fas fa-microchip"></i> Embedded Linux</div>
-                        <div class="highlight-sep"></div>
-                        <div class="highlight-item"><i class="fas fa-brain"></i> Deep Learning</div>
-                    </div>
-                </div>
-
-                <!-- About tile -->
-                <div class="bento-tile tile-about">
-                    <h2>About Me</h2>
-                    <p>Currently pursuing a PhD at Universite Gustave Eiffel, researching anomaly detection for positioning signals using deep learning and advanced signal processing.</p>
-                    <ul>
-                        <li>Embedded Linux &mdash; Yocto, BSP, STM32MP1, i.MX93</li>
-                        <li>Deep Learning &mdash; Anomaly detection, autoencoders</li>
-                        <li>Signal Processing &mdash; PDR, IMU, positioning</li>
-                        <li>IoT &mdash; Zephyr RTOS, FreeRTOS, sensors</li>
-                    </ul>
-                </div>
-
-                <!-- News tile -->
-                <div class="bento-tile tile-news">
-                    <span class="news-badge"><i class="fas fa-bolt"></i> Latest</span>
-                    <h3>IPIN 2025 Conference</h3>
-                    <p>Presenting research on indoor positioning and navigation systems in Tampere, Finland.</p>
-                </div>
-
-                <!-- Stats tile -->
-                <div class="bento-tile tile-stats">
-                    <div style="margin-bottom:18px">
-                        <div class="stat-number gradient-text" id="pubCount">6</div>
-                        <div class="stat-label">Publications</div>
-                    </div>
-                    <div>
-                        <div class="stat-number gradient-text" id="projCount">12</div>
-                        <div class="stat-label">Projects</div>
-                    </div>
-                </div>
-
-                <!-- Publications tile -->
-                <div class="bento-tile tile-pub">
-                    <h3><i class="fas fa-file-alt" style="color:var(--accent);margin-right:6px"></i> Recent Publications</h3>
-                    <div class="pub-list" id="recentPubs">
-                        <div class="pub-item">
-                            <span class="pub-year">2025</span>
-                            <span>Anomaly Filtering for Pedestrian Dead Reckoning Using Segment-Based Autoencoders &mdash; IEEE/ION PLANS</span>
-                        </div>
-                        <div class="pub-item">
-                            <span class="pub-year">2025</span>
-                            <span>Step Detection Enhanced by Anomaly Filtering &mdash; IEEE APSCON</span>
-                        </div>
-                    </div>
-                    <a href="publications.html" class="btn btn-secondary btn-sm" style="margin-top:14px"><i class="fas fa-arrow-right"></i> All Publications</a>
-                </div>
-
-                <!-- Skills tile -->
-                <div class="bento-tile tile-skills">
-                    <h3><i class="fas fa-microchip" style="color:var(--accent);margin-right:6px"></i> Tech Stack</h3>
-                    <div class="skill-group">
-                        <div class="skill-group-label">Embedded</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">STM32</span>
-                            <span class="skill-tag">Yocto</span>
-                            <span class="skill-tag">Zephyr</span>
-                            <span class="skill-tag">FreeRTOS</span>
-                            <span class="skill-tag">Linux BSP</span>
-                        </div>
-                    </div>
-                    <div class="skill-group">
-                        <div class="skill-group-label">AI / ML</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">TensorFlow</span>
-                            <span class="skill-tag">Autoencoders</span>
-                            <span class="skill-tag">Signal Processing</span>
-                        </div>
-                    </div>
-                    <div class="skill-group">
-                        <div class="skill-group-label">Languages</div>
-                        <div class="skill-tags">
-                            <span class="skill-tag">C/C++</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Rust</span>
-                            <span class="skill-tag">Bash</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Carousel Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="overline"><i class="fas fa-bolt"></i> What's New</div>
-                <h2>Latest News</h2>
-            </div>
-            <div class="news-carousel reveal reveal-delay-1">
-                <div class="news-track">
-                    <div class="news-slide active">
-                        <img src="assets/images/geoloc1.png" alt="IPIN Conference">
-                        <div class="news-content">
-                            <h3>IPIN 2025 Conference</h3>
-                            <p>Attending IPIN 2025 Conference in Tampere, Finland to present research on indoor positioning and navigation systems.</p>
-                        </div>
-                    </div>
-                    <div class="news-slide">
-                        <img src="assets/images/geoloc1.png" alt="ION PLANS">
-                        <div class="news-content">
-                            <h3>ION PLANS Publication</h3>
-                            <p>New publication accepted at ION PLANS IEEE conference on anomaly filtering for pedestrian dead reckoning.</p>
-                        </div>
-                    </div>
-                    <div class="news-slide">
-                        <img src="assets/images/APSCON.svg" alt="IEEE APSCON">
-                        <div class="news-content">
-                            <h3>IEEE APSCON Paper</h3>
-                            <p>New publication accepted at IEEE APSCON: "Step Detection Enhanced by Anomaly Filtering" for improved pedestrian navigation.</p>
-                        </div>
-                    </div>
-                    <div class="news-slide">
-                        <img src="assets/images/geoloc1.png" alt="PhD">
-                        <div class="news-content">
-                            <h3>PhD at GEOLOC Lab</h3>
-                            <p>Started PhD position at GEOLOC Lab, Universite Gustave Eiffel, working on anomaly detection for positioning signals.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="news-controls">
-                    <button class="news-dot active" aria-label="Slide 1"></button>
-                    <button class="news-dot" aria-label="Slide 2"></button>
-                    <button class="news-dot" aria-label="Slide 3"></button>
-                    <button class="news-dot" aria-label="Slide 4"></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Showcase -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header reveal" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px">
-                <div>
-                    <div class="overline"><i class="fas fa-terminal"></i> System.projects</div>
-                    <h2>Selected Work</h2>
-                </div>
-                <a href="projects.html" class="btn btn-secondary btn-sm">View Archive <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="holo-grid reveal reveal-delay-1" id="projects-grid"></div>
-            <div id="project-details-container"></div>
-        </div>
-    </section>
-</main>
-
-<footer class="site-footer">
-    <div class="container">
-        <div class="footer-inner">
-            <p>&copy; 2025 Issam Sayyaf. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="projects.html">Projects</a>
-                <a href="publications.html">Publications</a>
-                <a href="blog.html">Blog</a>
-                <a href="contact.html">Contact</a>
+    <!-- Updated profile section: image centered above info -->
+    <div class="profile-container">
+        <img src="./assets/images/issam.png" alt="Issam Sayyaf" class="profile-image"/>
+        <div class="profile-content">
+            <h1 class="name">Issam Sayyaf</h1>
+            <h2 class="title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
+            <div class="social-links">
+                <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
             </div>
         </div>
     </div>
-</footer>
 
-<script src="assets/js/main.js"></script>
-<script>
-class HomeProjectLoader {
-    constructor() { this.data = null; this.init(); }
-
-    async init() {
-        try {
-            const res = await fetch('home-projects/home-projects-data.json');
-            this.data = await res.json();
-            this.render();
-            this.setupModals();
-            this.updateStats();
-        } catch (e) { console.error('Error:', e); }
-    }
-
-    updateStats() {
-        const projEl = document.getElementById('projCount');
-        if (projEl && this.data) projEl.textContent = this.data.projects.length;
-    }
-
-    render() {
-        const el = document.getElementById('projects-grid');
-        const sorted = this.data.projects.sort((a, b) => a.order - b.order).slice(0, 6);
-        const sizes = ['large','small','small','small','small','large'];
-        el.innerHTML = sorted.map((p, i) => {
-            const tags = p.keywords.slice(0, 4).map(k => `<span class="tech-badge">${k}</span>`).join('');
-            const cat = p.categories[0] || '';
-            return `<div class="holo-card holo-${sizes[i] || 'small'}" onclick="toggleDetail('${p.id}')">
-                <div class="holo-card-bg"><img src="${p.image}" alt="${p.title}" onerror="this.src='assets/images/background.png'"></div>
-                <div class="holo-scanline"></div>
-                <div class="holo-card-content">
-                    <div class="holo-top">
-                        <span class="holo-id">PRJ-${String(i+1).padStart(3,'0')}</span>
-                        <span class="badge badge-accent">${cat}</span>
-                    </div>
-                    <div class="holo-bottom">
-                        <h3>${p.title}</h3>
-                        <p>${p.description}</p>
-                        <div class="tags-list">${tags}</div>
-                    </div>
-                    <div class="holo-corner holo-corner-tl"></div>
-                    <div class="holo-corner holo-corner-tr"></div>
-                    <div class="holo-corner holo-corner-bl"></div>
-                    <div class="holo-corner holo-corner-br"></div>
+    <!-- Last News Section with fade animation -->
+    <section class="section" id="last-news">
+        <h2 class="section-title">Last News</h2>
+        <div class="news-slider">
+            <div class="news-slide active">
+                <img src="./assets/images/geoloc1.png" alt="IPIN Conference">
+                <div class="news-text">
+                    <h3>News 1</h3>
+                    <p>Attending IPIN 2025 Conference in Tampere, Finland to present research on indoor positioning and navigation systems.</p>
                 </div>
-            </div>`;
-        }).join('');
-    }
+            </div>
+            <div class="news-slide">
+                <img src="./assets/images/geoloc1.png" alt="ION PLANS">
+                <div class="news-text">
+                    <h3>News 2</h3>
+                    <p>New publication accepted at an ION PLANS IEEE.</p>
+                </div>
+            </div>
+            <div class="news-slide">
+                <img src="./assets/images/APSCON.svg" alt="APSCON Conference">
+                <div class="news-text">
+                    <h3>News 3</h3>
+                    <p>New publication accepted at an IEEE conference APSCON "Step Detection Enhanced by Anomaly Filtering".</p>
+                </div>
+            </div>
+            <div class="news-slide">
+                <img src="./assets/images/geoloc1.png" alt="PhD Start">
+                <div class="news-text">
+                    <h3>News 4</h3>
+                    <p>Started my PhD position at GEOLOC Lab.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    async setupModals() {
-        const container = document.getElementById('project-details-container');
-        // Create shared overlay
-        if (!document.getElementById('detail-overlay')) {
-            const overlay = document.createElement('div');
-            overlay.id = 'detail-overlay';
-            overlay.className = 'detail-overlay';
-            overlay.addEventListener('click', () => closeDetail());
-            document.body.appendChild(overlay);
+    <!-- Embedded Yocto Projects Section -->
+    <section class="section" id="yocto-projects">
+        <h2 class="section-title">Embedded Projects</h2>
+        <div class="card-container" id="projects-card-container">
+            <!-- Projects will be dynamically loaded here -->
+        </div>
+        
+        <!-- Project Details Container (dynamically populated) -->
+        <div id="project-details-container"></div>
+    </section>
+
+    <script>
+        function handleScroll() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const offset = window.innerHeight * 0.8;
+                
+                if (rect.top < offset) {
+                    section.classList.add('visible');
+                }
+            });
         }
 
-        const sorted = this.data.projects.sort((a, b) => a.order - b.order);
-        let html = '';
-        for (let i = 0; i < sorted.length; i++) {
-            const p = sorted[i];
-            const prev = sorted[i - 1];
-            const next = sorted[i + 1];
-            let content;
-            try {
-                const res = await fetch(p.detailsFile);
-                const md = await res.text();
-                content = typeof marked !== 'undefined' ? marked.parse(md) : md;
-            } catch { content = '<p>Details not available.</p>'; }
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', () => {
+            handleScroll();
+        });
 
-            const cats = p.categories.map(c => `<span class="badge badge-accent">${c}</span>`).join('');
-            const tags = p.keywords.map(k => `<span class="tech-badge">${k}</span>`).join('');
-            const num = String(i + 1).padStart(3, '0');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const slideInterval = setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 5000); // Change slide every 5 seconds
 
-            html += `<div id="${p.id}-detail" class="detail-panel" data-index="${i}">
-                <div class="detail-header">
-                    <div class="detail-header-left">
-                        <span class="holo-id">PRJ-${num}</span>
-                        <span class="detail-title-sm">${p.title}</span>
-                    </div>
-                    <button class="detail-close" onclick="closeDetail()" aria-label="Close"><i class="fas fa-times"></i></button>
+        // Auto-cycle Last News Slider with fade animation
+        const newsSlides = document.querySelectorAll('.news-slide');
+        let currentNewsSlide = 0;
+        setInterval(() => {
+            newsSlides[currentNewsSlide].classList.remove('active');
+            currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
+            newsSlides[currentNewsSlide].classList.add('active');
+        }, 5000); // Change news every 5 seconds
+        
+        // Dynamic Project Loader for Home Page
+        class HomeProjectLoader {
+            constructor() {
+                this.projectsData = null;
+                this.init();
+            }
+
+            async init() {
+                try {
+                    console.log('Loading projects data...');
+                    await this.loadProjectsData();
+                    console.log('Projects data loaded:', this.projectsData);
+                    this.renderProjects();
+                    console.log('Projects rendered');
+                    this.setupDetailModals();
+                    console.log('Detail modals setup complete');
+                } catch (error) {
+                    console.error('Error loading projects:', error);
+                }
+            }
+
+            async loadProjectsData() {
+                const response = await fetch('home-projects/home-projects-data.json');
+                if (!response.ok) throw new Error('Failed to load projects data');
+                this.projectsData = await response.json();
+            }
+
+            renderProjects() {
+                const container = document.getElementById('projects-card-container');
+                const sortedProjects = this.projectsData.projects.sort((a, b) => a.order - b.order);
+                
+                let html = '';
+                sortedProjects.forEach(project => {
+                    html += this.createProjectCard(project);
+                });
+                
+                container.innerHTML = html;
+            }
+
+            createProjectCard(project) {
+                const categories = project.categories.map(cat => 
+                    `<span class="category-tag">${cat}</span>`
+                ).join('\n                    ');
+                
+                const keywords = project.keywords.map(kw => 
+                    `<span class="keyword">${kw}</span>`
+                ).join('\n                    ');
+                
+                return `
+            <!-- Project: ${project.title} -->
+            <div class="card project-card" onclick="toggleProjectDetails('${project.id}')">
+                <div class="card-category">
+                    ${categories}
                 </div>
-                <div class="detail-hero">
-                    <img src="${p.image}" alt="${p.title}" onerror="this.src='assets/images/background.png'">
-                    <div class="hud-corner hud-tl"></div>
-                    <div class="hud-corner hud-tr"></div>
-                    <div class="hud-corner hud-bl"></div>
-                    <div class="hud-corner hud-br"></div>
+                <img src="${project.image}" alt="${project.title}" />
+                <h3>${project.title}</h3>
+                <p class="card-description">${project.description}</p>
+                <div class="card-keywords">
+                    ${keywords}
                 </div>
-                <div class="detail-meta-bar">${cats}${tags}</div>
-                <div class="detail-body">${content}</div>
-                <div class="detail-footer">
-                    <div class="detail-nav">
-                        ${prev ? `<button onclick="navigateDetail('${prev.id}')"><i class="fas fa-chevron-left"></i> Prev</button>` : ''}
-                        ${next ? `<button onclick="navigateDetail('${next.id}')">Next <i class="fas fa-chevron-right"></i></button>` : ''}
-                    </div>
-                    <button class="btn btn-primary btn-sm" onclick="closeDetail()"><i class="fas fa-times"></i> Close</button>
-                </div>
-            </div>`;
+            </div>
+                `;
+            }
+
+            async setupDetailModals() {
+                const detailsContainer = document.getElementById('project-details-container');
+                if (!detailsContainer) return;
+                
+                let html = '';
+                for (const project of this.projectsData.projects) {
+                    const content = await this.loadMarkdownContent(project.detailsFile);
+                    html += this.createDetailModal(project, content);
+                }
+                detailsContainer.innerHTML = html;
+            }
+
+            async loadMarkdownContent(filePath) {
+                try {
+                    const response = await fetch(filePath);
+                    if (!response.ok) return '<p>Content not available.</p>';
+                    const markdown = await response.text();
+                    
+                    // Convert markdown to HTML using marked.js if available
+                    if (typeof marked !== 'undefined') {
+                        return marked.parse(markdown);
+                    }
+                    // Fallback: simple markdown to HTML conversion
+                    return this.simpleMarkdownToHTML(markdown);
+                } catch (error) {
+                    console.error('Error loading markdown:', error);
+                    return '<p>Content not available.</p>';
+                }
+            }
+
+            simpleMarkdownToHTML(markdown) {
+                return markdown
+                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^## (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/^# (.*$)/gim, '<h3>$1</h3>')
+                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                    .replace(/^- (.+)$/gim, '<li>$1</li>')
+                    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+                    .replace(/\n/g, '<br>');
+            }
+
+            createDetailModal(project, content) {
+                const imageSection = project.image ? `
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="${project.image}" alt="${project.title}" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </div>` : '';
+                
+                return `
+    <div id="${project.id}-details" class="project-details" style="display: none;">
+        <div class="project-detail-card">
+            ${imageSection}
+            ${content}
+            <button onclick="toggleProjectDetails('${project.id}')" class="close-btn">Close</button>
+        </div>
+    </div>
+                `;
+            }
         }
-        container.innerHTML = html;
-    }
-}
 
-function toggleDetail(id) {
-    const overlay = document.getElementById('detail-overlay');
-    const el = document.getElementById(id + '-detail');
-    // Close all others
-    document.querySelectorAll('.detail-panel').forEach(d => d.classList.remove('open'));
-    // Open
-    el.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeDetail() {
-    document.querySelectorAll('.detail-panel').forEach(d => d.classList.remove('open'));
-    const overlay = document.getElementById('detail-overlay');
-    if (overlay) overlay.classList.remove('open');
-    document.body.style.overflow = '';
-}
-
-function navigateDetail(id) {
-    document.querySelectorAll('.detail-panel').forEach(d => d.classList.remove('open'));
-    const el = document.getElementById(id + '-detail');
-    if (el) el.classList.add('open');
-}
-
-// Close on Escape
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDetail();
-});
-
-new HomeProjectLoader();
-</script>
+        // Initialize the project loader when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('DOMContentLoaded - Initializing HomeProjectLoader...');
+                new HomeProjectLoader();
+            });
+        } else {
+            console.log('DOM already loaded - Initializing HomeProjectLoader immediately...');
+            new HomeProjectLoader();
+        }
+        
+        // Toggle project details
+        function toggleProjectDetails(projectId) {
+            const details = document.getElementById(projectId + '-details');
+            const allDetails = document.querySelectorAll('.project-details');
+            
+            // Hide all other project details
+            allDetails.forEach(detail => {
+                if (detail.id !== projectId + '-details') {
+                    detail.style.display = 'none';
+                }
+            });
+            
+            // Toggle current project details
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                details.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                details.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
