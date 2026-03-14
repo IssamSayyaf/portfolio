@@ -1,1041 +1,1473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Issam Sayyaf - Portfolio</title>
-    <link rel="icon" type="image/png" href="assets/images/icon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issam SAYYAF — Firmware & Embedded Systems Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #3DCD58;
+            --primary-dark: #00A13A;
+            --dark: #1A1A2E;
+            --navy: #16213E;
+            --accent: #2D5A7B;
+            --white: #FFFFFF;
+            --light: #F7F8FA;
+            --gray-100: #F1F3F5;
+            --gray-200: #E9ECEF;
+            --gray-300: #DEE2E6;
+            --gray-500: #6C757D;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+            --radius: 10px;
         }
 
-        html {
-            zoom: 1.0;
-            -moz-transform: scale(1.0);
-            -moz-transform-origin: 0 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--gray-100);
+            color: var(--gray-900);
             line-height: 1.6;
-            background: #f8f9fa;
-            color: #2c3e50;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            transform-origin: top left;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Header styles */
-        .header {
+        /* PRINT */
+        @media print {
+            body { background: white; font-size: 11px; }
+            .hero { padding: 30px 0 20px; break-after: avoid; }
+            section { padding: 20px 0; break-inside: avoid; }
+            .nav-bar, .print-btn, .export-bar { display: none !important; }
+            .container { max-width: 100%; padding: 0 20px; }
+            .skills-grid { grid-template-columns: repeat(3, 1fr); }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .card { box-shadow: none; border: 1px solid #ddd; }
+            @page { margin: 1cm; }
+        }
+
+        /* EXPORT BAR */
+        .export-bar {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            animation: fadeIn 0.5s ease-out;
+            gap: 10px;
         }
-
-        .logo {
-            font-size: 1.2rem;
-            color: #0066cc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: #666;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-        }
-
-        .nav-link:hover {
-            color: #0066cc;
-            background: rgba(0, 102, 204, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Updated profile container with more prominent background */
-        .profile-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 40px;
-            background: white;
-            padding: 30px;
-            padding-top: 180px; /* Increased top padding to allow more background visibility */
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            animation: slideIn 0.8s ease-out;
-            overflow: hidden;
-        }
-
-        /* Larger background image behind the profile */
-        .profile-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 250px; /* Increased height of the background area */
-            background: url('./assets/images/background.png') no-repeat center center;
-            background-size: cover;
-            z-index: 0;
-        }
-
-        /* Move profile image down slightly to show more background */
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-            border: 5px solid white; /* Optional: adds a white border around the image */
-            margin-top: -50px; /* Pull the image up slightly to overlap with background */
-        }
-
-        .profile-image:hover {
-            transform: scale(1.02);
-        }
-
-        .profile-content {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .name {
-            font-size: 2.5rem;
-            background: linear-gradient(45deg, #2196F3, #0D47A1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .title {
-            font-size: 1.2rem;
-            color: #455a64;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center; /* centers the social links */
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            color: #455a64;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
-            color: #2196F3;
-        }
-
-        /* Section styles */
-        .section {
-            margin-bottom: 60px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            color: #1565C0;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #2196F3, #0D47A1);
-            transition: width 0.8s ease;
-        }
-
-        .section.visible .section-title::after {
-            width: 100%;
-        }
-
-        .section-content {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .text-content {
-            flex: 1;
-        }
-
-        .section-image {
-            width: 400px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .section-image:hover {
-            transform: scale(1.05) translateY(-10px);
-            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.2);
-        }
-
-        a {
-            color: #2196F3;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #0D47A1;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { 
-                opacity: 0; 
-                transform: translateX(-30px); 
-            }
-            to { 
-                opacity: 1; 
-                transform: translateX(0); 
-            }
-        }
-
-        @media (max-width: 968px) {
-            .profile-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .profile-image {
-                width: 250px;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-
-            .section-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .section-image {
-                width: 100%;
-                max-width: 400px;
-            }
-        }
-
-        /* Last News Slider Styles */
-        #last-news {
-            position: relative;
-        }
-        .slider {
-            position: relative;
-            overflow: hidden;
-            height: 100px;
-            margin: 20px 0;
-        }
-        .slide {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            font-size: 1rem;
-            color: #333;
-        }
-        .slide.active {
-            display: block;
-        }
-
-        /* Academic Cards Styles */
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            width: 280px;
-            overflow: hidden;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
-        }
-        .card h3 {
-            font-size: 1.2rem;
-            margin: 15px 0 10px;
-            color: #1565C0;
-        }
-        .card p {
-            font-size: 0.95rem;
-            padding: 0 15px 15px;
-            color: #455a64;
-        }
-
-        /* Updated Last News Slider Styles */
-        .news-slider {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 250px; /* adjust height as needed */
-        }
-        .news-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        .news-slide.active {
-            opacity: 1;
-        }
-        .news-slide .news-text {
-            flex: 1;
-            order: 1;
-            text-align: left;
-        }
-        .news-slide img {
-            width: 250px;
-            margin-left: 20px;
-            border-radius: 10px;
-            order: 2;
-        }
-
-        /* Academic Excellence Cards - vertically stacked full-width with image beside text */
-        .academic-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        }
-      .academic-container .card {
-          display: flex;
-          align-items: center;
-          width: 100%;
-          background: white;
-          border-radius: 10px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-          overflow: hidden;
-          transition: transform 0.3s ease;
-      }
-      .academic-container .card:hover {
-          transform: translateY(-5px);
-      }
-      .academic-container .card .card-content {
-          flex: 1;
-          text-align: left;
-          padding: 20px;
-          order: 1;
-      }
-      .academic-container .card img {
-      width: 200px; /* Increased size */
-      height: 200px;
-      object-fit: cover;
-      order: 2;
-      margin-left: 20px;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      border-left: 1px solid #ddd;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-
-        /* Project card styles */
-        .project-card {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            height: auto;
-            padding: 15px;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .card-category {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            z-index: 2;
-        }
-        
-        .category-tag {
-            background: linear-gradient(45deg, #2196F3, #0D47A1);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 15px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
-        }
-        
-        .card-description {
-            font-size: 0.85rem;
-            color: #555;
-            line-height: 1.4;
-            margin: 10px 0;
-            text-align: left;
-        }
-        
-        .card-keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 10px;
-            justify-content: center;
-        }
-        
-        .keyword {
-            background: rgba(33, 150, 243, 0.1);
-            color: #1565C0;
-            padding: 3px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: 500;
-            border: 1px solid rgba(33, 150, 243, 0.2);
-        }
-        
-        /* Update card container to accommodate larger cards */
-        .card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-            width: 380px;
-            min-height: 500px;
-            overflow: visible;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(33, 150, 243, 0.1);
-        }
-        
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: 1px solid #ddd;
-            margin-top: 25px;
-            border-radius: 15px;
-            margin: 20px 15px 0 15px;
-            width: calc(100% - 30px);
-        }
-        
-        .card h3 {
-            font-size: 1.3rem;
-            margin: 20px 0 15px;
-            color: #1565C0;
-            padding: 0 15px;
-            font-weight: 600;
-        }
-        
-        /* Enhanced project card styles */
-        .project-card {
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            height: auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(33, 150, 243, 0.2);
-            border-color: rgba(33, 150, 243, 0.3);
-        }
-        
-        .card-category {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            z-index: 2;
-        }
-        
-        .category-tag {
-            background: linear-gradient(135deg, #2196F3, #1976D2);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .card-description {
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.5;
-            margin: 15px 0;
-            text-align: left;
-            padding: 0 5px;
-            font-weight: 400;
-        }
-        
-        .card-keywords {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 15px;
-            justify-content: center;
-            padding: 0 10px;
-        }
-        
-        .keyword {
-            background: linear-gradient(135deg, rgba(33, 150, 243, 0.15), rgba(33, 150, 243, 0.08));
-            color: #1565C0;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid rgba(33, 150, 243, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .keyword:hover {
-            background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 0.1));
-            transform: translateY(-2px);
-        }
-        
-        .project-details {
-            margin-top: 30px;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        
-        .project-detail-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        
-        .project-detail-card h3 {
-            color: #1565C0;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .project-detail-card ul {
-            margin: 15px 0;
-            padding-left: 20px;
-        }
-        
-        .project-detail-card li {
-            margin-bottom: 8px;
-        }
-        
-        .close-btn {
-            background: #2196F3;
+        .print-btn {
+            background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 1rem;
-            margin-top: 20px;
-            transition: background 0.3s ease;
-        }
-        
-        .close-btn:hover {
-            background: #1976D2;
-        }
-
-        /* Add these media queries after your existing styles */
-
-        /* Base styles for larger screens */
-        .section-content {
+            box-shadow: 0 4px 20px rgba(61,205,88,0.4);
+            transition: all 0.2s;
             display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 28px rgba(61,205,88,0.5);
+        }
+        .print-btn svg { width: 18px; height: 18px; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 40%, var(--accent) 100%);
+            color: white;
+            padding: 60px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(61,205,88,0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(61,205,88,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero .container { position: relative; z-index: 1; }
+        .hero-grid {
+            display: flex;
+            align-items: center;
             gap: 40px;
-            align-items: flex-start;
+        }
+        .hero-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid rgba(61,205,88,0.5);
+            box-shadow: 0 0 0 8px rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.3);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+        .hero .role {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--primary);
+            margin-top: 6px;
+        }
+        .hero .target {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 6px 18px;
+            background: rgba(61,205,88,0.15);
+            border: 1px solid rgba(61,205,88,0.3);
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            letter-spacing: 0.3px;
+        }
+        .hero-meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+        }
+        .hero-meta a, .hero-meta span {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .hero-meta a:hover { color: var(--primary); }
+        .hero-meta svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 4px; opacity: 0.6; }
+
+        /* NAV */
+        .nav-bar {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+        .nav-inner::-webkit-scrollbar { height: 0; }
+        .nav-inner a {
+            padding: 14px 18px;
+            text-decoration: none;
+            color: var(--gray-500);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .nav-inner a:hover, .nav-inner a.active {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary);
         }
 
-        /* Tablet styles */
-        @media (max-width: 1024px) {
-            body {
-                padding: 15px;
-            }
-
-            .section-content {
-                gap: 20px;
-                padding: 20px;
-            }
-
-            .section-image {
-                width: 300px;
-            }
-
-            .profile-image {
-                width: 180px;
-                height: 180px;
-            }
-
-            .name {
-                font-size: 2rem;
-            }
-
-            .news-slide img {
-                width: 200px;
-            }
+        /* LAYOUT */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        section {
+            padding: 52px 0;
+        }
+        .section-header {
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--gray-900);
+            letter-spacing: -0.3px;
+        }
+        .section-tag {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            background: rgba(61,205,88,0.1);
+            color: var(--primary-dark);
+        }
+        .section-line {
+            flex: 1;
+            height: 2px;
+            background: var(--gray-200);
+            border-radius: 1px;
+        }
+        .green-line {
+            width: 40px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
-        /* Mobile styles */
+        /* CARDS */
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+            overflow: hidden;
+        }
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        /* SUMMARY */
+        .summary-section { background: white; }
+        .summary-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray-700);
+            max-width: 900px;
+        }
+        .summary-text strong { color: var(--gray-900); }
+        .highlight-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+        .highlight-item {
+            text-align: center;
+            padding: 20px 12px;
+            background: var(--gray-100);
+            border-radius: var(--radius);
+            border-top: 3px solid var(--primary);
+        }
+        .highlight-item .num {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary-dark);
+            line-height: 1;
+        }
+        .highlight-item .label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 6px;
+        }
+
+        /* EXPERTISE GRID */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+        .expertise-item {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: white;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+        .expertise-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(61,205,88,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary-dark);
+            font-size: 16px;
+        }
+        .expertise-item h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+        .expertise-item p {
+            font-size: 12px;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .skill-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .skill-card-header {
+            padding: 12px 16px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: white;
+        }
+        .skill-card-header.green { background: var(--primary-dark); }
+        .skill-card-header.navy { background: var(--navy); }
+        .skill-card-header.accent { background: var(--accent); }
+        .skill-card-body {
+            padding: 14px 16px;
+        }
+        .skill-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            margin: 3px 2px;
+            background: var(--gray-100);
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        .skill-tag.highlight {
+            background: rgba(61,205,88,0.12);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border: 1px solid rgba(61,205,88,0.2);
+        }
+
+        /* EDUCATION */
+        .edu-timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .edu-timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: var(--gray-200);
+        }
+        .edu-item {
+            position: relative;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+        .edu-item::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 28px;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+        .edu-period {
+            display: inline-block;
+            padding: 3px 12px;
+            background: rgba(61,205,88,0.1);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+        }
+        .edu-item h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 2px;
+        }
+        .edu-institution {
+            font-size: 13px;
+            color: var(--gray-500);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .edu-details {
+            list-style: none;
+            padding: 0;
+        }
+        .edu-details li {
+            font-size: 13px;
+            color: var(--gray-700);
+            padding: 3px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+        .edu-details li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            opacity: 0.5;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .project-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .project-accent {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        .project-img {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            background: var(--gray-100);
+        }
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        .project-body {
+            padding: 18px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-body h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+        .project-body p {
+            font-size: 12.5px;
+            color: var(--gray-500);
+            line-height: 1.6;
+            flex: 1;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 12px;
+        }
+        .project-tag {
+            padding: 3px 9px;
+            background: var(--gray-100);
+            border-radius: 4px;
+            font-size: 10.5px;
+            font-weight: 600;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .project-tag.key {
+            background: rgba(61,205,88,0.1);
+            color: var(--primary-dark);
+        }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-decoration: none;
+        }
+        .project-link:hover { text-decoration: underline; }
+        .project-link svg { width: 14px; height: 14px; }
+
+        /* PROJECT SUBSECTION */
+        .projects-subsection {
+            margin-top: 40px;
+        }
+        .projects-subsection h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .projects-subsection h3 .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        /* PUBLICATIONS */
+        .pub-list { list-style: none; }
+        .pub-item {
+            padding: 14px 18px;
+            margin-bottom: 10px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .pub-badge {
+            flex-shrink: 0;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .pub-badge.journal { background: rgba(61,205,88,0.12); color: var(--primary-dark); }
+        .pub-badge.conf { background: rgba(45,90,123,0.1); color: var(--accent); }
+        .pub-badge.dataset { background: rgba(255,165,0,0.12); color: #c77d00; }
+        .pub-content h4 {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 3px;
+        }
+        .pub-venue {
+            font-size: 12px;
+            color: var(--gray-500);
+        }
+
+        /* LANGUAGES */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .lang-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            padding: 20px;
+            text-align: center;
+        }
+        .lang-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .lang-level {
+            font-size: 12px;
+            color: var(--gray-500);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .lang-bar-bg {
+            height: 6px;
+            background: var(--gray-200);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .lang-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.5);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 13px;
+        }
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .section-content {
-                flex-direction: column;
-            }
-
-            .section-image {
-                width: 100%;
-                max-width: 300px;
-                order: -1; /* Makes image appear before text on mobile */
-            }
-
-            .text-content {
-                text-align: left;
-            }
-
-            .news-slide {
-                flex-direction: column;
-                height: auto;
-                padding: 15px;
-            }
-
-            .news-slide img {
-                width: 100%;
-                max-width: 250px;
-                margin: 0 0 15px 0;
-                order: -1;
-            }
-
-            .news-slider {
-                height: auto;
-                min-height: 350px;
-            }
-
-            .profile-container {
-                padding: 20px;
-            }
-
-            .social-links {
-                flex-wrap: wrap;
-            }
-        }
-
-        /* Small mobile styles */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .name {
-                font-size: 1.8rem;
-            }
-
-            .title {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
-
-            .social-link {
-                padding: 6px 12px;
-                font-size: 0.9rem;
-            }
-
-            .section-content {
-                padding: 15px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            .section-content {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            .profile-container {
-                break-inside: avoid;
-                page-break-inside: avoid;
+            .hero h1 { font-size: 28px; }
+            .hero-grid { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-meta { justify-content: center; }
+            .highlight-bar { grid-template-columns: repeat(2, 1fr); }
+            .expertise-grid, .skills-grid, .projects-grid, .lang-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <a href="#" class="logo">Issam Sayyaf</a>
-        <nav class="nav-links">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="publications.html" class="nav-link">Publications</a>
-<!--             <a href="projects.html" class="nav-link">Projects</a> -->
-            <a href="blog.html" class="nav-link">Blog</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-            <a href="cv.html" class="nav-link">CV</a>
-        </nav>
-    </header>
 
-    <!-- Updated profile section: image centered above info -->
-    <div class="profile-container">
-        <img src="./assets/images/issam.png" alt="Issam Sayyaf" class="profile-image"/>
-        <div class="profile-content">
-            <h1 class="name">Issam Sayyaf</h1>
-            <h2 class="title">PhD Researcher in Signal Processing | Embedded Systems Engineer</h2>
-            <div class="social-links">
-                <a href="https://github.com/IssamSayyaf" class="social-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://www.linkedin.com/in/issamsayyaf/" class="social-link" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="mailto:issamsayyaf97@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
+<!-- HERO -->
+<header class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-photo">
+                <img src="images/issam-sayyaf.png" alt="Issam SAYYAF">
+            </div>
+            <div>
+                <h1>Issam SAYYAF</h1>
+                <div class="role">Firmware & Embedded Systems Engineer</div>
+                <div class="target">Embedded Systems Engineer, PhD in AI Embedded Systems</div>
+                <div class="hero-meta">
+                    <a href="mailto:issamsayyaf97@gmail.com">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 4-10 8L2 4"/></svg>
+                        issamsayyaf97@gmail.com
+                    </a>
+                    <a href="https://www.linkedin.com/in/issamsayyaf/">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/IssamSayyaf">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://issam-sayyaf.com">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                        issam-sayyaf.com
+                    </a>
+                    <span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Nantes, France
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</header>
 
-    <!-- Last News Section with fade animation -->
-    <section class="section" id="last-news">
-        <h2 class="section-title">Last News</h2>
-        <div class="news-slider">
-            <div class="news-slide active">
-                <img src="./assets/images/geoloc1.png" alt="IPIN Conference">
-                <div class="news-text">
-                    <h3>News 1</h3>
-                    <p>Attending IPIN 2025 Conference in Tampere, Finland to present research on indoor positioning and navigation systems.</p>
-                </div>
+<!-- NAV -->
+<nav class="nav-bar">
+    <div class="nav-inner">
+        <a href="#summary">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#languages">Languages</a>
+        <a href="#publications">Publications</a>
+    </div>
+</nav>
+
+<!-- PROFESSIONAL SUMMARY -->
+<section id="summary" class="summary-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Professional Profile</h2>
+            <div class="green-line"></div>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="summary-text">
+            Embedded systems engineer with <strong>5+ years of experience</strong> in firmware development,
+            microcontroller programming (<strong>ARM Cortex-M/A, STM32</strong>), and real-time systems.
+            Currently completing a PhD in <strong>signal processing and embedded systems</strong> at
+            Universite Gustave Eiffel. Proven expertise in <strong>C/C++/Python</strong>, communication
+            protocols (<strong>I2C, SPI, UART, GPIO, ADC</strong>), Linux kernel driver development,
+            and CI/CD practices. Author of <strong>10+ peer-reviewed publications</strong> demonstrating
+            strong technical documentation and research skills.
+        </div>
+
+        <div class="highlight-bar">
+            <div class="highlight-item">
+                <div class="num">5+</div>
+                <div class="label">Years Embedded</div>
             </div>
-            <div class="news-slide">
-                <img src="./assets/images/geoloc1.png" alt="ION PLANS">
-                <div class="news-text">
-                    <h3>News 2</h3>
-                    <p>New publication accepted at an ION PLANS IEEE.</p>
-                </div>
+            <div class="highlight-item">
+                <div class="num">10+</div>
+                <div class="label">Publications</div>
             </div>
-            <div class="news-slide">
-                <img src="./assets/images/APSCON.svg" alt="APSCON Conference">
-                <div class="news-text">
-                    <h3>News 3</h3>
-                    <p>New publication accepted at an IEEE conference APSCON "Step Detection Enhanced by Anomaly Filtering".</p>
-                </div>
+            <div class="highlight-item">
+                <div class="num">18+</div>
+                <div class="label">Projects</div>
             </div>
-            <div class="news-slide">
-                <img src="./assets/images/geoloc1.png" alt="PhD Start">
-                <div class="news-text">
-                    <h3>News 4</h3>
-                    <p>Started my PhD position at GEOLOC Lab.</p>
-                </div>
+            <div class="highlight-item">
+                <div class="num">3</div>
+                <div class="label">Languages Spoken</div>
             </div>
         </div>
-    </section>
 
-    <!-- Embedded Yocto Projects Section -->
-    <section class="section" id="yocto-projects">
-        <h2 class="section-title">Embedded Projects</h2>
-        <div class="card-container" id="projects-card-container">
-            <!-- Projects will be dynamically loaded here -->
-        </div>
-        
-        <!-- Project Details Container (dynamically populated) -->
-        <div id="project-details-container"></div>
-    </section>
-
-    <script>
-        function handleScroll() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                const offset = window.innerHeight * 0.8;
-                
-                if (rect.top < offset) {
-                    section.classList.add('visible');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', () => {
-            handleScroll();
-        });
-
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        const slideInterval = setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000); // Change slide every 5 seconds
-
-        // Auto-cycle Last News Slider with fade animation
-        const newsSlides = document.querySelectorAll('.news-slide');
-        let currentNewsSlide = 0;
-        setInterval(() => {
-            newsSlides[currentNewsSlide].classList.remove('active');
-            currentNewsSlide = (currentNewsSlide + 1) % newsSlides.length;
-            newsSlides[currentNewsSlide].classList.add('active');
-        }, 5000); // Change news every 5 seconds
-        
-        // Dynamic Project Loader for Home Page
-        class HomeProjectLoader {
-            constructor() {
-                this.projectsData = null;
-                this.init();
-            }
-
-            async init() {
-                try {
-                    console.log('Loading projects data...');
-                    await this.loadProjectsData();
-                    console.log('Projects data loaded:', this.projectsData);
-                    this.renderProjects();
-                    console.log('Projects rendered');
-                    this.setupDetailModals();
-                    console.log('Detail modals setup complete');
-                } catch (error) {
-                    console.error('Error loading projects:', error);
-                }
-            }
-
-            async loadProjectsData() {
-                const response = await fetch('home-projects/home-projects-data.json');
-                if (!response.ok) throw new Error('Failed to load projects data');
-                this.projectsData = await response.json();
-            }
-
-            renderProjects() {
-                const container = document.getElementById('projects-card-container');
-                const sortedProjects = this.projectsData.projects.sort((a, b) => a.order - b.order);
-                
-                let html = '';
-                sortedProjects.forEach(project => {
-                    html += this.createProjectCard(project);
-                });
-                
-                container.innerHTML = html;
-            }
-
-            createProjectCard(project) {
-                const categories = project.categories.map(cat => 
-                    `<span class="category-tag">${cat}</span>`
-                ).join('\n                    ');
-                
-                const keywords = project.keywords.map(kw => 
-                    `<span class="keyword">${kw}</span>`
-                ).join('\n                    ');
-                
-                return `
-            <!-- Project: ${project.title} -->
-            <div class="card project-card" onclick="toggleProjectDetails('${project.id}')">
-                <div class="card-category">
-                    ${categories}
-                </div>
-                <img src="${project.image}" alt="${project.title}" />
-                <h3>${project.title}</h3>
-                <p class="card-description">${project.description}</p>
-                <div class="card-keywords">
-                    ${keywords}
+        <h3 style="font-size:16px; font-weight:700; margin-top:32px; margin-bottom:4px; color:var(--gray-900);">
+            Core Expertise
+        </h3>
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <div class="expertise-icon">LX</div>
+                <div>
+                    <h4>Embedded Linux & Yocto</h4>
+                    <p>Custom Yocto BSPs, boot chain (TF-A, OP-TEE, U-Boot), device tree, SWUpdate OTA, secure boot, KAS configuration</p>
                 </div>
             </div>
-                `;
-            }
-
-            async setupDetailModals() {
-                const detailsContainer = document.getElementById('project-details-container');
-                if (!detailsContainer) return;
-                
-                let html = '';
-                for (const project of this.projectsData.projects) {
-                    const content = await this.loadMarkdownContent(project.detailsFile);
-                    html += this.createDetailModal(project, content);
-                }
-                detailsContainer.innerHTML = html;
-            }
-
-            async loadMarkdownContent(filePath) {
-                try {
-                    const response = await fetch(filePath);
-                    if (!response.ok) return '<p>Content not available.</p>';
-                    const markdown = await response.text();
-                    
-                    // Convert markdown to HTML using marked.js if available
-                    if (typeof marked !== 'undefined') {
-                        return marked.parse(markdown);
-                    }
-                    // Fallback: simple markdown to HTML conversion
-                    return this.simpleMarkdownToHTML(markdown);
-                } catch (error) {
-                    console.error('Error loading markdown:', error);
-                    return '<p>Content not available.</p>';
-                }
-            }
-
-            simpleMarkdownToHTML(markdown) {
-                return markdown
-                    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-                    .replace(/^## (.*$)/gim, '<h3>$1</h3>')
-                    .replace(/^# (.*$)/gim, '<h3>$1</h3>')
-                    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-                    .replace(/^- (.+)$/gim, '<li>$1</li>')
-                    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-                    .replace(/\n/g, '<br>');
-            }
-
-            createDetailModal(project, content) {
-                const imageSection = project.image ? `
-            <div style="text-align: center; margin: 20px 0;">
-                <img src="${project.image}" alt="${project.title}" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </div>` : '';
-                
-                return `
-    <div id="${project.id}-details" class="project-details" style="display: none;">
-        <div class="project-detail-card">
-            ${imageSection}
-            ${content}
-            <button onclick="toggleProjectDetails('${project.id}')" class="close-btn">Close</button>
+            <div class="expertise-item">
+                <div class="expertise-icon">C</div>
+                <div>
+                    <h4>C/C++ Firmware Development</h4>
+                    <p>5+ years of embedded C/C++ on ARM Cortex-M and STM32 — drivers, BSP, real-time firmware</p>
+                </div>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon">HW</div>
+                <div>
+                    <h4>Communication Protocols</h4>
+                    <p>GPIO, I2C, SPI, UART, ADC, CAN, USB — kernel driver and bare-metal peripheral implementation</p>
+                </div>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon">RT</div>
+                <div>
+                    <h4>RTOS & Multi-tasking</h4>
+                    <p>RTOS architecture (FreeRTOS, Zephyr, ThreadX), real-time scheduling, multi-task firmware design on MCUs</p>
+                </div>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon">Net</div>
+                <div>
+                    <h4>Networking, IoT & Protocols</h4>
+                    <p>SDN/OpenFlow, TCP/IP, BLE, Wi-Fi, 5G, GNSS, IoT sensor networks, wireless communication systems</p>
+                </div>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon">CI</div>
+                <div>
+                    <h4>Quality & CI/CD</h4>
+                    <p>Git/GitHub, Docker, automated testing, CI/CD pipelines, peer code reviews</p>
+                </div>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon">ML</div>
+                <div>
+                    <h4>Signal Processing & Edge AI</h4>
+                    <p>Anomaly detection, autoencoders, sensor fusion, ML deployment on resource-constrained MCUs</p>
+                </div>
+            </div>
+            <div class="expertise-item">
+                <div class="expertise-icon">Res</div>
+                <div>
+                    <h4>Research & Documentation</h4>
+                    <p>10+ published articles — strong specification writing and technical documentation capabilities</p>
+                </div>
+            </div>
         </div>
     </div>
-                `;
-            }
-        }
+</section>
 
-        // Initialize the project loader when DOM is ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                console.log('DOMContentLoaded - Initializing HomeProjectLoader...');
-                new HomeProjectLoader();
-            });
-        } else {
-            console.log('DOM already loaded - Initializing HomeProjectLoader immediately...');
-            new HomeProjectLoader();
+<!-- TECHNICAL SKILLS -->
+<section id="skills" style="background: var(--gray-100);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Technical Skills</h2>
+            <div class="green-line"></div>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-card-header green">Programming Languages</div>
+                <div class="skill-card-body">
+                    <span class="skill-tag highlight">C (Advanced, 5+ yrs)</span>
+                    <span class="skill-tag highlight">Python (Advanced)</span>
+                    <span class="skill-tag highlight">C++ (Intermediate)</span>
+                    <span class="skill-tag highlight">Bash/Shell</span>
+                    <span class="skill-tag highlight">VHDL</span>
+                    <span class="skill-tag highlight">LaTeX</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-header navy">MCU & Hardware Platforms</div>
+                <div class="skill-card-body">
+                    <span class="skill-tag highlight">STM32 (Cortex-M & Cortex-A)</span>
+                    <span class="skill-tag highlight">ARM Cortex-M</span>
+                    <span class="skill-tag highlight">NXP i.MX93</span>
+                    <span class="skill-tag highlight">PYNQ-Z2 / Zynq SoC</span>
+                    <span class="skill-tag highlight">Board Bring-up</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-header accent">Communication Protocols</div>
+                <div class="skill-card-body">
+                    <span class="skill-tag highlight">GPIO</span>
+                    <span class="skill-tag highlight">I2C</span>
+                    <span class="skill-tag highlight">SPI</span>
+                    <span class="skill-tag highlight">UART</span>
+                    <span class="skill-tag highlight">ADC</span>
+                    <span class="skill-tag highlight">USB</span>
+                    <span class="skill-tag highlight">CAN Bus</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-header green">RTOS & Systems</div>
+                <div class="skill-card-body">
+                    <span class="skill-tag highlight">RTOS / FreeRTOS</span>
+                    <span class="skill-tag highlight">Zephyr RTOS</span>
+                    <span class="skill-tag highlight">Linux Kernel Drivers</span>
+                    <span class="skill-tag highlight">Device Tree</span>
+                    <span class="skill-tag highlight">Boot Chain (TF-A, OP-TEE, U-Boot)</span>
+                    <span class="skill-tag highlight">Yocto / BitBake / KAS</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-header navy">Tools & CI/CD</div>
+                <div class="skill-card-body">
+                    <span class="skill-tag highlight">Git / GitHub</span>
+                    <span class="skill-tag highlight">CI/CD Pipelines</span>
+                    <span class="skill-tag highlight">Automated Testing</span>
+                    <span class="skill-tag highlight">Docker</span>
+                    <span class="skill-tag highlight">Linux (Ubuntu, Debian)</span>
+                    <span class="skill-tag highlight">VS Code</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-card-header accent">Deep Learning & Signal Processing</div>
+                <div class="skill-card-body">
+                    <span class="skill-tag highlight">PyTorch / TensorFlow</span>
+                    <span class="skill-tag highlight">Anomaly Detection</span>
+                    <span class="skill-tag highlight">Autoencoders (AE, VAE, USAD)</span>
+                    <span class="skill-tag highlight">Edge AI / MCU Deployment</span>
+                    <span class="skill-tag highlight">IMU Sensor Fusion</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <div class="container">
+        <div class="section-header">
+            <h2>Education</h2>
+            <div class="green-line"></div>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="edu-timeline">
+            <div class="edu-item">
+                <div class="edu-period">2023 - 2026</div>
+                <h3>PhD in Signal Processing & Navigation</h3>
+                <div class="edu-institution">Universite Gustave Eiffel — GEOLOC Laboratory, Nantes, France</div>
+                <ul class="edu-details">
+                    <li>Thesis: Physics-Informed Anomaly Detection for Multi-Modal Navigation Systems</li>
+                    <li>Embedded ML deployment on resource-constrained MCUs</li>
+                    <li>10+ peer-reviewed publications (journals and conferences)</li>
+                    <li>Expected defense: November 2026</li>
+                </ul>
+            </div>
+            <div class="edu-item">
+                <div class="edu-period">2021 - 2023</div>
+                <h3>MSc in Telecommunications Engineering — 110/110 cum laude, Top of Class</h3>
+                <div class="edu-institution">University of Calabria, Cosenza, Italy</div>
+                <ul class="edu-details">
+                    <li>Ranked 1st in graduating class</li>
+                    <li>Specialization: Embedded systems, wireless communications, IoT measurement systems</li>
+                    <li>Thesis: Wireless Crack Detection Sensor using IoT & Acoustic Emission</li>
+                    <li>3 publications during Master's program</li>
+                </ul>
+            </div>
+            <div class="edu-item">
+                <div class="edu-period">2014 - 2019</div>
+                <h3>BSc in Electronics Engineering — Top of Class</h3>
+                <div class="edu-institution">University of Aleppo, Syria</div>
+                <ul class="edu-details">
+                    <li>Ranked 1st in graduating class</li>
+                    <li>Specialization: Telecommunications, electronics, signal processing, embedded systems</li>
+                    <li>Teaching Assistant — Antenna design, microwave engineering, RF systems (50+ sessions)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background: var(--gray-100);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Projects</h2>
+            <div class="green-line"></div>
+            <div class="section-line"></div>
+        </div>
+
+        <!-- Embedded Systems Projects -->
+        <div class="projects-subsection">
+            <h3><span class="dot"></span> Embedded Systems & Firmware</h3>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/st32mp157f.gif" alt="STM32MP157 Board"></div>
+                <div class="project-body">
+                    <h4>STM32MP157 Yocto BSP</h4>
+                    <p>Yocto BSP, Custom Linux distribution for STM32MP1: complete boot chain (TF-A, OP-TEE, U-Boot),
+                       custom Yocto layers, drivers (GPIO, I2C, SPI, UART), device tree overlays,
+                       OTA system via SWUpdate with A/B partition scheme.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Yocto</span>
+                        <span class="project-tag key">STM32</span>
+                        <span class="project-tag key">C</span>
+                        <span class="project-tag key">SPI/I2C/UART</span>
+                        <span class="project-tag">Boot Chain</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/stm32mp157-yocto" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/airbox.jpeg" alt="NXP i.MX93 Yocto BSP"></div>
+                <div class="project-body">
+                    <h4>Truck Monitoring BSP (2 versions)</h4>
+                    <p>Yocto BSP in two versions (STM32MP157 and NXP i.MX93) for truck monitoring:
+                       CAN bus driver, 5G modem integration, GNSS drivers, FreeRTOS on Cortex-M,
+                       KAS configuration, full boot chain customization.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">STM32MP1</span>
+                        <span class="project-tag key">NXP i.MX93</span>
+                        <span class="project-tag key">FreeRTOS</span>
+                        <span class="project-tag key">Yocto/KAS</span>
+                        <span class="project-tag">CAN</span>
+                        <span class="project-tag">5G</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/Muzziball.jpg" alt="Muzziball Yocto BSP"></div>
+                <div class="project-body">
+                    <h4>Muzziball — Yocto BSP, Security & OTA</h4>
+                    <p>Complete Yocto distribution for Muzziball on STM32MP157:
+                       secure boot, OTA (SWUpdate), PureData integration for real-time audio processing,
+                       IMU, microphone, speaker, LED matrix, and LiPo battery drivers. Production-ready secure deployment.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">STM32MP1</span>
+                        <span class="project-tag key">Yocto</span>
+                        <span class="project-tag key">OTA / SWUpdate</span>
+                        <span class="project-tag key">Secure Boot</span>
+                        <span class="project-tag">PureData</span>
+                        <span class="project-tag">Audio</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/Muzziball.jpg" alt="Muzziball Device"></div>
+                <div class="project-body">
+                    <h4>Muzziball — Embedded C++ Server</h4>
+                    <p>Mini C++ server on STM32MP157-DK orchestrating serial communication with IMU,
+                       LiPo battery, microphone, speaker, and LED matrices. Bridge between PureData, BLE, and Wi-Fi.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">C++</span>
+                        <span class="project-tag key">STM32</span>
+                        <span class="project-tag">BLE</span>
+                        <span class="project-tag">Real-time</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/stm32mp157_gnssdriver.jpeg" alt="MPU-6050 Sensor"></div>
+                <div class="project-body">
+                    <h4>Linux IIO Kernel Driver — MPU-6050</h4>
+                    <p>IIO driver for MPU-6050 IMU sensor: I2C communication, interrupt handling,
+                       sysfs interface for real-time accelerometer and gyroscope data acquisition.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Linux Kernel</span>
+                        <span class="project-tag key">C</span>
+                        <span class="project-tag key">I2C</span>
+                        <span class="project-tag">IIO</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/stm32mp157_gnssdriver.jpeg" alt="u-blox GNSS on STM32MP157"></div>
+                <div class="project-body">
+                    <h4>GNSS Serdev Driver — u-blox NEO-M8N</h4>
+                    <p>Linux kernel driver for u-blox GNSS receiver: NMEA parsing,
+                       position data exposure via the kernel subsystem.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Linux Kernel</span>
+                        <span class="project-tag key">C</span>
+                        <span class="project-tag key">UART</span>
+                        <span class="project-tag">GNSS</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/router hack.jpg" alt="TP-Link Router"></div>
+                <div class="project-body">
+                    <h4>TP-Link Router Reverse Engineering</h4>
+                    <p>Hardware reverse engineering of MT7628 SoC-based router: UART/SPI interface identification,
+                       SPI flash firmware extraction using flashrom, Binwalk analysis of firmware structure and filesystem.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Reverse Engineering</span>
+                        <span class="project-tag key">UART/SPI</span>
+                        <span class="project-tag">Firmware Analysis</span>
+                        <span class="project-tag">Binwalk</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/tplink-firmware-reversing" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/expermints-setup.jpg" alt="Wireless Crack Detection Sensor"></div>
+                <div class="project-body">
+                    <h4>Wireless Crack Detection Sensor (MSc Thesis)</h4>
+                    <p>Complete wireless sensor system for structural crack detection: hardware design,
+                       edge device firmware, communication protocols, and cloud integration.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">IoT</span>
+                        <span class="project-tag key">Embedded</span>
+                        <span class="project-tag">Acoustic Emission</span>
+                        <span class="project-tag">SHM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/android-home.jpeg" alt="Design a Custom Android ROM"></div>
+                <div class="project-body">
+                    <h4>Design a Custom Android ROM</h4>
+                    <p>Development of a custom Android ROM for embedded devices: kernel modification,
+                       system integration, and performance optimization.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">IoT</span>
+                        <span class="project-tag key">Embedded</span>
+                        <span class="project-tag">Acoustic Emission</span>
+                        <span class="project-tag">SHM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/arch_esp32_iot_project.jpeg" alt="Design a Secure IoT System"></div>
+                <div class="project-body">
+                    <h4>Design a Secure IoT System Using ESP32</h4>
+                    <p>Development of a secure IoT system for smart home applications: hardware design,
+                       network security, and data privacy, Encrypted Certificate, Encrypted Data.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">IoT</span>
+                        <span class="project-tag key">Embedded</span>
+                        <span class="project-tag">Acoustic Emission</span>
+                        <span class="project-tag">SHM</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- PhD Research Projects -->
+        <div class="projects-subsection">
+            <h3><span class="dot"></span> PhD Research Projects</h3>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/anomaly_detection_results.png" alt="Anomaly Detection for IMU Navigation"></div>
+                <div class="project-body">
+                    <h4>Anomaly Detection for IMU-Based Pedestrian Navigation</h4>
+                    <p>Physics-informed anomaly detection framework for inertial navigation systems.
+                       Autoencoder-based models (AE, VAE, USAD) for detecting sensor faults and navigation anomalies
+                       in real-time on resource-constrained embedded devices.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">PyTorch</span>
+                        <span class="project-tag key">Autoencoders</span>
+                        <span class="project-tag">IMU</span>
+                        <span class="project-tag">Edge AI</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/Robust_SmartStep" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/5g_configuration.png" alt="5G LOS/NLOS Detection"></div>
+                <div class="project-body">
+                    <h4>5G LOS/NLOS Detection Using USAD Models</h4>
+                    <p>Unsupervised anomaly detection for 5G channel impulse response (CIR) classification.
+                       USAD-based models for distinguishing line-of-sight from non-line-of-sight conditions
+                       to improve 5G positioning accuracy.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Deep Learning</span>
+                        <span class="project-tag key">5G</span>
+                        <span class="project-tag">USAD</span>
+                        <span class="project-tag">Positioning</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/5G-LOS-NLOS" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/fisheye_labeling1.png" alt="GNSS LOS/NLOS Classification"></div>
+                <div class="project-body">
+                    <h4>GNSS LOS/NLOS Classification Using Autoencoders</h4>
+                    <p>Autoencoder-based classification of GNSS signal conditions for urban positioning.
+                       Distinguishing line-of-sight from multipath-affected signals to improve satellite navigation
+                       in challenging environments.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Autoencoders</span>
+                        <span class="project-tag key">GNSS</span>
+                        <span class="project-tag">Signal Classification</span>
+                        <span class="project-tag">Urban Navigation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/step_detection_comparison.png" alt="Step Detection"></div>
+                <div class="project-body">
+                    <h4>Step Detection Enhanced by Anomaly Filtering</h4>
+                    <p>Improved pedestrian step detection algorithm using anomaly filtering on IMU signals.
+                       Physics-informed approach to filter out abnormal sensor readings before step counting,
+                       achieving higher accuracy in real-world walking scenarios.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Signal Processing</span>
+                        <span class="project-tag key">IMU</span>
+                        <span class="project-tag">Pedestrian Navigation</span>
+                        <span class="project-tag">Anomaly Filtering</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/time_series_anomaly_detection.png" alt="Time-Series Anomaly Detection"></div>
+                <div class="project-body">
+                    <h4>Time-Series Anomaly Detection Review</h4>
+                    <p>Comprehensive survey of 43+ papers on time-series anomaly detection methods for sensor data.
+                       Systematic comparison of models, metrics, and methodologies across domains including IoT,
+                       industrial monitoring, and navigation systems.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Survey</span>
+                        <span class="project-tag key">Anomaly Detection</span>
+                        <span class="project-tag">Time Series</span>
+                        <span class="project-tag">Sensor Data</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/J-ISPIN_GraphicAbstract_01.png" alt="GNSS Threat Landscape"></div>
+                <div class="project-body">
+                    <h4>GNSS Threat Landscape Analysis</h4>
+                    <p>Investigation of the escalating GNSS threat crisis through real-world case studies
+                       spanning aviation, maritime, and military domains. Comprehensive analysis of jamming,
+                       spoofing, and meaconing risks to existing positioning systems.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">GNSS Security</span>
+                        <span class="project-tag key">Survey</span>
+                        <span class="project-tag">IEEE J-ISPIN</span>
+                        <span class="project-tag">Threat Analysis</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/jammer.png" alt="GNSS Attack Dataset"></div>
+                <div class="project-body">
+                    <h4>GNSS Attack Dataset — Jammertest 2024</h4>
+                    <p>Open dataset of GNSS signals under jamming, spoofing, and meaconing conditions
+                       collected during the Jammertest 2024 campaign. Published on Zenodo with 845+ views
+                       and 227+ downloads for research reproducibility.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">GNSS Security</span>
+                        <span class="project-tag key">Open Dataset</span>
+                        <span class="project-tag">Jamming</span>
+                        <span class="project-tag">Spoofing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Projects -->
+        <div class="projects-subsection">
+            <h3><span class="dot"></span> Other Projects</h3>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/SDN.png" alt="SDN Load Balancing"></div>
+                <div class="project-body">
+                    <h4>SDN Load Balancing for Video Streaming</h4>
+                    <p>SDN-based load balancing system for face recognition video streaming over wireless networks.
+                       Dijkstra and Bellman-Ford algorithms on RYU SDN controller with OpenFlow switches,
+                       simulated in Mininet-WiFi with SUMO for urban vehicle mobility.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">SDN</span>
+                        <span class="project-tag key">Python</span>
+                        <span class="project-tag key">OpenFlow</span>
+                        <span class="project-tag">Mininet-WiFi</span>
+                        <span class="project-tag">SUMO</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/Load-Balancing-Technique-for-Face-Recognition-Video-Streaming-in-Wireless-Networks-main" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/BERT.png" alt="NLP Contradictory Text Analysis"></div>
+                <div class="project-body">
+                    <h4>Contradictory Text Analysis — RoBERTa NLP</h4>
+                    <p>Natural Language Inference (NLI) using RoBERTa transformer model. Classifies premise-hypothesis
+                       text pairs into entailment, contradiction, or neutral categories. Achieved 82% test accuracy
+                       with fine-tuned Hugging Face Transformers pipeline.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Transformers</span>
+                        <span class="project-tag key">RoBERTa</span>
+                        <span class="project-tag key">NLP</span>
+                        <span class="project-tag">Hugging Face</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-accent"></div>
+                <div class="project-img"><img src="images/breast_cancer.png" alt="Breast Cancer Detection"></div>
+                <div class="project-body">
+                    <h4>Breast Cancer Detection (RSNA)</h4>
+                    <p>Deep learning pipeline for breast cancer screening from mammography images using the RSNA dataset.
+                       CNN-based classification model for automated medical image analysis.</p>
+                    <div class="project-tags">
+                        <span class="project-tag key">Deep Learning</span>
+                        <span class="project-tag key">Medical Imaging</span>
+                        <span class="project-tag key">CNN</span>
+                        <span class="project-tag">PyTorch</span>
+                    </div>
+                    <a class="project-link" href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection" target="_blank">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LANGUAGES -->
+<section id="languages">
+    <div class="container">
+        <div class="section-header">
+            <h2>Languages</h2>
+            <div class="green-line"></div>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="lang-grid">
+            <div class="lang-card">
+                <h4>Arabic</h4>
+                <div class="lang-level">Native Language</div>
+                <div class="lang-bar-bg"><div class="lang-bar" style="width:100%"></div></div>
+            </div>
+            <div class="lang-card">
+                <h4>English</h4>
+                <div class="lang-level">Fluent (C1) — Professional</div>
+                <div class="lang-bar-bg"><div class="lang-bar" style="width:85%"></div></div>
+            </div>
+            <div class="lang-card">
+                <h4>French</h4>
+                <div class="lang-level">Intermediate (B1)</div>
+                <div class="lang-bar-bg"><div class="lang-bar" style="width:55%"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" style="background: var(--gray-100);">
+    <div class="container">
+        <div class="section-header">
+            <h2>Selected Publications</h2>
+            <div class="green-line"></div>
+            <div class="section-tag">10+ peer-reviewed</div>
+            <div class="section-line"></div>
+        </div>
+
+        <ul class="pub-list">
+            <li class="pub-item">
+                <span class="pub-badge journal">Journal</span>
+                <div class="pub-content">
+                    <h4>Time-Series Anomaly Detection for Sensor Data: Models, Metrics, and Methodologies</h4>
+                    <div class="pub-venue">IEEE Sensors Journal, vol. 25, no. 24, pp. 43603-43619, 2025</div>
+                </div>
+            </li>
+            <li class="pub-item">
+                <span class="pub-badge journal">Journal</span>
+                <div class="pub-content">
+                    <h4>GNSS Positioning Under Threat: Rising Risk to Existing Systems</h4>
+                    <div class="pub-venue">IEEE Journal of Indoor and Seamless Positioning and Navigation, 2025</div>
+                </div>
+            </li>
+            <li class="pub-item">
+                <span class="pub-badge conf">Conference</span>
+                <div class="pub-content">
+                    <h4>Step Detection Enhanced by Anomaly Filtering for Pedestrian Navigation</h4>
+                    <div class="pub-venue">IEEE APSCON 2024</div>
+                </div>
+            </li>
+        </ul>
+
+        <div style="text-align:center; margin-top:24px;">
+            <a href="https://scholar.google.co.uk/citations?user=lFrypJ8AAAAJ" target="_blank"
+               style="display:inline-block; padding:12px 28px; background:var(--primary); color:white;
+                      border-radius:50px; text-decoration:none; font-weight:700; font-size:14px;
+                      box-shadow:0 4px 16px rgba(61,205,88,0.3); transition:all 0.2s;">
+                View all 10+ publications on Google Scholar
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p style="font-size: 16px; color: rgba(255,255,255,0.8); margin-bottom: 8px;">
+            <strong>Issam SAYYAF</strong> — Firmware & Embedded Systems Engineer
+        </p>
+        <p>
+            <a href="mailto:issamsayyaf97@gmail.com">issamsayyaf97@gmail.com</a> &middot;
+            <a href="https://issam-sayyaf.com">issam-sayyaf.com</a> &middot;
+            <a href="https://www.linkedin.com/in/issamsayyaf/">LinkedIn</a> &middot;
+            <a href="https://github.com/IssamSayyaf">GitHub</a>
+        </p>
+    </div>
+</footer>
+
+<!-- EXPORT BUTTONS -->
+<div class="export-bar">
+    <button class="print-btn" onclick="window.print()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/>
+            <rect x="6" y="14" width="12" height="8"/>
+        </svg>
+        Export PDF
+    </button>
+</div>
+
+<script>
+// Smooth scroll for nav
+document.querySelectorAll('.nav-inner a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        
-        // Toggle project details
-        function toggleProjectDetails(projectId) {
-            const details = document.getElementById(projectId + '-details');
-            const allDetails = document.querySelectorAll('.project-details');
-            
-            // Hide all other project details
-            allDetails.forEach(detail => {
-                if (detail.id !== projectId + '-details') {
-                    detail.style.display = 'none';
-                }
+    });
+});
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-inner a');
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+});
+
+// Animate language bars on scroll
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.querySelectorAll('.lang-bar').forEach(bar => {
+                const w = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => bar.style.width = w, 100);
             });
-            
-            // Toggle current project details
-            if (details.style.display === 'none' || details.style.display === '') {
-                details.style.display = 'block';
-                details.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                details.style.display = 'none';
-            }
         }
-    </script>
+    });
+}, { threshold: 0.3 });
+document.querySelectorAll('#languages').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
