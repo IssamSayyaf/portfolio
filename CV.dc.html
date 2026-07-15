@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/classical-f84c077c-060e-42ab-9bc2-06328cca37fe/styles.css">
+<script src="_ds/classical-f84c077c-060e-42ab-9bc2-06328cca37fe/_ds_bundle.js"></script>
+<style>
+  html, body { margin:0; padding:0; }
+  doc-page:not(:defined) { visibility:hidden; }
+</style>
+</helmet>
+<x-import component-from-global-scope="doc-page" from="./doc-page.js" size="a4" margin="0.7in" hint-size="100%,100%">
+  <div style="font-family:var(--font-body); color:var(--color-text); font-size:10.5pt; line-height:1.5;">
+
+    <!-- Header -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:16px; border-bottom:2px solid var(--color-text); padding-bottom:12px;">
+      <div>
+        <h1 style="font-size:30pt; font-weight:var(--font-heading-weight); letter-spacing:0.02em; margin:0; line-height:1;">Issam Sayyaf</h1>
+        <div style="font-size:10pt; color:var(--color-accent-700); margin-top:6px; font-style:italic;">Senior Algorithm Engineer — Edge AI · Embedded Systems · Sensor Algorithms</div>
+      </div>
+      <div style="font-size:8.5pt; text-align:right; line-height:1.7; color:color-mix(in srgb, var(--color-text) 75%, transparent);">
+        Grenoble, France · +33 758 120 733<br>
+        issamsayyaf97@gmail.com · issam-sayyaf.com<br>
+        linkedin.com/in/issamsayyaf · github.com/IssamSayyaf
+      </div>
+    </div>
+
+    <!-- Profile -->
+    <h6 style="color:var(--color-accent-700); margin:16px 0 6px; font-size:8.5pt;">Profile</h6>
+    <p style="margin:0; text-align:justify; font-size:9.5pt;">Sensor systems and algorithms engineer working across the full sensor stack — MEMS inertial (accelerometer, gyroscope, magnetometer), acoustic/ultrasound (piezoelectric AE, BLE Channel Sounding time-of-flight), GNSS/RF and pressure sensors. Currently developing Edge AI algorithms for MEMS sensors at TDK. PhD on deep learning (autoencoders, adversarial generative models) for robust features from noisy sensor data. Proven delivery of embedded C/C++ on ARM (STM32, NXP i.MX, Nordic nRF), Python pipelines for data collection and characterization, and instrumented test benches (NI / LabVIEW / SCPI). 10+ IEEE publications.</p>
+
+    <!-- Experience -->
+    <h6 style="color:var(--color-accent-700); margin:16px 0 8px; font-size:8.5pt;">Professional Experience</h6>
+
+    <div style="break-inside:avoid;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+        <h4 style="font-size:12.5pt; margin:0;">Senior Algorithm Engineer — Edge AI · TDK</h4>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">Aug 2026 — Present · Grenoble, France</span>
+      </div>
+      <ul style="margin:4px 0 0; padding-left:16px; font-size:9.5pt; line-height:1.55;">
+        <li>Developing Edge AI algorithms for MEMS sensors — ultrasonic and IMU (accelerometer, gyroscope)</li>
+        <li>Embedded systems development with Zephyr RTOS and Embedded Linux</li>
+        <li>Deploying ML models on resource-constrained targets: quantization, real-time signal-processing chains in C/C++</li>
+      </ul>
+    </div>
+
+    <div style="break-inside:avoid; margin-top:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+        <h4 style="font-size:12.5pt; margin:0;">Research Engineer — BLE Channel Sounding Indoor Positioning</h4>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">Apr 2026 — Oct 2026 · Nantes, France</span>
+      </div>
+      <ul style="margin:4px 0 0; padding-left:16px; font-size:9.5pt; line-height:1.55;">
+        <li>Implemented real-time time-of-flight / ranging algorithms (IFFT, MUSIC, ESPRIT super-resolution) on Nordic nRF54L15 under Zephyr RTOS for BLE 6.0 Channel Sounding</li>
+        <li>Developed hardware configuration routines, antenna driving and synchronization of ranging acquisitions — production-grade C with Git and code-coverage instrumentation</li>
+        <li>Characterized, debugged and evaluated algorithm performance on bench; documented error budgets against reference measurements</li>
+      </ul>
+    </div>
+
+    <div style="break-inside:avoid; margin-top:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+        <h4 style="font-size:12.5pt; margin:0;">Doctoral Researcher · GEOLOC Lab, Université Gustave Eiffel</h4>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">Nov 2023 — Jun 2026 · Nantes, France</span>
+      </div>
+      <ul style="margin:4px 0 0; padding-left:16px; font-size:9.5pt; line-height:1.55;">
+        <li>Designed anomaly-detection algorithms on multi-sensor platforms (IMU, GNSS, 5G): Kalman-family loop observers (DLL/PLL/FLL), spectral analysis and classical detection theory under white and colored noise</li>
+        <li>Built deep-learning pipelines in Python (PyTorch) — autoencoders, adversarial generative models, isolation forest — for time-series anomaly detection on sensor streams; defined data-collection protocols and engineered interpretable features</li>
+        <li>Implemented real-time C/C++ signal-processing chains on ARM (FFT/PSD, filtering, spectral feature extraction) optimized for embedded deployment</li>
+        <li>Authored 10+ IEEE publications (Sensors Journal, I2MTC, IPIN, MetroLivEnv); mentored interns on sensor characterization, measurement chains and ML workflows</li>
+      </ul>
+    </div>
+
+    <div style="break-inside:avoid; margin-top:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+        <h4 style="font-size:12.5pt; margin:0;">Embedded Linux Engineer</h4>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">Jun 2021 — Oct 2023 · Remote, USA</span>
+      </div>
+      <ul style="margin:4px 0 0; padding-left:16px; font-size:9.5pt; line-height:1.55;">
+        <li>Wrote 10+ production Linux drivers (IIO, serdev, platform) in C for MEMS / industrial sensors — IMU, audio codec, GNSS receiver, pressure peripherals, 4G modem — over SPI, I2C, UART and ADC on ARM platforms (STM32MP1, NXP i.MX93)</li>
+        <li>Built full embedded Linux systems with Yocto / OpenEmbedded: meta-layer development, BSP integration, kernel configuration, device-tree bring-up and rootfs tailoring for product images</li>
+        <li>Designed low-level acquisition interfaces: register-level configuration, sensor calibration, time synchronization and multi-sensor streaming</li>
+        <li>Industrial SW practices: Git workflows, code reviews, CI/CD (GitHub Actions), Docker cross-compilation, documentation for internal teams, partners and suppliers</li>
+      </ul>
+    </div>
+
+    <div style="break-inside:avoid; margin-top:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+        <h4 style="font-size:12.5pt; margin:0;">Acoustic / Ultrasound Sensing Researcher · University of Calabria</h4>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">Oct 2022 — Oct 2023 · Calabria, Italy</span>
+      </div>
+      <ul style="margin:4px 0 0; padding-left:16px; font-size:9.5pt; line-height:1.55;">
+        <li>Modeled and characterized ultrasonic elastic-wave propagation through mechanical structures with piezoelectric AE sensors — vibration propagation, filter response, acoustic coupling and analog signal conditioning for structural health monitoring</li>
+        <li>Validated AE sensor integration on real samples: NI DAQ + signal generator in LabVIEW, oscilloscope and spectrum analyzer via SCPI, cross-validation between acquisition paths</li>
+        <li>Applied FFT, band-pass filtering, transient detection and feature extraction (LabVIEW, Python) to discriminate crack-emission events from ambient noise</li>
+        <li>Transposed the full NI bench to a low-cost autonomous edge node (STM32 + FreeRTOS + MQTT) — published at IEEE MetroLivEnv 2023</li>
+      </ul>
+    </div>
+
+    <div style="break-inside:avoid; margin-top:12px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+        <h4 style="font-size:12.5pt; margin:0;">Teaching Assistant · Signal Processing, Embedded Systems</h4>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">Sep 2020 — Aug 2021 · Aleppo, Syria</span>
+      </div>
+      <ul style="margin:4px 0 0; padding-left:16px; font-size:9.5pt; line-height:1.55;">
+        <li>Led 50+ lab sessions (150+ students trained); instruction on lab instrumentation and sensor measurement methodology</li>
+      </ul>
+    </div>
+
+    <!-- Education -->
+    <h6 style="color:var(--color-accent-700); margin:16px 0 8px; font-size:8.5pt;">Education</h6>
+    <div style="display:flex; flex-direction:column; gap:6px; font-size:9.5pt;">
+      <div style="display:flex; justify-content:space-between; gap:12px;">
+        <div><strong style="font-weight:600;">PhD, Signal Processing &amp; Navigation</strong> — Université Gustave Eiffel, France · Advanced DL for time-series sensor data (IMU, GNSS, 5G), estimation theory. Defended June 2026.</div>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">2023 — 2026</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; gap:12px;">
+        <div><strong style="font-weight:600;">MSc, Telecommunications Engineering</strong> — University of Calabria, Italy · 110/110 cum laude · Acoustic/ultrasound sensing, signal processing, instrumentation</div>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">2021 — 2023</span>
+      </div>
+      <div style="display:flex; justify-content:space-between; gap:12px;">
+        <div><strong style="font-weight:600;">BSc, Electronics Engineering</strong> — University of Aleppo, Syria · 88.56% with distinction · Electronics, control theory, signal processing</div>
+        <span style="font-size:8.5pt; color:var(--color-accent-700); white-space:nowrap; font-variant-numeric:tabular-nums;">2014 — 2019</span>
+      </div>
+    </div>
+
+    <!-- Key projects -->
+    <h6 style="color:var(--color-accent-700); margin:16px 0 8px; font-size:8.5pt;">Key Projects</h6>
+    <div style="display:flex; flex-direction:column; gap:8px; font-size:9.5pt;">
+      <div style="break-inside:avoid;"><strong style="font-weight:600;">Multi-modal sensor anomaly detection (2023 — 2026)</strong> — PyTorch pipeline combining classical sensor-domain features (Kalman-family loop observables, spectral descriptors) with autoencoders and adversarial generative models to detect and classify anomalies on multi-modal sensor streams. Published in IEEE Sensors Journal (2025).</div>
+      <div style="break-inside:avoid;"><strong style="font-weight:600;">STM32MP157 secure Yocto platform (2023 — 2025)</strong> — Full custom board bring-up: device tree, Yocto meta-layers, kernel drivers (IIO, serdev), secure boot chain (TF-A/OP-TEE/U-Boot), SWUpdate OTA with LUKS, CI/CD image builds.</div>
+      <div style="break-inside:avoid;"><strong style="font-weight:600;">NXP i.MX93 BSP (2024 — 2025)</strong> — Yocto layer structuring on Cortex-A55, kernel drivers for multi-sensor acquisition, systemd service management, Docker cross-compilation environment.</div>
+      <div style="break-inside:avoid;"><strong style="font-weight:600;">Acoustic-emission crack detection (2022 — 2023)</strong> — End-to-end ultrasonic sensing platform: piezoelectric AE integration, NI DAQ/LabVIEW/SCPI bench, FFT-based crack detection, transposed to an STM32 + FreeRTOS + MQTT edge node. IEEE MetroLivEnv 2023.</div>
+    </div>
+
+    <!-- Skills -->
+    <h6 style="color:var(--color-accent-700); margin:16px 0 8px; font-size:8.5pt;">Technical Skills</h6>
+    <div style="display:grid; grid-template-columns:110px 1fr; gap:4px 14px; font-size:9.5pt;">
+      <div style="font-style:italic; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Algorithms</div><div>Estimation, detection &amp; classification · Kalman filtering · FFT/PSD, spectral analysis · super-resolution (MUSIC, ESPRIT) · deep learning for time series (AE, VAE, GAN)</div>
+      <div style="font-style:italic; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Languages</div><div>C (advanced) · C++ · Python (advanced) · Bash · VHDL · LaTeX</div>
+      <div style="font-style:italic; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Embedded</div><div>Zephyr RTOS · FreeRTOS · Embedded Linux (Yocto/OpenEmbedded) · kernel drivers (IIO, serdev) · secure boot · STM32, NXP i.MX, Nordic nRF</div>
+      <div style="font-style:italic; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Sensors</div><div>MEMS IMU · ultrasonic / piezoelectric AE · GNSS/RF · pressure · multi-modal integration &amp; characterization</div>
+      <div style="font-style:italic; color:color-mix(in srgb, var(--color-text) 60%, transparent);">Test &amp; tools</div><div>NI DAQ / LabVIEW / SCPI benches · Git, CI/CD, Docker · PyTorch, TensorFlow</div>
+    </div>
+
+    <!-- Certifications + Languages -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:16px; break-inside:avoid;">
+      <div>
+        <h6 style="color:var(--color-accent-700); margin:0 0 8px; font-size:8.5pt;">Certifications</h6>
+        <ul style="margin:0; padding-left:16px; font-size:9.5pt; line-height:1.6;">
+          <li>Deep Learning Specialization (DeepLearning.AI)</li>
+          <li>TinyML (Harvard / edX)</li>
+          <li>Linux Kernel Driver Development</li>
+          <li>Yocto Project Development</li>
+          <li>Embedded Linux Development</li>
+        </ul>
+      </div>
+      <div>
+        <h6 style="color:var(--color-accent-700); margin:0 0 8px; font-size:8.5pt;">Languages</h6>
+        <div style="font-size:9.5pt; line-height:1.8;">
+          <div><strong style="font-weight:600;">Arabic</strong> — native</div>
+          <div><strong style="font-weight:600;">English</strong> — C1, fluent (professional)</div>
+          <div><strong style="font-weight:600;">French</strong> — B1/B2, intermediate-advanced</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Publications -->
+    <h6 style="color:var(--color-accent-700); margin:16px 0 8px; font-size:8.5pt;">Selected Publications (10+ total)</h6>
+    <div style="font-size:9.5pt; line-height:1.6;">
+      <div style="margin-bottom:4px;">I. Sayyaf et al., "Time-Series Anomaly Detection for Sensor Data: Models, Metrics, and Methodologies," <em>IEEE Sensors Journal</em>, vol. 25, 2025.</div>
+      <div style="color:color-mix(in srgb, var(--color-text) 65%, transparent);">+9 IEEE publications — Google Scholar · Conferences: IEEE I2MTC 2026, IPIN 2026, MetroLivEnv 2023</div>
+    </div>
+  </div>
+</x-import>
+</x-dc>
+</body>
+</html>

@@ -1,2 +1,0 @@
-# portfilio-schnider
-# portfilio-schnider
