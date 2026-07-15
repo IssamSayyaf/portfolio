@@ -558,10 +558,21 @@
           <input class="input" value="{{ draftTags }}" onChange="{{ onTags }}" placeholder="Tags, comma-separated — e.g. embedded linux, yocto, fixed-point">
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3); align-items:stretch;">
             <div style="display:flex; flex-direction:column; gap:var(--space-1);">
-              <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:0;">Write — Markdown supported</h6>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--space-2); flex-wrap:wrap;">
+                <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:0;">Write — Markdown supported</h6>
+                <div style="display:flex; gap:var(--space-1);">
+                  <label class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px; cursor:pointer;">
+                    Upload image<input type="file" accept="image/*" onChange="{{ onUploadImage }}" style="display:none;">
+                  </label>
+                  <button onClick="{{ insertFromFolder }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">From images/</button>
+                  <button onClick="{{ insertImageUrl }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">Image URL</button>
+                  <button onClick="{{ insertLink }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">Link</button>
+                  <button onClick="{{ insertVideo }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">Video</button>
+                </div>
+              </div>
               <textarea class="input" value="{{ draftBody }}" onChange="{{ onBody }}" placeholder="# Heading
 
-Write your article… **bold**, *italic*, `code`, ``` code blocks and - lists all work." style="font-family:ui-monospace, 'SF Mono', Menlo, monospace; font-size:13px; line-height:1.7; min-height:440px;"></textarea>
+Write your article… **bold**, *italic*, `code`, ``` code blocks and - lists all work. ![alt](image-url) embeds an image, !video(youtube-url) embeds a video, [text](url) makes a link." style="font-family:ui-monospace, 'SF Mono', Menlo, monospace; font-size:13px; line-height:1.7; min-height:440px;"></textarea>
             </div>
             <div style="display:flex; flex-direction:column; gap:var(--space-1);">
               <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:0;">Preview</h6>
@@ -653,6 +664,7 @@ Write your article… **bold**, *italic*, `code`, ``` code blocks and - lists al
 <script type="text/x-dc" data-dc-script data-props="{&quot;defaultTab&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;home&quot;, &quot;options&quot;: [&quot;home&quot;, &quot;experience&quot;, &quot;projects&quot;, &quot;publications&quot;, &quot;blog&quot;, &quot;contact&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;showStats&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;ownerPasscodeHash&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;9a92eee8110fd165a1acf68ca4aec18a0d3a8b7e09161da732bafbceefa58a46&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Blog&quot;}}">
 class Component extends DCLogic {
   state = {
+    folderImages: [],
     tab: 'home', filter: 'all', owner: false,
     blogView: 'list', posts: [], draft: { id: null, title: '', tags: '', body: '' },
     readingId: null, error: '',
@@ -667,6 +679,12 @@ class Component extends DCLogic {
       const expected = this.props.ownerPasscodeHash ?? '9a92eee8110fd165a1acf68ca4aec18a0d3a8b7e09161da732bafbceefa58a46';
       if (saved === expected) this.setState({ owner: true });
     } catch (e) {}
+    // discover files in images/ (works when served from a directory listing-capable host; falls back to known list)
+    fetch('images/').then(r => r.ok ? r.text() : Promise.reject()).then(html => {
+      const names = Array.from(html.matchAll(/href="([^"?/]+\.(?:png|jpe?g|gif|webp|svg|mp4|webm))"/gi), m => decodeURIComponent(m[1]));
+      if (names.length) this.setState({ folderImages: names.sort() });
+    }).catch(() => {});
+    this.setState(s => s.folderImages.length ? null : { folderImages: ['5g_configuration.png','BERT.png','J-ISPIN_GraphicAbstract_01.png','Muzziball.jpg','SDN.png','airbox.jpeg','anomaly_detection_results.png','arch_esp32_iot_project.jpeg','breast_cancer.png','expermints-setup.jpg','fisheye_labeling1.png','issam-sayyaf.png','jammer.png','router hack.jpg','st32mp157f.gif','stm32mp157_gnssdriver.jpeg'] });
     const def = this.props.defaultTab;
     if (def && def !== 'home') this.setState({ tab: def });
   }
@@ -710,11 +728,25 @@ class Component extends DCLogic {
         while (i < lines.length && !lines[i].startsWith('```')) { buf.push(lines[i]); i++; }
         i++;
         out.push(React.createElement('pre', { key: k++, style: { fontFamily: "ui-monospace, 'SF Mono', Menlo, monospace", fontSize: '12.5px', lineHeight: 1.65, background: 'var(--color-neutral-900)', color: 'var(--color-neutral-200)', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)', overflow: 'auto', margin: '0 0 var(--space-4)' } }, buf.join('\n')));
-      } else if (line.startsWith('### ')) {
+      } else if (line.startsWith('![')) {
+        const m = line.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
+        if (m) out.push(React.createElement('img', { key: k++, src: m[2], alt: m[1], style: { maxWidth: '100%', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-divider)', margin: '0 0 var(--space-4)', display: 'block' } }));
+        i++;
+      } else if (/^!video\(([^)]+)\)/.test(line) || /^https?:\/\/(www\.)?(youtube\.com|youtu\.be|vimeo\.com)\/\S+$/.test(line.trim()) || /^https?:\/\/\S+\.(mp4|webm)$/.test(line.trim())) {
+        const url = (line.match(/^!video\(([^)]+)\)/) || [null, line.trim()])[1];
+        let el = null;
+        const yt = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
+        const vm = url.match(/vimeo\.com\/(\d+)/);
+        if (yt) el = React.createElement('iframe', { key: k++, src: 'https://www.youtube.com/embed/' + yt[1], allowFullScreen: true, style: { width: '100%', aspectRatio: '16/9', border: '1px solid var(--color-divider)', borderRadius: 'var(--radius-md)', margin: '0 0 var(--space-4)', display: 'block' } });
+        else if (vm) el = React.createElement('iframe', { key: k++, src: 'https://player.vimeo.com/video/' + vm[1], allowFullScreen: true, style: { width: '100%', aspectRatio: '16/9', border: '1px solid var(--color-divider)', borderRadius: 'var(--radius-md)', margin: '0 0 var(--space-4)', display: 'block' } });
+        else el = React.createElement('video', { key: k++, src: url, controls: true, style: { width: '100%', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-divider)', margin: '0 0 var(--space-4)', display: 'block' } });
+        out.push(el);
+        i++;
+      } else if (/^###\s/.test(line) || line === '###') {
         out.push(React.createElement('h4', { key: k++, style: { margin: 'var(--space-6) 0 var(--space-2)' } }, this.mdInline(line.slice(4), k))); i++;
-      } else if (line.startsWith('## ')) {
+      } else if (/^##\s/.test(line) || line === '##') {
         out.push(React.createElement('h3', { key: k++, style: { margin: 'var(--space-6) 0 var(--space-2)' } }, this.mdInline(line.slice(3), k))); i++;
-      } else if (line.startsWith('# ')) {
+      } else if (/^#\s/.test(line) || line === '#') {
         out.push(React.createElement('h2', { key: k++, style: { margin: 'var(--space-6) 0 var(--space-3)' } }, this.mdInline(line.slice(2), k))); i++;
       } else if (/^\s*[-*] /.test(line)) {
         const items = [];
@@ -724,11 +756,16 @@ class Component extends DCLogic {
       } else if (line.trim() === '') { i++; }
       else {
         const buf = [];
-        while (i < lines.length && lines[i].trim() !== '' && !/^(#|```|\s*[-*] )/.test(lines[i])) { buf.push(lines[i]); i++; }
+        while (i < lines.length && lines[i].trim() !== '' && !/^(#|```|!\[|!video\(|\s*[-*] )/.test(lines[i]) && !/^https?:\/\/(www\.)?(youtube\.com|youtu\.be|vimeo\.com)\/\S+$/.test(lines[i].trim())) { buf.push(lines[i]); i++; }
+        if (buf.length === 0) { buf.push(lines[i]); i++; } // safety: never stall on a line no branch consumed (e.g. "#foo", unclosed "!video(")
         out.push(React.createElement('p', { key: k++, style: pStyle }, this.mdInline(buf.join(' '), k)));
       }
     }
     return out;
+  }
+
+  insertSnippet(snippet) {
+    this.setState({ draft: { ...this.state.draft, body: (this.state.draft.body ? this.state.draft.body.replace(/\n*$/, '\n\n') : '') + snippet + '\n' } });
   }
 
   excerpt(body) {
@@ -849,6 +886,28 @@ class Component extends DCLogic {
       onTags: e => this.setState({ draft: { ...this.state.draft, tags: e.target.value } }),
       onBody: e => this.setState({ draft: { ...this.state.draft, body: e.target.value } }),
       previewBody: this.renderMd(s.draft.body),
+      insertImageUrl: () => { const u = prompt('Image URL — or a file from your images folder, e.g. images/jammer.png:'); if (u) this.insertSnippet('![image](' + u.trim() + ')'); },
+      insertFromFolder: () => {
+        const names = this.state.folderImages;
+        if (!names.length) { alert('No files found in the images/ folder.'); return; }
+        const list = names.map((n, i) => (i + 1) + '. ' + n).join('\n');
+        const pick = prompt('Insert from images/ — type a number or a filename:\n\n' + list);
+        if (!pick) return;
+        const byNum = names[parseInt(pick, 10) - 1];
+        const name = byNum || names.find(n => n.toLowerCase() === pick.trim().toLowerCase()) || pick.trim();
+        this.insertSnippet(/\.(mp4|webm)$/i.test(name) ? '!video(images/' + name + ')' : '![image](images/' + name + ')');
+      },
+      insertLink: () => { const u = prompt('Link URL:'); if (!u) return; const t = prompt('Link text:', u) || u; this.insertSnippet('[' + t + '](' + u.trim() + ')'); },
+      insertVideo: () => { const u = prompt('Video URL (YouTube, Vimeo or .mp4):'); if (u) this.insertSnippet('!video(' + u.trim() + ')'); },
+      onUploadImage: e => {
+        const f = e.target.files && e.target.files[0];
+        if (!f) return;
+        if (f.size > 1.5 * 1024 * 1024) { alert('Image too large (max ~1.5 MB) — articles are stored in the browser. Use a smaller image or paste an image URL instead.'); e.target.value = ''; return; }
+        const r = new FileReader();
+        r.onload = () => { this.insertSnippet('![image](' + r.result + ')'); };
+        r.readAsDataURL(f);
+        e.target.value = '';
+      },
       publish: () => this.savePost('published'),
       saveDraft: () => this.savePost('draft'),
       cancelEdit: () => this.setState({ blogView: 'list', error: '' }),
