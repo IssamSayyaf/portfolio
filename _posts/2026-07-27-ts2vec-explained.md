@@ -345,6 +345,5 @@ classification, forecasting and anomaly detection with tiny, cheap heads.
 ```{seealso} Reference
 Yue et al., *TS2Vec: Towards Universal Representation of Time Series*, AAAI 2022 —
 [arXiv:2106.10466](https://arxiv.org/abs/2106.10466).
-The animations here were made with [Manim](https://www.manim.community/); the scene
-source lives in `tools/manim/ts2vec_scenes.py` in this site's repository.
+The animations here were made with [Manim](https://www.manim.community/).
 ```

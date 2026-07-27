@@ -10,3 +10,7 @@ node_modules/
 
 # TS2Vec draft material (source notes, not published)
 blog_draft/
+
+# Python bytecode
+__pycache__/
+*.pyc

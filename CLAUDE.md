@@ -97,12 +97,16 @@ blockquotes, tables, `$x$` and `$$…$$` maths via MathJax, `---` rules.
 
 ### Animations (Manim)
 
-Explainer posts can carry short clips. Scene source lives in
-`tools/manim/*.py`; rendered `.mp4`s go in `images/<topic>/` and are embedded
-with `!video(path)`.
+Explainer posts can carry short clips. Rendered `.mp4`s live in
+`images/<topic>/` and are embedded with `!video(path)`.
+
+**Scene source is not kept in this repo** — Issam asked for it to be removed.
+The clips in `images/ts2vec/` are therefore final artifacts: they cannot be
+re-rendered from anything here. If a clip needs changing, the scene has to be
+written again from scratch. Write it somewhere scratch, render, copy the mp4 in.
 
 ```bash
-manim -qm --format=mp4 tools/manim/ts2vec_scenes.py SceneName
+manim -qm --format=mp4 scene.py SceneName
 ```
 
 - **There is no LaTeX on this machine.** Use `Text()`, never `MathTex()`/`Tex()`
