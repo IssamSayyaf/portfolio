@@ -85,81 +85,10 @@
       <p>I <a href="blog.html">write</a> about this occasionally. The fastest way to reach me is
       <a href="mailto:issamsayyaf97@gmail.com">email</a>.</p>
 
-      <h2>What I do</h2>
-      <div class="grid__wrapper" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5em 2em">
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">Time-Series Deep Learning</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">CNNs, RNNs/LSTMs and Transformers for forecasting, anomaly detection, gesture recognition and spatial tracking on sensor streams. PyTorch and TensorFlow.</p>
-        </div>
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">Transformers &amp; Sequence Models</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">Time-series Transformers, behavioural embeddings and tokenized sensor streams — adapting sequence architectures, including LLM-style ones, to raw telemetry.</p>
-        </div>
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">Anomaly Detection</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">Reconstruction-based methods — autoencoders (AE, VAE), adversarial generative models, isolation forests — plus the evaluation methodology: thresholds, metrics and what they hide.</p>
-        </div>
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">DSP &amp; Feature Engineering</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">Filtering, windowing, FFT/PSD and spectral analysis to clean and calibrate noisy sensor data, and engineer features robust enough to learn from.</p>
-        </div>
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">Edge &amp; Embedded Optimisation</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">Quantization, pruning and hardware-accelerated compilation (ONNX, TensorRT, TensorFlow Lite) for deployment on resource-constrained devices.</p>
-        </div>
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">ML Pipelines &amp; Data</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">Pipelines for high-volume streaming, asynchronous telemetry at low latency — plus the data-collection protocols and sensor test benches that feed them.</p>
-        </div>
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">Sensor Characterisation</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">Experimental evaluation across environments: microphone, accelerometer, gyroscope, ultrasonic time-of-flight, pressure and magnetometer. NI DAQ, LabVIEW, SCPI benches.</p>
-        </div>
-        <div>
-          <h3 style="margin:0 0 .3em;font-size:1.05em">Embedded Systems</h3>
-          <p style="font-size:.88em;color:var(--muted);margin:0">5+ years of C/C++ on ARM Cortex-M and -A: Zephyr, FreeRTOS, Yocto BSPs, Linux kernel drivers, secure boot and OTA, SPI/I2C/UART/CAN, BLE, GNSS.</p>
-        </div>
-      </div>
-
-      <h2>Selected projects</h2>
-      <div class="grid__wrapper">
-        <div class="grid__item">
-          <div class="archive__item-teaser"><img src="images/anomaly_detection_results.png" alt="Anomaly detection"></div>
-          <h3 class="archive__item-title"><a href="projects.html#time-series">Anomaly Detection on IMU Time Series</a></h3>
-          <p class="archive__item-excerpt">Physics-informed AE/VAE/USAD models catching sensor faults in real time on embedded devices.</p>
-        </div>
-        <div class="grid__item">
-          <div class="archive__item-teaser"><img src="images/5g_configuration.png" alt="5G LOS/NLOS detection"></div>
-          <h3 class="archive__item-title"><a href="projects.html#time-series">5G LOS/NLOS Detection with USAD</a></h3>
-          <p class="archive__item-excerpt">Unsupervised anomaly detection on 5G channel impulse responses, separating line-of-sight from NLOS.</p>
-        </div>
-        <div class="grid__item">
-          <div class="archive__item-teaser"><img src="images/stm32mp157_gnssdriver.jpeg" alt="STM32MP157 Yocto BSP"></div>
-          <h3 class="archive__item-title"><a href="projects.html#embedded">STM32MP157 Yocto BSP</a></h3>
-          <p class="archive__item-excerpt">Complete boot chain, custom Yocto layers, kernel drivers and SWUpdate OTA with A/B partitions.</p>
-        </div>
-      </div>
-      <p><a href="projects.html">All projects &rarr;</a></p>
-
       <h2>Recent writing</h2>
       <div id="recent-posts">
         <p style="color:var(--muted);font-style:italic">Loading…</p>
       </div>
-
-      <h2>Toolbox</h2>
-      <dl style="margin:0">
-        <div class="definition-row"><dt>Deep learning</dt><dd>PyTorch · TensorFlow · CNNs · RNNs/LSTMs · Transformers &amp; time-series Transformers · autoencoders (AE, VAE) · adversarial generative models · isolation forest</dd></div>
-        <div class="definition-row"><dt>Time series &amp; DSP</dt><dd>Filtering · windowing · FFT/PSD &amp; spectral analysis · feature engineering · Kalman filtering · super-resolution (MUSIC, ESPRIT) · detection metrics and thresholding</dd></div>
-        <div class="definition-row"><dt>Edge deployment</dt><dd>Quantization · pruning · ONNX · TensorRT · TensorFlow Lite · real-time C/C++ inference chains · Zephyr · FreeRTOS · embedded Linux</dd></div>
-        <div class="definition-row"><dt>Languages</dt><dd>Python (advanced) · C (advanced, 5+ yrs) · C++ · Bash · VHDL · LaTeX</dd></div>
-        <div class="definition-row"><dt>Platforms</dt><dd>STM32 (Cortex-M &amp; -A) · ARM Cortex-M · NXP i.MX93 · PYNQ-Z2 / Zynq SoC · board bring-up</dd></div>
-        <div class="definition-row"><dt>Systems</dt><dd>Yocto / BitBake / KAS · Linux kernel drivers · device tree · boot chain (TF-A, OP-TEE, U-Boot) · FreeRTOS · Zephyr</dd></div>
-        <div class="definition-row"><dt>Protocols</dt><dd>GPIO · I2C · SPI · UART · ADC · USB · CAN bus · BLE · Wi-Fi · 5G · GNSS</dd></div>
-        <div class="definition-row"><dt>Sensors</dt><dd>MEMS IMU (accelerometer, gyroscope, magnetometer) · microphone &amp; acoustic/ultrasonic · time-of-flight · pressure · GNSS/RF · piezoelectric AE</dd></div>
-        <div class="definition-row"><dt>Test &amp; benches</dt><dd>NI DAQ · LabVIEW · SCPI instrument control · oscilloscope &amp; spectrum analyser · data-collection protocols</dd></div>
-        <div class="definition-row"><dt>Tools</dt><dd>Git / GitHub · CI/CD pipelines · Docker · automated testing · Linux (Ubuntu, Debian) · VS Code</dd></div>
-        <div class="definition-row"><dt>Languages spoken</dt><dd>Arabic — native · English — fluent (C1) · French — intermediate (B1)</dd></div>
-      </dl>
     </section>
   </main>
 </div>

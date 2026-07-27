@@ -233,6 +233,12 @@ pre code { background: none; border: 0; padding: 0; font-size: 1em; }
 
 .page__content { font-size: 1em; }
 
+/* The home page is only the intro and the recent-writing list, so it reads at a
+   larger size than the dense archive pages. Everything inside is relative, so
+   one bump here carries the headings and post excerpts with it. */
+body[data-page="home"] .page__content { font-size: 1.15em; line-height: 1.65; }
+body[data-page="home"] .page__lead { font-size: 1.2em; }
+
 .page__content h2 {
   margin: 2em 0 0.7em;
   padding-bottom: 0.5rem;
