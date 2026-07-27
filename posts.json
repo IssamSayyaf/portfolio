@@ -1,0 +1,40 @@
+{
+  "generated": "2026-07-27T15:09:18+00:00",
+  "count": 2,
+  "posts": [
+    {
+      "slug": "ts2vec-explained",
+      "file": "_posts/2026-07-27-ts2vec-explained.md",
+      "title": "TS2Vec, explained from scratch",
+      "date": "2026-07-27",
+      "dateLabel": "July 27, 2026",
+      "year": 2026,
+      "tags": [
+        "time series",
+        "self-supervised",
+        "contrastive learning",
+        "representation learning"
+      ],
+      "excerpt": "How TS2Vec learns one vector per timestamp with no labels at all — two overlapping crops, a mask, a dilated CNN, and a hierarchical contrastive loss. With every equation, worked numbers, and animations for the parts that need motion.",
+      "readTime": 9,
+      "draft": false,
+      "image": null
+    },
+    {
+      "slug": "how-this-blog-works",
+      "file": "_posts/2026-07-27-how-this-blog-works.md",
+      "title": "How this blog works",
+      "date": "2026-07-27",
+      "dateLabel": "July 27, 2026",
+      "year": 2026,
+      "tags": [
+        "meta",
+        "writing"
+      ],
+      "excerpt": "Every post is one Markdown file in _posts/. This one doubles as a formatting reference — delete it once you have written your own.",
+      "readTime": 2,
+      "draft": false,
+      "image": null
+    }
+  ]
+}

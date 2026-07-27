@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Issam Sayyaf — Blog</title>
+    <link>https://issamsayyaf.github.io/portfolio/blog.html</link>
+    <description>Notes on time-series deep learning, embedded ML, firmware and signal processing.</description>
+    <language>en</language>
+    <item>
+      <title>TS2Vec, explained from scratch</title>
+      <link>https://issamsayyaf.github.io/portfolio/post.html?p=ts2vec-explained</link>
+      <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=ts2vec-explained</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+      <description>How TS2Vec learns one vector per timestamp with no labels at all — two overlapping crops, a mask, a dilated CNN, and a hierarchical contrastive loss. With every equation, worked numbers, and animations for the parts that need motion.</description>
+      <category>time series</category>
+      <category>self-supervised</category>
+      <category>contrastive learning</category>
+      <category>representation learning</category>
+    </item>
+    <item>
+      <title>How this blog works</title>
+      <link>https://issamsayyaf.github.io/portfolio/post.html?p=how-this-blog-works</link>
+      <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=how-this-blog-works</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 +0000</pubDate>
+      <description>Every post is one Markdown file in _posts/. This one doubles as a formatting reference — delete it once you have written your own.</description>
+      <category>meta</category>
+      <category>writing</category>
+    </item>
+  </channel>
+</rss>

@@ -1,934 +1,206 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<title>Issam Sayyaf</title>
+<meta name="description" content="Issam Sayyaf — deep learning for time-series sensor data. Senior Algorithm Engineer (Edge AI) at TDK, Grenoble. Anomaly detection, autoencoders, embedded ML, signal processing and firmware.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/site.js" defer></script>
 </head>
-<body>
-<x-dc>
-<helmet>
-<link rel="stylesheet" href="_ds/classical-f84c077c-060e-42ab-9bc2-06328cca37fe/styles.css">
-<script src="_ds/classical-f84c077c-060e-42ab-9bc2-06328cca37fe/_ds_bundle.js"></script>
-<style>
-  html, body { margin:0; padding:0; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-</style>
-</helmet>
-<div style="min-height:100vh; background:color-mix(in srgb, var(--color-neutral-100) 35%, white); color:var(--color-text); font-family:var(--font-body); display:flex; flex-direction:column;">
+<body data-page="home">
 
-  <!-- NAV -->
-  <nav style="position:sticky; top:0; z-index:100; background:color-mix(in srgb, white 90%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--color-divider);">
-    <div style="max-width:1120px; margin:0 auto; padding:0 var(--space-6); display:flex; align-items:center; justify-content:space-between; height:64px;">
-      <div style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:21px; letter-spacing:-0.01em; cursor:pointer;" onClick="{{ goHome }}">Issam Sayyaf</div>
-      <div style="display:flex; align-items:center; gap:var(--space-1);">
-        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="6">
-          <button onClick="{{ t.go }}" style="border:none; border-bottom:1px solid {{ t.underline }}; background:transparent; cursor:pointer; font-family:var(--font-body); font-size:13.5px; color:{{ t.color }}; padding:var(--space-2) var(--space-3); transition:color 0.15s;" style-hover="color:var(--color-accent);">{{ t.label }}</button>
-        </sc-for>
-      </div>
-    </div>
-  </nav>
-
-  <div style="flex:1;">
-
-  <!-- ============ HOME ============ -->
-  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
-    <div style="animation:fadeUp 0.4s ease;">
-      <div style="max-width:1120px; margin:0 auto; padding:var(--space-8) var(--space-6) var(--space-8);">
-        <div style="display:grid; grid-template-columns:1fr 300px; gap:72px; align-items:center; padding-top:var(--space-6);">
-          <div>
-            <div style="font-size:11px; letter-spacing:0.14em; color:var(--color-accent-600); text-transform:uppercase; font-variant-numeric:tabular-nums;">Senior Algorithm Engineer, Edge AI · TDK — Grenoble</div>
-            <h1 style="font-size:62px; font-weight:400; letter-spacing:-0.02em; line-height:1.06; margin:var(--space-3) 0 0;">Building reliable systems, from silicon to signal.</h1>
-            <p style="font-size:16px; line-height:1.75; color:color-mix(in srgb, var(--color-text) 75%, transparent); margin:var(--space-4) 0 0; max-width:600px; text-align:justify; text-wrap:pretty;">Senior Algorithm Engineer at TDK in Grenoble, France. Firmware and embedded systems engineer with 5+ years across ARM Cortex-M/A, custom Yocto Linux, secure boot and OTA — and a PhD in signal processing and embedded AI from Université Gustave Eiffel, defended in 2026. Author of 10+ peer-reviewed publications.</p>
-            <div style="display:flex; align-items:center; gap:var(--space-3); margin-top:var(--space-6);">
-              <a href="cv.pdf" download="Issam-Sayyaf-CV.pdf" class="btn btn-primary" style="text-decoration:none;">
-                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg>
-                Download CV
-              </a>
-              <a href="CV.dc.html" class="btn btn-secondary" style="text-decoration:none;">View CV online</a>
-              <button onClick="{{ goContact }}" class="btn btn-secondary">Get in touch</button>
-            </div>
-          </div>
-          <div style="display:flex; flex-direction:column; align-items:center; gap:var(--space-3);">
-            <img src="images/issam-sayyaf.png" alt="Issam Sayyaf" class="plate" style="filter:none; background:white; width:260px; height:300px; object-fit:cover; object-position:center 20%;">
-            <div style="font-size:11.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); font-style:italic;">Grenoble, France</div>
-          </div>
-        </div>
-
-        <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
-          <div style="display:grid; grid-template-columns:repeat(4, 1fr); border-top:1px solid var(--color-divider); border-bottom:1px solid var(--color-divider); margin-top:var(--space-8); font-variant-numeric:tabular-nums;">
-            <div style="padding:var(--space-4) var(--space-4) var(--space-4) 0;">
-              <div style="font-family:var(--font-heading); font-weight:400; font-size:40px;">5+</div>
-              <div style="font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:2px;">Years embedded</div>
-            </div>
-            <div style="padding:var(--space-4); border-left:1px solid var(--color-divider);">
-              <div style="font-family:var(--font-heading); font-weight:400; font-size:40px;">10+</div>
-              <div style="font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:2px;">Publications</div>
-            </div>
-            <div style="padding:var(--space-4); border-left:1px solid var(--color-divider);">
-              <div style="font-family:var(--font-heading); font-weight:400; font-size:40px;">18+</div>
-              <div style="font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:2px;">Projects delivered</div>
-            </div>
-            <div style="padding:var(--space-4); border-left:1px solid var(--color-divider);">
-              <div style="font-family:var(--font-heading); font-weight:400; font-size:40px;">PhD</div>
-              <div style="font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:2px;">Defended 2026</div>
-            </div>
-          </div>
-        </sc-if>
-      </div>
-
-      <!-- Expertise -->
-      <div style="border-top:1px solid var(--color-divider);">
-        <div style="max-width:1120px; margin:0 auto; padding:var(--space-8) var(--space-6);">
-          <h2 style="font-size:34px; font-weight:var(--font-heading-weight); margin:0 0 var(--space-6);">What I do</h2>
-          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-6) var(--space-8);">
-            <div>
-              <div style="font-size:11px; color:var(--color-accent); letter-spacing:0.1em; font-variant-numeric:tabular-nums;">I.</div>
-              <h4 style="font-size:19px; margin:var(--space-2) 0 var(--space-1);">Embedded Linux &amp; Yocto</h4>
-              <p style="font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:0; text-align:justify;">Custom Yocto BSPs, full boot chain (TF-A, OP-TEE, U-Boot), device tree, secure boot, SWUpdate OTA with A/B partitioning, KAS configuration.</p>
-            </div>
-            <div>
-              <div style="font-size:11px; color:var(--color-accent); letter-spacing:0.1em; font-variant-numeric:tabular-nums;">II.</div>
-              <h4 style="font-size:19px; margin:var(--space-2) 0 var(--space-1);">C/C++ Firmware</h4>
-              <p style="font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:0; text-align:justify;">5+ years of embedded C/C++ on ARM Cortex-M and STM32 — drivers, BSP, real-time firmware, board bring-up.</p>
-            </div>
-            <div>
-              <div style="font-size:11px; color:var(--color-accent); letter-spacing:0.1em; font-variant-numeric:tabular-nums;">III.</div>
-              <h4 style="font-size:19px; margin:var(--space-2) 0 var(--space-1);">Kernel Drivers &amp; Protocols</h4>
-              <p style="font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:0; text-align:justify;">Linux kernel driver development. GPIO, I2C, SPI, UART, ADC, CAN, USB — kernel and bare-metal implementations.</p>
-            </div>
-            <div>
-              <div style="font-size:11px; color:var(--color-accent); letter-spacing:0.1em; font-variant-numeric:tabular-nums;">IV.</div>
-              <h4 style="font-size:19px; margin:var(--space-2) 0 var(--space-1);">RTOS &amp; Real-time</h4>
-              <p style="font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:0; text-align:justify;">FreeRTOS, Zephyr, ThreadX — real-time scheduling and multi-task firmware architecture on microcontrollers.</p>
-            </div>
-            <div>
-              <div style="font-size:11px; color:var(--color-accent); letter-spacing:0.1em; font-variant-numeric:tabular-nums;">V.</div>
-              <h4 style="font-size:19px; margin:var(--space-2) 0 var(--space-1);">Signal Processing &amp; Edge AI</h4>
-              <p style="font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:0; text-align:justify;">Anomaly detection, autoencoders (AE, VAE, USAD), sensor fusion, ML deployment on resource-constrained MCUs.</p>
-            </div>
-            <div>
-              <div style="font-size:11px; color:var(--color-accent); letter-spacing:0.1em; font-variant-numeric:tabular-nums;">VI.</div>
-              <h4 style="font-size:19px; margin:var(--space-2) 0 var(--space-1);">Networking &amp; IoT</h4>
-              <p style="font-size:13px; line-height:1.7; color:color-mix(in srgb, var(--color-text) 70%, transparent); margin:0; text-align:justify;">SDN/OpenFlow, TCP/IP, BLE, Wi-Fi, 5G, GNSS — IoT sensor networks and wireless communication systems.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Selected projects -->
-      <div style="border-top:1px solid var(--color-divider);">
-        <div style="max-width:1120px; margin:0 auto; padding:var(--space-8) var(--space-6);">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-4); margin-bottom:var(--space-6);">
-            <h2 style="font-size:34px; font-weight:var(--font-heading-weight); margin:0;">Selected projects</h2>
-            <button onClick="{{ goProjects }}" class="btn btn-ghost">All 15+ projects →</button>
-          </div>
-          <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4);">
-            <div class="card" style="cursor:pointer;" onClick="{{ goProjects }}">
-              <img src="images/stm32mp157_gnssdriver.jpeg" alt="STM32MP157" class="plate" style="filter:none; background:white; width:100%; height:150px; object-fit:cover;">
-              <div class="card-kicker">Embedded Linux</div>
-              <div class="card-title" style="font-size:20px;">STM32MP157 Yocto BSP</div>
-              <p class="card-body">Complete boot chain, custom Yocto layers, kernel drivers and SWUpdate OTA with A/B partitions.</p>
-            </div>
-            <div class="card" style="cursor:pointer;" onClick="{{ goProjects }}">
-              <img src="images/Muzziball.jpg" alt="Muzziball" class="plate" style="filter:none; background:white; width:100%; height:150px; object-fit:cover;">
-              <div class="card-kicker">Shipped product</div>
-              <div class="card-title" style="font-size:20px;">Muzziball — Secure Audio Device</div>
-              <p class="card-body">Production Yocto with secure boot and OTA, real-time audio, embedded C++ server bridging BLE and Wi-Fi.</p>
-            </div>
-            <div class="card" style="cursor:pointer;" onClick="{{ goProjects }}">
-              <img src="images/anomaly_detection_results.png" alt="Anomaly detection" class="plate" style="filter:none; background:white; width:100%; height:150px; object-fit:cover;">
-              <div class="card-kicker">PhD research</div>
-              <div class="card-title" style="font-size:20px;">Anomaly Detection for Navigation</div>
-              <p class="card-body">Physics-informed AE/VAE/USAD models catching sensor faults in real time on embedded devices.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Featured writing -->
-      <div style="border-top:1px solid var(--color-divider);">
-        <div style="max-width:1120px; margin:0 auto; padding:var(--space-8) var(--space-6);">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-4); margin-bottom:var(--space-6);">
-            <h2 style="font-size:34px; font-weight:var(--font-heading-weight); margin:0;">From the blog</h2>
-            <button onClick="{{ goBlog }}" class="btn btn-ghost">All articles →</button>
-          </div>
-          <sc-if value="{{ hasFeatured }}" hint-placeholder-val="{{ false }}">
-            <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4);">
-              <sc-for list="{{ featured }}" as="f" hint-placeholder-count="3">
-                <div class="card" style="cursor:pointer;" onClick="{{ f.read }}">
-                  <div class="card-kicker">{{ f.dateStr }}</div>
-                  <div class="card-title" style="font-size:22px;">{{ f.title }}</div>
-                  <p class="card-body" style="font-size:13.5px; line-height:1.7;">{{ f.excerpt }}</p>
-                  <div class="card-meta">{{ f.tagsStr }}</div>
-                </div>
-              </sc-for>
-            </div>
-          </sc-if>
-          <sc-if value="{{ noFeatured }}" hint-placeholder-val="{{ false }}">
-            <p style="font-size:14px; color:color-mix(in srgb, var(--color-text) 55%, transparent); font-style:italic; margin:0;">Notes on embedded Linux, firmware and signal processing — first articles coming soon.</p>
-          </sc-if>
-        </div>
-      </div>
-
-      <!-- Toolbox -->
-      <div style="border-top:1px solid var(--color-divider);">
-        <div style="max-width:1120px; margin:0 auto; padding:var(--space-8) var(--space-6);">
-          <h2 style="font-size:34px; font-weight:var(--font-heading-weight); margin:0 0 var(--space-4);">Toolbox</h2>
-          <div style="display:flex; flex-direction:column;">
-            <div style="display:grid; grid-template-columns:200px 1fr; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); align-items:baseline;">
-              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent);">Languages</div>
-              <div style="font-size:14px; line-height:1.8;">C (advanced, 5+ yrs) · C++ · Python (advanced) · Bash · VHDL · LaTeX</div>
-            </div>
-            <div style="display:grid; grid-template-columns:200px 1fr; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); align-items:baseline;">
-              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent);">Platforms</div>
-              <div style="font-size:14px; line-height:1.8;">STM32 (Cortex-M &amp; -A) · ARM Cortex-M · NXP i.MX93 · PYNQ-Z2 / Zynq SoC · board bring-up</div>
-            </div>
-            <div style="display:grid; grid-template-columns:200px 1fr; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); align-items:baseline;">
-              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent);">Systems</div>
-              <div style="font-size:14px; line-height:1.8;">Yocto / BitBake / KAS · Linux kernel drivers · device tree · boot chain (TF-A, OP-TEE, U-Boot) · FreeRTOS · Zephyr</div>
-            </div>
-            <div style="display:grid; grid-template-columns:200px 1fr; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); align-items:baseline;">
-              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent);">Protocols</div>
-              <div style="font-size:14px; line-height:1.8;">GPIO · I2C · SPI · UART · ADC · USB · CAN bus · BLE · Wi-Fi · 5G · GNSS</div>
-            </div>
-            <div style="display:grid; grid-template-columns:200px 1fr; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); align-items:baseline;">
-              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent);">ML &amp; DSP</div>
-              <div style="font-size:14px; line-height:1.8;">PyTorch · TensorFlow · autoencoders (AE, VAE, USAD) · anomaly detection · IMU sensor fusion · edge deployment</div>
-            </div>
-            <div style="display:grid; grid-template-columns:200px 1fr; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); border-bottom:1px solid var(--color-divider); align-items:baseline;">
-              <div style="font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:color-mix(in srgb, var(--color-text) 55%, transparent);">Tools</div>
-              <div style="font-size:14px; line-height:1.8;">Git / GitHub · CI/CD pipelines · Docker · automated testing · Linux (Ubuntu, Debian) · VS Code</div>
-            </div>
-          </div>
-          <div style="display:flex; gap:var(--space-6); margin-top:var(--space-4); font-size:13px; color:color-mix(in srgb, var(--color-text) 70%, transparent);">
-            <span><em>Arabic</em> — native</span>
-            <span><em>English</em> — fluent (C1)</span>
-            <span><em>French</em> — intermediate (B1)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </sc-if>
-
-  <!-- ============ EXPERIENCE ============ -->
-  <sc-if value="{{ isExp }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:920px; margin:0 auto; padding:var(--space-8) var(--space-6); animation:fadeUp 0.4s ease;">
-      <h1 style="font-size:46px; font-weight:var(--font-heading-weight); margin:0 0 var(--space-8);">Experience</h1>
-      <div style="display:flex; flex-direction:column;">
-        <div style="display:grid; grid-template-columns:150px 1fr; gap:var(--space-6); padding:var(--space-6) 0; border-top:1px solid var(--color-divider);">
-          <div style="font-size:13px; color:var(--color-accent-600); font-variant-numeric:tabular-nums; padding-top:4px;">2026 — Present</div>
-          <div>
-            <h3 style="font-size:23px; margin:0;">Senior Algorithm Engineer</h3>
-            <div style="font-size:13.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:3px; font-style:italic;">TDK InvenSense— Grenoble, France</div>
-            <ul style="margin:var(--space-3) 0 0; padding-left:18px; font-size:14px; line-height:1.75; color:color-mix(in srgb, var(--color-text) 78%, transparent);">
-              <li>Developing Edge AI algorithms for MEMS sensors — ultrasonic and IMU (accelerometer, gyroscope)</li>
-              <li>Embedded systems development with Zephyr RTOS and Embedded Linux</li>
-              <li>ML deployment on resource-constrained targets — real-time C/C++ signal-processing chains</li>
-            </ul>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:150px 1fr; gap:var(--space-6); padding:var(--space-6) 0; border-top:1px solid var(--color-divider);">
-          <div style="font-size:13px; color:var(--color-accent-600); font-variant-numeric:tabular-nums; padding-top:4px;">Apr — Oct 2026</div>
-          <div>
-            <h3 style="font-size:23px; margin:0;">Research Engineer — BLE Channel Sounding</h3>
-            <div style="font-size:13.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:3px; font-style:italic;">Indoor positioning on Nordic nRF54L15<span style="color: color(srgb 0.12549 0.121569 0.113725 / 0.55);"> — Nantes, France</span></div>
-            <ul style="margin:var(--space-3) 0 0; padding-left:18px; font-size:14px; line-height:1.75; color:color-mix(in srgb, var(--color-text) 78%, transparent);">
-              <li>Real-time time-of-flight ranging algorithms (IFFT, MUSIC, ESPRIT) under Zephyr RTOS for BLE 6.0 Channel Sounding</li>
-              <li>Hardware configuration, antenna driving, ranging synchronization — production-grade C with code-coverage instrumentation</li>
-            </ul>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:150px 1fr; gap:var(--space-6); padding:var(--space-6) 0; border-top:1px solid var(--color-divider);">
-          <div style="font-size:13px; color:var(--color-accent-600); font-variant-numeric:tabular-nums; padding-top:4px;">2023 — 2026</div>
-          <div>
-            <h3 style="font-size:23px; margin:0;">Doctoral Researcher</h3>
-            <div style="font-size:13.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:3px; font-style:italic;">GEOLOC Laboratory, Université Gustave Eiffel — Nantes, France</div>
-            <ul style="margin:var(--space-3) 0 0; padding-left:18px; font-size:14px; line-height:1.75; color:color-mix(in srgb, var(--color-text) 78%, transparent);">
-              <li>Physics-informed anomaly detection for multi-modal navigation systems (IMU, GNSS, 5G)</li>
-              <li>Embedded ML deployment on resource-constrained microcontrollers</li>
-              <li>10+ peer-reviewed publications in IEEE journals and conferences</li>
-              <li>Thesis defended June 2026</li>
-            </ul>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:150px 1fr; gap:var(--space-6); padding:var(--space-6) 0; border-top:1px solid var(--color-divider);">
-          <div style="font-size:13px; color:var(--color-accent-600); font-variant-numeric:tabular-nums; padding-top:4px;">2021 — 2023</div>
-          <div>
-            <h3 style="font-size:23px; margin:0;">Embedded Linux Engineer</h3>
-            <div style="font-size:13.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:3px; font-style:italic;">Industrial &amp; consumer product projects<span style="color: color(srgb 0.12549 0.121569 0.113725 / 0.55);"> — Remote, USA</span></div>
-            <ul style="margin:var(--space-3) 0 0; padding-left:18px; font-size:14px; line-height:1.75; color:color-mix(in srgb, var(--color-text) 78%, transparent);">
-              <li>10+ production Linux drivers (IIO, serdev, platform) for MEMS and industrial sensors on STM32MP1 and NXP i.MX93</li>
-              <li>Full Yocto systems: meta-layers, BSP integration, device-tree bring-up, secure boot, SWUpdate OTA</li>
-              <li>Muzziball consumer audio device and truck monitoring platform (CAN, 5G, GNSS, FreeRTOS)</li>
-            </ul>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:150px 1fr; gap:var(--space-6); padding:var(--space-6) 0; border-top:1px solid var(--color-divider); border-bottom:1px solid var(--color-divider);">
-          <div style="font-size:13px; color:var(--color-accent-600); font-variant-numeric:tabular-nums; padding-top:4px;">2020 — 2021</div>
-          <div>
-            <h3 style="font-size:23px; margin:0;">Teaching Assistant</h3>
-            <div style="font-size:13.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:3px; font-style:italic;">Signal processing, electronics &amp; embedded systems<span style="color: color(srgb 0.12549 0.121569 0.113725 / 0.55);"> — Aleppo, Syria</span></div>
-            <ul style="margin:var(--space-3) 0 0; padding-left:18px; font-size:14px; line-height:1.75; color:color-mix(in srgb, var(--color-text) 78%, transparent);">
-              <li>Led 50+ lab sessions — 150+ students trained on instrumentation and sensor measurement methodology</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <h2 style="font-size:34px; font-weight:var(--font-heading-weight); margin:var(--space-8) 0 var(--space-4);">Education</h2>
-      <div style="display:flex; flex-direction:column; gap:var(--space-3);">
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-3);">
-            <div class="card-title" style="font-size:20px;">PhD, Signal Processing &amp; Navigation</div>
-            <span style="font-size:12px; color:var(--color-accent-600); white-space:nowrap; font-variant-numeric:tabular-nums;">2023 — 2026</span>
-          </div>
-          <div class="card-meta">Université Gustave Eiffel, Nantes, France</div>
-          <p class="card-body" style="font-size:13.5px;">Thesis: Physics-Informed Anomaly Detection for Multi-Modal Navigation Systems. Defended June 2026.</p>
-        </div>
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-3);">
-            <div class="card-title" style="font-size:20px;">MSc, Telecommunications Engineering — 110/110 cum laude</div>
-            <span style="font-size:12px; color:var(--color-accent-600); white-space:nowrap; font-variant-numeric:tabular-nums;">2021 — 2023</span>
-          </div>
-          <div class="card-meta">University of Calabria, Italy — ranked 1st in graduating class</div>
-          <p class="card-body" style="font-size:13.5px;">Thesis: Wireless Crack Detection Sensor using IoT &amp; Acoustic Emission. 3 publications during the program.</p>
-        </div>
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:var(--space-3);">
-            <div class="card-title" style="font-size:20px;">BSc, Electronics Engineering</div>
-            <span style="font-size:12px; color:var(--color-accent-600); white-space:nowrap; font-variant-numeric:tabular-nums;">2014 — 2019</span>
-          </div>
-          <div class="card-meta">University of Aleppo, Syria — ranked 1st in graduating class</div>
-          <p class="card-body" style="font-size:13.5px;">Telecommunications, electronics, signal processing and embedded systems.</p>
-        </div>
-      </div>
-
-      <h2 style="font-size:34px; font-weight:var(--font-heading-weight); margin:var(--space-8) 0 var(--space-4);">Talks &amp; teaching</h2>
-      <div style="display:flex; flex-direction:column;">
-        <div style="display:flex; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); align-items:baseline;">
-          <span class="tag tag-outline" style="min-width:70px; justify-content:center;">Talk</span>
-          <div style="font-size:14px;">IEEE APSCON 2024 — presented "Step Detection Enhanced by Anomaly Filtering for Pedestrian Navigation"</div>
-        </div>
-        <div style="display:flex; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); align-items:baseline;">
-          <span class="tag tag-outline" style="min-width:70px; justify-content:center;">Talk</span>
-          <div style="font-size:14px;">Conference presentations at IEEE I2MTC and IPIN — instrumentation, measurement and indoor positioning</div>
-        </div>
-        <div style="display:flex; gap:var(--space-4); padding:var(--space-3) 0; border-top:1px solid var(--color-divider); border-bottom:1px solid var(--color-divider); align-items:baseline;">
-          <span class="tag tag-accent" style="min-width:70px; justify-content:center;">Teaching</span>
-          <div style="font-size:14px;">Teaching assistant for antenna design, microwave engineering and RF systems — 50+ sessions, University of Aleppo</div>
-        </div>
-      </div>
-    </div>
-  </sc-if>
-
-  <!-- ============ PROJECTS ============ -->
-  <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:1120px; margin:0 auto; padding:var(--space-8) var(--space-6); animation:fadeUp 0.4s ease;">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:var(--space-4); margin-bottom:var(--space-6);">
-        <h1 style="font-size:46px; font-weight:var(--font-heading-weight); margin:0;">Projects</h1>
-        <div class="seg">
-          <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
-            <label class="seg-opt" style="user-select:none;"><input type="radio" name="projfilter" checked="{{ f.active }}" onChange="{{ f.go }}">{{ f.label }}</label>
-          </sc-for>
-        </div>
-      </div>
-
-      <sc-if value="{{ showEmbedded }}" hint-placeholder-val="{{ true }}">
-        <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:var(--space-2) 0 var(--space-4);">Embedded systems &amp; firmware</h6>
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4); margin-bottom:var(--space-8);">
-          <div class="card">
-            <img src="images/stm32mp157_gnssdriver.jpeg" alt="STM32MP157" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">STM32MP157 Yocto BSP</div>
-            <p class="card-body">Custom Linux distribution: complete boot chain (TF-A, OP-TEE, U-Boot), Yocto layers, GPIO/I2C/SPI/UART drivers, device tree overlays, SWUpdate OTA with A/B partitions.</p>
-            <div class="card-meta">Yocto · STM32 · C · boot chain</div>
-            <a href="https://github.com/IssamSayyaf/stm32mp157-yocto" target="_blank" style="font-size:12.5px;">View on GitHub →</a>
-          </div>
-          <div class="card">
-            <img src="images/airbox.jpeg" alt="Truck monitoring" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">Truck Monitoring BSP (2 versions)</div>
-            <p class="card-body">Yocto BSP on STM32MP157 and NXP i.MX93: CAN bus driver, 5G modem integration, GNSS drivers, FreeRTOS on Cortex-M, KAS configuration.</p>
-            <div class="card-meta">STM32MP1 · i.MX93 · CAN · 5G</div>
-          </div>
-          <div class="card">
-            <img src="images/Muzziball.jpg" alt="Muzziball" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">Muzziball — Secure Yocto, OTA &amp; C++ Server</div>
-            <p class="card-body">Production Yocto distribution with secure boot and SWUpdate OTA. PureData real-time audio, IMU/mic/speaker/LED drivers, embedded C++ server bridging BLE and Wi-Fi.</p>
-            <div class="card-meta">Secure boot · OTA · C++ · audio</div>
-          </div>
-          <div class="card">
-            <img src="images/stm32mp157_gnssdriver.jpeg" alt="Kernel drivers" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover; object-position:center 70%;">
-            <div class="card-title">Linux Kernel Drivers — IIO IMU &amp; GNSS</div>
-            <p class="card-body">IIO driver for the MPU-6050 (I2C, interrupts, sysfs) and a serdev driver for the u-blox NEO-M8N GNSS receiver with NMEA parsing.</p>
-            <div class="card-meta">Linux kernel · I2C · UART · IIO</div>
-          </div>
-          <div class="card">
-            <img src="images/router hack.jpg" alt="Router reverse engineering" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">TP-Link Router Reverse Engineering</div>
-            <p class="card-body">MT7628 SoC hardware reverse engineering: UART/SPI interface identification, SPI flash extraction with flashrom, Binwalk firmware analysis.</p>
-            <div class="card-meta">Reverse engineering · UART/SPI</div>
-            <a href="https://github.com/IssamSayyaf/tplink-firmware-reversing" target="_blank" style="font-size:12.5px;">View on GitHub →</a>
-          </div>
-          <div class="card">
-            <img src="images/expermints-setup.jpg" alt="Crack detection sensor" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">Wireless Crack Detection Sensor</div>
-            <p class="card-body">MSc thesis: complete wireless sensor for structural crack detection via acoustic emission — hardware design, edge firmware, cloud integration.</p>
-            <div class="card-meta">IoT · acoustic emission · SHM</div>
-          </div>
-          <div class="card">
-            <img src="images/arch_esp32_iot_project.jpeg" alt="ESP32 IoT" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">Secure IoT System on ESP32</div>
-            <p class="card-body">Smart-home IoT system with encrypted certificates and data, network security and privacy by design.</p>
-            <div class="card-meta">ESP32 · TLS · IoT security</div>
-          </div>
-        </div>
-      </sc-if>
-
-      <sc-if value="{{ showPhd }}" hint-placeholder-val="{{ false }}">
-        <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:var(--space-2) 0 var(--space-4);">PhD research</h6>
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4); margin-bottom:var(--space-8);">
-          <div class="card">
-            <img src="images/anomaly_detection_results.png" alt="Anomaly detection" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">Anomaly Detection for IMU Pedestrian Navigation</div>
-            <p class="card-body">Physics-informed framework with AE, VAE and USAD models detecting sensor faults in real time on embedded devices.</p>
-            <div class="card-meta">PyTorch · autoencoders · edge AI</div>
-            <a href="https://github.com/IssamSayyaf/Robust_SmartStep" target="_blank" style="font-size:12.5px;">View on GitHub →</a>
-          </div>
-          <div class="card">
-            <img src="images/5g_configuration.png" alt="5G LOS/NLOS" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">5G LOS/NLOS Detection with USAD</div>
-            <p class="card-body">Unsupervised anomaly detection on 5G channel impulse responses to separate line-of-sight from NLOS and improve positioning accuracy.</p>
-            <div class="card-meta">5G · USAD · positioning</div>
-            <a href="https://github.com/IssamSayyaf/5G-LOS-NLOS" target="_blank" style="font-size:12.5px;">View on GitHub →</a>
-          </div>
-          <div class="card">
-            <img src="images/fisheye_labeling1.png" alt="GNSS LOS/NLOS" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">GNSS LOS/NLOS Classification</div>
-            <p class="card-body">Autoencoder-based classification of GNSS signal conditions, separating multipath-affected signals for urban navigation.</p>
-            <div class="card-meta">GNSS · autoencoders · urban nav</div>
-          </div>
-          <div class="card">
-            <img src="images/J-ISPIN_GraphicAbstract_01.png" alt="GNSS threat landscape" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">GNSS Threat Landscape Analysis</div>
-            <p class="card-body">Real-world case studies of jamming, spoofing and meaconing across aviation, maritime and military domains. Published in IEEE J-ISPIN.</p>
-            <div class="card-meta">GNSS security · threat analysis</div>
-          </div>
-          <div class="card">
-            <img src="images/jammer.png" alt="Jammertest dataset" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">GNSS Attack Dataset — Jammertest 2024</div>
-            <p class="card-body">Open Zenodo dataset of GNSS signals under jamming, spoofing and meaconing — 845+ views, 227+ downloads.</p>
-            <div class="card-meta">Open data · jamming · spoofing</div>
-          </div>
-        </div>
-      </sc-if>
-
-      <sc-if value="{{ showMl }}" hint-placeholder-val="{{ false }}">
-        <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:var(--space-2) 0 var(--space-4);">AI &amp; networking</h6>
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-4); margin-bottom:var(--space-8);">
-          <div class="card">
-            <img src="images/BERT.png" alt="RoBERTa NLP" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">Contradictory Text Analysis — RoBERTa</div>
-            <p class="card-body">Natural language inference classifying premise–hypothesis pairs. 82% test accuracy with a fine-tuned Hugging Face pipeline.</p>
-            <div class="card-meta">Transformers · NLP · Python</div>
-            <a href="https://github.com/IssamSayyaf/Contradictory-Text-Analysis-NLP-Deep-Learning-" target="_blank" style="font-size:12.5px;">View on GitHub →</a>
-          </div>
-          <div class="card">
-            <img src="images/breast_cancer.png" alt="Breast cancer detection" class="plate" style="filter:none; background:white; width:100%; height:140px; object-fit:cover;">
-            <div class="card-title">Breast Cancer Detection (RSNA)</div>
-            <p class="card-body">CNN-based deep learning pipeline for mammography screening on the RSNA dataset.</p>
-            <div class="card-meta">CNN · medical imaging · PyTorch</div>
-            <a href="https://github.com/IssamSayyaf/RSNA-Breast-Cancer-Detection" target="_blank" style="font-size:12.5px;">View on GitHub →</a>
-          </div>
-          <div class="card">
-            <img src="images/SDN.png" alt="SDN load balancing" class="plate" style="filter:none; width:100%; height:140px; object-fit:contain; background:white;">
-            <div class="card-title">SDN Load Balancing for Video Streaming</div>
-            <p class="card-body">Dijkstra and Bellman-Ford routing on a RYU SDN controller with OpenFlow, simulated in Mininet-WiFi with SUMO urban mobility.</p>
-            <div class="card-meta">SDN · OpenFlow · Python</div>
-            <a href="https://github.com/IssamSayyaf/Load-Balancing-Technique-for-Face-Recognition-Video-Streaming-in-Wireless-Networks-main" target="_blank" style="font-size:12.5px;">View on GitHub →</a>
-          </div>
-        </div>
-      </sc-if>
-    </div>
-  </sc-if>
-
-  <!-- ============ PUBLICATIONS ============ -->
-  <sc-if value="{{ isPubs }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:920px; margin:0 auto; padding:var(--space-8) var(--space-6); animation:fadeUp 0.4s ease;">
-      <h1 style="font-size:46px; font-weight:var(--font-heading-weight); margin:0 0 var(--space-2);">Publications</h1>
-      <p style="font-size:15px; color:color-mix(in srgb, var(--color-text) 65%, transparent); margin:0 0 var(--space-8);">10+ peer-reviewed journal and conference papers in navigation, anomaly detection and GNSS security.</p>
-      <div style="display:flex; flex-direction:column;">
-        <div style="display:grid; grid-template-columns:110px 1fr; gap:var(--space-4); padding:var(--space-4) 0; border-top:1px solid var(--color-divider);">
-          <span class="tag tag-outline" style="align-self:start; justify-content:center;">Journal</span>
-          <div>
-            <h3 style="font-size:24px; font-weight:var(--font-heading-weight); margin:0; line-height:1.25;">Time-Series Anomaly Detection for Sensor Data: Models, Metrics, and Methodologies</h3>
-            <div style="font-size:13px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:6px; font-style:italic;">IEEE Sensors Journal, vol. 25, no. 24, pp. 43603–43619, 2025</div>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:110px 1fr; gap:var(--space-4); padding:var(--space-4) 0; border-top:1px solid var(--color-divider);">
-          <span class="tag tag-outline" style="align-self:start; justify-content:center;">Journal</span>
-          <div>
-            <h3 style="font-size:24px; font-weight:var(--font-heading-weight); margin:0; line-height:1.25;">GNSS Positioning Under Threat: Rising Risk to Existing Systems</h3>
-            <div style="font-size:13px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:6px; font-style:italic;">IEEE Journal of Indoor and Seamless Positioning and Navigation, 2025</div>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:110px 1fr; gap:var(--space-4); padding:var(--space-4) 0; border-top:1px solid var(--color-divider);">
-          <span class="tag tag-outline" style="align-self:start; justify-content:center;">Conference</span>
-          <div>
-            <h3 style="font-size:24px; font-weight:var(--font-heading-weight); margin:0; line-height:1.25;">Step Detection Enhanced by Anomaly Filtering for Pedestrian Navigation</h3>
-            <div style="font-size:13px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:6px; font-style:italic;">IEEE APSCON 2024</div>
-          </div>
-        </div>
-        <div style="display:grid; grid-template-columns:110px 1fr; gap:var(--space-4); padding:var(--space-4) 0; border-top:1px solid var(--color-divider); border-bottom:1px solid var(--color-divider);">
-          <span class="tag tag-accent" style="align-self:start; justify-content:center;">Dataset</span>
-          <div>
-            <h3 style="font-size:24px; font-weight:var(--font-heading-weight); margin:0; line-height:1.25;">GNSS Attack Dataset — Jammertest 2024</h3>
-            <div style="font-size:13px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-top:6px; font-style:italic;">Zenodo open dataset — 845+ views · 227+ downloads</div>
-          </div>
-        </div>
-      </div>
-      <a href="https://scholar.google.co.uk/citations?user=lFrypJ8AAAAJ" target="_blank" class="btn btn-primary" style="margin-top:var(--space-6); text-decoration:none;">View all publications on Google Scholar →</a>
-    </div>
-  </sc-if>
-
-  <!-- ============ BLOG ============ -->
-  <sc-if value="{{ isBlog }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:920px; margin:0 auto; padding:var(--space-8) var(--space-6); animation:fadeUp 0.4s ease;">
-
-      <sc-if value="{{ blogList }}" hint-placeholder-val="{{ true }}">
-        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:var(--space-4); margin-bottom:var(--space-6);">
-          <div>
-            <h1 style="font-size:46px; font-weight:var(--font-heading-weight); margin:0 0 var(--space-2);">Writing</h1>
-            <p style="font-size:15px; color:color-mix(in srgb, var(--color-text) 65%, transparent); margin:0;">Notes on embedded Linux, firmware and the occasional deep dive.</p>
-          </div>
-          <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ false }}">
-            <button onClick="{{ newArticle }}" class="btn btn-primary" style="white-space:nowrap;">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"></path></svg>
-              Write article
-            </button>
-          </sc-if>
-        </div>
-
-        <sc-if value="{{ noPosts }}" hint-placeholder-val="{{ true }}">
-          <div style="border:1px dashed var(--color-divider); border-radius:var(--radius-md); padding:72px 40px; text-align:center;">
-            <div style="font-family:var(--font-heading); font-size:26px; font-weight:400;">No articles yet</div>
-            <p style="font-size:14px; color:color-mix(in srgb, var(--color-text) 55%, transparent); max-width:460px; margin:var(--space-3) auto 0; line-height:1.75;">{{ emptyHint }}</p>
-          </div>
-        </sc-if>
-
-        <sc-if value="{{ hasPosts }}" hint-placeholder-val="{{ false }}">
-          <div style="display:flex; flex-direction:column;">
-            <sc-for list="{{ posts }}" as="p" hint-placeholder-count="2">
-              <div style="display:grid; grid-template-columns:1fr auto; gap:var(--space-4); padding:var(--space-4) 0; border-top:1px solid var(--color-divider); align-items:start;">
-                <div style="cursor:pointer;" onClick="{{ p.read }}">
-                  <div style="display:flex; align-items:center; gap:var(--space-2);">
-                    <span style="font-size:12px; color:color-mix(in srgb, var(--color-text) 55%, transparent); font-variant-numeric:tabular-nums;">{{ p.dateStr }}</span>
-                    <sc-if value="{{ p.isDraft }}" hint-placeholder-val="{{ false }}"><span class="tag tag-neutral">Draft</span></sc-if>
-                  </div>
-                  <h3 style="font-size:27px; font-weight:var(--font-heading-weight); margin:var(--space-1) 0 0; line-height:1.25;">{{ p.title }}</h3>
-                  <p style="font-size:14px; color:color-mix(in srgb, var(--color-text) 70%, transparent); line-height:1.7; margin:var(--space-1) 0 0; text-align:justify;">{{ p.excerpt }}</p>
-                  <div style="font-size:11.5px; color:var(--color-accent-600); margin-top:var(--space-2); font-style:italic;">{{ p.tagsStr }}</div>
-                </div>
-                <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ false }}">
-                  <div style="display:flex; gap:var(--space-1);">
-                    <button onClick="{{ p.edit }}" class="btn btn-secondary" style="font-size:12px; padding:5px 12px;">Edit</button>
-                    <button onClick="{{ p.del }}" class="btn btn-secondary" style="font-size:12px; padding:5px 12px;">Delete</button>
-                  </div>
-                </sc-if>
-              </div>
-            </sc-for>
-            <div style="border-top:1px solid var(--color-divider);"></div>
-          </div>
-        </sc-if>
-      </sc-if>
-
-      <sc-if value="{{ blogEditor }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--space-6); gap:var(--space-3); flex-wrap:wrap;">
-          <h1 style="font-size:38px; font-weight:var(--font-heading-weight); margin:0;">{{ editorHeading }}</h1>
-          <div style="display:flex; gap:var(--space-2);">
-            <button onClick="{{ cancelEdit }}" class="btn btn-secondary">Cancel</button>
-            <button onClick="{{ saveDraft }}" class="btn btn-secondary">Save draft</button>
-            <button onClick="{{ publish }}" class="btn btn-primary">Publish</button>
-          </div>
-        </div>
-        <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
-          <div style="border:1px solid var(--color-accent); color:var(--color-accent-600); font-size:13px; padding:var(--space-2) var(--space-3); border-radius:var(--radius-md); margin-bottom:var(--space-3); background:var(--color-accent-100);">{{ errorMsg }}</div>
-        </sc-if>
-        <div style="display:flex; flex-direction:column; gap:var(--space-3);">
-          <input class="input" value="{{ draftTitle }}" onChange="{{ onTitle }}" placeholder="Article title" style="font-family:var(--font-heading); font-size:26px; min-height:52px; padding:10px 14px;">
-          <input class="input" value="{{ draftTags }}" onChange="{{ onTags }}" placeholder="Tags, comma-separated — e.g. embedded linux, yocto, fixed-point">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-3); align-items:stretch;">
-            <div style="display:flex; flex-direction:column; gap:var(--space-1);">
-              <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--space-2); flex-wrap:wrap;">
-                <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:0;">Write — Markdown supported</h6>
-                <div style="display:flex; gap:var(--space-1);">
-                  <label class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px; cursor:pointer;">
-                    Upload image<input type="file" accept="image/*" onChange="{{ onUploadImage }}" style="display:none;">
-                  </label>
-                  <button onClick="{{ insertFromFolder }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">From images/</button>
-                  <button onClick="{{ insertImageUrl }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">Image URL</button>
-                  <button onClick="{{ insertLink }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">Link</button>
-                  <button onClick="{{ insertVideo }}" class="btn btn-secondary" style="font-size:11.5px; padding:4px 10px;">Video</button>
-                </div>
-              </div>
-              <textarea class="input" value="{{ draftBody }}" onChange="{{ onBody }}" placeholder="# Heading
-
-Write your article… **bold**, *italic*, `code`, ``` code blocks and - lists all work. ![alt](image-url) embeds an image, !video(youtube-url) embeds a video, [text](url) makes a link." style="font-family:ui-monospace, 'SF Mono', Menlo, monospace; font-size:13px; line-height:1.7; min-height:440px;"></textarea>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:var(--space-1);">
-              <h6 style="color:color-mix(in srgb, var(--color-text) 55%, transparent); margin:0;">Preview</h6>
-              <div style="border:1px solid var(--color-divider); border-radius:var(--radius-md); padding:var(--space-4); min-height:440px; overflow:auto; flex:1;">{{ previewBody }}</div>
-            </div>
-          </div>
-        </div>
-      </sc-if>
-
-      <sc-if value="{{ blogRead }}" hint-placeholder-val="{{ false }}">
-        <button onClick="{{ backToList }}" class="btn btn-ghost" style="margin-bottom:var(--space-4);">← All articles</button>
-        <div style="display:flex; align-items:center; gap:var(--space-3);">
-          <span style="font-size:12.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); font-variant-numeric:tabular-nums;">{{ readDate }}</span>
-          <span style="font-size:12px; color:var(--color-accent-600); font-style:italic;">{{ readTags }}</span>
-        </div>
-        <h1 style="font-size:46px; font-weight:var(--font-heading-weight); line-height:1.12; margin:var(--space-2) 0 var(--space-1);">{{ readTitle }}</h1>
-        <div style="font-size:13.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent); margin-bottom:var(--space-6); font-style:italic;">by Issam Sayyaf</div>
-        <div style="max-width:720px;">{{ articleBody }}</div>
-        <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ false }}">
-          <div style="margin-top:var(--space-8); padding-top:var(--space-4); border-top:1px solid var(--color-divider);">
-            <button onClick="{{ editCurrent }}" class="btn btn-secondary">Edit this article</button>
-          </div>
-        </sc-if>
-      </sc-if>
-    </div>
-  </sc-if>
-
-  <!-- ============ CONTACT ============ -->
-  <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
-    <div style="max-width:920px; margin:0 auto; padding:var(--space-8) var(--space-6); animation:fadeUp 0.4s ease;">
-      <h1 style="font-size:46px; font-weight:var(--font-heading-weight); margin:0 0 var(--space-2);">Get in touch</h1>
-      <p style="font-size:15px; color:color-mix(in srgb, var(--color-text) 65%, transparent); margin:0 0 var(--space-8); max-width:560px;">For roles, collaborations or freelance embedded work — the fastest way to reach me is email.</p>
-      <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:var(--space-8); align-items:start;">
-        <div style="display:flex; flex-direction:column; gap:var(--space-3);">
-          <a href="mailto:issamsayyaf97@gmail.com" class="card" style="flex-direction:row; align-items:center; gap:var(--space-3); text-decoration:none; color:inherit;">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 4-10 8L2 4"></path></svg>
-            <div><div style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:16px;">Email</div><div style="font-size:12.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent);">issamsayyaf97@gmail.com</div></div>
-          </a>
-          <a href="https://www.linkedin.com/in/issamsayyaf/" target="_blank" class="card" style="flex-direction:row; align-items:center; gap:var(--space-3); text-decoration:none; color:inherit;">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--color-accent)"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path></svg>
-            <div><div style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:16px;">LinkedIn</div><div style="font-size:12.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent);">linkedin.com/in/issamsayyaf</div></div>
-          </a>
-          <a href="https://github.com/IssamSayyaf" target="_blank" class="card" style="flex-direction:row; align-items:center; gap:var(--space-3); text-decoration:none; color:inherit;">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="var(--color-accent)"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
-            <div><div style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:16px;">GitHub</div><div style="font-size:12.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent);">github.com/IssamSayyaf</div></div>
-          </a>
-          <a href="https://scholar.google.co.uk/citations?user=lFrypJ8AAAAJ" target="_blank" class="card" style="flex-direction:row; align-items:center; gap:var(--space-3); text-decoration:none; color:inherit;">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path></svg>
-            <div><div style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:16px;">Google Scholar</div><div style="font-size:12.5px; color:color-mix(in srgb, var(--color-text) 55%, transparent);">All publications</div></div>
-          </a>
-        </div>
-        <div class="card" style="padding:var(--space-6);">
-          <div style="display:flex; flex-direction:column; gap:var(--space-3);">
-            <div class="field"><label>Your name</label><input class="input" value="{{ cName }}" onChange="{{ onCName }}" placeholder="Name"></div>
-            <div class="field"><label>Your email</label><input class="input" value="{{ cEmail }}" onChange="{{ onCEmail }}" placeholder="email@example.com"></div>
-            <div class="field"><label>Message</label><textarea class="input" value="{{ cMsg }}" onChange="{{ onCMsg }}" placeholder="Your message" style="min-height:150px;"></textarea></div>
-            <button onClick="{{ sendMail }}" class="btn btn-primary btn-block">Send message</button>
-            <div style="font-size:11.5px; color:color-mix(in srgb, var(--color-text) 50%, transparent); text-align:center;">Opens your email app with the message pre-filled.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </sc-if>
-
-  </div>
-
-  <!-- FOOTER -->
-  <footer style="border-top:1px solid var(--color-divider);">
-    <div style="max-width:1120px; margin:0 auto; padding:var(--space-6); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-3);">
-      <div style="font-family:var(--font-heading); font-weight:var(--font-heading-weight); font-size:16px;">Issam Sayyaf <span style="font-family:var(--font-body); font-size:12.5px; font-weight:400; color:color-mix(in srgb, var(--color-text) 55%, transparent);">— Firmware &amp; Embedded Systems Engineer</span></div>
-      <div style="display:flex; align-items:center; gap:var(--space-4); font-size:13px;">
-        <a href="mailto:issamsayyaf97@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/issamsayyaf/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/IssamSayyaf" target="_blank">GitHub</a>
-        <a href="https://scholar.google.co.uk/citations?user=lFrypJ8AAAAJ" target="_blank">Scholar</a>
-        <button onClick="{{ toggleOwner }}" title="{{ ownerTitle }}" style="border:none; background:transparent; cursor:pointer; padding:6px; display:flex; opacity:0.55; color:{{ lockColor }};" style-hover="opacity:1;">
-          <sc-if value="{{ isOwner }}" hint-placeholder-val="{{ false }}">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg>
-          </sc-if>
-          <sc-if value="{{ notOwner }}" hint-placeholder-val="{{ true }}">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-          </sc-if>
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav class="greedy-nav">
+        <a class="site-title" href="index.html">Issam Sayyaf</a>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
-      </div>
+        <ul class="visible-links">
+          <li><a href="index.html" data-nav="home">Home</a></li>
+          <li><a href="experience.html" data-nav="experience">Experience</a></li>
+          <li><a href="projects.html" data-nav="projects">Projects</a></li>
+          <li><a href="publications.html" data-nav="publications">Publications</a></li>
+          <li><a href="blog.html" data-nav="blog">Blog</a></li>
+          <li><a href="cv.pdf" data-nav="cv">CV</a></li>
+        </ul>
+      </nav>
     </div>
-  </footer>
+  </div>
 </div>
-</x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTab&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;home&quot;, &quot;options&quot;: [&quot;home&quot;, &quot;experience&quot;, &quot;projects&quot;, &quot;publications&quot;, &quot;blog&quot;, &quot;contact&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;showStats&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Behavior&quot;}, &quot;ownerPasscodeHash&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;9a92eee8110fd165a1acf68ca4aec18a0d3a8b7e09161da732bafbceefa58a46&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Blog&quot;}}">
-class Component extends DCLogic {
-  state = {
-    folderImages: [],
-    tab: 'home', filter: 'all', owner: false,
-    blogView: 'list', posts: [], draft: { id: null, title: '', tags: '', body: '' },
-    readingId: null, error: '',
-    cName: '', cEmail: '', cMsg: ''
-  };
 
-  componentDidMount() {
-    try {
-      const raw = localStorage.getItem('issam-portfolio-blog');
-      if (raw) this.setState({ posts: JSON.parse(raw) });
-      const saved = localStorage.getItem('issam-portfolio-owner');
-      const expected = this.props.ownerPasscodeHash ?? '9a92eee8110fd165a1acf68ca4aec18a0d3a8b7e09161da732bafbceefa58a46';
-      if (saved === expected) this.setState({ owner: true });
-    } catch (e) {}
-    // discover files in images/ (works when served from a directory listing-capable host; falls back to known list)
-    fetch('images/').then(r => r.ok ? r.text() : Promise.reject()).then(html => {
-      const names = Array.from(html.matchAll(/href="([^"?/]+\.(?:png|jpe?g|gif|webp|svg|mp4|webm))"/gi), m => decodeURIComponent(m[1]));
-      if (names.length) this.setState({ folderImages: names.sort() });
-    }).catch(() => {});
-    this.setState(s => s.folderImages.length ? null : { folderImages: ['5g_configuration.png','BERT.png','J-ISPIN_GraphicAbstract_01.png','Muzziball.jpg','SDN.png','airbox.jpeg','anomaly_detection_results.png','arch_esp32_iot_project.jpeg','breast_cancer.png','expermints-setup.jpg','fisheye_labeling1.png','issam-sayyaf.png','jammer.png','router hack.jpg','st32mp157f.gif','stm32mp157_gnssdriver.jpeg'] });
-    const def = this.props.defaultTab;
-    if (def && def !== 'home') this.setState({ tab: def });
-  }
+<div class="layout">
 
-  persist(posts) {
-    this.setState({ posts });
-    try { localStorage.setItem('issam-portfolio-blog', JSON.stringify(posts)); } catch (e) {}
-  }
+  <aside class="sidebar sticky">
+    <div class="author__avatar">
+      <img src="images/issam-sayyaf.png" alt="Issam Sayyaf">
+    </div>
+    <div class="author__content">
+      <h3 class="author__name">Issam Sayyaf</h3>
+      <p class="author__bio">Deep learning for time-series sensor data. Senior Algorithm Engineer, Edge AI at TDK. PhD in signal processing and embedded AI.</p>
+    </div>
+    <div class="author__urls-wrapper">
+      <ul class="author__urls">
+        <li><span style="display:flex;align-items:center;gap:.6em;padding:.5em 0;font-size:.85em;color:var(--muted)">
+          <svg class="icon-stroke" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Grenoble, France</span></li>
+        <li><a href="mailto:issamsayyaf97@gmail.com">
+          <svg class="icon-stroke" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 4-10 8L2 4"/></svg>
+          Email</a></li>
+        <li><a href="https://www.linkedin.com/in/issamsayyaf/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          LinkedIn</a></li>
+        <li><a href="https://github.com/IssamSayyaf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub</a></li>
+        <li><a href="https://scholar.google.co.uk/citations?user=lFrypJ8AAAAJ" target="_blank" rel="noopener">
+          <svg class="icon-stroke" viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+          Google Scholar</a></li>
+        <li><a href="cv.pdf">
+          <svg class="icon-stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          Curriculum Vitae</a></li>
+      </ul>
+    </div>
+  </aside>
 
-  fmtDate(ts) {
-    return new Date(ts).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
-  }
+  <main class="page">
+    <h1 class="page__title">Issam Sayyaf</h1>
+    <p class="page__lead">Deep learning for time-series sensor data — Senior Algorithm Engineer, Edge AI at TDK, Grenoble</p>
 
-  mdInline(text, key) {
-    const parts = [];
-    let rest = text, i = 0;
-    const rx = /(\*\*([^*]+)\*\*)|(\*([^*]+)\*)|(`([^`]+)`)|(\[([^\]]+)\]\(([^)]+)\))/;
-    while (rest) {
-      const m = rest.match(rx);
-      if (!m) { parts.push(rest); break; }
-      if (m.index > 0) parts.push(rest.slice(0, m.index));
-      if (m[1]) parts.push(React.createElement('strong', { key: key + '-' + i, style: { fontWeight: 600 } }, m[2]));
-      else if (m[3]) parts.push(React.createElement('em', { key: key + '-' + i }, m[4]));
-      else if (m[5]) parts.push(React.createElement('code', { key: key + '-' + i, style: { fontFamily: "ui-monospace, 'SF Mono', Menlo, monospace", fontSize: '0.85em', background: 'var(--color-neutral-200)', padding: '1px 6px', borderRadius: 'var(--radius-sm)' } }, m[6]));
-      else if (m[7]) parts.push(React.createElement('a', { key: key + '-' + i, href: m[9], target: '_blank', style: { color: 'var(--color-accent-700)' } }, m[8]));
-      rest = rest.slice(m.index + m[0].length);
-      i++;
+    <section class="page__content">
+      <p>I build <strong>deep-learning models for noisy, multi-modal sensor time series</strong>. As a Senior
+      Algorithm Engineer on the Edge AI team at <strong>TDK InvenSense</strong> in Grenoble, I train CNNs,
+      RNNs/LSTMs and Transformers for forecasting, anomaly detection, gesture recognition and spatial tracking —
+      then get them running on-device, quantized and pruned, through ONNX and TensorFlow Lite.</p>
+
+      <p>My <strong>PhD</strong> (Université Gustave Eiffel, 2026) was on physics-informed anomaly detection for
+      navigation time series, and I surveyed the field for
+      <a href="publications.html">IEEE Sensors Journal</a> in 2025. Before that I spent several years building
+      production Yocto systems and Linux kernel drivers — which is why the models I ship tend to survive contact
+      with real hardware.</p>
+
+      <p>I <a href="blog.html">write</a> about this occasionally. The fastest way to reach me is
+      <a href="mailto:issamsayyaf97@gmail.com">email</a>.</p>
+
+      <h2>What I do</h2>
+      <div class="grid__wrapper" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5em 2em">
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">Time-Series Deep Learning</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">CNNs, RNNs/LSTMs and Transformers for forecasting, anomaly detection, gesture recognition and spatial tracking on sensor streams. PyTorch and TensorFlow.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">Transformers &amp; Sequence Models</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">Time-series Transformers, behavioural embeddings and tokenized sensor streams — adapting sequence architectures, including LLM-style ones, to raw telemetry.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">Anomaly Detection</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">Reconstruction-based methods — autoencoders (AE, VAE), adversarial generative models, isolation forests — plus the evaluation methodology: thresholds, metrics and what they hide.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">DSP &amp; Feature Engineering</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">Filtering, windowing, FFT/PSD and spectral analysis to clean and calibrate noisy sensor data, and engineer features robust enough to learn from.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">Edge &amp; Embedded Optimisation</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">Quantization, pruning and hardware-accelerated compilation (ONNX, TensorRT, TensorFlow Lite) for deployment on resource-constrained devices.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">ML Pipelines &amp; Data</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">Pipelines for high-volume streaming, asynchronous telemetry at low latency — plus the data-collection protocols and sensor test benches that feed them.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">Sensor Characterisation</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">Experimental evaluation across environments: microphone, accelerometer, gyroscope, ultrasonic time-of-flight, pressure and magnetometer. NI DAQ, LabVIEW, SCPI benches.</p>
+        </div>
+        <div>
+          <h3 style="margin:0 0 .3em;font-size:1.05em">Embedded Systems</h3>
+          <p style="font-size:.88em;color:var(--muted);margin:0">5+ years of C/C++ on ARM Cortex-M and -A: Zephyr, FreeRTOS, Yocto BSPs, Linux kernel drivers, secure boot and OTA, SPI/I2C/UART/CAN, BLE, GNSS.</p>
+        </div>
+      </div>
+
+      <h2>Selected projects</h2>
+      <div class="grid__wrapper">
+        <div class="grid__item">
+          <div class="archive__item-teaser"><img src="images/anomaly_detection_results.png" alt="Anomaly detection"></div>
+          <h3 class="archive__item-title"><a href="projects.html#time-series">Anomaly Detection on IMU Time Series</a></h3>
+          <p class="archive__item-excerpt">Physics-informed AE/VAE/USAD models catching sensor faults in real time on embedded devices.</p>
+        </div>
+        <div class="grid__item">
+          <div class="archive__item-teaser"><img src="images/5g_configuration.png" alt="5G LOS/NLOS detection"></div>
+          <h3 class="archive__item-title"><a href="projects.html#time-series">5G LOS/NLOS Detection with USAD</a></h3>
+          <p class="archive__item-excerpt">Unsupervised anomaly detection on 5G channel impulse responses, separating line-of-sight from NLOS.</p>
+        </div>
+        <div class="grid__item">
+          <div class="archive__item-teaser"><img src="images/stm32mp157_gnssdriver.jpeg" alt="STM32MP157 Yocto BSP"></div>
+          <h3 class="archive__item-title"><a href="projects.html#embedded">STM32MP157 Yocto BSP</a></h3>
+          <p class="archive__item-excerpt">Complete boot chain, custom Yocto layers, kernel drivers and SWUpdate OTA with A/B partitions.</p>
+        </div>
+      </div>
+      <p><a href="projects.html">All projects &rarr;</a></p>
+
+      <h2>Recent writing</h2>
+      <div id="recent-posts">
+        <p style="color:var(--muted);font-style:italic">Loading…</p>
+      </div>
+
+      <h2>Toolbox</h2>
+      <dl style="margin:0">
+        <div class="definition-row"><dt>Deep learning</dt><dd>PyTorch · TensorFlow · CNNs · RNNs/LSTMs · Transformers &amp; time-series Transformers · autoencoders (AE, VAE) · adversarial generative models · isolation forest</dd></div>
+        <div class="definition-row"><dt>Time series &amp; DSP</dt><dd>Filtering · windowing · FFT/PSD &amp; spectral analysis · feature engineering · Kalman filtering · super-resolution (MUSIC, ESPRIT) · detection metrics and thresholding</dd></div>
+        <div class="definition-row"><dt>Edge deployment</dt><dd>Quantization · pruning · ONNX · TensorRT · TensorFlow Lite · real-time C/C++ inference chains · Zephyr · FreeRTOS · embedded Linux</dd></div>
+        <div class="definition-row"><dt>Languages</dt><dd>Python (advanced) · C (advanced, 5+ yrs) · C++ · Bash · VHDL · LaTeX</dd></div>
+        <div class="definition-row"><dt>Platforms</dt><dd>STM32 (Cortex-M &amp; -A) · ARM Cortex-M · NXP i.MX93 · PYNQ-Z2 / Zynq SoC · board bring-up</dd></div>
+        <div class="definition-row"><dt>Systems</dt><dd>Yocto / BitBake / KAS · Linux kernel drivers · device tree · boot chain (TF-A, OP-TEE, U-Boot) · FreeRTOS · Zephyr</dd></div>
+        <div class="definition-row"><dt>Protocols</dt><dd>GPIO · I2C · SPI · UART · ADC · USB · CAN bus · BLE · Wi-Fi · 5G · GNSS</dd></div>
+        <div class="definition-row"><dt>Sensors</dt><dd>MEMS IMU (accelerometer, gyroscope, magnetometer) · microphone &amp; acoustic/ultrasonic · time-of-flight · pressure · GNSS/RF · piezoelectric AE</dd></div>
+        <div class="definition-row"><dt>Test &amp; benches</dt><dd>NI DAQ · LabVIEW · SCPI instrument control · oscilloscope &amp; spectrum analyser · data-collection protocols</dd></div>
+        <div class="definition-row"><dt>Tools</dt><dd>Git / GitHub · CI/CD pipelines · Docker · automated testing · Linux (Ubuntu, Debian) · VS Code</dd></div>
+        <div class="definition-row"><dt>Languages spoken</dt><dd>Arabic — native · English — fluent (C1) · French — intermediate (B1)</dd></div>
+      </dl>
+    </section>
+  </main>
+</div>
+
+<footer class="page__footer">
+  <div class="page__footer-inner">
+    <div class="page__footer-copyright">&copy; 2026 Issam Sayyaf. Built as a static site on GitHub Pages.</div>
+    <div class="page__footer-follow">
+      <ul>
+        <li><a href="mailto:issamsayyaf97@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/issamsayyaf/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/IssamSayyaf" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://scholar.google.co.uk/citations?user=lFrypJ8AAAAJ" target="_blank" rel="noopener">Scholar</a></li>
+        <li><a href="feed.xml">Feed</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Pull the three most recent posts from the blog manifest. */
+fetch('posts.json?' + Date.now())
+  .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+  .then(function (data) {
+    var posts = (data.posts || []).filter(function (p) { return !p.draft; }).slice(0, 3);
+    var host = document.getElementById('recent-posts');
+    if (!posts.length) {
+      host.innerHTML = '<p style="color:var(--muted);font-style:italic">Notes on embedded Linux, firmware and signal processing — first articles coming soon.</p>';
+      return;
     }
-    return parts;
-  }
-
-  renderMd(src) {
-    if (!src || !src.trim()) return React.createElement('div', { style: { color: 'var(--color-neutral-500)', fontSize: '14px', fontStyle: 'italic' } }, 'Nothing to preview yet.');
-    const lines = src.split('\n');
-    const out = []; let i = 0, k = 0;
-    const pStyle = { fontSize: '15.5px', lineHeight: 1.85, margin: '0 0 var(--space-4)', textAlign: 'justify' };
-    while (i < lines.length) {
-      const line = lines[i];
-      if (line.startsWith('```')) {
-        const buf = []; i++;
-        while (i < lines.length && !lines[i].startsWith('```')) { buf.push(lines[i]); i++; }
-        i++;
-        out.push(React.createElement('pre', { key: k++, style: { fontFamily: "ui-monospace, 'SF Mono', Menlo, monospace", fontSize: '12.5px', lineHeight: 1.65, background: 'var(--color-neutral-900)', color: 'var(--color-neutral-200)', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)', overflow: 'auto', margin: '0 0 var(--space-4)' } }, buf.join('\n')));
-      } else if (line.startsWith('![')) {
-        const m = line.match(/^!\[([^\]]*)\]\(([^)]+)\)/);
-        if (m) out.push(React.createElement('img', { key: k++, src: m[2], alt: m[1], style: { maxWidth: '100%', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-divider)', margin: '0 0 var(--space-4)', display: 'block' } }));
-        i++;
-      } else if (/^!video\(([^)]+)\)/.test(line) || /^https?:\/\/(www\.)?(youtube\.com|youtu\.be|vimeo\.com)\/\S+$/.test(line.trim()) || /^https?:\/\/\S+\.(mp4|webm)$/.test(line.trim())) {
-        const url = (line.match(/^!video\(([^)]+)\)/) || [null, line.trim()])[1];
-        let el = null;
-        const yt = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{6,})/);
-        const vm = url.match(/vimeo\.com\/(\d+)/);
-        if (yt) el = React.createElement('iframe', { key: k++, src: 'https://www.youtube.com/embed/' + yt[1], allowFullScreen: true, style: { width: '100%', aspectRatio: '16/9', border: '1px solid var(--color-divider)', borderRadius: 'var(--radius-md)', margin: '0 0 var(--space-4)', display: 'block' } });
-        else if (vm) el = React.createElement('iframe', { key: k++, src: 'https://player.vimeo.com/video/' + vm[1], allowFullScreen: true, style: { width: '100%', aspectRatio: '16/9', border: '1px solid var(--color-divider)', borderRadius: 'var(--radius-md)', margin: '0 0 var(--space-4)', display: 'block' } });
-        else el = React.createElement('video', { key: k++, src: url, controls: true, style: { width: '100%', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-divider)', margin: '0 0 var(--space-4)', display: 'block' } });
-        out.push(el);
-        i++;
-      } else if (/^###\s/.test(line) || line === '###') {
-        out.push(React.createElement('h4', { key: k++, style: { margin: 'var(--space-6) 0 var(--space-2)' } }, this.mdInline(line.slice(4), k))); i++;
-      } else if (/^##\s/.test(line) || line === '##') {
-        out.push(React.createElement('h3', { key: k++, style: { margin: 'var(--space-6) 0 var(--space-2)' } }, this.mdInline(line.slice(3), k))); i++;
-      } else if (/^#\s/.test(line) || line === '#') {
-        out.push(React.createElement('h2', { key: k++, style: { margin: 'var(--space-6) 0 var(--space-3)' } }, this.mdInline(line.slice(2), k))); i++;
-      } else if (/^\s*[-*] /.test(line)) {
-        const items = [];
-        while (i < lines.length && /^\s*[-*] /.test(lines[i])) { items.push(lines[i].replace(/^\s*[-*] /, '')); i++; }
-        out.push(React.createElement('ul', { key: k++, style: { margin: '0 0 var(--space-4)', paddingLeft: '22px' } },
-          items.map((it, j) => React.createElement('li', { key: j, style: { fontSize: '15.5px', lineHeight: 1.85 } }, this.mdInline(it, k + '-' + j)))));
-      } else if (line.trim() === '') { i++; }
-      else {
-        const buf = [];
-        while (i < lines.length && lines[i].trim() !== '' && !/^(#|```|!\[|!video\(|\s*[-*] )/.test(lines[i]) && !/^https?:\/\/(www\.)?(youtube\.com|youtu\.be|vimeo\.com)\/\S+$/.test(lines[i].trim())) { buf.push(lines[i]); i++; }
-        if (buf.length === 0) { buf.push(lines[i]); i++; } // safety: never stall on a line no branch consumed (e.g. "#foo", unclosed "!video(")
-        out.push(React.createElement('p', { key: k++, style: pStyle }, this.mdInline(buf.join(' '), k)));
-      }
-    }
-    return out;
-  }
-
-  insertSnippet(snippet) {
-    this.setState({ draft: { ...this.state.draft, body: (this.state.draft.body ? this.state.draft.body.replace(/\n*$/, '\n\n') : '') + snippet + '\n' } });
-  }
-
-  excerpt(body) {
-    const plain = body.replace(/```[\s\S]*?```/g, '').replace(/[#*`\[\]]/g, '').replace(/\(([^)]*)\)/g, '').trim();
-    return plain.length > 160 ? plain.slice(0, 160).trim() + '…' : plain;
-  }
-
-  savePost(status) {
-    const d = this.state.draft;
-    if (!d.title.trim()) { this.setState({ error: 'Give your article a title before saving.' }); return; }
-    if (status === 'published' && !d.body.trim()) { this.setState({ error: 'The article body is empty — write something before publishing.' }); return; }
-    const posts = [...this.state.posts];
-    const idx = posts.findIndex(p => p.id === d.id);
-    const existing = idx >= 0 ? posts[idx] : null;
-    const post = {
-      id: d.id || ('p' + Date.now()),
-      title: d.title.trim(), tags: d.tags.trim(), body: d.body,
-      status, created: existing ? existing.created : Date.now(), updated: Date.now()
-    };
-    if (idx >= 0) posts[idx] = post; else posts.unshift(post);
-    this.persist(posts);
-    this.setState({ blogView: 'list', error: '', draft: { id: null, title: '', tags: '', body: '' } });
-  }
-
-  async sha256(text) {
-    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
-    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-  }
-
-  async toggleOwner() {
-    if (this.state.owner) {
-      if (confirm('Lock editing? You will need the passcode to write again.')) {
-        this.setState({ owner: false, blogView: 'list' });
-        try { localStorage.removeItem('issam-portfolio-owner'); } catch (e) {}
-      }
-    } else {
-      const code = prompt('Owner passcode:');
-      if (code === null) return;
-      const hash = await this.sha256(code);
-      // Only the SHA-256 hash is stored/compared — the passcode itself is never kept.
-      const expected = this.props.ownerPasscodeHash ?? '9a92eee8110fd165a1acf68ca4aec18a0d3a8b7e09161da732bafbceefa58a46';
-      if (hash === expected) {
-        this.setState({ owner: true });
-        try { localStorage.setItem('issam-portfolio-owner', hash); } catch (e) {}
-      } else {
-        alert('Wrong passcode.');
-      }
-    }
-  }
-
-  postView(p) {
-    return {
-      title: p.title,
-      dateStr: this.fmtDate(p.updated),
-      tagsStr: p.tags,
-      excerpt: this.excerpt(p.body),
-      isDraft: p.status !== 'published',
-      read: () => this.setState({ tab: 'blog', blogView: 'read', readingId: p.id }),
-      edit: () => this.setState({ blogView: 'editor', error: '', draft: { id: p.id, title: p.title, tags: p.tags, body: p.body } }),
-      del: () => { if (confirm('Delete "' + p.title + '"?')) this.persist(this.state.posts.filter(x => x.id !== p.id)); }
-    };
-  }
-
-  renderVals() {
-    const s = this.state;
-    const tabDefs = [
-      ['home', 'Home'], ['experience', 'Experience'], ['projects', 'Projects'],
-      ['publications', 'Publications'], ['blog', 'Blog'], ['contact', 'Contact']
-    ];
-    const tabs = tabDefs.map(([id, label]) => ({
-      label,
-      go: () => this.setState({ tab: id }),
-      color: s.tab === id ? 'var(--color-accent-700)' : 'inherit',
-      underline: s.tab === id ? 'var(--color-accent)' : 'transparent'
-    }));
-
-    const filterDefs = [
-      ['all', 'All'], ['embedded', 'Embedded'], ['phd', 'PhD Research'], ['ml', 'AI & Networking']
-    ];
-    const filters = filterDefs.map(([id, label]) => ({
-      label,
-      active: s.filter === id,
-      go: () => this.setState({ filter: id })
-    }));
-
-    const visiblePosts = s.owner ? s.posts : s.posts.filter(p => p.status === 'published');
-    const posts = visiblePosts.map(p => this.postView(p));
-    const featured = s.posts.filter(p => p.status === 'published').slice(0, 3).map(p => this.postView(p));
-    const reading = s.posts.find(p => p.id === s.readingId);
-
-    return {
-      tabs, filters, posts, featured,
-      hasFeatured: featured.length > 0, noFeatured: featured.length === 0,
-      goProjects: () => this.setState({ tab: 'projects' }),
-      isHome: s.tab === 'home', isExp: s.tab === 'experience', isProjects: s.tab === 'projects',
-      isPubs: s.tab === 'publications', isBlog: s.tab === 'blog', isContact: s.tab === 'contact',
-      goHome: () => this.setState({ tab: 'home' }),
-      goContact: () => this.setState({ tab: 'contact' }),
-      goBlog: () => this.setState({ tab: 'blog', blogView: 'list' }),
-      showStats: this.props.showStats ?? true,
-      showEmbedded: s.filter === 'all' || s.filter === 'embedded',
-      showPhd: s.filter === 'all' || s.filter === 'phd',
-      showMl: s.filter === 'all' || s.filter === 'ml',
-      isOwner: s.owner, notOwner: !s.owner,
-      toggleOwner: () => this.toggleOwner(),
-      ownerTitle: s.owner ? 'Editing unlocked — click to lock' : 'Owner sign-in',
-      lockColor: s.owner ? 'var(--color-accent-700)' : 'inherit',
-      blogList: s.blogView === 'list', blogEditor: s.blogView === 'editor' && s.owner, blogRead: s.blogView === 'read' && !!reading,
-      hasPosts: visiblePosts.length > 0, noPosts: visiblePosts.length === 0,
-      emptyHint: s.owner
-        ? 'Write your first post — a Yocto tip, a fixed-point math walkthrough, lessons from a kernel driver. Articles are saved in this browser and stay here when you return.'
-        : 'Articles are on their way — check back soon.',
-      newArticle: () => this.setState({ blogView: 'editor', error: '', draft: { id: null, title: '', tags: '', body: '' } }),
-      editorHeading: s.draft.id ? 'Edit article' : 'New article',
-      hasError: !!s.error, errorMsg: s.error,
-      draftTitle: s.draft.title, draftTags: s.draft.tags, draftBody: s.draft.body,
-      onTitle: e => this.setState({ draft: { ...this.state.draft, title: e.target.value }, error: '' }),
-      onTags: e => this.setState({ draft: { ...this.state.draft, tags: e.target.value } }),
-      onBody: e => this.setState({ draft: { ...this.state.draft, body: e.target.value } }),
-      previewBody: this.renderMd(s.draft.body),
-      insertImageUrl: () => { const u = prompt('Image URL — or a file from your images folder, e.g. images/jammer.png:'); if (u) this.insertSnippet('![image](' + u.trim() + ')'); },
-      insertFromFolder: () => {
-        const names = this.state.folderImages;
-        if (!names.length) { alert('No files found in the images/ folder.'); return; }
-        const list = names.map((n, i) => (i + 1) + '. ' + n).join('\n');
-        const pick = prompt('Insert from images/ — type a number or a filename:\n\n' + list);
-        if (!pick) return;
-        const byNum = names[parseInt(pick, 10) - 1];
-        const name = byNum || names.find(n => n.toLowerCase() === pick.trim().toLowerCase()) || pick.trim();
-        this.insertSnippet(/\.(mp4|webm)$/i.test(name) ? '!video(images/' + name + ')' : '![image](images/' + name + ')');
-      },
-      insertLink: () => { const u = prompt('Link URL:'); if (!u) return; const t = prompt('Link text:', u) || u; this.insertSnippet('[' + t + '](' + u.trim() + ')'); },
-      insertVideo: () => { const u = prompt('Video URL (YouTube, Vimeo or .mp4):'); if (u) this.insertSnippet('!video(' + u.trim() + ')'); },
-      onUploadImage: e => {
-        const f = e.target.files && e.target.files[0];
-        if (!f) return;
-        if (f.size > 1.5 * 1024 * 1024) { alert('Image too large (max ~1.5 MB) — articles are stored in the browser. Use a smaller image or paste an image URL instead.'); e.target.value = ''; return; }
-        const r = new FileReader();
-        r.onload = () => { this.insertSnippet('![image](' + r.result + ')'); };
-        r.readAsDataURL(f);
-        e.target.value = '';
-      },
-      publish: () => this.savePost('published'),
-      saveDraft: () => this.savePost('draft'),
-      cancelEdit: () => this.setState({ blogView: 'list', error: '' }),
-      readTitle: reading ? reading.title : '',
-      readDate: reading ? this.fmtDate(reading.updated) : '',
-      readTags: reading ? reading.tags : '',
-      articleBody: reading ? this.renderMd(reading.body) : null,
-      backToList: () => this.setState({ blogView: 'list' }),
-      editCurrent: () => { const r = this.state.posts.find(p => p.id === this.state.readingId); if (r) this.setState({ blogView: 'editor', error: '', draft: { id: r.id, title: r.title, tags: r.tags, body: r.body } }); },
-      cName: s.cName, cEmail: s.cEmail, cMsg: s.cMsg,
-      onCName: e => this.setState({ cName: e.target.value }),
-      onCEmail: e => this.setState({ cEmail: e.target.value }),
-      onCMsg: e => this.setState({ cMsg: e.target.value }),
-      sendMail: () => {
-        const subj = encodeURIComponent('Portfolio contact from ' + (this.state.cName || 'your website'));
-        const body = encodeURIComponent(this.state.cMsg + '\n\n— ' + this.state.cName + (this.state.cEmail ? ' (' + this.state.cEmail + ')' : ''));
-        window.location.href = 'mailto:issamsayyaf97@gmail.com?subject=' + subj + '&body=' + body;
-      }
-    };
-  }
-}
+    host.innerHTML = posts.map(function (p) {
+      return '<article class="archive__item" style="margin-bottom:1.4em">' +
+        '<h3 class="archive__item-title"><a href="post.html?p=' + encodeURIComponent(p.slug) + '">' + p.title + '</a></h3>' +
+        '<p class="page__meta">' + p.dateLabel + '<span class="page__meta-sep"></span>' + p.readTime + ' min read</p>' +
+        '<p class="archive__item-excerpt">' + p.excerpt + '</p></article>';
+    }).join('') + '<p><a href="blog.html">All posts &rarr;</a></p>';
+  })
+  .catch(function () {
+    document.getElementById('recent-posts').innerHTML =
+      '<p style="color:var(--muted);font-style:italic">Notes on embedded Linux, firmware and signal processing — first articles coming soon.</p>';
+  });
 </script>
 </body>
 </html>

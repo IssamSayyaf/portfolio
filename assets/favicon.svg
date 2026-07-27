@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#b83a4b"/>
+  <!-- a time-series trace with one flagged anomaly -->
+  <path d="M8 40 L16 34 L22 42 L28 30 L34 36 L40 18 L46 38 L50 32 L56 36"
+        fill="none" stroke="#fff" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="40" cy="18" r="6" fill="#b83a4b" stroke="#fff" stroke-width="3"/>
+</svg>

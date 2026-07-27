@@ -1,0 +1,12 @@
+# Claude Code per-machine settings (not shared)
+.claude/settings.local.json
+
+# Node tooling used only for local verification
+node_modules/
+
+# OS / editor noise
+.DS_Store
+*.swp
+
+# TS2Vec draft material (source notes, not published)
+blog_draft/
