@@ -6,6 +6,17 @@
     <description>Notes on time-series deep learning, embedded ML, firmware and signal processing.</description>
     <language>en</language>
     <item>
+      <title>PatchTST, explained from scratch</title>
+      <link>https://issamsayyaf.github.io/portfolio/post.html?p=patchtst-explained</link>
+      <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=patchtst-explained</guid>
+      <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+      <description>A one-layer linear model was beating every Transformer at long-term forecasting. PatchTST shows the Transformer was never the problem — the tokenization was. Two changes, patching and channel-independence, every equation worked through, with animations and figures computed from a real forward pass.</description>
+      <category>time series</category>
+      <category>transformers</category>
+      <category>forecasting</category>
+      <category>attention</category>
+    </item>
+    <item>
       <title>TS2Vec, explained from scratch</title>
       <link>https://issamsayyaf.github.io/portfolio/post.html?p=ts2vec-explained</link>
       <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=ts2vec-explained</guid>
