@@ -34,6 +34,17 @@
       .replace(/"/g, '&quot;');
   }
 
+  /* Inverse of escapeHtml, after dropping tags. Consumers re-escape, so this
+     must hand back genuinely plain text. `&amp;` is unescaped last. */
+  function stripTags(s) {
+    return String(s)
+      .replace(/<[^>]*>/g, '')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"')
+      .replace(/&amp;/g, '&');
+  }
+
   function escapeAttr(s) {
     return escapeHtml(s).replace(/'/g, '&#39;');
   }
@@ -298,7 +309,10 @@
         var raw = head[2].replace(/\s*#+\s*$/, '');
         var id = makeId(raw);
         var inner2 = renderInline(raw);
-        if (level > 1) headings.push({ level: level, id: id, text: raw });
+        /* The contents panel wants plain text, so take the *rendered* heading and
+           strip it back down — otherwise `*helps*` reaches the TOC with its
+           asterisks still attached. */
+        if (level > 1) headings.push({ level: level, id: id, text: stripTags(inner2) });
         var anchor = anchors
           ? '<a class="headerlink" href="#' + id + '" title="Link to this heading">¶</a>'
           : '';
