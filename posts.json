@@ -1,7 +1,25 @@
 {
-  "generated": "2026-07-28T10:07:38+00:00",
-  "count": 3,
+  "generated": "2026-07-29T12:47:37+00:00",
+  "count": 4,
   "posts": [
+    {
+      "slug": "dlinear-explained",
+      "file": "_posts/2026-07-29-dlinear-explained.md",
+      "title": "DLinear, explained from scratch",
+      "date": "2026-07-29",
+      "dateLabel": "July 29, 2026",
+      "year": 2026,
+      "tags": [
+        "time series",
+        "forecasting",
+        "transformers",
+        "baselines"
+      ],
+      "excerpt": "One linear layer beat every published Transformer at long-horizon forecasting. This is how it works, step by step through a forward pass — every matrix built by hand on a worked example, twelve animations, and a look inside the 32,256 weights at what it actually learned.",
+      "readTime": 14,
+      "draft": false,
+      "image": null
+    },
     {
       "slug": "patchtst-explained",
       "file": "_posts/2026-07-28-patchtst-explained.md",

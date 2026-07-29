@@ -121,6 +121,33 @@ manim -qm --format=mp4 scene.py SceneName
   compositing artifact, not a broken file: verify with `canPlayType` and by
   checking `currentTime` advances after `play()`.
 
+**These rules are not advisory — match the template, always.** The clips in
+`images/ts2vec/` are the reference: 6.7–9.5 s, 371–528 KB, white, one idea each.
+`images/patchtst/` does *not* follow it (23–83 s, dark, 1.1–3.9 MB) — that was a
+mistake, it is not precedent, and it should be redone if the post is ever revised.
+A dark clip in a white article looks broken, and a 40-second clip is a lecture,
+not an illustration.
+
+**What a good clip does.** Explainer clips exist to show what a *figure cannot*:
+something changing. So make each one carry motion with **real numbers on screen**:
+
+- Show the arithmetic happening — an average being taken over a sliding window
+  with the actual sum and quotient, a dot product accumulating term by term, an
+  error counter climbing as the input is scrambled.
+- Pair a number with its **geometry** — a dot product as a projection, a matrix
+  as a stretch, a decomposition as two curves adding back to one.
+- Numbers must be the *measured* ones from the accompanying experiment, not
+  invented for the animation. If a clip claims MSE 0.842, the figure and the post
+  must say 0.842 too.
+- Walls of bullet text are not an animation. If a clip is mostly static prose it
+  belongs in the post as prose.
+
+**Equations on screen must be readable at a glance.** No LaTeX is available, so
+build them from `Text()` with Unicode (`ℝ ∈ × Σ √ ⌊⌋ ᵀ ¹ ² ᴸ ᴺ`), set them large
+(36–44 pt for the main line), and label the parts in words underneath rather than
+leaving bare symbols. Prefer one equation per frame, with each term coloured to
+match the object it refers to elsewhere in the clip.
+
 ### Non-obvious things in the renderer
 
 - Inline formatting stashes maths and code spans behind an `@@MDSTASHn@@`

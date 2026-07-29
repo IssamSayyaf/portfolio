@@ -6,6 +6,17 @@
     <description>Notes on time-series deep learning, embedded ML, firmware and signal processing.</description>
     <language>en</language>
     <item>
+      <title>DLinear, explained from scratch</title>
+      <link>https://issamsayyaf.github.io/portfolio/post.html?p=dlinear-explained</link>
+      <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=dlinear-explained</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+      <description>One linear layer beat every published Transformer at long-horizon forecasting. This is how it works, step by step through a forward pass — every matrix built by hand on a worked example, twelve animations, and a look inside the 32,256 weights at what it actually learned.</description>
+      <category>time series</category>
+      <category>forecasting</category>
+      <category>transformers</category>
+      <category>baselines</category>
+    </item>
+    <item>
       <title>PatchTST, explained from scratch</title>
       <link>https://issamsayyaf.github.io/portfolio/post.html?p=patchtst-explained</link>
       <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=patchtst-explained</guid>
