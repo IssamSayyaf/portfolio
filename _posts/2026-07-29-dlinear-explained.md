@@ -37,8 +37,10 @@ $T = 96$. Weights are shared across all channels, and one model is trained per h
 
 Start at the destination. The entire model is this:
 
-$$\hat{x} \;=\; \underbrace{W_s \,(x - Mx)}_{\text{seasonal branch}} \;+\;
-\underbrace{W_t \,(Mx)}_{\text{trend branch}}$$
+$$
+\hat{x} \;=\; \underbrace{W_s \,(x - Mx)}_{\text{seasonal branch}} \;+\;
+\underbrace{W_t \,(Mx)}_{\text{trend branch}}
+$$
 
 Three matrices and an addition. $M$ is fixed — a moving average, not learned. $W_s$ and $W_t$
 are the only trained parameters. There is nothing else: no attention, no embedding, no
@@ -79,9 +81,11 @@ $1/3$ down the diagonal. The interesting part is the ends. Row 0 wants $x_{-1}, 
 $x_{-1}$ does not exist. The reference implementation **replicate-pads** — it repeats the
 first value — so $x_0$ is counted twice:
 
-$$M_{\text{row }0} = \begin{bmatrix} 2/3 & 1/3 & 0 & \cdots \end{bmatrix},
+$$
+M_{\text{row }0} = \begin{bmatrix} 2/3 & 1/3 & 0 & \cdots \end{bmatrix},
 \qquad
-M_{\text{row }3} = \begin{bmatrix} 0 & 0 & 1/3 & 1/3 & 1/3 & 0 & \cdots \end{bmatrix}$$
+M_{\text{row }3} = \begin{bmatrix} 0 & 0 & 1/3 & 1/3 & 1/3 & 0 & \cdots \end{bmatrix}
+$$
 
 Every row still sums to 1, so $M$ is a genuine average everywhere — including at the boundary.
 Now multiply it out and subtract:
