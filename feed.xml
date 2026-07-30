@@ -6,6 +6,17 @@
     <description>Notes on time-series deep learning, embedded ML, firmware and signal processing.</description>
     <language>en</language>
     <item>
+      <title>TimesNet, explained from scratch</title>
+      <link>https://issamsayyaf.github.io/portfolio/post.html?p=timesnet-explained</link>
+      <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=timesnet-explained</guid>
+      <pubDate>Wed, 29 Jul 2026 00:00:00 +0000</pubDate>
+      <description>A time series is the wrong shape. TimesNet folds it into a grid on the period an FFT finds, so a 3x3 convolution can see both kinds of neighbour a time point has. Built up one step at a time on twelve numbers you can check by hand, with an animation per step — and two findings about the code that the paper does not mention.</description>
+      <category>time series</category>
+      <category>forecasting</category>
+      <category>cnn</category>
+      <category>representation learning</category>
+    </item>
+    <item>
       <title>DLinear, explained from scratch</title>
       <link>https://issamsayyaf.github.io/portfolio/post.html?p=dlinear-explained</link>
       <guid isPermaLink="true">https://issamsayyaf.github.io/portfolio/post.html?p=dlinear-explained</guid>

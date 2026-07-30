@@ -1,7 +1,25 @@
 {
-  "generated": "2026-07-29T12:47:37+00:00",
-  "count": 4,
+  "generated": "2026-07-30T11:46:30+00:00",
+  "count": 5,
   "posts": [
+    {
+      "slug": "timesnet-explained",
+      "file": "_posts/2026-07-29-timesnet-explained.md",
+      "title": "TimesNet, explained from scratch",
+      "date": "2026-07-29",
+      "dateLabel": "July 29, 2026",
+      "year": 2026,
+      "tags": [
+        "time series",
+        "forecasting",
+        "cnn",
+        "representation learning"
+      ],
+      "excerpt": "A time series is the wrong shape. TimesNet folds it into a grid on the period an FFT finds, so a 3x3 convolution can see both kinds of neighbour a time point has. Built up one step at a time on twelve numbers you can check by hand, with an animation per step — and two findings about the code that the paper does not mention.",
+      "readTime": 14,
+      "draft": false,
+      "image": null
+    },
     {
       "slug": "dlinear-explained",
       "file": "_posts/2026-07-29-dlinear-explained.md",
